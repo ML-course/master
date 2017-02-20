@@ -29,7 +29,7 @@ from .plot_metrics import (plot_confusion_matrix_illustration,
 from .plot_dbscan import plot_dbscan
 from .plot_ridge import plot_ridge_n_samples
 from .plot_overfitting import plot_overfitting
-
+from .plot_svm import plot_svm_linear, plot_svm_margins, plot_svm_kernels,  plot_svm_margins_nonlin
 
 __all__ = ['plot_linear_svc_regularization',
            "plot_animal_tree", "plot_tree_progressive",
@@ -68,5 +68,9 @@ __all__ = ['plot_linear_svc_regularization',
            'plot_decision_threshold',
            'plot_dbscan',
            'plot_ridge_n_samples',
-           'plot_overfitting'
+           'plot_overfitting',
+           'plot_svm_linear',
+           'plot_svm_margins',
+           'plot_svm_kernels',
+           'plot_svm_margins_nonlin'
            ]
