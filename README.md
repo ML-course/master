@@ -25,5 +25,5 @@ For a deeper understanding of machine learning techniques, we can recommend the 
 
 "[Deep Learning](http://www.deeplearningbook.org/)" by Ian Goodfellow, Yoshua Bengio, Aaron Courville. The current reference for deep learning. Chapters can be downloaded from the website.
 
-"[Gaussian Processes for Machine Learning](http://www.gaussianprocess.org/gpml/)" by Carl Edward Rasmussen and Christopher K. I. Williams. The reference for Bayesian Inference. Also see [David MacKay's book](http://www.inference.phy.cam.ac.uk/itila/book.html) for additional insights.
+"[Gaussian Processes for Machine Learning](http://www.gaussianprocess.org/gpml/)" by Carl Edward Rasmussen and Christopher K. I. Williams. The reference for Bayesian Inference. Also see [David MacKay's book](http://www.inference.phy.cam.ac.uk/itila/book.html) for additional insights. Also see [this course by Neil Lawrence](http://inverseprobability.com/mlai2015/) for a great introduction to Gaussian Processes, all from first principles.
 
