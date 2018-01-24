@@ -4,17 +4,15 @@ Jupyter notebooks for teaching machine learning. Based on scikit-learn, with Ope
 
 ## Sources
 ### Practice-oriented materials
-We use many code examples from the following excellent book. We urge you to read it for a more complete coverage of machine learning in Python:
+We use many code examples from the following excellent books. We urge you to read them for a more complete coverage of machine learning in Python:
 
-"Introduction to Machine Learning with Python" by [Andreas Mueller](http://amueller.io) and [Sarah Guido](https://twitter.com/sarah_guido). You can find details about the book on the [O'Reilly website](http://shop.oreilly.com/product/0636920030515.do>). We'll be using the included mglearn package to make plotting easier.
+"Introduction to Machine Learning with Python" by [Andreas Mueller](http://amueller.io) and [Sarah Guido](https://twitter.com/sarah_guido). You can find details about the book on the [O'Reilly website](http://shop.oreilly.com/product/0636920030515.do>).
 
-Additional code examples originate from the following books (again, warmly recommended):
+[Deep Learning with Python](https://www.manning.com/books/deep-learning-with-python) by François Chollet:
 
-"Python machine learning" by Sebastian Raschka:
-[Raschka, Sebastian. Python machine learning. Birmingham, UK: Packt Publishing, 2015.](https://www.amazon.com/Python-Machine-Learning-Sebastian-Raschka/dp/1783555130/ref=sr_1_1?ie=UTF8&qid=1472342570&sr=8-1&keywords=sebastian+raschka).
+[Python machine learning](https://www.amazon.com/Python-Machine-Learning-Sebastian-Raschka/dp/1783555130/ref=sr_1_1?ie=UTF8&qid=1472342570&sr=8-1&keywords=sebastian+raschka) by Sebastian Raschka
 
-"Python for Data Analysis" by Wes McKinney:
-[McKinner, Wes. Python for Data Analysis. O’Reilly, 2012.](http://shop.oreilly.com/product/0636920023784.do).
+[Python for Data Analysis](http://shop.oreilly.com/product/0636920023784.do) by Wes McKinney
 
 ### Theory-oriented materials
 For a deeper understanding of machine learning techniques, we can recommend the following books:
