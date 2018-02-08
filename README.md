@@ -2,6 +2,8 @@
 
 Jupyter notebooks for teaching machine learning. Based on scikit-learn, with OpenML used to experiment more extensively on many datasets.
 
+[Course website](https://joaquinvanschoren.github.io/ML-course/)
+
 ## Sources
 ### Practice-oriented materials
 We use many code examples from the following excellent books. We urge you to read them for a more complete coverage of machine learning in Python:
