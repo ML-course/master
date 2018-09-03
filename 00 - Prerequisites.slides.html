@@ -16,7 +16,7 @@
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="reveal.js/css/reveal.css">
-<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+<link rel="stylesheet" href="reveal.js/css/theme/serif.css" id="theme">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -36,7 +36,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
 <!-- Loading the mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -58,7 +58,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
     <!-- End of mathjax configuration -->
 
 <!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -67,8 +67,8 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1163,7 +1163,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2592,7 +2591,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3083,7 +3081,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8814,6 +8811,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -9016,8 +9016,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -9040,6 +9046,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9176,6 +9192,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9265,6 +9284,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9309,6 +9331,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9605,6 +9630,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9625,11 +9651,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11300,7 +11321,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11612,6 +11633,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11625,6 +11647,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11685,8 +11710,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11697,9 +11724,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11747,7 +11776,6 @@ ul.typeahead-list > li > a {
 /* Overrides of notebook CSS for static HTML export */
 .reveal {
   font-size: 160%;
-  overflow-y: scroll;
 }
 .reveal pre {
   width: inherit;
@@ -11777,6 +11805,41 @@ ul.typeahead-list > li > a {
 }
 .reveal .progress {
   position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
 }
 div.input_area {
   padding: 0.06em;
@@ -11811,6 +11874,19 @@ a.anchor-link {
 .rendered_html p {
   text-align: inherit;
 }
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
+}
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
@@ -11819,14 +11895,59 @@ a.anchor-link {
 </head>
 
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<style type="text/css">
+//div.output_wrapper {
+//  margin-top: 0px;
+//}
+.input_hidden {
+  display: none;
+//  margin-top: 5px;
+}
+.reveal.slide .slides{
+  width: 1000px !important;
+}
+.reveal.slide .slides > section, .reveal.slide .slides > section > section {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  position: absolute !important;
+  top: 0 !important;
+  font-size: 110% !important;
+}
+.rendered_html > h1, .rendered_html > h2, .rendered_html > h3{
+//  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  padding-bottom: 20px;
+  margin-top: 0px !important;
+}
+.rendered{
+  flex-direction: inherit !important;
+}
+.print-pdf .reveal.slide .slides > section, .print-pdf .reveal.slide .slides > section > section {
+  min-height: 770px !important;
+  position: relative !important;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+  $(".output_wrapper").click(function(){
+      $(this).prev('.input_hidden').slideToggle();
+  });
+})
+</script>
+
 <body>
 
 
 <div class="reveal">
 <div class="slides">
 <section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11834,12 +11955,11 @@ a.anchor-link {
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Course-materials-on-GitHub">Course materials on GitHub<a class="anchor-link" href="#Course-materials-on-GitHub">&#182;</a></h2><p>The course materials are available on GitHub, so that you always have the latest updates. To download them, you first need to <a href="https://git-scm.com/book/en/v1/Getting-Started-Installing-Git">install git</a> (if you haven't already).</p>
+<h2 id="Course-materials-on-GitHub">Course materials on GitHub<a class="anchor-link" href="#Course-materials-on-GitHub">&#182;</a></h2><p>The course materials are available on Blackboard, but the sources are also on GitHub, so that you always have the latest updates. To download them, you first need to <a href="https://git-scm.com/book/en/v1/Getting-Started-Installing-Git">install git</a> (if you haven't already).</p>
 <p>You can 'clone' the course as follows from the command line (you can also use a <a href="https://desktop.github.com/">GUI</a>)</p>
 
 <pre><code>git clone https://github.com/joaquinvanschoren/ML-course.git
@@ -11850,80 +11970,77 @@ a.anchor-link {
 <pre><code>git pull
 
 </code></pre>
-<p>For more details on using git, see the <a href="https://guides.github.com/activities/hello-world/">GitHub 10-minute tutorial</a>. If you want to suggest improvements, you can! Just create a pull request and we'll review it.</p>
+<p>For more details on using git, see the <a href="https://guides.github.com/activities/hello-world/">GitHub 10-minute tutorial</a> and <a href="https://www.youtube.com/watch?v=1ffBJ4sVUb4">Git for Ages 4 and up</a>. If you want to suggest improvements, you can! Just create a pull request and we'll review it.</p>
 <p>Alternatively, you can download the course <a href="https://github.com/joaquinvanschoren/ML-course">as a .zip file</a>. Click 'Clone or download'. Download individual files with right-click -&gt; Save Link As...</p>
 
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h2><p>You first need to set up a Python environment (if you do not have done so already). The easiest way to do this is by installing <a href="https://www.continuum.io/downloads">Anaconda</a>. We will be using Python 3, so be sure to install the right version.</p>
-<p><strong>Note: to work with TensorFlow, you need Python 3.5 or 3.6. In fact, Python 3.5 seems to be better supported, especially on Windows.</strong></p>
 <p>If you are completely new to Python, we recommend to take an introductory online course, such as the <a href="https://www.programiz.com/python-programming">Definite Guide to Python</a>, or the <a href="https://github.com/jakevdp/WhirlwindTourOfPython">Whirlwind Tour of Python</a>. If you like a step-by-step approach, try the <a href="https://www.datacamp.com/courses/intro-to-python-for-data-science">DataCamp Intro to Python for Data Science</a>.</p>
 <p>To practice your skills, try the <a href="https://www.hackerrank.com/domains/python">Hackerrank challenges</a>.</p>
 
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Required-packages">Required packages<a class="anchor-link" href="#Required-packages">&#182;</a></h2><p>Next, you'll need to install several packages that we'll be using extensively. You'll need to run these commands on the command line.</p>
-<p><strong>NOTE: Windows users: Follow the guidelines under the section 'Installing packages for windows'.</strong></p>
 <h3 id="Installing-packages-with-conda">Installing packages with conda<a class="anchor-link" href="#Installing-packages-with-conda">&#182;</a></h3><p>If you are using Anaconda, you can use the <code>conda</code> package manager to install all packages:</p>
 
 <pre><code>conda install numpy scipy scikit-learn matplotlib pandas pillow graphviz python-graphviz scikit-image</code></pre>
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>TensorFlow and Keras can be installed later. Their installation instructions chaneg regularly.</p>
 <p>To install <em>TensorFlow</em>, follow <a href="https://www.tensorflow.org/install/">these instructions</a> for your OS (Windows, Mac, Ubuntu). While installation with <code>conda</code> is possible, they recommend to install with <code>pip</code>, even with an Anaconda setup.</p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>To install <em>Keras</em>, follow the instructions <a href="https://keras.io/#installation">here</a>.
 If anything goes wrong, see the separate file with installation instructions in the repository.</p>
 
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Installing-OpenML">Installing OpenML<a class="anchor-link" href="#Installing-OpenML">&#182;</a></h3><p>OpenML is used to easily import datasets and share models and experiments. It is recommended to install 
-the latest version via GitHub, including the ARFF reader.
-With git installed, run the following:</p>
+<h3 id="Installing-packages-with-pip">Installing packages with pip<a class="anchor-link" href="#Installing-packages-with-pip">&#182;</a></h3><p>With most other setups (not conda), you can use pip to install all packages. Pip is the Python Package index. It is included in most Python installations.</p>
 
-<pre><code>    pip install git+https://github.com/renatopp/liac-arff@master    
-    pip install git+https://github.com/openml/openml-python.git@develop</code></pre>
-<p><strong>For Windows</strong>, you need to have a C++ Compiler Installed. If the above install fails, you may need to install
-this first. <a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">Download and install Visual C Build Tools</a></p>
-<p>You'll also need an OpenML account to upload data. If you don't have one, <a href="http://www.openml.org">go ahead and create one</a>.</p>
+<pre><code>pip install numpy scipy scikit-learn matplotlib pandas pillow graphviz openml
+
+</code></pre>
+<p>Note: we'll be using scikit-learn 0.19, which is currently the latest version.</p>
+<p>You also need to install the graphiz C-library:</p>
+<ul>
+<li>OS X: use homebrew: <code>brew install graphviz</code></li>
+<li>Ubuntu/debian: use apt-get: <code>apt-get install graphviz</code>.</li>
+<li>Installing graphviz on Windows can be tricky and using conda / anaconda is recommended.</li>
+</ul>
 
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note: if you are not using Anaconda, and you already have a custom Python environment set up, possibly using a different Python version, it may be wise to <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">set up a virtual environment</a> for this course so that it does not affect your existing environment.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11944,8 +12061,7 @@ this first. <a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11955,6 +12071,20 @@ this first. <a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">
 
 </code></pre>
 <p>A browser window should open with all course materials. Open one of the chapters and check if you can execute all code by clicking Cell &gt; Run all.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Installing-OpenML">Installing OpenML<a class="anchor-link" href="#Installing-OpenML">&#182;</a></h3><p>OpenML is used to easily import datasets and share models and experiments.</p>
+
+<pre><code>    pip install openml</code></pre>
+<p><strong>For Windows</strong>, you need to have a C++ Compiler installed. If the above install fails, you may need to install
+this first. <a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">Download and install Visual C Build Tools</a></p>
+<p>You'll also need an OpenML account to upload data. If you don't have one, <a href="http://www.openml.org">go ahead and create one</a>.</p>
 
 </div>
 </div>
@@ -11983,8 +12113,7 @@ require(
             progress: true,
             history: true,
 
-            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+            transition: "slide",
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
@@ -12004,13 +12133,25 @@ require(
 
         Reveal.addEventListener('slidechanged', update);
 
-        var update_scroll = function(event){
-          $(".reveal").scrollTop(0);
-        };
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
 
-        Reveal.addEventListener('slidechanged', update_scroll);
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
 
     }
+
 );
 </script>
 
