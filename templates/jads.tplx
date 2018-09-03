@@ -1,0 +1,45 @@
+((= Nbconvert custom style for LaTeX export =))
+
+((*- extends 'article.tplx' -*))
+
+%===============================================================================
+% Custom definitions
+%===============================================================================
+((* block definitions *))
+    ((( super() )))
+
+    % Pygments definitions
+    ((( resources.latex.pygments_definitions )))
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+    % Don't number sections
+    \renewcommand{\thesection}{\hspace*{-0.5em}}
+    \renewcommand{\thesubsection}{\hspace*{-0.5em}}
+
+((* endblock definitions *))
+
+((* block input_group *))
+((* endblock input_group *))
+
+% No title
+((* block maketitle *))((* endblock maketitle *))
+
+
+
+%===============================================================================
+% Latex Article
+%===============================================================================
+% You can customize your LaTeX document here, e.g. you can
+% - use a different documentclass like
+%   \documentclass{report}
+% - add/remove packages (like ngerman)
+
+((* block docclass *))
+% !TeX spellcheck = de_DE
+% !TeX encoding = UTF-8
+\documentclass{scrreprt}
+\usepackage{ngerman}
+((* endblock docclass *))
