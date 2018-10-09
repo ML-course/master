@@ -42,7 +42,7 @@ plt.rcParams['lines.linewidth'] = 0.5
 # Presentations
 from notebook.services.config import ConfigManager
 cm = ConfigManager()
-cm.update('livereveal', {'width': '95%', 'height': 786, 'scroll': True, 'theme': 'solarized', 'transition': 'fade', 'overflow': 'visible', 'start_slideshow_at': 'selected'})
+cm.update('livereveal', {'width': '95%', 'height': 786, 'scroll': True, 'theme': 'serif', 'transition': 'fade', 'overflow': 'visible', 'start_slideshow_at': 'selected'})
 
 # Silence warnings
 import warnings
