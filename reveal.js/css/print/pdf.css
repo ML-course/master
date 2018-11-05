@@ -166,7 +166,7 @@ ul, ol, div, p {
 	color: inherit;
 	background-color: transparent;
 	padding: 20px;
-	page-break-after: always;
+	page-break-after: no;
 	border: 0;
 }
 
@@ -175,4 +175,8 @@ ul, ol, div, p {
 	display: block;
 	position: absolute;
 	font-size: 14px;
+}
+
+.output_subarea {
+	max-width: 100% !important;
 }

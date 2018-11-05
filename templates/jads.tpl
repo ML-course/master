@@ -21,6 +21,7 @@
 }
 .reveal.slide .slides{
   width: 1000px !important;
+  height: 100%;
 }
 .reveal.slide .slides > section, .reveal.slide .slides > section > section {
   display: flex !important;
@@ -52,6 +53,8 @@ $(document).ready(function(){
   $(".output_wrapper").click(function(){
       $(this).prev('.input_hidden').slideToggle();
   });
+  $(".output_subarea").css('max-width','100%');
+
 })
 </script>
 {%- endblock header -%}
