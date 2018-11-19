@@ -4,102 +4,102 @@
   <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Joaquin Vanschoren">
 
     <title>Foundations of Data Mining</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/flatly/bootstrap.min.css" rel="stylesheet">
+    <style>.snug{margin-top:-0.75rem;margin-bottom:-0.75rem;margin-right:-1.25rem;}
+           .roomy{margin-top:40px;}
+    </style>
 
-    <!-- Custom fonts for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/one-page-wonder.min.css" rel="stylesheet">
 
   </head>
 
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
       <div class="container">
-        <a class="navbar-brand" href="#">Foundations of Data Mining</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="https://github.com/joaquinvanschoren/ML-course">GitHub</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://canvas.tue.nl/courses/5514/assignments/syllabus">Canvas</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+        <a href="../" class="navbar-brand">An Open Machine Learning Course</a>
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/joaquinvanschoren/ML-course">GitHub</a>
+          </li>
+        </ul>
 
-    <header class="masthead text-center text-white" style="padding:34px;">
-      <div class="bg-circle-1 bg-circle"></div>
-      <div class="bg-circle-2 bg-circle"></div>
-      <div class="bg-circle-3 bg-circle"></div>
-      <div class="bg-circle-4 bg-circle"></div>
-    </header>
-
-    <section>
-      <div class="container" style="height:200vh">
-        <div class="row align-items-center">
-          <div class="col-lg-11 order-lg-1">
-            <div class="p-5">
-              <h2 class="display-4">Tutorials</h2>
-                <ul>
-                  <li><a href="Tutorial 0 - Python.slides.html">Introduction to Python</a></li>
-                  <li><a href="Tutorial 1 - Python for Data Analysis.slides.html">Python for Data Analysis</a></li>
-                  <li><a href="Tutorial 2 - Feature Engineering.slides.html">Feature Engineering</a></li>
-                  <li><a href="Tutorial 3 - Machine learning pipelines and systems.slides.html">Machine Learning Pipelines and Systems</a></li>
-                  <li><a href="Tutorial 4 - MLP_classifier.ipynb">Multi-Layer Perceptrons [Notebook]</a></li>
-                  <li><a href="Tutorial 5 - ConvNet_classifier.ipynb">Convolutional Neural Nets [Notebook]</a></li>
-                  <li><a href="Tutorial 6 - RNN_addition.ipynb">Recurrent Neural Nets [Notebook]</a></li>
-                </ul>
-                <h2 class="display-4">Lectures</h2>
-                <ul>
-                  <li><a href="00 - Prerequisites.slides.html">Prerequisites</a></li>
-                  <li><a href="01 - Introduction.slides.html">Introduction to Machine Learning</a></li>
-                  <li><a href="02 - Linear Models.slides.html">Linear Models</a></li>
-                  <li><a href="03 - Model Selection.slides.html">Model Selection</a></li>
-                  <li><a href="04 - Trees and Ensembles.slides.html">Trees and Ensembles</a></li>
-                  <li><a href="05 - Support Vector Machines.slides.html">Support Vector Machines and kernelization</a></li>
-		  <li><a href="06 - Bayesian Learning.slides.html">Bayesian Learning</a></li>
-                  <li><a href="07 - pca.pdf">Principle Component Analysis [PDF]</a></li>
-                  <li><a href="08 - random_projections.pdf">Random Projections [PDF]</a></li>
-                  <li><a href="09-lsh.pdf">Locality Sensitive Hashing [PDF]</a></li>
-                  <li><a href="10-clusterin.pdf">Clustering [PDF]</a></li>
-                  <li><a href="11 - nn_primer">Neural Networks [PDF]</a></li>
-                  <li><a href="12 - cnn.pdf">Convolutional Neural Networks [PDF]</a></li>
-                  <li><a href="13 - sequences.pdf">Recurrent Neural Networks [PDF]</a></li>
-                </ul>
-            </div>
-          </div>
-        </div>
       </div>
-    </section>
+    </div>
+
+  <div class="container" style="margin-top:100px">
+  <div class="bs-docs-section clearfix" style="min-height:100vh">
+    <div class="row">
+    <div class="col-lg-12">
+
+    <h1 class="roomy">Tutorials</h1>
+    <p class="lead">Getting Started</p>
+
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between showlinks"><span>Tutorial 0 - Python</span></li>
+      <li class="list-group-item d-flex justify-content-between showlinks"><span>Tutorial 1 - Python for Data Analysis</span></li>
+      <li class="list-group-item d-flex justify-content-between showlinks"><span>Tutorial 2 - Machine learning pipelines and systems</span></li>
+    </ul>
+
+    <h1 class="roomy">Lectures</h1>
+    <p class="lead">Main course</p>
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between showlinks"><span>00 - Prerequisites</span></li>
+      <li class="list-group-item d-flex justify-content-between showlinks"><span>01 - Introduction</span></li>
+      <li class="list-group-item d-flex justify-content-between showlinks"><span>02 - Linear Models</span></li>
+      <li class="list-group-item d-flex justify-content-between showlinks"><span>03 - Model Selection (1)</span></li>
+      <li class="list-group-item d-flex justify-content-between showlinks"><span>03b - Feature Engineering</span></li>
+      <li class="list-group-item d-flex justify-content-between showlinks"><span>04 - Trees and Ensembles</span></li>
+      <li class="list-group-item d-flex justify-content-between showlinks"><span>05 - Support Vector Machines</span></li>
+      <li class="list-group-item d-flex justify-content-between showlinks"><span>06 - Bayesian Learning</span></li>
+      <li class="list-group-item d-flex justify-content-between showlinks"><span>07 - Model Selection (2)</span></li>
+      <li class="list-group-item d-flex justify-content-between showlinks"><span>08 - Neural Networks</span></li>
+      <li class="list-group-item d-flex justify-content-between showlinks"><span>09 - Neural Networks in practice</span></li>
+    </ul>
+
+    <h1 class="roomy">Short courses</h1>
+    <p class="lead">Deep dives</p>
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between showlinks"><span>XX - Introduction to Machine Learning</span></li>
+    </ul>
+
+  </div>
+
+</div>
+</div>
+</div>
 
     <!-- Footer -->
-    <footer class="py-5 bg-black">
+    <footer id="footer" style="padding-top:50px">
       <div class="container">
-        <p class="m-0 text-center text-white small">Joaquin Vanschoren, Anne Driemel, Vlado Menkovski, Spring 2018</p>
-      </div>
-      <!-- /.container -->
-    </footer>
+        <div class="row">
+          <div class="col-lg-12">
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <p>Made with love by <a href="https://joaquinvanschoren.github.io/">Joaquin Vanschoren</a></p>
+            <p>Materials released under the <a href="https://creativecommons.org/share-your-work/public-domain/cc0">CC0 License</a>. You can use them as you like.</p>
+            <p>Partly based on notebooks by <a href="https://github.com/amueller/introduction_to_ml_with_python">Andreas Mueller</a> (CC0 licenced), <a href="https://github.com/fchollet/deep-learning-with-python-notebooks">François Chollet</a> (MIT licenced), <a href="https://github.com/rasbt/python-machine-learning-book-2nd-edition">Sebastian Raschka</a> (MIT licenced), and <a href="https://github.com/lawrennd/talks">Neil Lawrence</a> (with permission)</p>
+          </div>
+
+          </div>
+        </div>
+
+      </footer>
+
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script>
+    $(function() {
+    $( ".showlinks").each(function() { $(this).append(
+      "<div class='btn-group snug' role='group'><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href=\'notebooks\/"+$(this).find("span").html()+".ipynb\'\")>Notebook</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href=\'slides_html\/"+$(this).find("span").html()+".slides.html\'\")>HTML</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href=\'slides_pdf\/"+$(this).find("span").html()+".pdf\'\")>PDF</button></div>")});;
+    });
+    </script>
 
   </body>
 

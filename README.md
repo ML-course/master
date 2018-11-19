@@ -1,6 +1,6 @@
 # Machine Learning Introduction
 
-Jupyter notebooks for teaching machine learning. Based on scikit-learn, with OpenML used to experiment more extensively on many datasets.
+Jupyter notebooks for teaching machine learning. Based on scikit-learn and Keras, with OpenML used to experiment more extensively on many datasets.
 
 [Course website](https://joaquinvanschoren.github.io/ML-course/)
 
