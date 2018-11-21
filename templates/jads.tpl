@@ -16,7 +16,7 @@
 //  margin-top: 0px;
 //}
 .input_hidden {
-  display: none;
+  display: block;
 //  margin-top: 5px;
 }
 .reveal.slide .slides{
