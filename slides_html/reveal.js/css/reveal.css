@@ -134,6 +134,10 @@ body {
     opacity: 1;
     visibility: inherit; }
 
+.highlight {
+  margin-top:20px !important;
+}
+
 .reveal .slides section .fragment.highlight-red,
 .reveal .slides section .fragment.highlight-current-red,
 .reveal .slides section .fragment.highlight-green,
