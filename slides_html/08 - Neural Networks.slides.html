@@ -12097,7 +12097,7 @@ Test set:  (10000, 28, 28)
 <li>Layers extract new <em>representations</em> of the data</li>
 <li><em>Deep learning</em> models contain many such layers<ul>
 <li>They progressively <em>distill</em> (refine) the data
-<img src="images/00_layers.png" alt="ml" style="width: 500px;"/></li>
+<img src="../images/00_layers.png" alt="ml" style="width: 500px;"/></li>
 </ul>
 </li>
 </ul>
@@ -12118,7 +12118,7 @@ Test set:  (10000, 28, 28)
 </li>
 <li>The <em>output layer</em> has a node for every possible outcome (digits 0-9) (red)<ul>
 <li>I.e. The first node returns the probability that the input image represents a '0'
-<img src="images/08_nn_manylayers.png" alt="ml" style="width: 500px;"/></li>
+<img src="../images/08_nn_manylayers.png" alt="ml" style="width: 500px;"/></li>
 </ul>
 </li>
 </ul>
@@ -12133,12 +12133,12 @@ Test set:  (10000, 28, 28)
 <h4 id="The-perceptron">The perceptron<a class="anchor-link" href="#The-perceptron">&#182;</a></h4><ul>
 <li>In its simplest form, each node outputs a weighted sum of the inputs: $y = \sum_{i} x_{i}w_i + b$</li>
 <li>It needs to learn the optimal set of weights to produce the right output<ul>
-<li>The <em>bias</em> $b$ is modelled as the weight of an extra input that is always '1' (see later)</li>
+<li><em>Bias</em> $b$: modelled as the weight of an extra input that's always '1'</li>
 </ul>
 </li>
-<li>This is exactly the same as a linear model. It can only learn linear decision boundaries.<ul>
+<li>This is the same as a linear model, can only learn linear decision boundaries.<ul>
 <li>Even a deep neural net of perceptrons can only learn a linear model
-<img src="images/08_log_reg_nn.png" alt="ml" style="width: 400px;"/></li>
+<img src="../images/08_log_reg_nn.png" alt="ml" style="width: 300px;"/></li>
 </ul>
 </li>
 </ul>
@@ -12153,7 +12153,7 @@ Test set:  (10000, 28, 28)
 <h4 id="Activation-functions">Activation functions<a class="anchor-link" href="#Activation-functions">&#182;</a></h4><ul>
 <li>To learn a non-linear model, each hidden node has to output a non-linear <em>activation function</em> $f$ on the weighted sum of the inputs: $h(x)=f(W_1 x+b_1)$</li>
 <li>Likewise, the output nodes use an activation function $g$ on the weighted outputs of the previous layer: $o(x)=g(W_2 h(x)+b_2)$
-<img src="images/08_nn_basic_arch.png" alt="ml" style="width: 400px;"/></li>
+<img src="../images/08_nn_basic_arch.png" alt="ml" style="width: 400px;"/></li>
 </ul>
 
 </div>
@@ -12172,7 +12172,7 @@ Test set:  (10000, 28, 28)
 <li>For classification, we use <em>softmax</em> (or sigmoid)<ul>
 <li>Transforms the input into a probability for (each specific outcome)</li>
 <li>This is exactly what we used for logistic regression!
-<img src="images/08_activation.png" alt="ml" style="width: 1000px;"/></li>
+<img src="../images/08_activation.png" alt="ml" style="width: 1000px;"/></li>
 </ul>
 </li>
 </ul>
@@ -12322,7 +12322,7 @@ _________________________________________________________________
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input_hidden">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">network</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">);</span>
@@ -12345,15 +12345,15 @@ _________________________________________________________________
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/5
-60000/60000 [==============================] - 5s 79us/step - loss: 0.2536 - acc: 0.9265
+60000/60000 [==============================] - 4s 74us/step - loss: 0.0281 - acc: 0.9916
 Epoch 2/5
-60000/60000 [==============================] - 4s 75us/step - loss: 0.1032 - acc: 0.9699
+60000/60000 [==============================] - 4s 63us/step - loss: 0.0208 - acc: 0.9939
 Epoch 3/5
-60000/60000 [==============================] - 5s 79us/step - loss: 0.0671 - acc: 0.9795
+60000/60000 [==============================] - 4s 63us/step - loss: 0.0156 - acc: 0.9955
 Epoch 4/5
-60000/60000 [==============================] - 4s 74us/step - loss: 0.0491 - acc: 0.9854
+60000/60000 [==============================] - 4s 63us/step - loss: 0.0121 - acc: 0.9965
 Epoch 5/5
-60000/60000 [==============================] - 4s 72us/step - loss: 0.0362 - acc: 0.9889
+60000/60000 [==============================] - 4s 63us/step - loss: 0.0098 - acc: 0.9972
 </pre>
 </div>
 </div>
@@ -12367,6 +12367,9 @@ Epoch 5/5
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Prediction">Prediction<a class="anchor-link" href="#Prediction">&#182;</a></h4><p>We can now call <code>predict</code> or <code>predict_proba</code> to generate predictions</p>
+<div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Prediction: &quot;</span><span class="p">,</span><span class="n">network</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
 
 </div>
 </div>
@@ -12414,6 +12417,9 @@ Label:  [0. 0. 0. 0. 1. 0. 0. 0. 0. 0.]
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Evaluation">Evaluation<a class="anchor-link" href="#Evaluation">&#182;</a></h4><p>Evaluate the trained model on the entire test set</p>
+<div class="highlight"><pre><span></span><span class="n">test_loss</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Test accuracy:&#39;</span><span class="p">,</span> <span class="n">test_acc</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
@@ -12500,8 +12506,8 @@ Test accuracy: 0.9793
 </ul>
 </li>
 </ul>
-<p><img src="images/08_timeseries.png" alt="ml" style="float: left; width: 30%;"/>
-<img src="images/08_images.png" alt="ml" style="float: left; width: 30%;"/></p>
+<p><img src="../images/08_timeseries.png" alt="ml" style="float: left; width: 30%;"/>
+<img src="../images/08_images.png" alt="ml" style="float: left; width: 30%;"/></p>
 
 </div>
 </div>
@@ -12555,7 +12561,7 @@ Test accuracy: 0.9793
 <p>where</p>
 <div class="highlight"><pre><span></span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span>
 </pre></div>
-<p><img src="images/08_dot.png" alt="ml" style="float: left; width: 30%;"/></p>
+<p><img src="../images/08_dot.png" alt="ml" style="float: left; width: 30%;"/></p>
 
 </div>
 </div>
@@ -12572,8 +12578,8 @@ Test accuracy: 0.9793
 </ul>
 </li>
 </ul>
-<p><img src="images/08_addition.png" alt="ml" style="float: left; width: 25%;"/>
-<img src="images/08_dotgeom.png" alt="ml" style="float: left; width: 30%;"/></p>
+<p><img src="../images/08_addition.png" alt="ml" style="float: left; width: 25%;"/>
+<img src="../images/08_dotgeom.png" alt="ml" style="float: left; width: 30%;"/></p>
 
 </div>
 </div>
@@ -12612,7 +12618,15 @@ Test accuracy: 0.9793
 <li>Compute the losses given current batch x</li>
 <li>Keep the one that reduces the loss most, then repeat</li>
 </ul>
-<p><img src="images/08_gradient.png" alt="ml" style="float: right; width: 30%;"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="../images/08_gradient.png" alt="ml" style="float: right; width: 30%;"/></p>
 <p>Better:</p>
 <ul>
 <li>Choose a loss function f that is <em>differentiable</em><ul>
@@ -12643,7 +12657,7 @@ Test accuracy: 0.9793
 </li>
 <li>Now repeat with a new batch of data $x$</li>
 </ul>
-<p><img src="images/08_2dgradient.png" alt="ml" style="float: left; width: 40%;"/></p>
+<p><img src="../images/08_2dgradient.png" alt="ml" style="float: left; width: 40%;"/></p>
 
 </div>
 </div>
@@ -12678,8 +12692,8 @@ Test accuracy: 0.9793
 <li>True Stochastic Gradient Descent: repeat for each individual data points (noisy)</li>
 <li>Minibatch SGD strikes a balance between the two (given the right batch size)</li>
 </ul>
-<p><img src="images/08_sgd1d.png" alt="ml" style="float: left; width: 25%;"/>
-<img src="images/08_SGD.png" alt="ml" style="float: left; width: 400px;"/></p>
+<p><img src="../images/08_sgd1d.png" alt="ml" style="float: left; width: 25%;"/>
+<img src="../images/08_SGD.png" alt="ml" style="float: left; width: 400px;"/></p>
 
 </div>
 </div>
@@ -12701,7 +12715,7 @@ Test accuracy: 0.9793
 </li>
 <li>Some intuitions say that in high-dimensional spaces, most local minima are near the global minimum</li>
 </ul>
-<p><img src="images/08_sgdvars.png" alt="ml" style="float: left; width: 300px;"/></p>
+<p><img src="../images/08_sgdvars.png" alt="ml" style="float: left; width: 300px;"/></p>
 
 </div>
 </div>
@@ -12720,7 +12734,7 @@ Test accuracy: 0.9793
 <li>We can let the gradient <em>backpropagate</em> through the layers</li>
 <li>So, if we have a hidden node $h(x)=f(W_1 x+b_1)$, $net(x) = W_1 x+b_1$, and output node $o(x)=g(W_2 h(x)+b_2)$</li>
 </ul>
-<p><img src="images/08_chainrule.png" alt="ml" style="width: 600px;"/></p>
+<p><img src="../images/08_chainrule2.png" alt="ml" style="width: 600px;"/></p>
 
 </div>
 </div>
@@ -12739,7 +12753,21 @@ Test accuracy: 0.9793
 
 </div>
 </div>
-</div></section></section>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Further-reading">Further reading<a class="anchor-link" href="#Further-reading">&#182;</a></h3><p><a href="https://www.tensorflow.org/versions/r0.10/tutorials/">https://www.tensorflow.org/versions/r0.10/tutorials/</a></p>
+<p><a href="http://playground.tensorflow.org">http://playground.tensorflow.org</a></p>
+<p><a href="https://www.tensorflow.org/versions/r0.10/get_started/basic_usage">https://www.tensorflow.org/versions/r0.10/get_started/basic_usage</a></p>
+<p><a href="https://www.tensorflow.org/versions/r0.10/tutorials/mnist/beginners/">https://www.tensorflow.org/versions/r0.10/tutorials/mnist/beginners/</a></p>
+<p><a href="https://keras.io/">https://keras.io/</a></p>
+<p>Tensorboard web interface</p>
+
+</div>
+</div>
+</div>
 </div>
 </div>
 
