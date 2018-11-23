@@ -11965,12 +11965,8 @@ $(document).ready(function(){
 <pre><code>git clone https://github.com/joaquinvanschoren/ML-course.git
 
 </code></pre>
-<p>To download updates, run</p>
-
-<pre><code>git pull
-
-</code></pre>
-<p>For more details on using git, see the <a href="https://guides.github.com/activities/hello-world/">GitHub 10-minute tutorial</a> and <a href="https://www.youtube.com/watch?v=1ffBJ4sVUb4">Git for Ages 4 and up</a>. If you want to suggest improvements, you can! Just create a pull request and we'll review it.</p>
+<p>To download updates, run <code>git pull</code></p>
+<p>For more details on using git, see the <a href="https://guides.github.com/activities/hello-world/">GitHub 10-minute tutorial</a> and <a href="https://www.youtube.com/watch?v=1ffBJ4sVUb4">Git for Ages 4 and up</a>.</p>
 <p>Alternatively, you can download the course <a href="https://github.com/joaquinvanschoren/ML-course">as a .zip file</a>. Click 'Clone or download'. Download individual files with right-click -&gt; Save Link As...</p>
 
 </div>
@@ -12003,10 +11999,8 @@ $(document).ready(function(){
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>TensorFlow and Keras can be installed later. Their installation instructions chaneg regularly.</p>
-<p>To install <em>TensorFlow</em>, follow <a href="https://www.tensorflow.org/install/">these instructions</a> for your OS (Windows, Mac, Ubuntu). While installation with <code>conda</code> is possible, they recommend to install with <code>pip</code>, even with an Anaconda setup.</p>
-<p>To install <em>Keras</em>, follow the instructions <a href="https://keras.io/#installation">here</a>.
-If anything goes wrong, see the separate file with installation instructions in the repository.</p>
+<h3 id="Installing-TensorFlow-and-Keras">Installing TensorFlow and Keras<a class="anchor-link" href="#Installing-TensorFlow-and-Keras">&#182;</a></h3><p>To install <em>TensorFlow</em>, follow <a href="https://www.tensorflow.org/install/">these instructions</a> for your OS (Windows, Mac, Ubuntu). While installation with <code>conda</code> is possible, they recommend to install with <code>pip</code>, even with an Anaconda setup.</p>
+<p>To install <em>Keras</em>, follow the instructions <a href="https://keras.io/#installation">here</a>.</p>
 
 </div>
 </div>
@@ -12017,7 +12011,7 @@ If anything goes wrong, see the separate file with installation instructions in 
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Installing-packages-with-pip">Installing packages with pip<a class="anchor-link" href="#Installing-packages-with-pip">&#182;</a></h3><p>With most other setups (not conda), you can use pip to install all packages. Pip is the Python Package index. It is included in most Python installations.</p>
 
-<pre><code>pip install numpy scipy scikit-learn matplotlib pandas pillow graphviz openml
+<pre><code>pip install numpy scipy scikit-learn matplotlib pandas pillow graphviz
 
 </code></pre>
 <p>Note: we'll be using scikit-learn 0.19, which is currently the latest version.</p>
@@ -12035,7 +12029,7 @@ If anything goes wrong, see the separate file with installation instructions in 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Note: if you are not using Anaconda, and you already have a custom Python environment set up, possibly using a different Python version, it may be wise to <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">set up a virtual environment</a> for this course so that it does not affect your existing environment.</p>
+<h3 id="Virtual-environments">Virtual environments<a class="anchor-link" href="#Virtual-environments">&#182;</a></h3><p>If you are not using Anaconda, and you already have a custom Python environment set up, possibly using a different Python version, it may be wise to <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">set up a virtual environment</a> for this course so that it does not affect your existing environment.</p>
 
 </div>
 </div>
@@ -12050,11 +12044,7 @@ If anything goes wrong, see the separate file with installation instructions in 
 <pre><code>pip3 install jupyter
 
 </code></pre>
-<p>To test if it works, run</p>
-
-<pre><code>jupyter notebook
-
-</code></pre>
+<p>To test if it works, run <code>jupyter notebook</code></p>
 <p>A browser window should open showing the files in your current directory. You can shut down the notebook by typing CTRL-C in your terminal.</p>
 <p>If you are new to notebooks, <a href="https://try.jupyter.org/">take this quick tutorial</a>, or <a href="http://nbviewer.jupyter.org/github/jupyter/notebook/tree/master/docs/source/examples/Notebook/">this more detailed one</a>. Optionally, for a more in-depth coverage, <a href="https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook#gs.wlHChdo">try the DataCamp tutorial</a>.</p>
 
@@ -12088,7 +12078,33 @@ this first. <a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">
 
 </div>
 </div>
-</div></section></section>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Alternative-environments-for-running-the-notebooks">Alternative environments for running the notebooks<a class="anchor-link" href="#Alternative-environments-for-running-the-notebooks">&#182;</a></h3><h5 id="Google-Colab">Google Colab<a class="anchor-link" href="#Google-Colab">&#182;</a></h5><p>Google Colab allows you to run a notebook on Google Drive (with limited GPU support): <a href="https://colab.research.google.com/notebooks/gpu.ipynb">https://colab.research.google.com/notebooks/gpu.ipynb</a>
+A more detailed tutorial can be found here (you won't need PyTorch or fast.ai fro this course): <a href="https://towardsdatascience.com/fast-ai-lesson-1-on-google-colab-free-gpu-d2af89f53604">https://towardsdatascience.com/fast-ai-lesson-1-on-google-colab-free-gpu-d2af89f53604</a></p>
+<p>There are limitations (obviously): right now GPU usage is limited to 12h and RAM is shared among multiple users.</p>
+<p>Note: Install additional packages from within notebooks with '!pip install package'</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Alternative-environments-for-running-the-notebooks">Alternative environments for running the notebooks<a class="anchor-link" href="#Alternative-environments-for-running-the-notebooks">&#182;</a></h3><h5 id="Docker-/-Binder">Docker / Binder<a class="anchor-link" href="#Docker-/-Binder">&#182;</a></h5><p>A Dockerfile is included that sets up a virtual machine with the necessary installation. 
+You can either:</p>
+<ul>
+<li>Run it locally (for this you need to install Docker)</li>
+<li>MyBinder: Go to <a href="https://mybinder.org/">https://mybinder.org/</a> and copy-paste the repository name: <a href="https://github.com/joaquinvanschoren/ML-course">https://github.com/joaquinvanschoren/ML-course</a> </li>
+</ul>
+
+</div>
+</div>
+</div>
 </div>
 </div>
 
