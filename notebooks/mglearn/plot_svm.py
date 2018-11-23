@@ -67,25 +67,24 @@ def plot_svm_kernels():
     Y = [0] * 8 + [1] * 8
 
     # figure number
-    fignum = 1
+    fig, axes = plt.subplots(1, 3, figsize=(12, 4), tight_layout=True)
 
     # fit the model
-    for kernel in ('linear', 'poly', 'rbf'):
+    for kernel, ax in zip(('linear', 'poly', 'rbf'),axes):
         clf = svm.SVC(kernel=kernel, gamma=2)
         clf.fit(X, Y)
 
         # plot the line, the points, and the nearest vectors to the plane
-        plt.figure(fignum, figsize=(4, 3))
-        plt.suptitle('kernel = %s' % kernel)
+        ax.set_title('kernel = %s' % kernel)
 
-        plt.scatter(clf.support_vectors_[:, 0], clf.support_vectors_[:, 1],
+        ax.scatter(clf.support_vectors_[:, 0], clf.support_vectors_[:, 1],
                     s=85, edgecolors='k', c='w', zorder=10)
-        plt.scatter(X[:, 0], X[:, 1], c=Y, zorder=10, cmap=plt.cm.bwr)
+        ax.scatter(X[:, 0], X[:, 1], c=Y, zorder=10, cmap=plt.cm.bwr)
 
         for i, coef in enumerate(clf.dual_coef_[0]):
-            plt.annotate("%0.2f" % (coef), (clf.support_vectors_[i, 0]+0.15,clf.support_vectors_[i, 1]), fontsize=8, zorder=11)
+            ax.annotate("%0.2f" % (coef), (clf.support_vectors_[i, 0]+0.15,clf.support_vectors_[i, 1]), fontsize=8, zorder=11)
 
-        plt.axis('tight')
+        ax.axis('tight')
         x_min = -3
         x_max = 3
         y_min = -3
@@ -96,17 +95,16 @@ def plot_svm_kernels():
 
         # Put the result into a color plot
         Z = Z.reshape(XX.shape)
-        plt.figure(fignum, figsize=(4, 3))
         #plt.pcolormesh(XX, YY, Z > 0, cmap=plt.cm.bwr, alpha=0.1)
-        plt.contour(XX, YY, Z, colors=['k', 'k', 'k'], linestyles=['--', '-', '--'],
+        ax.contour(XX, YY, Z, colors=['k', 'k', 'k'], linestyles=['--', '-', '--'],
                     levels=[-.5, 0, .5])
 
-        plt.xlim(x_min, x_max)
-        plt.ylim(y_min, y_max)
+        #ax.xlim(x_min, x_max)
+        #ax.ylim(y_min, y_max)
 
-        plt.xticks(())
-        plt.yticks(())
-        fignum = fignum + 1
+        ax.set_xticks([])
+        ax.set_yticks([])
+
     plt.show()
 
 def plot_svm_margins():
