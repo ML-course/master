@@ -1,5 +1,5 @@
 from .plot_linear_svc_regularization import plot_linear_svc_regularization
-from .plot_interactive_tree import plot_tree_progressive, plot_tree_partition
+from .plot_interactive_tree import plot_tree_progressive, plot_tree_partition, plot_tree, tree_image
 from .plot_animal_tree import plot_animal_tree
 from .plot_rbf_svm_parameters import plot_svm
 from .plot_knn_regression import plot_knn_regression
