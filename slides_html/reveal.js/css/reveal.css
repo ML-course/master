@@ -189,6 +189,10 @@ body {
   max-height: 100%;
   box-sizing: border-box; }
 
+code {
+  max-height: 600px !important;
+}
+
 /*********************************************
  * CONTROLS
  *********************************************/
