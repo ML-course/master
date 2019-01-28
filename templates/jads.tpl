@@ -54,7 +54,6 @@ $(document).ready(function(){
       $(this).prev('.input_hidden').slideToggle();
   });
   $(".output_subarea").css('max-width','100%');
-
 })
 </script>
 {%- endblock header -%}
