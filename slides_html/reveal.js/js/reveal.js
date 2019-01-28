@@ -1947,6 +1947,7 @@
 		if( typeof size.height === 'string' && /%$/.test( size.height ) ) {
 			size.height = parseInt( size.height, 10 ) / 100 * size.presentationHeight;
 		}
+		console.log(size);
 
 		return size;
 
