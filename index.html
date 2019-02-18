@@ -110,7 +110,11 @@
     <script>
     $(function() {
     $( ".showlinks").each(function() { $(this).append(
-      "<div class='btn-group snug' role='group'><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href=\'notebooks\/"+$(this).find("span").html()+".ipynb\'\")>Notebook</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href=\'slides_html\/"+$(this).find("span").html()+".slides.html\'\")>HTML</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href=\'slides_pdf\/"+$(this).find("span").html()+".pdf\'\")>PDF</button></div>")});;
+      "<div class='btn-group snug' role='group'>
+        <button type='button' class='btn btn-outline-primary' onclick=\"window.location.href=\'https:\/\/github.com\/joaquinvanschoren\/ML-course\/blob\/master\/notebooks\/"+$(this).find("span").html()+".ipynb\'\")>View</button>
+        <button type='button' class='btn btn-outline-primary' onclick=\"window.location.href=\'notebooks\/"+$(this).find("span").html()+".ipynb\'\")>Notebook</button>
+        <button type='button' class='btn btn-outline-primary' onclick=\"window.location.href=\'slides_html\/"+$(this).find("span").html()+".slides.html\'\")>HTML</button>
+        <button type='button' class='btn btn-outline-primary' onclick=\"window.location.href=\'slides_pdf\/"+$(this).find("span").html()+".pdf\'\")>PDF</button></div>")});;
     });
     </script>
 
