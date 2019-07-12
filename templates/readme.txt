@@ -10,3 +10,10 @@ Export PDF: add '?print-pdf' to url and remove '#'
 Create Latex PDF:
 jupyter nbconvert --to pdf --template jads.tplx filename.ipynb
 
+
+JupyterLab setup:
+
+* Jupyter Widgets
+
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager
+
