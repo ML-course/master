@@ -1,0 +1,9 @@
+assignments-old/*
+.ipynb_checkpoints/*
+assign/*
+notebooks/.ipynb_checkpoints/*
+notebooks/__pycache__/*
+notebooks/mglearn/__pycache__/*
+studies/.ipynb_checkpoints/*
+studies/__pycache__/*
+templates/.ipynb_checkpoints/*
