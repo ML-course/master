@@ -8,3 +8,4 @@ studies/.ipynb_checkpoints/*
 studies/__pycache__/*
 templates/.ipynb_checkpoints/*
 */.DS_store
+.DS_store
