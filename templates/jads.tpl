@@ -19,6 +19,10 @@
   display: block;
 //  margin-top: 5px;
 }
+.input {
+  display: none !important;
+//  margin-top: 5px;
+}
 .reveal.slide .slides{
   width: 1000px !important;
   height: 100%;
