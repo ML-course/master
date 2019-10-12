@@ -16,7 +16,7 @@
 //  margin-top: 0px;
 //}
 .input_hidden {
-  display: block;
+  display: hidden;
 //  margin-top: 5px;
 }
 .input {
