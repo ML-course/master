@@ -116,14 +116,100 @@
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script>
-    $(function() {
-    $( ".showlinks").each(function() { $(this).append(
-      "<div class='btn-group snug' role='group'><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href=\'https:\/\/github.com\/joaquinvanschoren\/ML-course\/blob\/master\/notebooks\/"+$(this).find("span").html()+".ipynb\'\")>View</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href=\'notebooks\/"+$(this).find("span").html()+".ipynb\'\")>Notebook</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href=\'slides_html\/"+$(this).find("span").html()+".slides.html\'\")>HTML</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href=\'slides_pdf\/"+$(this).find("span").html()+".pdf\'\")>PDF</button></div>")});;
-    });
-    $( ".showpdflink").each(function() { $(this).append(
-      "<div class='btn-group snug' role='group'><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href=\'slides_pdf\/"+$(this).find("span").html()+".pdf\'\")>PDF</button></div>"
-    )});
+  <script>
+      $(function() {
+        $(".showlinks").each(function() {
+          $(this).append(
+            "<div class='btn-group snug' role='group'><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href='https:\/\/github.com\/ML-course\/engineer\/blob\/master\/notebooks\/" +
+              $(this)
+                .find("span")
+                .html() +
+              ".ipynb'\")>View</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href='notebooks\/" +
+              $(this)
+                .find("span")
+                .html() +
+              ".ipynb'\")>Notebook</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href='slides_html\/" +
+              $(this)
+                .find("span")
+                .html() +
+              ".slides.html'\")>HTML</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href='slides_pdf\/" +
+              $(this)
+                .find("span")
+                .html() +
+              ".pdf'\")>PDF</button></div>"
+          );
+        });
+        $(".showlinksvideo").each(function() {
+          $(this).append(
+            "<div class='btn-group snug' role='group'><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href='https:\/\/github.com\/ML-course\/engineer\/blob\/master\/notebooks\/" +
+              $(this)
+                .find("span")
+                .html() +
+              ".ipynb'\")>View</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href='notebooks\/" +
+              $(this)
+                .find("span")
+                .html() +
+              ".ipynb'\")>Notebook</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href='slides_html\/" +
+              $(this)
+                .find("span")
+                .html() +
+              ".slides.html'\")>HTML</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href='slides_pdf\/" +
+              $(this)
+                .find("span")
+                .html() +
+              ".pdf'\")>PDF</button><button type='button' class='btn btn-outline-primary' onclick=\"window.open('https:\/\/www.youtube.com/watch?v=" +
+              $(this)
+                .find(".video")
+                .html() +
+              "','_blank')\">Video</button></div>"
+          );
+        });
+        $(".showlablink").each(function() {
+          $(this).append(
+            "<div class='btn-group snug' role='group'><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href='https:\/\/github.com\/ML-course\/engineer\/blob\/master\/labs\/" +
+              $(this)
+                .find("span")
+                .html() +
+              ".ipynb'\")>View</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href='labs\/" +
+              $(this)
+                .find("span")
+                .html() +
+              ".ipynb'\")>Download</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href='labs\/" +
+              "</div>"
+          );
+        });
+        $(".showlablinks").each(function() {
+          $(this).append(
+            "<div class='btn-group snug' role='group'><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href='https:\/\/github.com\/ML-course\/engineer\/blob\/master\/labs\/" +
+              $(this)
+                .find("span")
+                .html() +
+              ".ipynb'\")>View</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href='labs\/" +
+              $(this)
+                .find("span")
+                .html() +
+              ".ipynb'\")>Download</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href='labs\/" +
+              $(this)
+                .find("span")
+                .html() +
+              " Solution.ipynb'\")>Solution</button><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href='https:\/\/github.com\/ML-course\/engineer\/blob\/master\/labs\/" +
+              "</div>"
+          );
+        });
+      });
+      $(".showpdflink").each(function() {
+        $(this).append(
+          "<div class='btn-group snug' role='group'><button type='button' class='btn btn-outline-primary' onclick=\"window.location.href='slides_pdf\/" +
+            $(this)
+              .find("span")
+              .html() +
+            ".pdf'\")>PDF</button><button type='button' class='btn btn-outline-primary' onclick=\"window.open('https:\/\/www.youtube.com/watch?v=" +
+            $(this)
+              .find(".video")
+              .html() +
+            "','_blank')\">Video</button></div>"
+        );
+      });
     </script>
 
   </body>
