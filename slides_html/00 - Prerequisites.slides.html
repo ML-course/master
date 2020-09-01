@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13069,45 +13068,6 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
-<style type="text/css">
-    
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-
-    </style>
 
 
 <style type="text/css">
@@ -13240,11 +13200,7 @@ a.anchor-link {
 //  margin-top: 0px;
 //}
 .input_hidden {
-  display: block;
-//  margin-top: 5px;
-}
-.input {
-  display: none !important;
+  display: none;
 //  margin-top: 5px;
 }
 .reveal.slide .slides{
@@ -13304,12 +13260,12 @@ $(document).ready(function(){
 <h2 id="Course-materials-on-GitHub">Course materials on GitHub<a class="anchor-link" href="#Course-materials-on-GitHub">&#182;</a></h2><p>The course materials are available on Canvas, but the sources are also on GitHub, so that you always have the latest updates. To download them, you first need to <a href="https://git-scm.com/book/en/v1/Getting-Started-Installing-Git">install git</a> (if you haven't already).</p>
 <p>You can 'clone' the course as follows from the command line (you can also use a <a href="https://desktop.github.com/">GUI</a>)</p>
 
-<pre><code>git clone https://github.com/joaquinvanschoren/ML-course.git
+<pre><code>git clone https://github.com/ML-course/engineer.git
 
 </code></pre>
 <p>To download updates, run <code>git pull</code></p>
 <p>For more details on using git, see the <a href="https://guides.github.com/activities/hello-world/">GitHub 10-minute tutorial</a> and <a href="https://www.youtube.com/watch?v=1ffBJ4sVUb4">Git for Ages 4 and up</a>.</p>
-<p>Alternatively, you can download the course <a href="https://github.com/joaquinvanschoren/ML-course">as a .zip file</a>. Click 'Clone or download'. Download individual files with right-click -&gt; Save Link As...</p>
+<p>Alternatively, you can download the course <a href="https://github.com/ML-course/engineer.git">as a .zip file</a>. Click 'Clone or download'. Download individual files with right-click -&gt; Save Link As...</p>
 
 </div>
 </div>
@@ -13317,8 +13273,8 @@ $(document).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h2><p>You first need to set up a Python environment (if you do not have done so already). The easiest way to do this is by installing <a href="https://www.continuum.io/downloads">Anaconda</a>. We will be using Python 3, so be sure to install the right version.</p>
-<p>If you are completely new to Python, we recommend to take an introductory online course, such as the <a href="https://www.programiz.com/python-programming">Definite Guide to Python</a>, or the <a href="https://github.com/jakevdp/WhirlwindTourOfPython">Whirlwind Tour of Python</a>. If you like a step-by-step approach, try the <a href="https://www.datacamp.com/courses/intro-to-python-for-data-science">DataCamp Intro to Python for Data Science</a>.</p>
+<h2 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h2><p>You first need to set up a Python environment (if you do not have done so already). The easiest way to do this is by installing <a href="https://www.anaconda.com/distribution/#download-section">Anaconda</a>. We will be using Python 3, so be sure to install the right version.</p>
+<p>If you are completely new to Python, we recommend reading the <a href="https://github.com/jakevdp/PythonDataScienceHandbook">Python Data Science Handbook</a> or taking an introductory online course, such as the <a href="https://www.programiz.com/python-programming">Definite Guide to Python</a>, the <a href="https://github.com/jakevdp/WhirlwindTourOfPython">Whirlwind Tour of Python</a>, or <a href="https://www.python-course.eu/">this Python Course</a>. If you like a step-by-step approach, try the <a href="https://www.datacamp.com/courses/intro-to-python-for-data-science">DataCamp Intro to Python for Data Science</a>.</p>
 <p>To practice your skills, try the <a href="https://www.hackerrank.com/domains/python">Hackerrank challenges</a>.</p>
 
 </div>
@@ -13330,7 +13286,7 @@ $(document).ready(function(){
 <h2 id="Required-packages">Required packages<a class="anchor-link" href="#Required-packages">&#182;</a></h2><p>Next, you'll need to install several packages that we'll be using extensively. You'll need to run these commands on the command line.</p>
 <h3 id="Installing-packages-with-conda">Installing packages with conda<a class="anchor-link" href="#Installing-packages-with-conda">&#182;</a></h3><p>If you are using Anaconda, you can use the <code>conda</code> package manager to install all packages:</p>
 
-<pre><code>conda install numpy scipy scikit-learn matplotlib pandas pillow graphviz python-graphviz scikit-image</code></pre>
+<pre><code>conda install numpy scipy scikit-learn matplotlib pandas pillow graphviz python-graphviz scikit-image joblib six</code></pre>
 
 </div>
 </div>
@@ -13338,8 +13294,7 @@ $(document).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Installing-TensorFlow-and-Keras">Installing TensorFlow and Keras<a class="anchor-link" href="#Installing-TensorFlow-and-Keras">&#182;</a></h3><p>To install <em>TensorFlow</em>, follow <a href="https://www.tensorflow.org/install/">these instructions</a> for your OS (Windows, Mac, Ubuntu). While installation with <code>conda</code> is possible, they recommend to install with <code>pip</code>, even with an Anaconda setup.</p>
-<p>To install <em>Keras</em>, follow the instructions <a href="https://keras.io/#installation">here</a>.</p>
+<h3 id="Installing-TensorFlow">Installing TensorFlow<a class="anchor-link" href="#Installing-TensorFlow">&#182;</a></h3><p>To install <em>TensorFlow 2</em>, follow <a href="https://www.tensorflow.org/install/">these instructions</a> for your OS (Windows, Mac, Ubuntu). While installation with <code>conda</code> is possible, they recommend to install with <code>pip</code>, even with an Anaconda setup.</p>
 
 </div>
 </div>
@@ -13349,10 +13304,10 @@ $(document).ready(function(){
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Installing-packages-with-pip">Installing packages with pip<a class="anchor-link" href="#Installing-packages-with-pip">&#182;</a></h3><p>With most other setups (not conda), you can use pip to install all packages. Pip is the Python Package index. It is included in most Python installations.</p>
 
-<pre><code>pip install numpy scipy scikit-learn matplotlib pandas pillow graphviz
+<pre><code>pip install numpy scipy scikit-learn matplotlib pandas pillow graphviz joblib six
 
 </code></pre>
-<p>Note: we'll be using scikit-learn 0.19, which is currently the latest version.</p>
+<p>Note: we'll be using scikit-learn 0.22, which is currently the latest version.</p>
 <p>You also need to install the graphiz C-library:</p>
 <ul>
 <li>OS X: use homebrew: <code>brew install graphviz</code></li>
@@ -13374,13 +13329,18 @@ $(document).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Installing-Jupyter-notebooks">Installing Jupyter notebooks<a class="anchor-link" href="#Installing-Jupyter-notebooks">&#182;</a></h3><p>As our coding environment, we'll be using Jupyter notebooks. They interleave documentation (in markdown) with executable Python code, and they run in your browser. That means that you can easily edit and re-run all the code in this course.</p>
+<h3 id="Installing-Jupyter">Installing Jupyter<a class="anchor-link" href="#Installing-Jupyter">&#182;</a></h3><p>As our coding environment, we'll be using Jupyter notebooks. They interleave documentation (in markdown) with executable Python code, and they run in your browser. That means that you can easily edit and re-run all the code in this course.</p>
 <p>If you use Anaconda, Jupyter is already installed. If you use pip, you can install it with</p>
 
-<pre><code>pip3 install jupyter jupyterlab
+<pre><code>pip3 install jupyterlab
 
 </code></pre>
-<p>To test if it works, run <code>jupyter notebook</code> or <code>jupyter lab</code></p>
+<p>In both cases, to play around with the interactive animations in this course, also do:</p>
+
+<pre><code>jupyter labextension install @jupyter-widgets/jupyterlab-manager
+
+</code></pre>
+<p>To test if it works, run <code>jupyter lab</code></p>
 <p>A browser window should open showing the files in your current directory. You can shut down the notebook by typing CTRL-C in your terminal.</p>
 <p>If you are new to notebooks, <a href="https://try.jupyter.org/">take this quick tutorial</a>, or <a href="http://nbviewer.jupyter.org/github/jupyter/notebook/tree/master/docs/source/examples/Notebook/">this more detailed one</a>. Optionally, for a more in-depth coverage, <a href="https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook#gs.wlHChdo">try the DataCamp tutorial</a>.</p>
 
@@ -13390,11 +13350,7 @@ $(document).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Testing">Testing<a class="anchor-link" href="#Testing">&#182;</a></h2><p>To test if everything works, download the course materials and run Jupyter (ideally from the directory where you downloaded the course):</p>
-
-<pre><code>jupyter notebook (or lab)
-
-</code></pre>
+<h2 id="Running-the-course-notebooks">Running the course notebooks<a class="anchor-link" href="#Running-the-course-notebooks">&#182;</a></h2><p>Run jupyter lab from the folder where you have downloaded (cloned) the course materials.</p>
 <p>A browser window should open with all course materials. Open one of the chapters and check if you can execute all code by clicking Cell &gt; Run all.</p>
 
 </div>
@@ -13417,12 +13373,29 @@ this first. <a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Alternative-environments-for-running-the-notebooks">Alternative environments for running the notebooks<a class="anchor-link" href="#Alternative-environments-for-running-the-notebooks">&#182;</a></h3><h5 id="Google-Colab">Google Colab<a class="anchor-link" href="#Google-Colab">&#182;</a></h5><p>Google Colab allows you to run a notebook on Google Drive (with limited GPU support): <a href="https://colab.research.google.com/notebooks/gpu.ipynb">https://colab.research.google.com/notebooks/gpu.ipynb</a>
-A more detailed tutorial can be found here (you won't need PyTorch or fast.ai fro this course): <a href="https://towardsdatascience.com/fast-ai-lesson-1-on-google-colab-free-gpu-d2af89f53604">https://towardsdatascience.com/fast-ai-lesson-1-on-google-colab-free-gpu-d2af89f53604</a></p>
+A more detailed tutorial can be found here (you won't need PyTorch for this course, but we do recommend learning it): <a href="https://towardsdatascience.com/fast-ai-lesson-1-on-google-colab-free-gpu-d2af89f53604">https://towardsdatascience.com/fast-ai-lesson-1-on-google-colab-free-gpu-d2af89f53604</a></p>
 <p>There are limitations (obviously): right now GPU usage is limited to 12h and RAM is shared among multiple users.</p>
-<p>Note: Install additional packages from within notebooks with '!pip install package'</p>
+<p>Note: You need to upload your course notebooks to colab yourself (File &gt; Upload Notebook).
+You can install additional packages from within notebooks with '!pip install package'.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
 </div></section></section>
 </div>
 </div>
