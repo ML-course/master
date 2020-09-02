@@ -13204,7 +13204,7 @@ a.anchor-link {
 //  margin-top: 5px;
 }
 .reveal.slide .slides{
-  width: 1000px !important;
+  width: 1200px !important;
   height: 100%;
 }
 .reveal.slide .slides > section, .reveal.slide .slides > section > section {
@@ -13227,10 +13227,30 @@ a.anchor-link {
   flex-direction: inherit !important;
 }
 .print-pdf .reveal.slide .slides > section, .print-pdf .reveal.slide .slides > section > section {
-  min-height: 770px !important;
+  min-height: 727px !important;
   position: relative !important;
+  width: 1200px !important;
+  height: 100%;
 }
-</style>
+.pdf-page {
+  height: 727px !important;
+}
+.output_subarea {
+  padding: 0px !important;
+}
+.reveal section img {
+  margin: 0 !important;
+}
+.print-pdf section {
+  left: 0px;
+}
+.print-pdf .prompt{
+  min-width: 0px !important;
+}
+.rendered_html ul:not(.list-inline){
+  padding-left: 0px !important;
+}
+</style> 
 
 <script>
 $(document).ready(function(){
@@ -13260,7 +13280,7 @@ $(document).ready(function(){
 <h2 id="Course-materials-on-GitHub">Course materials on GitHub<a class="anchor-link" href="#Course-materials-on-GitHub">&#182;</a></h2><p>The course materials are available on Canvas, but the sources are also on GitHub, so that you always have the latest updates. To download them, you first need to <a href="https://git-scm.com/book/en/v1/Getting-Started-Installing-Git">install git</a> (if you haven't already).</p>
 <p>You can 'clone' the course as follows from the command line (you can also use a <a href="https://desktop.github.com/">GUI</a>)</p>
 
-<pre><code>git clone https://github.com/ML-course/engineer.git
+<pre><code>git clone https://github.com/ML-course/master.git
 
 </code></pre>
 <p>To download updates, run <code>git pull</code></p>
