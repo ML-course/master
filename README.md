@@ -19,6 +19,8 @@ We use many code examples from the following excellent books. We urge you to rea
 ### Theory-oriented materials
 For a deeper understanding of machine learning techniques, we can recommend the following books:
 
+"[Mathematics for Machine Learning](https://mml-book.github.io/book/mml-book.pdf) by Marc Deisenroth, A. Aldo Faisal and Cheng Soon Ong. This provides the basics of linear algebra, geometry, probabilities, and continuous optimization, and how they are used in several machine learning algorithms. The PDF is available for free.
+
 "[The Elements of Statistical Learning: Data Mining, Inference, and Prediction. (2nd edition)](https://statweb.stanford.edu/~tibs/ElemStatLearn/)" by Trevor Hastie, Robert Tibshirani, Jerome Friedman. One of the key references of the field. Great coverage of linear models, regularization, kernel methods, model evaluation, ensembles, neural nets, unsupervised learning. The PDF is available for free.  
 
 "[Deep Learning](http://www.deeplearningbook.org/)" by Ian Goodfellow, Yoshua Bengio, Aaron Courville. The current reference for deep learning. Chapters can be downloaded from the website.
