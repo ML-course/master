@@ -1,122 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-
-    <meta charset="utf-8">
-    <meta name="author" content="Joaquin Vanschoren">
+    <meta charset="utf-8" />
+    <meta name="author" content="Joaquin Vanschoren" />
 
     <title>Machine Learning lectures</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/flatly/bootstrap.min.css" rel="stylesheet">
-    <style>.snug{margin-top:-0.75rem;margin-bottom:-0.75rem;margin-right:-1.25rem;}
-           .roomy{margin-top:40px;}
-	   .lead{margin-top:40px;}
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/flatly/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .snug {
+        margin-top: -0.75rem;
+        margin-bottom: -0.75rem;
+        margin-right: -1.25rem;
+      }
+      .roomy {
+        margin-top: 40px;
+      }
+      .lead {
+        margin-top: 40px;
+      }
     </style>
-
-
   </head>
 
   <body>
-
     <!-- Navigation -->
     <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
       <div class="container">
-        <a href="https://ml-course.github.io/" class="navbar-brand">Machine Learning lectures</a>
+        <a href="https://ml-course.github.io/" class="navbar-brand"
+          >Machine Learning lectures</a
+        >
         <ul class="nav navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="https://github.com/ML-course/master">GitHub</a>
+            <a class="nav-link" href="https://github.com/ML-course/master"
+              >GitHub</a
+            >
           </li>
         </ul>
-
       </div>
     </div>
 
-  <div class="container" style="margin-top:100px">
-  <div class="bs-docs-section clearfix" style="min-height:100vh">
-    <div class="row">
-    <div class="col-lg-12">
+    <div class="container" style="margin-top:100px">
+      <div class="bs-docs-section clearfix" style="min-height:100vh">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="roomy" id="courses">Lectures</h1>
 
-    <h1 class="roomy" id="courses">Lectures</h1>
+            <p class="lead" id="jm0150">
+              Videos are available on our
+              <a
+                href="https://www.youtube.com/channel/UCurDcl-q8dkRF5WFMCW1tSA"
+                target="_blank"
+                >YouTube channel</a
+              >
+            </p>
+            <ul class="list-group">
+              <li
+                class="list-group-item d-flex justify-content-between showlinks"
+              >
+                <span>00 - Prerequisites</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlinks"
+              >
+                <span>01 - Introduction</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlinks"
+              >
+                <span>02 - Linear Models</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlinks"
+              >
+                <span>03 - Kernelization</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlinks"
+              >
+                <span>04 - Model Selection</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlinks"
+              >
+                <span>05 - Ensemble Learning</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlinks"
+              >
+                <span>06 - Data Preprocessing</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlinks"
+              >
+                <span>07 - Bayesian Learning</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlinks"
+              >
+                <span>08 - Neural Networks</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlinks"
+              >
+                <span>09 - Convolutional Neural Networks</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlinks"
+              >
+                <span>10 - Neural Networks for text</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showpdflink"
+              >
+                <span>11 - Automated Machine Learning</span>
+              </li>
+            </ul>
 
-    <p class="lead" id="jm0150">Videos are available on our <a href="https://www.youtube.com/channel/UCurDcl-q8dkRF5WFMCW1tSA" target="_blank">YouTube channel</a></p>
-    <ul class="list-group">
-      <li class="list-group-item d-flex justify-content-between showlinks"><span>00 - Prerequisites</span></li>
-      <li class="list-group-item d-flex justify-content-between showlinks"><span>01 - Introduction</span></li>
-      <li class="list-group-item d-flex justify-content-between showlinks"><span>02 - Linear Models</span></li>
-      <li class="list-group-item d-flex justify-content-between showlinks"><span>03 - Kernelization</span></li>
-      <li class="list-group-item d-flex justify-content-between showlinks"><span>04 - Model Selection</span></li>
-      <li class="list-group-item d-flex justify-content-between showlinks"><span>05 - Ensemble Learning</span></li>
-      <li class="list-group-item d-flex justify-content-between showlinks"><span>06 - Data Preprocessing</span></li>
-      <li class="list-group-item d-flex justify-content-between showlinks"><span>07 - Bayesian Learning</span></li>
-      <li class="list-group-item d-flex justify-content-between showlinks"><span>08 - Neural Networks</span></li>
-      <li class="list-group-item d-flex justify-content-between showlinks"><span>09 - Neural Networks for text</span></li>
-      <li class="list-group-item d-flex justify-content-between showlinks"><span>10 - Convolutional Neural Networks</span></li>
-      <li class="list-group-item d-flex justify-content-between showpdflink"><span>11 - Automated Machine Learning</span></li>
-    </ul>
+            <h1 class="roomy" id="courses">Labs</h1>
+            <p class="lead">
+              Solutions will become active towards the end of each lab session
+            </p>
+            <ul class="list-group">
+              <li
+                class="list-group-item d-flex justify-content-between showlablink"
+              >
+                <span>Lab 1 - Tutorial</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlablinks"
+              >
+                <span>Lab 1 - Linear Models</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlablinks"
+              >
+                <span>Lab 2 - SVM</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlablink"
+              >
+                <span>Lab 3 - Tutorial</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlablinks"
+              >
+                <span>Lab 3 - Model Selection</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlablinks"
+              >
+                <span>Lab 4 - Ensembles</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlablink"
+              >
+                <span>Lab 5 - Tutorial</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlablinks"
+              >
+                <span>Lab 5 - Pipelines</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlablinks"
+              >
+                <span>Lab 6 - Bayesian Models (TBA)</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlablink"
+              >
+                <span>Lab 7 - Tutorial</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlablink"
+              >
+                <span>Lab 7 - Neural Networks (TBA)</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlablinks"
+              >
+                <span>Lab 8 - Convolutional Neural Networks</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlablinks"
+              >
+                <span>Lab 9 - Neural Networks for text</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlablinks"
+              >
+                <span>Lab 10 - AutoML</span>
+              </li>
+            </ul>
 
+            <h1 class="roomy" id="background">Background materials</h1>
+            <p class="lead">Basic programming</p>
 
-    <h1 class="roomy" id="courses">Labs</h1>
-    <p class="lead">Solutions will become active towards the end of each lab session</p>
-    <ul class="list-group">
-      <li class="list-group-item d-flex justify-content-between showlablink"><span>Lab 1 - Tutorial</span></li>
-      <li class="list-group-item d-flex justify-content-between showlablinks"><span>Lab 1 - Linear Models</span></li>
-      <li class="list-group-item d-flex justify-content-between showlablinks"><span>Lab 2 - SVM</span></li>
-      <li class="list-group-item d-flex justify-content-between showlablink"><span>Lab 3 - Tutorial</span></li>
-      <li class="list-group-item d-flex justify-content-between showlablinks"><span>Lab 3 - Model Selection</span></li>
-      <li class="list-group-item d-flex justify-content-between showlablinks"><span>Lab 4 - Ensembles</span></li>
-      <li class="list-group-item d-flex justify-content-between showlablink"><span>Lab 5 - Tutorial</span></li>
-      <li class="list-group-item d-flex justify-content-between showlablinks"><span>Lab 5 - Pipelines</span></li>
-      <li class="list-group-item d-flex justify-content-between showlablinks"><span>Lab 6 - Bayesian Models (TBA)</span></li>
-      <li class="list-group-item d-flex justify-content-between showlablink"><span>Lab 7 - Tutorial</span></li>
-      <li class="list-group-item d-flex justify-content-between showlablink"><span>Lab 7 - Neural Networks (TBA)</span></li>
-      <li class="list-group-item d-flex justify-content-between showlablinks"><span>Lab 8 - Neural Networks for text</span></li>
-      <li class="list-group-item d-flex justify-content-between showlablinks"><span>Lab 9 - Convolutional Neural Networks</span></li>
-      <li class="list-group-item d-flex justify-content-between showlablinks"><span>Lab 10 - AutoML</span></li>
-    </ul>
+            <ul class="list-group">
+              <li
+                class="list-group-item d-flex justify-content-between showlinks"
+              >
+                <span>Tutorial 1 - Python</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlinks"
+              >
+                <span>Tutorial 2 - Python for Data Analysis</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlinks"
+              >
+                <span>Tutorial 3 - Machine Learning in Python</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between showlinks"
+              >
+                <span>Tutorial 4 - Deep Learning in Python</span>
+              </li>
+            </ul>
 
-
-    <h1 class="roomy" id="background">Background materials</h1>
-    <p class="lead">Basic programming</p>
-
-    <ul class="list-group">
-      <li class="list-group-item d-flex justify-content-between showlinks"><span>Tutorial 1 - Python</span></li>
-      <li class="list-group-item d-flex justify-content-between showlinks"><span>Tutorial 2 - Python for Data Analysis</span></li>
-      <li class="list-group-item d-flex justify-content-between showlinks"><span>Tutorial 3 - Machine Learning in Python</span></li>      
-      <li class="list-group-item d-flex justify-content-between showlinks"><span>Tutorial 4 - Deep Learning in Python</span></li>
-    </ul>
-
-    <p class="lead roomy">Additional resources</p>
-    <ul><li><a href="https://github.com/jrjohansson/scientific-python-lectures">Scientific Python Lectures (by J.R. Johansson)</a></li></ul>
-
-  </div>
-
-</div>
-</div>
-</div>
+            <p class="lead roomy">Additional resources</p>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/jrjohansson/scientific-python-lectures"
+                  >Scientific Python Lectures (by J.R. Johansson)</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer id="footer" style="padding-top:50px">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-
-            <p>Made with love by <a href="https://joaquinvanschoren.github.io/">Joaquin Vanschoren</a></p>
-            <p>Materials released under the <a href="https://creativecommons.org/share-your-work/public-domain/cc0">CC0 License</a>. You can use them as you like.</p>
-            <p>Partly based on notebooks by <a href="https://github.com/amueller/introduction_to_ml_with_python">Andreas Mueller</a> (CC0 licenced), <a href="https://github.com/fchollet/deep-learning-with-python-notebooks">François Chollet</a> (MIT licenced), <a href="https://github.com/rasbt/python-machine-learning-book-2nd-edition">Sebastian Raschka</a> (MIT licenced), and <a href="https://github.com/lawrennd/talks">Neil Lawrence</a> (with permission)</p>
-          </div>
-
+            <p>
+              Made with love by
+              <a href="https://joaquinvanschoren.github.io/"
+                >Joaquin Vanschoren</a
+              >
+            </p>
+            <p>
+              Materials released under the
+              <a
+                href="https://creativecommons.org/share-your-work/public-domain/cc0"
+                >CC0 License</a
+              >. You can use them as you like.
+            </p>
+            <p>
+              Partly based on notebooks by
+              <a
+                href="https://github.com/amueller/introduction_to_ml_with_python"
+                >Andreas Mueller</a
+              >
+              (CC0 licenced),
+              <a
+                href="https://github.com/fchollet/deep-learning-with-python-notebooks"
+                >François Chollet</a
+              >
+              (MIT licenced),
+              <a
+                href="https://github.com/rasbt/python-machine-learning-book-2nd-edition"
+                >Sebastian Raschka</a
+              >
+              (MIT licenced), and
+              <a href="https://github.com/lawrennd/talks">Neil Lawrence</a>
+              (with permission)
+            </p>
           </div>
         </div>
-
-      </footer>
+      </div>
+    </footer>
 
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  <script>
+    <script>
       $(function() {
         $(".showlinks").each(function() {
           $(this).append(
@@ -207,7 +378,5 @@
         );
       });
     </script>
-
   </body>
-
 </html>
