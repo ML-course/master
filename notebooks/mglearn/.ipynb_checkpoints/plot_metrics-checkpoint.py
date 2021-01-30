@@ -8,12 +8,12 @@ from .plot_helpers import ReBl
 def plot_confusion_matrix_illustration():
     plt.figure(figsize=(8, 8))
     confusion = np.array([[401, 2], [8, 39]])
-    plt.text(0.40, .7, confusion[0, 0], size=70, horizontalalignment='right')
-    plt.text(0.40, .2, confusion[1, 0], size=70, horizontalalignment='right')
-    plt.text(.90, .7, confusion[0, 1], size=70, horizontalalignment='right')
-    plt.text(.90, 0.2, confusion[1, 1], size=70, horizontalalignment='right')
-    plt.xticks([.25, .75], ["predicted 'not nine'", "predicted 'nine'"], size=20)
-    plt.yticks([.25, .75], ["true 'nine'", "true 'not nine'"], size=20)
+    plt.text(0.40, .7, confusion[0, 0], size=35, horizontalalignment='right')
+    plt.text(0.40, .2, confusion[1, 0], size=35, horizontalalignment='right')
+    plt.text(.90, .7, confusion[0, 1], size=35, horizontalalignment='right')
+    plt.text(.90, 0.2, confusion[1, 1], size=35, horizontalalignment='right')
+    plt.xticks([.25, .75], ["predicted 'negative'", "predicted 'positive'"], size=20)
+    plt.yticks([.25, .75], ["true 'positive'", "true 'negative'"], size=20)
     plt.plot([.5, .5], [0, 1], '--', c='k')
     plt.plot([0, 1], [.5, .5], '--', c='k')
 
@@ -22,12 +22,13 @@ def plot_confusion_matrix_illustration():
 
 
 def plot_binary_confusion_matrix():
-    plt.text(0.45, .6, "TN", size=100, horizontalalignment='right')
-    plt.text(0.45, .1, "FN", size=100, horizontalalignment='right')
-    plt.text(.95, .6, "FP", size=100, horizontalalignment='right')
-    plt.text(.95, 0.1, "TP", size=100, horizontalalignment='right')
-    plt.xticks([.25, .75], ["predicted negative", "predicted positive"], size=15)
-    plt.yticks([.25, .75], ["positive class", "negative class"], size=15)
+    plt.figure(figsize=(4, 3))
+    plt.text(0.45, .6, "TN", size=50, horizontalalignment='right')
+    plt.text(0.45, .1, "FN", size=50, horizontalalignment='right')
+    plt.text(.95, .6, "FP", size=50, horizontalalignment='right')
+    plt.text(.95, 0.1, "TP", size=50, horizontalalignment='right')
+    plt.xticks([.25, .75], ["predicted negative", "predicted positive"], size=10)
+    plt.yticks([.25, .75], ["positive class", "negative class"], size=10)
     plt.plot([.5, .5], [0, 1], '--', c='k')
     plt.plot([0, 1], [.5, .5], '--', c='k')
 
@@ -45,7 +46,6 @@ def plot_decision_threshold():
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 
     fig, axes = plt.subplots(2, 3, figsize=(15, 8), subplot_kw={'xticks': (), 'yticks': ()})
-    plt.suptitle("decision_threshold")
     axes[0, 0].set_title("training data")
     discrete_scatter(X_train[:, 0], X_train[:, 1], y_train, ax=axes[0, 0])
 
@@ -56,7 +56,7 @@ def plot_decision_threshold():
                    ax=axes[0, 1], cm=ReBl)
     plot_2d_separator(svc, X_train, linewidth=3, ax=axes[0, 1])
     axes[0, 1].set_xlim(X_train[:, 0].min(), X_train[:, 0].max())
-
+    
     axes[0, 2].set_title("decision with threshold -0.8")
     discrete_scatter(X_train[:, 0], X_train[:, 1], y_train, ax=axes[0, 2])
     plot_2d_separator(svc, X_train, linewidth=3, ax=axes[0, 2], threshold=-.8)
