@@ -68,9 +68,9 @@ def plot_grid_search_overview():
 
     final_evaluation = draw(axes, "final evaluation", (5 * step, grr - 3 * step))
     retrained_model = draw(axes, "retrained model", (3 * step, grr - 3 * step), final_evaluation)
-    best_parameters = draw(axes, "best parameters", (.5 * step, grr - 3 * step), retrained_model)
+    best_parameters = draw(axes, "best hyperparameters", (.5 * step, grr - 3 * step), retrained_model)
     cross_validation = draw(axes, "cross-validation", (.5 * step, grr - 2 * step), best_parameters)
-    parameters = draw(axes, "parameter grid", (0.0, grr - 0), cross_validation)
+    parameters = draw(axes, "hyperparameter space", (0.0, grr - 0), cross_validation)
     training_data = draw(axes, "training data", (2 * step, grr - step), cross_validation)
     draw(axes, "training data", (2 * step, grr - step), retrained_model)
     test_data = draw(axes, "test data", (5 * step, grr - step), final_evaluation)
