@@ -1,0 +1,12 @@
+setuptools
+pytest
+pandas
+numpy
+matplotlib
+jupyter
+openml
+scikit-learn
+ipython
+tqdm
+seaborn
+tensorflow
