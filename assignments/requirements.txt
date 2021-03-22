@@ -1,5 +1,6 @@
 setuptools
 pytest
+testresources
 pandas
 numpy==1.19.2
 matplotlib
