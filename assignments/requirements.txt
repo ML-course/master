@@ -12,3 +12,4 @@ tqdm
 seaborn
 tensorflow
 pygments>=2.4.1
+pydot
