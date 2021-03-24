@@ -1,7 +1,8 @@
 setuptools
 pytest
+testresources
 pandas
-numpy
+numpy==1.19.2
 matplotlib
 jupyter
 openml
@@ -11,3 +12,4 @@ tqdm
 seaborn
 tensorflow
 pygments>=2.4.1
+pydot
