@@ -1,13 +1,5 @@
 assignments-old/*
-.ipynb_checkpoints/*
 assign/*
-labs/.ipynb_checkpoints/*
-slides_pdf/.ipynb_checkpoints/*
-notebooks/.ipynb_checkpoints/*
-notebooks/__pycache__/*
-notebooks/mglearn/__pycache__/*
-studies/.ipynb_checkpoints/*
-studies/__pycache__/*
-templates/.ipynb_checkpoints/*
-*/.DS_Store
+.ipynb_checkpoints/
+__pycache__/
 .DS_Store
