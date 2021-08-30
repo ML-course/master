@@ -1,0 +1,29 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x.motif:16616 comp.windows.x:67015
+Newsgroups: comp.windows.x.motif,comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!wupost!uhog.mit.edu!news.media.mit.edu!dyoung
+From: dyoung@media.mit.edu (David Young)
+Subject:  Macro Recorder/Player for X?
+Message-ID: <1993Apr19.183300.15235@news.media.mit.edu>
+Sender: news@news.media.mit.edu (USENET News System)
+Organization: MIT Media Laboratory
+Date: Mon, 19 Apr 1993 18:33:00 GMT
+Lines: 18
+
+
+
+Is there aything available for X similar to QuicKeys for the Macintosh --
+something that will allow me to store and playback sequences of keystrokes,
+menu selections, and mouse actions - directing them towards another
+application?
+
+If so, could someone send me information on its availability -- and if not,
+how hard do we think it might be to send input to other X applications and,
+hopefully, deal with their responses appropriately?  (If an application is
+going to take a few seconds to process I probably have to wait  for it to
+complete before sending another command.)
+
+thanks,
+
+david,
+
+

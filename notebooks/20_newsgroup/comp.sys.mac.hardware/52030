@@ -1,0 +1,27 @@
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!darwin.sura.net!zaphod.mps.ohio-state.edu!moe.ksu.ksu.edu!matt.ksu.ksu.edu!news
+From: paryavi@matt.ksu.ksu.edu (Saiid Paryavi)
+Newsgroups: comp.sys.mac.hardware
+Subject: Centris 610 to 25MHz or 33MHz ???
+Date: 21 Apr 1993 14:57:50 -0500
+Organization: Kansas State University
+Lines: 15
+Message-ID: <1r48vuINN234@matt.ksu.ksu.edu>
+NNTP-Posting-Host: matt.ksu.ksu.edu
+Summary: Is it possible?
+Keywords: Centris
+
+I just put a 33MHz 040 CPU into my Centris 610.  Now I have a math coprocessor,
+but is it possible to speed up the Centris to run at either 25MHz or 33MHz??
+
+I didn't see any oscillators on the motherboard like the ones on the IIsi's
+motherboard!  Where is the oscillator for the Centris?
+
+Any ideas?
+
+Thanks
+
+
+-- 
+*************************************************************************
+Saiid Paryavi 		paryavi@matt.ksu.ksu.edu 	saiid@cis.ksu.edu
+*************************************************************************

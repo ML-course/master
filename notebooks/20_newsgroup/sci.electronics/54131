@@ -1,0 +1,50 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.msdos.programmer:23353 alt.msdos.programmer:6825 sci.electronics:54131
+Newsgroups: comp.os.msdos.programmer,alt.msdos.programmer,sci.electronics
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!saimiri.primate.wisc.edu!usenet.coe.montana.edu!selway.umt.edu!maynard
+From: maynard@selway.umt.edu (Robert L Maynard)
+Subject: Re: How to the disks copy protected.
+Message-ID: <1993Apr23.234250.21095@selway.umt.edu>
+Followup-To: comp.os.msdos.programmer
+Summary: WHY make backups ???
+Organization: University of Montana
+References: <1993Apr21.085848.12704W@lumina.edb.tih.no> <1r76sbINNkap@flop.ENGR.ORST.EDU>
+Date: Fri, 23 Apr 1993 23:42:50 GMT
+Lines: 37
+
+> noeler@xanth.CS.ORST.EDU (Eric Richard Noel) writes:
+> >
+[Discussion on Piracy Deleted]
+> 
+> Off deeper end-> Why does everyone think they need to be able to make a 
+> backup copy? Almost all new software must be installed to the hard disk,
+> so you are left with the originals as your backups. I think its a waste
+> of time, space, and money, as well as it makes it to tempting to "lend"
+> out the backups. 
+> 
+My own practice with new software :
+
+make a copy of the original floppies to a second set of floppies.
+
+install to hard drive from second set of floppies.
+
+put originals in a box in room number one.
+
+put copies in box in room number two.
+
+1) Accidents DO happen to original floppies.
+2) Accidents CAN happen to the installation floppy.
+3) Sometimes software goes out on floppies that are JUST marginally good.  Or
+   gets too close to a magnet in shipping or storage.
+
+I've had experience with SOMETHING like the last.  I purchased a compiler from
+a reputable vendor.  THe debugger in the package just would NOT install to the
+hard drive. NO WAY.  Repeated floppy-to-floppy copies FINALLY got a clean read
+of the disk.  I DON'T recall if I used "diskcopy", "copy/b", or "xcopy".
+
+I made a second copy of the marginal floppy and installed from that.  No problenms ( except with my typing :-)  ) since.
+
+I regard backup floppies as CHEAP insurance.
+
+Just my side of the question...
+
+Bob

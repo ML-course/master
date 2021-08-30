@@ -1,0 +1,38 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!sdd.hp.com!spool.mu.edu!enterpoop.mit.edu!INTERNET!news-mail-gateway
+From: mahan@TGV.COM (Patrick L. Mahan)
+Newsgroups: comp.windows.x
+Subject: RE: Sunview -> X
+Date: 16 Apr 1993 16:26:03 -0400
+Organization: The Internet
+Lines: 26
+Sender: news@athena.mit.edu
+Message-ID: <930416110751.60800132@TGV.COM>
+NNTP-Posting-Host: enterpoop.mit.edu
+To: xpert@expo.lcs.mit.edu, alex@vuse.vanderbilt.edu
+
+#
+#No doubt this is an old question, but I didn't find the answer in the
+#FAQs I could find, so - here goes:
+#
+#I have a Sunview application that I want to convert to X (OpenLook,
+#Motiv, whatever). I remember hearing quite some time ago that there
+#are tools to accomplish this task.
+#
+#	a) is that so?
+#	b) are they public domain?
+#	c) any good, i.e.
+#	d) advantages over reimplementing the interface myself?
+#
+
+The simple answer is for you to obtain use XView to do this.  XView is a
+one to one replacement for Sunview.  It should already be provided with
+you Sun running OpenWindows.   It is also free available as part of the
+contrib side of the MIT X11R5 release.
+
+Patrick L. Mahan
+
+--- TGV Window Washer ------------------------------- Mahan@TGV.COM ---------
+
+Waking a person unnecessarily should not be considered  - Lazarus Long
+a capital crime.  For a first offense, that is            From the Notebooks of
+							  Lazarus Long

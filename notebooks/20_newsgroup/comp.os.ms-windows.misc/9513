@@ -1,0 +1,24 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!darwin.sura.net!sgiblab!wetware!sjsumcs!silver!rick
+From: rick@silver.SJSU.EDU (Richard Warner)
+Subject: Re: Win NT - what is it???
+Message-ID: <rick.734972416@silver>
+Sender: news@sjsumcs.sjsu.edu (News Administrator)
+Nntp-Posting-Host: silver.sjsu.edu
+Organization: San Jose State University - Math/CS Dept.
+References: <1qkfsmINNhki@uwm.edu> <16APR93.02170289@vax.clarku.edu>
+Date: 16 Apr 93 15:00:16 GMT
+Lines: 12
+
+rmohns@vax.clarku.edu writes:
+
+>Windows NT is a giant Windows Operating System.  Unline Win3.1, it does not 
+>run on top of DOS.  It is its own OS, with (Billy Gates assures us) true 
+>multi-tasking/multithreading, meets DOD security specs, will run win3.1 
+>programs as well as DOS programs, has multi-processor support, and is
+>primarily a Server program.  It's overhead is too high for it to be
+>economical for most users.
+
+Correction:  All Billy is promising is that it will run 'most' Windows 3.1
+programs and the 'major' DOS programs.  Do not expect everything you
+have to run under NT unless all you have are current MS apps.

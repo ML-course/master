@@ -1,0 +1,43 @@
+Newsgroups: comp.sys.mac.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!agate!linus!philabs!sci.ccny.cuny.edu!sukenick
+From: sukenick@sci.ccny.cuny.edu (SYG)
+Subject: Re: AD conversion
+Message-ID: <1993Apr15.174208.1209@sci.ccny.cuny.edu>
+Organization: City College of New York - Science Computing Facility
+References: <1993Apr13.181720.13214@vax.oxford.ac.uk> <b-clark-130493222951@aragorn24.acns.nwu.edu>
+Date: Thu, 15 Apr 1993 17:42:08 GMT
+Lines: 33
+
+>> I am working a  data acquisition and analysis program to collect data
+>> from insect sensory organs.
+>> Another alternative is the use of the sound input port.
+>
+>Can you really make due with the non-existent dynamic range of an 8-bit
+>converter, of probably dubious linearity and monotonicity, and perhaps
+>AC-coupled as well?
+
+It would depend on the requirements of the poster's data, for some
+purposes 1/256 resolution (with or without calibration curve).
+
+
+Otherwise the other possibilities would be:
+
+1) get a digital voltameter with serial output & connect to serial
+port on mac, collect data with some communications program.
+
+2) Buy an A/D chip from Analog devices, Burr-Brown, etc, connect to
+a parallel to serial converter, use serial port for acquisition
+(nah. too much soldering and trouble shooting :-)
+
+3) Get a board from National Instruments, Data Translation, Omega,
+etal.  The finest solution, but possibly the most costly.
+
+
+
+To the original poster:  if the signal is too large, why not
+use a voltage divider? Two resistors, cost very cheap...
+-- 
+
+					-george
+					sukenick@sci.ccny.cuny.edu
+					212-650-6028

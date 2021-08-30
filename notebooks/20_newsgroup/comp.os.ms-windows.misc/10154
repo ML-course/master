@@ -1,0 +1,36 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!bogus.sura.net!darwin.sura.net!sgiblab!sdd.hp.com!decwrl!decwrl!uunet!utcsri!utnut!torn!mcshub!maccs!cui
+From: cui@maccs.mcmaster.ca (Jun Cui)
+Subject: How to respond to WM_LBUTTONDBLCLK?
+Message-ID: <1993May1.033927.20361@mcshub.dcss.mcmaster.ca>
+Keywords: MS-Windows, SDK
+Sender: usenet@mcshub.dcss.mcmaster.ca
+Nntp-Posting-Host: maccs.dcss.mcmaster.ca
+Organization: Department of Computer Science, McMaster University
+Distribution: comp.windows.ms
+Date: Sat, 1 May 1993 03:39:27 GMT
+Lines: 23
+
+I'm using BC++'s ObjectWindows (3.1), trying to resond to the left button
+double click message WM_LBUTTONDBLCLK in a combo box. My codes look like:
+
+class MyComboBox : public TComboBox
+{
+public:
+	MyComboBox(PTWindowsObject AParent, int ResourceId, WORD ATextLen) :
+		TComboBox(AParent, ResourceId, ATextLen) {};
+	virtual void WMLButtonDblClk(RTMessage Msg) = [WM_FIRST + WM_LBUTTONDBLCLK];
+};
+
+void MyComboBox::WMLButtonDblClk(RTMessage Msg)
+{
+	...	// responding to the message (selecting the item in the list box)
+}
+
+Anything wrong with my program? Any help would be appreciated.
+
+-- jun
+To talk to the Lord with PS/2 through MS-Windows
+
+
+

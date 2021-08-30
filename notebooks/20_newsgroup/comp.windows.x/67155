@@ -1,0 +1,33 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:67155 comp.windows.open-look:8390
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!ub!dsinc!vu-vlsi.ee.vill.edu!tiger.vill.edu!sharma
+From: sharma@tiger.vill.edu (Sanjeev Sharma)
+Newsgroups: comp.windows.x,comp.windows.open-look
+Subject: Positioning a window, under openlook.
+Keywords: Windows, openlook.
+Message-ID: <C5v5pK.8t4@vu-vlsi.ee.vill.edu>
+Date: 22 Apr 93 02:32:07 GMT
+Sender: news@vu-vlsi.ee.vill.edu
+Organization: Villanova University
+Lines: 20
+Originator: sharma@tiger.vill.edu
+
+Hi there netters,
+
+I require a window to appear at a co-ordinates (0,0) (top left corner) of my
+screen (root window). Could some windows guru out there help me on how to
+go about doing this. I write the whole program which creates the window with
+the image it displays - I require the image to appear at the top-left corner
+so that I can grab it for recording on to video, using a MIniVas controller,
+which expects the window at the same spot every time.
+
+Thanks in advance.
+
+sincerely,
+
+Sanjeev Sharma
+
+-- 
+_____________________________________________________________________
+Office:					     e_mail:	
+   Deptt. of Computing Science		     	sharma@monet.vill.edu
+   Villanova University			     (215)645-6463  

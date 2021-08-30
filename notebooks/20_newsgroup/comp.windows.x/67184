@@ -1,0 +1,31 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!wri!morrison.wri.com!cwikla
+From: cwikla@morrison.wri.com (John Cwikla)
+Subject: Pixmaps and colormaps sent through selections...
+Message-ID: <cwikla.735247134@morrison.wri.com>
+Summary: Selections and Pixmaps/Colormaps
+Keywords: Selections
+Sender: news@wri.com
+Nntp-Posting-Host: morrison.wri.com
+Organization: Wolfram Research, Inc.
+Date: Mon, 19 Apr 1993 19:18:54 GMT
+Lines: 18
+
+
+	I want to be able to send a Pixmap from one client to the next.
+Along with this I want to send the Colormap and foreground and
+background pixel values.  So far not a problem, I can do
+this with no problem.
+
+  However, once I have the Pixmap id and the Colormap id, how
+do I go about telling the server that the second (receiving)
+client now wants to have associations with the two id's?
+
+	TIA,
+
+	John
+--
+o  John L. Cwikla                       o                            o
+o  X Programmer                         o  X was never the first     o
+o  Wolfram Research, Inc.               o   letter of the alphabet   o
+o  cwikla@wri.com  (217) 398-0700       o                            o

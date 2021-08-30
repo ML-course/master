@@ -1,0 +1,43 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!uwm.edu!caen!batcomputer!ghost.dsi.unimi.it!genes!oberto
+From: oberto@genes.icgeb.trieste.it (Jacques Oberto)
+Subject: Re: HELP!!! GRASP
+Message-ID: <1993Apr20.125147.10665@genes.icgeb.trieste.it>
+Organization: ICGEB
+References: <1993Apr19.160944.20236W@baron.edb.tih.no> <16BB5133D5.CBW790S@vma.smsu.edu.Ext>
+Date: Tue, 20 Apr 1993 12:51:47 GMT
+Lines: 33
+
+CBW790S@vma.smsu.edu.Ext (Corey Webb) writes:
+
+>In article <1993Apr19.160944.20236W@baron.edb.tih.no>
+>havardn@edb.tih.no (Haavard Nesse,o92a) writes:
+>>
+>>Could anyone tell me if it's possible to save each frame
+>>of a .gl (grasp) animation to .gif, .jpg, .iff or any other
+>>picture formats.
+>>
+> 
+>     If you have the GRASP animation system, then yes, it's quite easy.
+>You simply use GLIB to extract the image (each "frame" in a .GL is
+>actually a complete .PCX or .CLP file), then use one of MANY available
+>utilities to convert it.  If you don't have the GRASP package, I'm afraid
+>I can't help you.  Sorry.
+>     By the way, before you ask, GRASP (GRaphics Animation System for
+>Professionals) is a commercial product that sells for just over US$300
+>from most mail-order companies I've seen.  And no, I don't have it.  :)
+> 
+> 
+>                                               Corey Webb
+> 
+
+There are several public domain utilities available at your usual
+archive site that allow 'extraction' of single frames from a .gl
+file, check in the 'graphics' directories under *grasp.  The problem 
+is that the .clp files you generate cannot be decoded by any of 
+the many pd format converters I have used. Any hint welcome!
+Let me know if you have problems locating the utilities.
+Hope it helps.
+
+-- 
+Jacques Oberto  <oberto@genes.icgeb.trieste.it>

@@ -1,0 +1,24 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.unix.solaris:3787 comp.windows.x:68112
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!wupost!uunet!mcsun!sun4nl!fwi.uva.nl!casper
+From: casper@fwi.uva.nl (Casper H.S. Dik)
+Newsgroups: comp.unix.solaris,comp.windows.x
+Subject: Re: Patch for X11R5 under solaris 2.1
+Date: 14 May 1993 11:52:53 GMT
+Organization: FWI, University of Amsterdam
+Lines: 11
+Distribution: inet
+Message-ID: <1t016l$av1@mail.fwi.uva.nl>
+References: <cfl.12.737364918@buc.edu.au>
+NNTP-Posting-Host: adam.fwi.uva.nl
+
+cfl@buc.edu.au (Colin Linahan) writes:
+
+>Hi,
+>	Sorry if this is a FAQ but : could someone please tell me where I 
+>can get the patch(es) for X11R5 so that I can compile it under Solaris2.1
+
+export.lcs.mit.edu:/contrib/R5.SunOS5.patch.tar.Z
+
+Get Xsun.multi-screen.tar.Z while you're at it.
+
+Casper

@@ -1,0 +1,36 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!zaphod.mps.ohio-state.edu!uwm.edu!msuinfo!uchinews!chas
+From: chas@stax.uchicago.edu (Charles Blair)
+Subject: xnlock / xdm
+Message-ID: <1993May16.041013.5981@midway.uchicago.edu>
+Sender: news@uchinews.uchicago.edu (News System)
+Organization: University of Chicago Computing Organizations
+X-Newsreader: TIN [version 1.1 PL9]
+Date: Sun, 16 May 1993 04:10:13 GMT
+Lines: 25
+
+I am using xnlock as the screensaver for a PC-based X server. However,
+after an interval of no activity, my X session ends. This does not
+happen when I use xscreensaver. 
+
+My screensave command is fired up from my .xsession like this:
+
+xautolock -time 1 -locker xnlock -corners ++++ -cornerdelay 1 &
+
+My hypothesis is that xdm (I use xdmcp to start my X session) detects
+a period of inactivity from the server, then terminates the session.
+However, for some reason, this does not happen with xscreensaver. Is
+there a workaround?
+
+I'd prefer responses via e-mail.
+
+Thanks.
+
+
+
+
+
+--
+"Economics is not for those who are atracted to real-world problems
+which have simple and clear solutions. For these individuals, I
+recommend astrology."  -- Hugo Sonnenschein

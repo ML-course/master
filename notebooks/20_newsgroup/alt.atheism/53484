@@ -1,0 +1,113 @@
+Xref: cantaloupe.srv.cs.cmu.edu alt.atheism:53484 talk.religion.misc:83857 talk.origins:40978
+Newsgroups: alt.atheism,talk.religion.misc,talk.origins
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!uwm.edu!ux1.cso.uiuc.edu!usenet.ucs.indiana.edu!battin
+From: battin@cyclops.iucf.indiana.edu (Laurence Gene Battin)
+Subject: Re: The Universe and Black Holes, was Re: 2000 years.....
+Message-ID: <C5tx38.Av8@usenet.ucs.indiana.edu>
+Followup-To: alt.atheism,talk.religion.misc,talk.origins
+Sender: news@usenet.ucs.indiana.edu (USENET News System)
+Nntp-Posting-Host: cyclops.iucf.indiana.edu
+Organization: Indiana University
+X-Newsreader: TIN [version 1.1 PL9]
+References: <schinder.735362755@leprss.gsfc.nasa.gov>
+Date: Wed, 21 Apr 1993 10:28:20 GMT
+Lines: 98
+
+In article <schinder.735362755@leprss.gsfc.nasa.gov>, 
+Paul J. Schinder (schinder@leprss.gsfc.nasa.gov) wrote:
+
+> In <1993Apr20.154658@IASTATE.EDU> 
+> kv07@IASTATE.EDU (Warren Vonroeschlaub) writes:
+
+> >In article <lt8d3bINNj1g@exodus.Eng.Sun.COM>, emarsh@hernes-sun.Eng.Sun.COM
+> >(Eric Marsh) writes:
+
+> >>In article <1qvmk2$csk@morrow.stanford.edu> 
+> >>salem@pangea.Stanford.EDU (Bruce
+> >>Salem) writes:
+
+> >>>	I wonder if the Universe would look like a Black Hole
+> >>>from "outside"? How could we posit an "Outside", whether called
+> >>>DeSitter space, hyperspace, parallel universes, whatever?
+> >> 
+> >>I don't think that the universe would look like a black hole from
+> >>the outside, because that would imply that similar to a black hole we
+> >>would see stuff coming in from the "outside."
+
+> >  Now that has always confused me.  Once a black hole forms, I don't see how
+> >anything could pass the event horizon (perhaps including the original mass 
+> >that formed (is forming) the black hole in the first place.
+
+> >  Let's say that we drop a marble into the black hole.  It races, ever 
+> >faster, towards the even horizon.  But, thanks to the curving of space 
+> >caused by the excessive gravity, as the object approaches the event horizon 
+> >it has further to travel.  Integrating the curve gives a time to reach the 
+                                                            ^^^^
+When you look into the math of the different possible frames of reference
+you will find out that this "time" is not physically relevant...
+
+> >event horizon of . . .
+> >infinity.  So the math says that nothing can enter a black hole.
+
+> No it doesn't.  Check again in any of the popular GR texts (Misner,
+> Thorne, and Wheeler, for example).  It takes a finite proper time for
+                                                 ^^^^^^^^^^^^^^^^^^
+The relevant time for the falling object.
+
+> anything near the horizon to cross it (if it's going to in the first
+> place), and a finite proper time for anything crossing the horizon to
+> reach r=0.
+        ^^^ "center of the hole" where the evil singularity lurks
+
+There is NO singularity at the horizon.  The appearance that there is one
+comes from attempting to use a coordinate system that doesn't map properly
+(physically) in this geometry, rather analogous to the "singularity" at
+the North and South Poles of the Earth when using Latitude and Longitude
+lines.  Such "singular" behavior as the earlier post suggested (infinite
+time to reach the horizon) is a mathematical artifact of the wrong choice
+of coordinates.  As Paul says, in the object's frame of reference,
+it WILL hit the horizon in finite time, and then plunge to the singularity
+(that IS a "real" singularity) in a (short, for "small" holes) further finite 
+amount of time.
+
+Not only that, but to an OUTSIDE observer, an object that falls into a black
+hole disappears in a finite time also, in spite of the relativistic "slow-
+down" that intuition suggests.  This is because any light emitted by the
+object as it falls (or is shone onto it by a separate "flashlight") consists
+of individual, FINITE quanta, and only a finite number of these can reach
+the object before it plunges through the horizon.  These will be succesively
+more red-shifted, true, but only a finite number of them will hit the object,
+and following ones will be too late to interact with the object until they,
+too, are inside the horizon (and thus cannot come out).
+
+This reddening, dimming and disappearance is exponentially fast, as the object 
+approaches the horizon, when you do the math.
+
+As Paul says, this is discussed in Misner, Thorne, and Wheeler's book 
+"Gravity" where they talk about the appropriatness (sp?) of the term "black 
+hole" and the inappropriatness (sp?) of an older term: "frozen star", which 
+was used earlier in this century before all the implications of black-hole 
+theory were understood.  Do not let the math deter you from looking at this 
+book; it's got a lot of good prose discussions of this material, in between 
+the equations, that is VERY good reading, IMHO.
+
+Of course, it's all just THEORY... :-)
+
+> > |  __L__
+> >-|-  ___  Warren Kurt vonRoeschlaub
+> > |  | o | kv07@iastate.edu
+> > |/ `---' Iowa State University
+> >/|   ___  Math Department
+> > |  |___| 400 Carver Hall
+> > |  |___| Ames, IA  50011
+> > J  _____
+> --
+> --------
+> Paul J. Schinder
+> NASA Goddard Space Flight Center
+> schinder@leprss.gsfc.nasa.gov
+
+Gene Battin
+battin@cyclops.iucf.indiana.edu
+no .sig yet
+

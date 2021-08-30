@@ -1,0 +1,27 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!emory!swrinde!zaphod.mps.ohio-state.edu!uwm.edu!cs.utexas.edu!utnut!torn!blaze.trentu.ca!trentu.ca!spowell
+From: spowell@trentu.ca (STEFAN POWELL)
+Subject: Cool background patterns!
+Message-ID: <17APR199316031882@trentu.ca>
+News-Software: VAX/VMS VNEWS 1.41    
+Sender: news@trentu.ca (USENET News System)
+Organization: Trent Computing and Telecommunications Department
+Date: Sat, 17 Apr 1993 21:03:00 GMT
+Lines: 16
+
+Here are some cool 3-D background patterns I made.
+
+Edit your CONTROL.INI and add the following lines to your [Patterns] section.
+
+Bricks=148 43 86 172 89 182 99 201
+Tile=1 43 85 43 85 43 85 255
+Tile (diagonal)=148 107 54 156 73 182 99 201
+Slats=0 170 85 170 85 170 85 255
+
+Make sure your desktop color is one of the standard 16 colors or the
+patterns might not work.  I like dark grey the best with these.
+
+If you have any cool one's of your own, please mail them to me.
+_______________________________________________________________________________
+                                             Stefan Powell - SPowell@TrentU.CA
+                                                 Peterborough, Ontario, Canada

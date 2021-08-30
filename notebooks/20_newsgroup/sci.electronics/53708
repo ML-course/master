@@ -1,0 +1,26 @@
+Xref: cantaloupe.srv.cs.cmu.edu rec.radio.amateur.misc:37489 sci.electronics:53708
+Newsgroups: rec.radio.amateur.misc,rec.aviation,sci.electronics
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!wupost!uwm.edu!cs.utexas.edu!cactus.org!thompson
+From: thompson@cactus.org (Charles Thompson)
+Subject: How does "Differential Mode" GPS work???
+Message-ID: <1993Apr19.001449.17255@cactus.org>
+Followup-To: poster
+Organization: Capital Area Central Texas UNIX Society, Austin, Tx
+Date: Mon, 19 Apr 1993 00:14:49 GMT
+Lines: 15
+
+
+
+I understand that the new GPS boxes now have an option
+known as "differential ready".  Apparently land-based
+beacons tranmit GPS correction information to your GPS 
+receiver (with differential option installed).
+
+How does this system work?  What frequency is used for
+the land-based beacons?
+
+Thanks in advance,
+
+Charlie Thompson
+.
+

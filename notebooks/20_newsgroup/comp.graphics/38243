@@ -1,0 +1,17 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!agate!ames!sgi!wdl1!mail!kreyling
+From: kreyling@lds.loral.com (Ed Kreyling 6966)
+Subject: Sun-os and 8bit ASCII graphics
+Message-ID: <1993Apr14.133027.28108@lds.loral.com>
+Organization: Loral Data Systems
+Distribution: comp.graphics
+Date: Wed, 14 Apr 1993 13:30:27 GMT
+Lines: 7
+
+I would like to know if anyone has had any luck using the upper 128 ASCII
+characters on a Sun station.  I am trying to convert a fortran program to run
+on a Sun.  When we write character buffers to the Sun which contain char(218)
+or char(196) or char(197) etc.  We get characters on the screen but they are
+not the characters in the standard ASCII tables.
+
+Any ideas or help will be appreciated.

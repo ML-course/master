@@ -1,0 +1,26 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.binaries.ibm.pc.wanted:11798 comp.os.ms-windows.misc:10609
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!darwin.sura.net!newsserver.jvnc.net!netnews.upenn.edu!netnews.cc.lehigh.edu!aragorn!flash
+From: flash@aragorn.CSEE.Lehigh.Edu (Stephen Corbesero)
+Newsgroups: comp.binaries.ibm.pc.wanted,comp.os.ms-windows.misc
+Subject: Driver for Chips & Technologies Video Board Needed
+Message-ID: <flash.737166122@aragorn>
+Date: 12 May 93 00:22:02 GMT
+Sender: usenet@Lehigh.EDU
+Organization: Lehigh University
+Lines: 14
+Nntp-Posting-Host: aragorn.csee.lehigh.edu
+
+I would like to find a Windows 3.x driver for a video board that is
+based on the Chips & Technologies chipset.  The actual board is a
+Scorpion Framegrabber made by Univision.  It is based on the C&T
+chipset, but only barely supports the graphics mode.  I am hoping that
+any C&T driver could be used in the 640x480x256 mode.
+
+Thanks.
+
+
+--
+Stephen Corbesero                     Systems Manager and Adjucnt Lecturer
+19 Memorial Drive West                corbesero@eecs.lehigh.edu
+EECS Dept, Lehigh University          sgc0@lehigh.edu
+Bethlehem, PA 18015                   Voice: 215/758-5001  Fax: 215/758-6279

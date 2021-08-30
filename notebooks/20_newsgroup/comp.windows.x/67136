@@ -1,0 +1,30 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!zaphod.mps.ohio-state.edu!darwin.sura.net!gatech!enterpoop.mit.edu!INTERNET!news-mail-gateway
+From: rps@arbortext.COM (Ralph Seguin)
+Newsgroups: comp.windows.x
+Subject: finding out state of state keys (eg, CapsLock and NumLock)
+Date: 21 Apr 1993 17:56:46 -0400
+Organization: The Internet
+Lines: 19
+Sender: news@athena.mit.edu
+Message-ID: <9304211637.AA03386@blue.arbortext.com>
+To: xpert@expo.lcs.mit.edu
+
+Hi.  I've looked in the FAQ and the O-Reilly books and was unable to
+find (an easy) means of finding out the state of state keys such as
+CapsLock and NumLock.  I can certainly track the events inside of my
+window and set a boolean there, but what if CapsLock is pressed in
+another window?  I looked at XGrabKey() and decided it was definitely
+NOT what I wanted to do.  I could find no convenience function to tell
+me that information.
+
+My question is this:  Is there a means of determining what the state
+of CapsLock and/or NumLock is?
+
+An even more pointed question: Is there an easy means of making an X
+keyboard act like a PC keyboard?  ie, CapsLock is active, and the user
+presses shift-a, I'd like to get a lowercase 'a' instead of 'A'.
+
+Any input is greatly appreciated. Please respond via email.  I will
+repost a summary of my findings.
+
+			Thanks, Ralph

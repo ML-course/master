@@ -1,0 +1,45 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.crypt:15838 comp.org.eff.talk:17151 misc.legal.computing:3076
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!transfer.stratus.com!ellisun.sw.stratus.com!cme
+From: cme@ellisun.sw.stratus.com (Carl Ellison)
+Newsgroups: sci.crypt,comp.org.eff.talk,misc.legal.computing
+Subject: Strong Encryption
+Date: 23 Apr 1993 15:05:33 GMT
+Organization: Stratus Computer, Software Engineering
+Lines: 33
+Distribution: world
+Message-ID: <1r90jt$5v9@transfer.stratus.com>
+NNTP-Posting-Host: ellisun.sw.stratus.com
+
+I just posted this reply to comp.risks (answering RISKS DIGEST 14.53).
+Summary: Re: [14.53 Mark Seecof] "key escrow"
+References: <CMM.0.90.1.735527964.risks@chiron.csl.sri.com>
+
+>From: Mark Seecof <marks@wimsey.latimes.com>
+>Subject: "key escrow" (Clipper Chip; RISKS 14.51)
+
+>Advances in digital computing have made it possible for ordinary people to
+>use powerful machine cipher techniques.
+
+It is tempting (albeit chauvinistic) to believe that we have a new situation
+here, thanks to our pet computers.  This is not true.  David Kahn's "The
+Codebreakers", a history of cryptography, makes two things obvious:
+
+1.	Cryptography is a spontaneous invention of private human individuals
+	and has been going on for thousands of years.  [Teen-age slang and
+	cipher inventions provide a modern example of this spontaneous
+	creation.]
+
+2.	The systems people created on their own were roughly as secure as (and
+	sometimes more secure than) those used by military and diplomatic
+	users *of that time* (although they seem very simple and insecure
+	today). [e.g., In places, the Bible used a more complex simple
+	substitution than Caesar did for his military dispatches, but before
+	Caesar.]
+
+I commend Kahn's book to all who might be interested.
+
+-- 
+ - <<Disclaimer: All opinions expressed are my own, of course.>>
+ - Carl Ellison                                        cme@sw.stratus.com
+ - Stratus Computer Inc.       M3-2-BKW                TEL: (508)460-2783
+ - 55 Fairbanks Boulevard ; Marlborough MA 01752-1298  FAX: (508)624-7488

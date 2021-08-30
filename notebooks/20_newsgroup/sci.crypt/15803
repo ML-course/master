@@ -1,0 +1,43 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.crypt:15803 alt.privacy.clipper:87
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!transfer.stratus.com!ellisun.sw.stratus.com!cme
+From: cme@ellisun.sw.stratus.com (Carl Ellison)
+Newsgroups: sci.crypt,alt.privacy.clipper
+Subject: Re: Do we need the clipper for cheap security?
+Followup-To: alt.privacy.clipper
+Date: 22 Apr 1993 21:43:48 GMT
+Organization: Stratus Computer, Software Engineering
+Lines: 30
+Message-ID: <1r73ik$gqf@transfer.stratus.com>
+References: <1993Apr20.024929.2910@shearson.com> <1r1f62$rh5@news.intercon.com> <C5trGt.Ew4@news.claremont.edu>
+NNTP-Posting-Host: ellisun.sw.stratus.com
+
+In article <C5trGt.Ew4@news.claremont.edu> ebrandt@jarthur.claremont.edu (Eli Brandt) writes:
+>Remember in the
+>announcement they described this scheme as balancing the two
+>extremes of having no privacy and claiming that citizens had a
+>Constitutional right to encryption?  
+>
+>So much for Clinton's support of the "right of privacy".
+
+There's an out for him.  The announcement talked about strong cryptography
+I believe.  Specifically:
+
+	nor is the U.S. saying that "every
+     American, as a matter of right, is entitled to an
+     unbreakable commercial encryption product."
+
+Every vendor claims his product is unbreakable -- so this was sloppy wording.
+
+I am not claiming that we private citizens should have access to the NSA's
+best, secret algorithms.  I don't want any NSA algorithms, actually.
+
+I'll let them break my pitiful amateur algorithms -- and RSA's.
+
+All I want is what I have already -- the ability and right to invent and use
+my own algorithms, share them with my friends and sell them.
+
+-- 
+ - <<Disclaimer: All opinions expressed are my own, of course.>>
+ - Carl Ellison                                        cme@sw.stratus.com
+ - Stratus Computer Inc.       M3-2-BKW                TEL: (508)460-2783
+ - 55 Fairbanks Boulevard ; Marlborough MA 01752-1298  FAX: (508)624-7488

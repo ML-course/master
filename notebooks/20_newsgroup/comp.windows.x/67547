@@ -1,0 +1,40 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!news.crd.ge.com!pookie!barnettj
+From: barnettj@pookie.crd.ge.com (Janet A Barnett)
+Subject: Re: Help. BadMatch making 24bit win on 8bit server !!
+Message-ID: <C6Bo6L.4Ko@crdnns.crd.ge.com>
+Sender: usenet@crdnns.crd.ge.com (USENET News System)
+Nntp-Posting-Host: pookie.crd.ge.com
+Organization: GE Corp. Research & Development, Schenectady, NY
+References: <1993Apr30.120234.15637@cci.dk>
+Date: Sat, 1 May 1993 00:32:44 GMT
+Lines: 28
+
+In article <1993Apr30.120234.15637@cci.dk> hwn@cci.dk (Henrik W. Nielsen) writes:
+>
+>
+>I'm trying to make a 24 bit window using XCreateWindow on a 8 bit
+>PseudoColor server. As far as I know this should be possible if you
+[stuff deleted]
+>   Xio.GSwin = XCreateWindow(Xio.DspPtr, RootWindow(Xio.DspPtr, Xio.Scr),
+>			     x, y, w, h, 0, 24, InputOutput,
+>			     Xtern.ColorInfo, 0, &SetWinAttrib);
+>}
+>
+>
+>This results in a BadMatch error. Can anyone please tell me why ?
+>
+>
+
+The colormap element of SetWinAttrib must be a legitimate TrueColor
+colormap. So, use XCreateColormap() with the proper visual and use it
+in SetWinAttrib (and don't forget the mask!).
+
+And the inevitable caveat: I usually use widgets, setting the visual
+and colormap resources rather than direct X routines, so I could be
+wrong. But, I think this is the general difficulty.
+
+Allen Barnett
+(whose wife graciously allowed to use her account)
+
+

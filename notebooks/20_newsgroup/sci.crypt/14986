@@ -1,0 +1,47 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.crypt:14986 alt.security.pgp:2418
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!enterpoop.mit.edu!senator-bedfellow.mit.edu!news.mit.edu!warlord
+From: warlord@MIT.EDU (Derek Atkins)
+Newsgroups: sci.crypt,alt.security.pgp
+Subject: Re: disk safety measure?
+Date: 6 Apr 1993 00:23:43 GMT
+Organization: Massachusetts Institute of Technology
+Lines: 33
+Message-ID: <WARLORD.93Apr5202341@steve-dallas.mit.edu>
+References: <1993Apr5.084703.23757@ucsu.Colorado.EDU> <gradyC50MF5.6tv@netcom.com>
+	<1pq0re$gc2@network.ucsd.edu>
+NNTP-Posting-Host: steve-dallas.mit.edu
+In-reply-to: loki@sdphu3.ucsd.edu's message of 5 Apr 93 19:21:18 GMT
+
+-----BEGIN PGP SIGNED MESSAGE-----
+
+In article <1pq0re$gc2@network.ucsd.edu> loki@sdphu3.ucsd.edu (Lance M Cottrell) writes:
+
+   BTW I have not been able to get pgp to produce a signature
+   that I can attatch to the end of this message.  What is 
+   the procedure?  Thanks.
+
+try:
+	pgp -sat +clearsig=on
+
+This will do the clearsig signing...
+
+Enjoy!
+
+- -derek
+
+PGP 2 key available upon request on the key-server:
+	pgp-public-keys@toxicwaste.mit.edu
+
+-----BEGIN PGP SIGNATURE-----
+Version: 2.2
+
+iQBuAgUBK8DNazh0K1zBsGrxAQFoZQLEC/XKXMoDhCPf/AZ3aOQSLfz+6w400UDk
+Ng6prxnPuEuSZQEiiusMCVcRcGnWbaVrxFjA1o4yubh01Czcg3ZC9wLJolXlxJn7
+iSJh/eTZxmJnNynJxlGs0Ao=
+=4eZb
+-----END PGP SIGNATURE-----
+--
+  Derek Atkins, MIT '93, Electrical Engineering and Computer Science
+     Secretary, MIT Student Information Processing Board (SIPB)
+           MIT Media Laboratory, Speech Research Group
+           warlord@MIT.EDU       PP-ASEL        N1NWH

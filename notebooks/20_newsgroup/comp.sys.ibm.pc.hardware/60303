@@ -1,0 +1,25 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.ibm.pc.hardware:60303 comp.sys.ibm.pc.games:50022
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!usenet.ins.cwru.edu!neoucom.edu!news.ysu.edu!psuvm!gks101
+Organization: Penn State University
+Date: Fri, 16 Apr 1993 17:03:57 EDT
+From: Greg Spath <GKS101@psuvm.psu.edu>
+Message-ID: <93106.170357GKS101@psuvm.psu.edu>
+Newsgroups: comp.sys.ibm.pc.hardware,comp.sys.ibm.pc.games
+Subject: Re: Soundblaster IRQ and Port settings
+Distribution: inet
+References: <C5J39o.3JL@acsu.buffalo.edu>
+ <1993Apr16.105809.22218@walter.cray.com> <s106275.734980377@ee.tut.fi>
+Lines: 12
+
+In article <s106275.734980377@ee.tut.fi>, s106275@ee.tut.fi (Anssi Saari) says:
+>
+>In <1993Apr16.105809.22218@walter.cray.com> huot@cray.com (Tom Huot) writes:
+>
+>>I would also like an explanation of this. If anyone can explain
+>>why the SB Pro and LPT 1 can share an IRQ, please do so.
+>
+>I think it's simply because DOS doesn't use the IRQ for anything. OS/2 does,
+>so with that you can't share the IRQ.
+>
+That is correct.  in DOS you can use IRQ 7 for your SB.You can't do
+that under OS/2 because it uses IRQ 7 for the printer

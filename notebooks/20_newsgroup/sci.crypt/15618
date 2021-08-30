@@ -1,0 +1,45 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.crypt:15618 alt.security.pgp:2603 alt.privacy.clipper:32
+Newsgroups: sci.crypt,alt.security.pgp,alt.privacy.clipper
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!bogus.sura.net!darwin.sura.net!haven.umd.edu!uunet!well!rab
+From: rab@well.sf.ca.us (Bob Bickford)
+Subject: Re: Off the shelf cheap DES keyseach machine
+Message-ID: <C5ursM.69@well.sf.ca.us>
+Sender: news@well.sf.ca.us
+Nntp-Posting-Host: well.sf.ca.us
+Organization: Whole Earth 'Lectronic Link
+References: <C5sy1z.4tD@demon.co.uk> <1993Apr21.132318.16981@ulysses.att.com> <TOM.93Apr21114536@amber.ssd.csd.harris.com>
+Date: Wed, 21 Apr 1993 21:31:33 GMT
+Lines: 32
+
+In article <TOM.93Apr21114536@amber.ssd.csd.harris.com>,
+  tom@ssd.csd.harris.com (Tom Horsley) writes:
+>
+>This isn't intended to be a flame or anything, I am just really curious
+>how to manufacture these things while still maintaining the key escrow
+>security without simply saying "trust the manufacturer, they won't look".
+
+Without getting into the *really* *thorny* questions about reverse
+engineering and all of that, let me just point out that there already
+exist gate arrays and suchlike that have what's known as a security fuse
+which can be programmed after you've verified all other programming --
+this makes it impossible to read out the programming of the device
+(again, ignoring the reverse engineering questions).  Speaking from
+experience here: I had to completely reinvent one of my designs some
+six or seven years ago when the disk file was zapped, the backups were
+all bad, and the devices were unreadable because of the security fuses.
+Made me appreciate the value of printouts.  ;-)
+
+So on this point at least there's not so much worry.
+
+But whether or not we can get the chips made reliably and securely is
+really secondary to the question of whether use of the chip is itself
+likely to be secure, methinks.
+--
+ Robert Bickford      "A Hacker is any person who derives joy from
+ rab@well.sf.ca.us    discovering ways to circumvent limitations." rab'86
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+"I recognize that a class of criminals and juvenile delinquents has
+taken to calling themselves 'hackers', but I consider them irrelevant
+to the true meaning of the word; just as the Mafia calls themselves
+'businessmen' but nobody pays that fact any attention."            rab'90
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

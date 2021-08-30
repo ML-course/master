@@ -1,0 +1,28 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!bogus.sura.net!news-feed-1.peachnet.edu!umn.edu!noc.msc.net!vixvax.mgi.com!cepek
+From: cepek@vixvax.mgi.com
+Newsgroups: sci.crypt
+Subject: Tempest vs LCD (was: Re: Once tapped...)
+Message-ID: <1993Apr20.132446.2707@vixvax.mgi.com>
+Date: 20 Apr 93 13:24:46 CDT
+Organization: Management Graphics, Inc.
+Lines: 19
+
+douglas craig holland (holland@CS.ColoState.EDU) writes:
+>
+> With E-Mail, if they can't break your PGP encryption, they'll just
+> call up one of their TEMPEST trucks and read the electromagnetic 
+> emmisions from your computer or terminal.  Note that measures to 
+> protect yourself from TEMPEST surveillance are still classified, as 
+> far as I know.
+
+steiner@jupiter.cse.utoledo.edu (Jason 'Think!' Steiner) writes:
+
+> are LCD displays vulnerable to tempest?
+
+I can see high-voltage type display devices being vulnerable (CRTs,
+plasma displays, etc.)  But Jason beat me to this question.  What
+about EM radiation from low-voltage items like LCD displays?
+
+Perhaps the critical element is the driver circuitry?  The cabling?
+What about a portable PC/Mac/etc., where all the "noise" is bunched
+into one tiny area?

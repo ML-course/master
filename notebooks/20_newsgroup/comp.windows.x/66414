@@ -1,0 +1,28 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:66414 comp.windows.x.motif:16275 comp.windows.x.intrinsics:1095
+Newsgroups: comp.windows.x,comp.windows.x.motif,comp.windows.x.intrinsics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!howland.reston.ans.net!newsserver.jvnc.net!newsserver.technet.sg!solomon.technet.sg!cheong
+From: cheong@solomon.technet.sg (SCSTECH admin)
+Subject: Getting Pseudo TTY in X/Motif
+Message-ID: <C523Mn.JoI@newsserver.technet.sg>
+Sender: news@newsserver.technet.sg
+Nntp-Posting-Host: solomon.technet.sg
+Organization: TECHNET, Singapore
+Date: Tue, 6 Apr 1993 09:56:47 GMT
+Lines: 16
+
+Hi,
+
+I am about to write an application in X/Motif that will require the
+embedding of a pseudo tty. So, before I re-invent the wheel, has anyone
+written/gotten a motif widget that does the job ? Otherwise, I would
+appreciate any pointers to make such a beast.
+
+My environment is X11R4/Motif 1.1 and X11R5/Motif 1.2 (if this helps).
+
+
+Thanks in advance.
+
+
+Arthur Lim
+Email : arthur@mailhost.scs.com.sg
+

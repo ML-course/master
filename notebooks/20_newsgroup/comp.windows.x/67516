@@ -1,0 +1,50 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!zaphod.mps.ohio-state.edu!sdd.hp.com!hp-cv!ogicse!usenet.ee.pdx.edu!fastrac.llnl.gov!wsrcc.com!hack.dragoman.com!wetware!spunky.RedBrick.COM!psinntp!hns!jbrandt!jbrandt
+From: jbrandt@hns.com (Jim Brandt)
+Newsgroups: comp.windows.x
+Subject: Multiple Heads on Sparc-2
+Keywords: 2 head Server for R5
+Message-ID: <1993Apr30.160720.1563@hns.com>
+Date: 30 Apr 93 16:07:20 GMT
+Article-I.D.: hns.1993Apr30.160720.1563
+Sender: jbrandt@jbrandt (Jim Brandt)
+Organization: Hughes Network Systems, Inc.
+Lines: 38
+
+I have a SPARC-2 with 2 CGSIX cards in it.  I'd like
+to have the R5 server recognize the second card.
+
+
+I mknod created a /dev/cgsix1 device, but when I brought up the
+server, the second device was ignored.  
+
+How do I setup the second card?
+
+
+Note:  If I borrow a cgthree card, and put a cgthree and
+a cgsix card in the same SPARC-2 box, the R5 server finds
+the second card. I then set the DISPLAY to the
+second card, and start a second window manager.  
+
+Worse case is I trade cards with someone, but maybe someone
+out there has seen this problem already...
+
+
+email is preferred... post if you must...
+
+Thanks in advance....
+
+
+Jim
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Jim Brandt
+Hughes LAN Systems/Hughes Network Systems
+550 South Winchester Blvd         
+Suite 406                          
+San Jose, CA 95128                /-----------------------
+_________________________________/ email: jbrandt@hns.com
+                                   email: jbrandt@hls.com
+_________________________________  Voice: (408) 246-5590
+                                 \ Fax:   (408) 246-2306
+                                  \-----------------------
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv

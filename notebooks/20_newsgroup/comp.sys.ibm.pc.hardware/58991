@@ -1,0 +1,22 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.ibm.pc.hardware:58991 comp.sys.ibm.pc.misc:33621
+Newsgroups: comp.sys.ibm.pc.hardware,comp.sys.ibm.pc.misc
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!howland.reston.ans.net!bogus.sura.net!darwin.sura.net!haven.umd.edu!uunet!news.encore.com!mpalmer
+From: mpalmer@encore.com (Mike Palmer)
+Subject: Re: DOS 6.0 Interlink
+Organization: Encore Computer Corporation
+Date: Tue, 6 Apr 1993 19:34:56 GMT
+Message-ID: <C52uE9.B9z@encore.com>
+References: <1ps700INNdua@rave.larc.nasa.gov>
+Sender: news@encore.com (Usenet readnews user id)
+Nntp-Posting-Host: sysgem1.encore.com
+Lines: 9
+
+jka@air77.larc.nasa.gov (J. Keith Alston) writes:
+
+>Hi,
+>  Does anyone know what type of cabling is required to use the Interlink
+>capability, provided in DOS 6.0?
+
+I tried a null modem cable and had two copies of procomm+ talking happily
+to one another - but Interlink kept saying "No Connection made".  I gave
+up and used floppies!

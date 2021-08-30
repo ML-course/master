@@ -1,0 +1,21 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!rochester!cornell!batcomputer!caen!uunet!das.wang.com!wang!news
+From: gabi@ankh.technion.ac.il (Gabi Zodik)
+Subject: Wanted An Interactive GUI builder for X motif
+Organization: TECHNION - Izrael Institute of Technology
+Date: Tue, 18 May 1993 05:29:17 GMT
+Message-ID: <1993May18.052917.10476@discus.technion.ac.il>
+Sender: news@wang.com
+Lines: 11
+
+Hi there,
+
+I'm looking for tools that can make X programming easy. 
+I would like to have a tool that will enable to create X motif
+GUI Interactivly. Currently I'm Working on a SGI with forms.
+A package that enables to create GUI with no coding at all 
+(but the callbacks). 
+Any help will be appreciated.
+
+Thanks Gabi.
+

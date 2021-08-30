@@ -1,0 +1,20 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!usc!sdd.hp.com!portal!cup.portal.com!James_Jim_Frazier
+From: James_Jim_Frazier@cup.portal.com
+Newsgroups: comp.sys.mac.hardware
+Subject: MO driver compatibility?
+Message-ID: <79792@cup.portal.com>
+Date: Sun, 18 Apr 93 17:14:23 PDT
+Organization: The Portal System (TM)
+Distribution: world
+Lines: 10
+
+It's my understanding that, when you format a magneto-optical disc, (1) the
+formatting software installs a driver on the disc, (2) if you insert the
+disc in a different drive, then this driver is loaded into the computer's
+memory and then controls the drive, and (3) if this driver is incompatible
+with the drive, then the disc can not be mounted and/or properly read/written
+Is that correct?
+
+Thanks,
+Jim Frazier
+73447.3113@compuserve.com

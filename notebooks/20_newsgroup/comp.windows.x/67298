@@ -1,0 +1,15 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:67298 comp.windows.x.motif:16805
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!sdd.hp.com!portal!cup.portal.com!Iris_-_Smith
+From: Iris_-_Smith@cup.portal.com
+Newsgroups: comp.windows.x,comp.windows.x.motif
+Subject: Re: Drawing Lines (inverse/xor)
+Message-ID: <80257@cup.portal.com>
+Date: Sun, 25 Apr 93 10:12:12 PDT
+Organization: The Portal System (TM)
+References: <1993Apr19.191531.15865@news.media.mit.edu>
+  <1993Apr21.111919.5281@alf.uib.no> <DRAND.93Apr21114830@spinner.osf.org>
+Lines: 3
+
+You can also set the Foreground to the XOR of the foreground and background
+colors:  XSetForeground(..., fg ^ bg);    This works great for me (at least
+with TrueColor visuals).

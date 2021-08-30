@@ -1,0 +1,32 @@
+Xref: cantaloupe.srv.cs.cmu.edu alt.cd-rom:9577 comp.sys.sun.hardware:8780 comp.periphs.scsi:11946 comp.sys.ibm.pc.hardware:60155
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!wupost!uunet!mcsun!Germany.EU.net!tools!jk
+From: jk@tools.de (Juergen Keil)
+Newsgroups: alt.cd-rom,comp.sys.sun.hardware,comp.periphs.scsi,comp.sys.ibm.pc.hardware
+Subject: Re: Sun CD-ROM on PCs???
+Followup-To: alt.cd-rom
+Date: 15 Apr 93 20:16:31 GMT
+Organization: TooLs GmbH, Bonn, Germany
+Lines: 15
+Message-ID: <JK.93Apr15211632@leo.tools.de>
+References: <1qc5gd$13o@marleen.isi.edu> <lsmq0kINNn0m@exodus.Eng.Sun.COM>
+	<JK.93Apr14173040@leo.tools.de>
+	<1993Apr14.195220.21701@nb.rockwell.com>
+	<1993Apr15.040231.17561@c3p0.novell.de>
+NNTP-Posting-Host: leo.tools.de
+In-reply-to: pbartok@c3p0.novell.de's message of Thu, 15 Apr 1993 04:02:31 GMT
+
+In article <1993Apr15.040231.17561@c3p0.novell.de> pbartok@c3p0.novell.de (Peter D. Bartok) writes:
+
+>>  Great! But don't let your effort and talent be un-noticed.
+>>  Put the program on the net, upload it to some anonymous ftp
+>>  sites. So people (at least me) can have it and appreciate it.
+>
+>   Please put it into ftp.novell.de (193.97.1.1) pub/incoming/pc
+
+OK, the small programme that can be used to switch a SunCD drive into
+2048 bytes/block mode for use with MSDOS/Adaptec/APSI it now available
+by 'ftp' from
+
+	ftp.novell.de (193.97.1.1) pub/pc/adaptec/cdblksize.zip
+--
+Juergen Keil          jk@tools.de ...!{uunet,mcsun}!unido!tools!jk

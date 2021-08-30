@@ -1,0 +1,23 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!darwin.sura.net!howland.reston.ans.net!ira.uka.de!Germany.EU.net!incom!eurom!hein
+From: hein@eurom.rhein-main.de (Hein Roehrig)
+Subject: Windows NT und X-Windows?
+Message-ID: <1993Apr26.172936.908@eurom.rhein-main.de>
+Lines: 15
+Organization: Free Software Association of Germany
+Date: Mon, 26 Apr 93 17:29:36 GMT
+
+ 
+I am not sure whether I am here in the right area, but does 
+anybody here know whether Windows NT does/will include a X 
+Windows server so that it can run X Window applications 
+remotely? This is because we are considering at our university 
+to use PC's for word processing and program development, 
+whereas the bigger jobs are to be run either on SUN 
+workstations or on Fujitsu super computers.
+ 
+Thank you very much in advance,
+Hein.
+----
+eurom: Free Multiline Unix BBS                    Home of the FSAG
+Frankfurt/Main,Germany                       Data: ++49-69-6312934

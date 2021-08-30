@@ -1,0 +1,24 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!mcsun!uknet!glasgow!unix.brighton.ac.uk!ktt3
+From: ktt3@unix.brighton.ac.uk (Koon Tang)
+Subject: PostScript driver for GINO
+Message-ID: <1993Apr20.143121.15790@unix.brighton.ac.uk>
+Organization: The Univerity of Brighton, U.K.
+Date: Tue, 20 Apr 1993 14:31:21 GMT
+Lines: 15
+
+Does anybody know where I can get, via anonymous ftp or otherwise, a PostScript
+driver for the graphics libraries GINO verison 3.0A ?
+
+We are runnining on a VAX/VMS and are looking for a way outputing our plots to a
+PostScript file...
+
+
+Thanks in advance...
+-- 
+Koon Tang,                                internet: ktt3@unix.bton.ac.uk
+Department of Mathematical Sciences,          uucp: uknet!itri!ktt3
+University of Brighton,
+Brighton,
+BN2 4GJ,
+U.K.

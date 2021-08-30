@@ -1,0 +1,26 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!pipex!uknet!newcastle.ac.uk!blagdon!njkw
+From: J.K.Wight@newcastle.ac.uk (Jim Wight)
+Subject: Re: Athena Tookkit HELP !!!
+Nntp-Posting-Host: blagdon
+Message-ID: <C79yKA.Hn5@newcastle.ac.uk>
+Organization: University of Newcastle upon Tyne, UK, NE1 7RU
+References: <1993May18.150702.26658@cs.rit.edu>
+Date: Wed, 19 May 1993 12:55:22 GMT
+Lines: 15
+
+vck0479@cs.rit.edu (Vidya C Kayar) writes:
+>I am currently programming on Athena Toolkit. I am having problems
+>creating a Text Widget. Any guidence or help will be greatly
+>appreciated.
+
+I assume that you are literally trying to create a widget of type
+textWidgetClass. Use the AsciiText widget instead.
+
+Jim
+---
+J.K.Wight@newcastle.ac.uk
+Department of Computing Science, University of Newcastle,  Tel: +44 91 222 8238
+Newcastle upon Tyne, NE1 7RU, United Kingdom.              Fax: +44 91 222 8232
+
+

@@ -1,0 +1,50 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!ux1.cso.uiuc.edu!newsrelay.iastate.edu!news.iastate.edu!pv3437.vincent.iastate.edu!digdug
+From: digdug@iastate.edu (Doug V Tran)
+Subject: Re: leaking memory resources in 3.1
+Message-ID: <digdug.736223795@pv3437.vincent.iastate.edu>
+Sender: news@news.iastate.edu (USENET News System)
+Organization: Iowa State University, Ames IA
+References: <29APR199309371113@bpavms.bpa.arizona.edu> <C6Aw83.H7v@csn.org> <1993Apr30.180317.5618@seas.gwu.edu>
+Date: Sat, 1 May 1993 02:36:35 GMT
+Lines: 39
+
+Here's an interesting table showing how much resources an application
+uses and how much it gives back on shut down.  This is take from
+Windows User May 1993 issue:
+
+
+Application		Min. Resource Use	Resource Not Returned
+			GDI	USER		GDI	USER
+
+WinSleuth Gold v3.03	10	6		2	14
+Word For Windows v2.0b	10	0		5	0
+Lotus 123 v1.1		13	3		3	2
+Arts and Leters v3.12	7	7		3	1
+PowerPoint v3.0		9	1		3	0
+Corel Draw v3.0		10	6		3	0
+Micro. Designer v3.1	10	2		2	0
+CrossTalk v2.0		0	0		0	0
+Excel v4.0a		11	8		0	0
+HiJacck v1.0		2	2		0	0
+Image-In Color Pro	3	2		0	0
+PIcture Publisher v3.1	21	8		0	0	
+PowerLeads!-
+  Executive Ed. v1.03	0	5		0	0
+Adobe Type Manager v2.5	1	0		NA	NA
+Skylight v2.0		1	0		0	0
+
+*The numbers are in percentage and are in a decreasing order.
+
+What does this table tells you, if you frequently start and exit a
+program that doesn't give back all of it's resources, then you
+continually lose these resouces.  Therefore, only open these programs
+up once and leave them open.
+
+
+BTW:  Maybe people can add to this list so we know what application to
+watch out for.
+ 
+later,
+Doug
+

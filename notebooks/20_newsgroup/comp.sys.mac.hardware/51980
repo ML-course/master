@@ -1,0 +1,28 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!caen!msuinfo!netnews.upenn.edu!eniac.seas.upenn.edu
+From: jeffe@eniac.seas.upenn.edu (george)
+Newsgroups: comp.sys.mac.hardware
+Subject: Re: Mac Plus is constantly rebooting!
+Message-ID: <121741@netnews.upenn.edu>
+Date: 20 Apr 93 23:20:48 GMT
+References: <C5Hsyu.Dxq@hpuerca.atl.hp.com> <0gNc3B4w165w@cola.pax.tpa.com.au>
+Sender: news@netnews.upenn.edu
+Organization: University of Pennsylvania, Mechanical Engineering
+Lines: 16
+Nntp-Posting-Host: eniac.seas.upenn.edu
+
+:> :
+:> : Basically, the Mac Pluses are constantly rebooting themselves, as if the
+:> : reboot button were being pushed.  Sometimes the Mac is able to fully boot
+:
+
+well this threads been going long enough... I'll add a diferent twist.
+
+I found that the constant rebooting was due to overheating. We 
+had added 4Mb ram, and were operating in a non AC environment.
+Adding an external cooling fan fixed it right up. ( over a
+year ago )
+
+
+--
+  /   george jefferson
+\/ *  george@mech.seas.upenn.edu

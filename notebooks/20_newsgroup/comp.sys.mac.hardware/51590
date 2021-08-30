@@ -1,0 +1,24 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!cs.utexas.edu!not-for-mail
+From: kiran@village.com (Kiran Wagle)
+Newsgroups: comp.sys.mac.hardware
+Subject: Replacing internal FDHD w/ floptical?
+Date: 16 Apr 1993 04:08:16 -0500
+Organization: the Syllabub Sea
+Lines: 13
+Sender: daemon@cs.utexas.edu
+Message-ID: <9304160908.AA29815@deepthought.cs.utexas.edu>
+NNTP-Posting-Host: cs.utexas.edu
+
+Hi all,  
+
+I have a IIsi with a floppy drive that might be bad (and might just be out
+of alignment, I haven't checked yet. :-))  If the drive is not easily
+reparable, I'd like to replace it with an _internal_ floptical.  Can this
+be easily done?  Can it be done at all?  
+
+I'm assuming that floptical drives can read and write both 800k and 1.4k
+floppies.  If this is not in fact true, please tell me.
+
+Thanks in advance,
+        ~ Kiran
+

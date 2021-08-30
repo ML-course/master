@@ -1,0 +1,42 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.crypt:15657 alt.security.pgp:2611 alt.privacy:6614 comp.org.eff.talk:17072
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!bogus.sura.net!jhunix.hcf.jhu.edu!fmsrl7!lynx.unm.edu!dns1.NMSU.Edu!amolitor
+From: amolitor@nmsu.edu (Andrew Molitor)
+Newsgroups: sci.crypt,alt.security.pgp,alt.privacy,comp.org.eff.talk
+Subject: Re: The [secret] source of that announcement
+Date: 21 Apr 1993 17:17:37 GMT
+Organization: Department of Mathematical Sciences
+Lines: 29
+Distribution: inet
+Message-ID: <1r3vjhINN5iq@dns1.NMSU.Edu>
+References: <1993Apr21.133445.3930@leland.Stanford.EDU> <gradyC5uAMw.BnG@netcom.com>
+NNTP-Posting-Host: moink.nmsu.edu
+
+In article <gradyC5uAMw.BnG@netcom.com> grady@netcom.com (1016/2EF221) writes:
+>I guess the cryptowranglers read this group too.  But of
+>course I knew that because it is so easy to do.  There is
+>not a single doubt in my mind that every byte that passes
+>every significant gateway or 'bone is captured for the
+>colligation of data about __________?  (Maybe your name is here).
+
+	I really like these claims. Where did they come from? We hear,
+practically daily, that the NSA monitors, oh, everything. They can
+crack anything. They'd never release a cryptosystem they couldn't crack.
+
+	Where do people get these fascinating facts? 'The Puzzle Palace'?
+If you can get it for a buck, 2nd hand, it must be true, eh? I'm pretty
+sure the NSA is supposed to, among many other things, provide high-quality
+cryptosystems to a variety of places. I don't recall reading anywhere
+reliable that they're supposed to:
+
+	1) Monitor my phonecalls.
+	2) Monitor usenet.
+	3) Provide only cryptosystems they can easily crack.
+	4) etc etc.
+
+	This is not to say that they *don't*, they might. But you don't
+know that they do, and you have no evidence that they do, for almost
+all values of you. It follows, therefore, that for most values of 'you',
+your claims about the NSA border on paranoia.
+
+	Andrew
+

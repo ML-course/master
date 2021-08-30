@@ -1,0 +1,26 @@
+Xref: cantaloupe.srv.cs.cmu.edu alt.binaries.pictures.utilities:4160 comp.graphics:38383 alt.binaries.pictures.d:8743 alt.binaries.pictures.erotica.d:14842
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!emory!swrinde!elroy.jpl.nasa.gov!ames!olivea!sgigate!sgiblab!a2i!bryanw
+From: bryanw@rahul.net (Bryan Woodworth)
+Newsgroups: alt.binaries.pictures.utilities,comp.graphics,alt.binaries.pictures.d,alt.binaries.pictures.erotica.d
+Subject: Re: CView answers
+Message-ID: <C5Mv2n.49t@rahul.net>
+Date: 17 Apr 93 15:01:35 GMT
+References: <1qlobb$p5a@tuegate.tue.nl> <1993Apr16.114158.2246@whiting.mcs.com> <C5LErr.1J3@rahul.net> <1993Apr17.113223.12092@imag.fr>
+Sender: news@rahul.net (Usenet News)
+Organization: a2i network
+Lines: 13
+Nntp-Posting-Host: bolero
+
+In <1993Apr17.113223.12092@imag.fr> schaefer@imag.imag.fr (Arno Schaefer) writes:
+
+>Sorry, Bryan, this is not quite correct. Remember the VGALIB package that comes
+>with Linux/SLS? It will switch to VGA 320x200x256 mode *without* Xwindows.
+>So at least it is *possible* to write a GIF viewer under Linux. However I don't
+>think that there exists a similar SVGA package, and viewing GIFs in 320x200 is
+>not very nice.
+
+No, VGALIB?  Amazing..  I guess it was lost in all those subdirs :-)
+Thanks for correcting me.  It doesn't sound very appealing though, only
+320x200?  I'm glad it wasn't something major I missed.
+
+Thanks,

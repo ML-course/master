@@ -1,0 +1,30 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!usenet.ins.cwru.edu!po.CWRU.Edu!dab6
+From: dab6@po.CWRU.Edu (Douglas A. Bell)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: Re: PENTIUM!
+Date: 18 Apr 1993 21:12:59 GMT
+Organization: Case Western Reserve University, Cleveland, OH (USA)
+Lines: 18
+Message-ID: <1qsg8r$6ef@usenet.INS.CWRU.Edu>
+References: <1qncmq$h61@usenet.INS.CWRU.Edu>
+Reply-To: dab6@po.CWRU.Edu (Douglas A. Bell)
+NNTP-Posting-Host: slc12.ins.cwru.edu
+
+
+In a previous article, rrn@po.CWRU.Edu (Robert R. Novitskey) says:
+
+>
+>Just a qestion for all you pc-er's out there.  Will the upcoming pentium
+>systems be compatible with current simms and vlb cards?  Any info would be
+>helpful.  I would just like to know before I plunk my $ on new hardware.
+>
+>Thanks
+>BoB
+>
+
+Well, it all depends on the motherboard implimentation.
+
+I'm sure someone will make a vlb motherboard that takes 1x9
+simms and uses a pentium processor.  I'm also sure that there 
+will be some motherboards that won't.
+-- 

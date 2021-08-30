@@ -1,0 +1,36 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!darwin.sura.net!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!munnari.oz.au!ariel.ucs.unimelb.EDU.AU!kowari.cpsg.com.au!tim
+From: tim@kowari.cpsg.com.au (Timothy Fox)
+Subject: Re: Hot-key for Screen Saver?
+Message-ID: <tim.737609667@wpylie.kowari.cpsg.com.au>
+Lines: 24
+Sender: news@kowari.cpsg.com.au (USENET News System)
+Nntp-Posting-Host: wpylie.cpsg.com.au
+Organization: Computer Power Software Group Pty Ltd
+References: <1ssq6t$6qc@usenet.INS.CWRU.Edu> <35721@castle.ed.ac.uk> <1sv27f$pc3@sunb.ocs.mq.edu.au> <1993May15.042551.17892@seas.gwu.edu>
+Date: Mon, 17 May 1993 03:34:27 GMT
+
+louray@seas.gwu.edu (Michael Panayiotakis) writes:
+
+
+>Well, renaming screensavers (.scr) to .exe, and running them, as has
+>been pposted, (I haven't tried changing win.ini , but should have same
+>effect) shows me the "setup" dialog. box, butdoesn't enable the saver.
+
+>Mickey
+
+Try .exe /s  (/s for save screen, /c for config, defaults to /c)
+
+--------------------------------------------------------------------------------
+The question is not "If a tree falls in the forest and no one sees or hears,
+did it fall?" but rather "How many koalas can that one tree take out???"
+---------------------------------------------------------------tim@cpsg.com.au--
+--
+
+
+Tim Fox
+CP Software Pty Ltd.  (ACN 006 640 133)               Ph:   +61-3-823-0222
+19 Cato Street, East Hawthorn,                        Fax:  +61-3-822-0089
+Victoria, Australia, 3123                  ACSnet:         tim@cpsg.com.au
+--------------------------------------------------------------------------
+The question is not "If a tree falls in the forest and no-one sees or

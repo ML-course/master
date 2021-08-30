@@ -1,0 +1,29 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!sdd.hp.com!network.ucsd.edu!pacbell.com!pacbell!nntp.crl.com!not-for-mail
+From: blast@nntp.crl.com (Tim Keanini)
+Newsgroups: comp.sys.mac.hardware
+Subject: Mac SCSI spec?
+Date: 20 Apr 1993 07:50:36 -0700
+Lines: 20
+Message-ID: <1r12js$opv@crl.crl.com>
+NNTP-Posting-Host: crl.com
+
+I have a MacIIFX and I know that it is wired about its SCSI chain.
+
+I just bought a drive and I need to find out a few hardcore SCSI question:
+
+Does the IIFX SCSI chain want to see active or passive termination?
+
+Does the IIFX SCSI spec want me to enable the initiation of the SDTR message?
+
+WHat does the IIFX SCSI spec want as far as parity checking?
+
+These are some very good questions for the FAQ.       
+If someone does not have time to answer these questions but does know 
+where I can look them up please let me know and I will repost the answers
+for everyone to see.
+
+thanks,
+
+Tim Keanini        <timk@broder.com>  or  <blast@crl.com>
+Sound Engineer         Broderbund Software
+

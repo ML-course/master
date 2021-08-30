@@ -1,0 +1,58 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.crypt:15192 alt.security:9936 comp.org.eff.talk:16847 comp.security.misc:3371 comp.org.acm:1594 comp.org.ieee:1526
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!sdd.hp.com!elroy.jpl.nasa.gov!nntp-server.caltech.edu!hal
+From: hal@cco.caltech.edu (Hal Finney)
+Newsgroups: sci.crypt,alt.security,comp.org.eff.talk,comp.security.misc,comp.org.acm,comp.org.ieee
+Subject: Re: text of White House announcement and Q&As on clipper chip encryption
+Date: 16 Apr 1993 18:39:08 GMT
+Organization: California Institute of Technology, Pasadena
+Lines: 45
+Distribution: na
+Message-ID: <1qmugcINNpu9@gap.caltech.edu>
+References: <C5L17v.GH5@dove.nist.gov>
+NNTP-Posting-Host: alumni.caltech.edu
+
+The key question is whether non-Clipper encryption will be made illegal.
+
+>     The Administration is not saying, "since encryption
+>     threatens the public safety and effective law enforcement,
+>     we will prohibit it outright" (as some countries have
+>     effectively done); nor is the U.S. saying that "every
+>     American, as a matter of right, is entitled to an
+>     unbreakable commercial encryption product."  There is a
+>     false "tension" created in the assessment that this issue is
+>     an "either-or" proposition.  Rather, both concerns can be,
+>     and in fact are, harmoniously balanced through a reasoned,
+>     balanced approach such as is proposed with the "Clipper
+>     Chip" and similar encryption techniques.
+
+The clear middle ground implied by these statements is to say that Americans
+have the right to Clipper encryption, but not to unbreakable encryption.
+This implies that, ultimately, non-Clipper strong encryption must become
+illegal.
+
+(As an aside, isn't the language here jarring?  All this talk about
+"harmonious balance" when they're talking about taking away people's
+right to communications privacy?)
+
+Although the article emphasizes voice communication, data and mail encryption
+is mentioned as well:
+
+>Sophisticated encryption technology has been used for years to
+>protect electronic funds transfer.  It is now being used to
+>protect electronic mail and computer files.
+
+>     --   the privacy of our citizens, including the need to
+>          employ voice or data encryption for business purposes;
+
+It looks like the worst nightmares raised by Dorothy Denning's proposals
+are coming true.  If the government continues on this course, I imagine
+that we will see strong cryptography made illegal.  Encryption programs
+for disk files and email, as well as software to allow for encrypted
+voice communications, will be distributed only through the
+"underground".  People will have to learn how to hide the fact that
+they are protecting their privacy.
+
+It's shocking and frightening to see that this is actually happening here.
+
+Hal Finney
+hal@alumni.caltech.edu

@@ -1,0 +1,34 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!swrinde!network.ucsd.edu!munnari.oz.au!newsroom.utas.edu.au!sol!quan
+From: quan@sol.surv.utas.edu.au (Stephen Quan)
+Subject: Re: Fast polygon routine needed
+Message-ID: <quan.735364676@sol>
+Keywords: polygon, needed
+Sender: news@newsroom.utas.edu.au
+Organization: University of Tasmania, Australia.
+References: <C5n3x0.B5L@news.cso.uiuc.edu> <1993Apr17.192947.11230@sophia.smith.edu> <C5nF8t.Gsq@news.cso.uiuc.edu>
+Date: Wed, 21 Apr 1993 03:57:56 GMT
+Lines: 22
+
+osprey@ux4.cso.uiuc.edu (Lucas Adamski) writes:
+
+>In article <1993Apr17.192947.11230@sophia.smith.edu> orourke@sophia.smith.edu (Joseph O'Rourke) writes:
+>>In article <C5n3x0.B5L@news.cso.uiuc.edu> osprey@ux4.cso.uiuc.edu (Lucas Adamski) writes:
+>>>[...], but I'm looking for a fast polygon routine to be used in a 3D game.
+>>A fast polygon routine to do WHAT?
+>To draw polygons of course.  Its a VGA mode 13h (320x200) game, [...]
+
+Hi, I've come across a fast triangle fill-draw routine for mode 13h.  By
+calling this routine enough times, you have a fast polygon drawing routine.
+
+I think I ftp'ed from wuarchive.wustl.edu:/pub/MSDOS_UPLOADS/programming.
+I have a copy of it so I reupload it there.  The triangle.txt file has this
+to say :
+
+>  C and inline assembly source for a VGA mode 13h triangle drawer.
+
+--
+Stephen Quan (quan@sol.surv.utas.edu.au)      Tel : 002 202844 (local)
+Research Fellow, Computer Scientist,          Fax : 002 240282 (local)
+Centre for Spatial Information Systems,       Tel : 61 02 202844
+University of Tasmania, Australia.            Fax : 61 02 240282

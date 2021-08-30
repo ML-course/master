@@ -1,0 +1,35 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.ms-windows.misc:9723 comp.sys.ibm.pc.hardware:60770
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!wupost!uunet!mcsun!sun4nl!philapd!apdnews!phoenix.idca.tds.philips.nl!jvl
+From: jvl@idca.tds.philips.nl (Jan van Loenen)
+Newsgroups: comp.os.ms-windows.misc,comp.sys.ibm.pc.hardware
+Subject: Re: Diamond Speedstar 24X Driver Bug?
+Keywords: Speedstar
+Message-ID: <jvl.735390826@phoenix.idca.tds.philips.nl>
+Date: 21 Apr 93 11:13:46 GMT
+References: <C5sF06.9pD@raistlin.udev.cdc.com>
+Sender: news@idca.tds.philips.nl
+Lines: 23
+
+slc@a2.cim.cdc.com (Steve Chesney x4662) writes:
+
+>* if I create a windowed MS-DOS session (386 mode), when the text starts 
+>   to scroll, rather than printing characters it starts to print
+>   horizontal lines that spill out to the desktop and trash the entire 
+>   display.  Ctrl-alt-del terminates the dos window and restores the 
+>   desktop
+
+It is a bug in the driver (the first driver (containing _many_ other bugs)
+didn't had this problem). You can work around by disabling the hardware
+scroll of the card.
+Just type "24xmode scrolloff" before starting windows.
+
+Jan
+-----------
+DISCLAIMER: Unless otherwise stated, the above comments are entirely my own.
+  _____________            _____
+ /            /\  __    __/    /\
+/____________/  \/ /\  / /____/  \            Jan van Loenen
+\________    \  /_/  \/_/\    \   \_____      Digital Equipment Corporation
+  /____/ \    \ \ \  /\ \/\    \  /    /\     jvl@idca.tds.philips.nl
+  \    \/_\    \/\ \/_/ /  \    \/____/ /     HLDE01::LOENEN_J
+   \___________/  \____/    \_________\/

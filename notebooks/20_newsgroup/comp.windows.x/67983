@@ -1,0 +1,29 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!darwin.sura.net!news.dfn.de!solaris.rz.tu-clausthal.de!news!ipi_sun8!yonglong
+From: yonglong@ipi.uni-hannover.de (Yonglong Xu 5556)
+Subject: help wanted: display stereo images with a GT-accelerator
+Message-ID: <1993May10.151500.17445@newsserver.rrzn.uni-hannover.de>
+Sender: news@newsserver.rrzn.uni-hannover.de (News Service)
+Reply-To: yonglong@ipi.uni-hannover.de
+Organization: IPI, University of Hannover
+Date: Mon, 10 May 1993 15:15:00 GMT
+Lines: 18
+
+
+
+Hi, friends,
+
+Our SPARC workstation is now equippied with a GT-accelerator. we want to use
+it to display stereo images. The accelerator has double buffers. How can we
+access the buffers and switch between them ? With which functions can we do 
+that ? with functions from XGL, Phigs, Xlib or Xlib-extension ?
+
+Your help will be highly appreciated.
+
+
+Yonglong Xu
+
+Uni. of Hannover
+
+10.5.93
+

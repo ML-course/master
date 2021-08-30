@@ -1,0 +1,32 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!pacific.mps.ohio-state.edu!ohstpy!miavx1!psweeney
+Newsgroups: comp.os.ms-windows.misc
+Subject: Black Screen of Death, Windows, Novell
+Message-ID: <1993Apr21.083617.17335@miavx1.acs.muohio.edu>
+From: psweeney@miavx1.acs.muohio.edu
+Date: 21 Apr 93 08:36:17 -0500
+Organization: Miami University Academic Computer Service"
+Lines: 23
+
+Hi there,
+
+We are running a 120 node Token ring with Windows 3.1 and Novell 3.11.
+
+Every once in a while, we run into "The Black Screen of Death", a phrase
+coined by Robert X. Cringely in a recent InfoWorld column.  
+
+Basically, sometimes when you quit Windows, the screen goes black and
+you get a nice little flashing cursor in the top left corner of your
+screen.  Also, sometimes when you exit to DOS, the same effect occurs.
+Cringely hints that Microsoft and/or Novell has a patch for Windows'
+virtual interrupt controller that  may solve this.  Neither company
+seems to know what I am talking about when I call them.
+
+Has anyone else noticed this phenomenon?  
+
+Is there a fix for it?
+
+Any response is welcome.
+
+Peter Sweeney
+psweeney@miavx1.acs.muohio.edu
+

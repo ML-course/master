@@ -1,0 +1,37 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.mac.hardware:51633 comp.sys.mac.system:30237 comp.sys.mac.misc:43211 comp.unix.aux:11438
+Newsgroups: comp.sys.mac.hardware,comp.sys.mac.system,comp.sys.mac.misc,comp.unix.aux
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!usenet.ins.cwru.edu!agate!apple!mumbo.apple.com!gallant.apple.com!apple.com!noah
+From: noah@apple.com (Noah Price)
+Subject: Re: Quadra SCSI Problems???
+Sender: news@gallant.apple.com
+Message-ID: <noah-160493100826@noah.apple.com>
+Date: Fri, 16 Apr 1993 17:11:20 GMT
+References: <1644@jagubox.gsfc.nasa.gov> <1qm2hvINNseq@shelley.u.washington.edu>
+Organization: (not the opinions of) Apple Computer, Inc.
+Followup-To: comp.sys.mac.hardware
+Lines: 24
+
+In article <1qm2hvINNseq@shelley.u.washington.edu>,
+tzs@stein2.u.washington.edu (Tim Smith) wrote:
+> 
+> > ATTENTION: Mac Quadra owners: Many storage industry experts have
+> > concluded that Mac Quadras suffer from timing irregularities deviating
+> > from the standard SCSI specification. This results in silent corruption
+> > of data when used with some devices, including ultra-modern devices.
+> > Although I will not name the devices, since it is not their fault...
+
+That's fine, but would you name the "industy experts" so I can try to track
+this down?
+
+> This doesn't sound right to me.  Don't Quadras use the 53C96?  If so, the
+> Mac has nothing to do with the SCSI timing.  That's all handled by the
+> chip.
+
+Yup.  That's why I'm kinda curious... most SCSI problems I've encountered
+are due to cabling.
+
+noah
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+noah@apple.com                                 Macintosh Hardware Design
+...!{sun,decwrl}!apple!noah   (not the opinions of) Apple Computer, Inc.

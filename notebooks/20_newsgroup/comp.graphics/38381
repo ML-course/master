@@ -1,0 +1,34 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!zaphod.mps.ohio-state.edu!sol.ctr.columbia.edu!hamblin.math.byu.edu!yvax.byu.edu!physc1.byu.edu!pollarda
+Newsgroups: comp.graphics
+Subject: newss
+Message-ID: <1993Apr16.224349.574@physc1.byu.edu>
+From: pollarda@physc1.byu.edu
+Date: 16 Apr 93 22:43:49 -0600
+Distribution: world
+Organization: Brigham Young University
+Lines: 24
+
+
+
+I am working on a project where we are going to be including
+both still and moving grapics within a database.  Of course
+JPEG and MPEG come to mind as the formats of choice for the
+various files.  However, from what I read on the Net, it seems
+as if there are several different forms of each of these.
+
+What I want to do, is settle on a file format which I can count
+on as being a standard format 10 years from now.  I know Apple is going
+to support Quicktime on the new Power PC's and, so this
+may be the format of choice.
+
+What format does Apple's Quicktime use for their products?  I guess
+it is some kind of MPEG for their motion picture. Is it any different
+than standard MPEG files?
+
+Thanx for any info!
+
+Art.
+Pollarda@xray.byu.edu
+
+
+  

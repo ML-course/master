@@ -1,0 +1,27 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.ms-windows.apps:11558 comp.os.ms-windows.misc:9512
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!emory!news-feed-1.peachnet.edu!darwin.sura.net!udel!news.intercon.com!psinntp!heimdall!sgies9!eialbur
+From: eialbur@sgies9.sdrc.com (Ron Albury)
+Newsgroups: comp.os.ms-windows.apps,comp.os.ms-windows.misc
+Subject: Re: Procomm Plus for windows problems....
+Message-ID: <1614@heimdall.sdrc.com>
+Date: 16 Apr 93 13:50:46 GMT
+References: <1qkqrhINNobc@matt.ksu.ksu.edu>
+Sender: news@heimdall.sdrc.com
+Followup-To: comp.os.ms-windows.apps
+Organization: SDRC
+Lines: 14
+
+You have a lot more problems keeping up with hardware interrupts in Windows than
+in DOS - regardless of what communication software you are using.
+
+Try the following:
+   1) Turn off disk write cache for the disk you are downloading to.  The
+       cache will save up so much that when it grabs control of the machine
+       it takes too long to write to disk and you loose characters.
+
+   2) Use a different UART for your serial line.  The old UART's (8250 or 16450)
+       can only buffer one character internally.  The new UART's (16550) can
+       buffer 16, which should be plenty for most situations.  You can run
+       \windows\msd.exe to find out what UART is on the machine.
+
+Ron

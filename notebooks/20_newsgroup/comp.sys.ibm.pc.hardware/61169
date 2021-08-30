@@ -1,0 +1,27 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.msdos.misc:13157 comp.sys.ibm.pc.hardware:61169
+Newsgroups: comp.os.msdos.misc,comp.sys.ibm.pc.hardware
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!bogus.sura.net!darwin.sura.net!zaphod.mps.ohio-state.edu!wupost!csus.edu!netcom.com!bsardis
+From: bsardis@netcom.com (Barry Sardis)
+Subject: Re: Date is stuck
+Message-ID: <bsardisC5yqLt.FI1@netcom.com>
+Organization: NETCOM On-line Communication Services (408 241-9760 guest)
+References: <bsardisC5LEz9.G5D@netcom.com> <R4cD3B1w165w@tworaven.lonestar.org>
+Date: Sat, 24 Apr 1993 00:56:17 GMT
+Lines: 16
+
+I've posted a couple of notes about encountering this problem. Based on some 
+suggestions from:
+
+Mark Aitchison, University of Canterbury, New Zealand.
+	and
+Chris A. Larrieu @cs.wm.edu
+
+I think that my problem is a screen saver that also outputs sound (to my 
+PC speaker). I'm still looking at some of the other screen savers that I 
+use (with a randomizer), but this one definately caused the loss of several 
+minutes over night (but not the date this time). 
+-- 
+Barry Sardis		| Home:   (408) 448-1589
+1241 Laurie Avenue	| Office: (408) 448-7404
+San Jose, CA 95125	| Fax:    (408) 448-7404
+Email: bsardis@netcom.COM or 70105.1210@compuserve.COM

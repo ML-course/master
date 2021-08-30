@@ -1,0 +1,23 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!digex.com!digex.com!not-for-mail
+From: steve-b@access.digex.com (Steve Brinich)
+Newsgroups: sci.crypt
+Subject: S1, S2
+Date: 22 Apr 1993 07:52:46 -0400
+Organization: Express Access Online Communications, Greenbelt, MD USA
+Lines: 13
+Message-ID: <1r60ue$102@access.digex.net>
+NNTP-Posting-Host: access.digex.net
+
+ > Second question: Why!?!? Why is such a strange procedure used, and not
+ >a real RNG ? This turns those S1,S2 in a kind of bottleneck for system-
+ >security.
+
+  The only theory that makes any sense is that S1 and S2 are either the
+same for all chips, or vary among very few possibilities, so that anyone
+trying to break the encryption by brute force need only plow through the
+possible serial numbers (2^30, about one billion), multiplied by the number
+of different S1, S2 combinations.
+
+
+
+

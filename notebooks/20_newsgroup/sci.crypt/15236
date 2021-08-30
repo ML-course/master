@@ -1,0 +1,26 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!usc!elroy.jpl.nasa.gov!ames!olivea!uunet!news.centerline.com!noc.near.net!chpc.chpc.org!rboudrie
+From: rboudrie@chpc.org (Rob Boudrie)
+Newsgroups: sci.crypt
+Subject: Why the algorithm is secret
+Message-ID: <1993Apr17.025713.3768@chpc.org>
+Date: 17 Apr 93 02:57:13 GMT
+References: <C5L17v.GH5@dove.nist.gov> <1qmugcINNpu9@gap.caltech.edu> <115713@bu.edu>
+Distribution: na
+Organization: Center For High Perf. Computing of WPI; Marlboro Ma
+Lines: 15
+
+
+My thoughts on why the algorithm is secret :
+
+   The chip is (regretably) likely to become a standard.   There will
+   be many applications where economic factors dictate use of this
+   chip, like it or not.
+
+   If the alrogithm is public, and the code is as secure (absent the 
+   access to escrowed keys) as represented, an enterprising sort 
+   would make "compatible crypto chips for which no key had been
+   escrowed".  This is likely what the release was refering to when 
+   they refered to the secrecy of the algorithm protecting the
+   security of the escrow system.
+
+                                        rob boudrie

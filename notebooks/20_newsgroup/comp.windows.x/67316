@@ -1,0 +1,28 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.open-look:8430 comp.windows.x:67316
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!darwin.sura.net!bogus.sura.net!news-feed-1.peachnet.edu!umn.edu!math.fu-berlin.de!irz401!irzr17.inf.tu-dresden.de!beck
+From: beck@irzr17.inf.tu-dresden.de (Andre Beck)
+Newsgroups: comp.windows.open-look,comp.windows.x
+Subject: Re: Title for XTerm
+Date: 26 Apr 1993 14:28:32 GMT
+Organization: Dept. of Computer Science, TU Dresden, Germany.
+Lines: 14
+Distribution: world
+Message-ID: <1rgrig$bf1@irz401.inf.tu-dresden.de>
+References: <1993Apr17.170907.25718@samba.oit.unc.edu>  <C5oL74.3B1@aeon.in-berlin.de> <1993Apr22.173546.5198@gecko.uucp> <BARNETT.93Apr23155236@grymoire.crd.ge.com>
+Reply-To: Andre_Beck@IRS.Inf.TU-Dresden.DE
+NNTP-Posting-Host: irzr17.inf.tu-dresden.de
+
+
+Yet again,
+
+the escape sequences you are speaking about here are non standard and
+dangerous. In fact, an ANSI compliant sequence parser HANGS on them.
+
+Why are there such strange ESC sequences instead of compatible DSC ?
+
+--
++-o-+--------------------------------------------------------------+-o-+
+| o |                \\\-  Brain Inside -///                       | o |
+| o |                    ^^^^^^^^^^^^^^^                           | o |
+| o | Andre' Beck (ABPSoft) mehl: Andre_Beck@IRS.Inf.TU-Dresden.de | o |
++-o-+--------------------------------------------------------------+-o-+

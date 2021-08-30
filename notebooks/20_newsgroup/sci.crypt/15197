@@ -1,0 +1,36 @@
+Xref: cantaloupe.srv.cs.cmu.edu rec.puzzles:22622 sci.crypt:15197 sci.math:43130
+Newsgroups: rec.puzzles,sci.crypt,sci.math
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!agate!ames!biersch!jru
+From: jru@Comtech.com (Jimmy R. Upton)
+Subject: [Rubick] Shortest Path Algorithm - Status?
+Message-ID: <1993Apr16.202527.27557@Comtech.com>
+Followup-To: rec.puzzles
+Organization: Comtech Labs Inc.
+Date: Fri, 16 Apr 1993 20:25:27 GMT
+Lines: 25
+
+What is the expected run time (+/- a factor of 10) on a 486DX/50
+using the best known algorithm for finding the shortest path
+solution for Rubicks Cube from a randomly chosen position?
+
+I have read the FAQ and followed the recent discussion on Rubicks
+Cube but I don't believe this question has been answered.  Notice
+that I am specifically looking for an algorithm that finds the 
+SHORTEST path, not just any solution.
+
+It seems to me that the underlying assumption is that such a program
+would need to do a brute force search though 10^20 positions.  That
+seems an unreasonably pessimistic assumption to me and I want to 
+know if someone has significantly improved on that.
+
+I have some ideas of my own on how to approach this problem, but
+before I spend to much time developing them I wanted to know if
+someone else has already done the work.
+
+ADMINISTRIVIA:  I have posted this to three groups and attempted
+to set the followup to rec.puzzles which seems to me to be the
+place to continue this discussion.  I will cross post a summary
+when and if it becomes appropriate.  Email replies gladly accepted.
+
+Jimmy
+jru@Comtech.com 

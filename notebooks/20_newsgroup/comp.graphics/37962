@@ -1,0 +1,22 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!noc.near.net!uunet!news.larc.nasa.gov!thrasher.larc.nasa.gov!george
+From: george@ccmail.larc.nasa.gov (George M. Brown)
+Newsgroups: comp.graphics
+Subject: QC/MSC code to view/save images
+Date: Tue, 6 Apr 1993 21:57:25 GMT
+Organization: Client Specific Systems, Inc.
+Lines: 12
+Message-ID: <george.4.734133445@ccmail.larc.nasa.gov>
+NNTP-Posting-Host: thrasher.larc.nasa.gov
+
+Dear Binary Newsers,
+
+I am looking for Quick C or Microsoft C code for image decoding from file for
+VGA viewing and saving images from/to GIF, TIFF, PCX, or JPEG format. I have
+scoured the Internet, but its like trying to find a Dr. Seuss spell checker 
+TSR. It must be out there, and there's no need to reinvent the wheel.
+
+Thanx in advance.
+
+//////////////
+
+ The Internet is like a Black Hole....

@@ -1,0 +1,22 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!darwin.sura.net!haven.umd.edu!uunet!newsflash.concordia.ca!mizar.cc.umanitoba.ca!murphy.biochem.umanitoba.ca!user
+From: dotzlaw@ccu.umanitoba.ca (Helmut Dotzlaw)
+Subject: Anti-aliasing utility wanted
+Message-ID: <dotzlaw-200493094450@murphy.biochem.umanitoba.ca>
+Followup-To: comp.graphics
+Sender: news@ccu.umanitoba.ca
+Nntp-Posting-Host: murphy.biochem.umanitoba.ca
+Organization: University of Manitoba
+Date: Tue, 20 Apr 1993 16:45:18 GMT
+Lines: 10
+
+I am currently using POVRay on Mac and was wondering if anyone in netland
+knows of public domain anti-aliasing utilities so that I can skip this step
+in POV, very slow on this machine.  Any suggestions, opinions about
+post-trace anti-aliasing would be greatly appreciated.
+
+             Helmut Dotzlaw
+Dept. of Biochemistry and Molecular Biology
+         University of Manitoba
+            Winnipeg, Canada
+        dotzlaw@ccu.umanitoba.ca

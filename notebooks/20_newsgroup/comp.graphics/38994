@@ -1,0 +1,28 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!math.fu-berlin.de!news.tu-chemnitz.de!irz401!irzr17.inf.tu-dresden.de!beck
+From: beck@irzr17.inf.tu-dresden.de (Andre Beck)
+Newsgroups: comp.graphics
+Subject: Re: POV-Ray for VAX computer?????????
+Date: 30 Apr 1993 13:14:21 GMT
+Organization: Dept. of Computer Science, TU Dresden, Germany.
+Lines: 15
+Distribution: world
+Message-ID: <1rr8nd$4o9@irz401.inf.tu-dresden.de>
+References: <18494@goanna.cs.rmit.oz.au>
+Reply-To: Andre_Beck@IRS.Inf.TU-Dresden.DE
+NNTP-Posting-Host: irzr17.inf.tu-dresden.de
+
+
+
+Get the generic version (for Unix and VMS) and build it. IMHO a
+VMS .com file to build it is supplied.
+As the distribution comes as .tar.Z you should either have uncompress
+and tar on VMS or a UNIX flavoured machine handy.
+Usually you won't find this on IBM-PC specific archives, but on the better
+ones :)
+
+--
++-o-+--------------------------------------------------------------+-o-+
+| o |                \\\-  Brain Inside -///                       | o |
+| o |                    ^^^^^^^^^^^^^^^                           | o |
+| o | Andre' Beck (ABPSoft) mehl: Andre_Beck@IRS.Inf.TU-Dresden.de | o |
++-o-+--------------------------------------------------------------+-o-+

@@ -1,0 +1,25 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!saimiri.primate.wisc.edu!usenet.coe.montana.edu!netnews.nwnet.net!news.u.washington.edu!carson.u.washington.edu!donn
+From: donn@carson.u.washington.edu (Donn Cave)
+Newsgroups: comp.graphics,uw.graphics
+Subject: Re: Anyone know use "rayshade" out there?
+Date: 30 Apr 1993 21:11:17 GMT
+Organization: University of Washington
+Lines: 13
+Message-ID: <1rs4llINNfdv@shelley.u.washington.edu>
+References: <1qq2qnINN818@shelley.u.washington.edu>
+NNTP-Posting-Host: carson.u.washington.edu
+Keywords: rayshade, uw.
+
+fineman@stein2.u.washington.edu (Twixt your toes) writes:
+
+| I'm using "rayshade" on the u.w. computers here, and i'd like input
+| from other users, and perhaps swap some ideas.  I could post
+| uuencoded .gifs here, or .ray code, if anyone's interested.  I'm having
+| trouble coming up with colors that are metallic (i.e. brass, steel)
+| from the RGB values.
+
+Sorry, I'm not a rayshade user - but hey, it looks like this group could
+use some traffic.  My guess is that "metallic" isn't a color, in the RGB
+sense.  Rather, it's a matter of how the surface reflects light.  I'm not
+sure what property metallic materials have, that makes them recognizable
+as such, but I'm pretty sure any color material can look metallic.

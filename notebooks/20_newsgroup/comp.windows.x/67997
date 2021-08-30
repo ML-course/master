@@ -1,0 +1,27 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:67997 comp.windows.x.intrinsics:1220
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!ogicse!netnews.nwnet.net!news.u.washington.edu!stein.u.washington.edu!pramod
+From: pramod@stein.u.washington.edu (Pramod Mahadev)
+Newsgroups: comp.windows.x,comp.windows.x.intrinsics
+Subject: Problem with R4 release
+Message-ID: <1sr3klINNauq@news.u.washington.edu>
+Date: 12 May 93 15:03:49 GMT
+Article-I.D.: news.1sr3klINNauq
+Distribution: world
+Organization: University of Washington, Seattle
+Lines: 14
+NNTP-Posting-Host: stein.u.washington.edu
+
+ld: Unidentified external symbol
+   _get_wmShellWidgetclass
+   _get_applicationshellwidgetclass
+
+  I use -lXaw -lXmu -lXext -lX11 -lXt not in this order but in a proper order
+
+I am wondering if there has to be some changes in my link libraries or should
+i include some more libraries.
+
+ANy help in this matter will be very useful and highly appreciated
+
+Thanks
+Pramod
+.

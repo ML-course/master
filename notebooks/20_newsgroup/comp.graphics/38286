@@ -1,0 +1,31 @@
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!gatech!howland.reston.ans.net!noc.near.net!uunet!umcc!not-for-mail
+From: lcd@umcc.umcc.umich.edu (Leon Dent)
+Newsgroups: comp.graphics
+Subject: Re: MPEG for x-windows MONO needed.
+Date: 15 Apr 1993 08:39:55 -0400
+Organization: UMCC, Ann Arbor, MI
+Lines: 20
+Message-ID: <1qjl2r$n0d@umcc.umcc.umich.edu>
+References: <1qf2m0$139@gondor.sdsu.edu>
+NNTP-Posting-Host: umcc.umcc.umich.edu
+
+On sunsite.unc.edu in pub/multimedia/utilities/unix find 
+ mpeg_play-2.0.tar.Z.
+
+I find for mono it works best as mpeg_play -dither threshold 
+   though you can use            mpeg_play -dither mono
+
+Face it, this is not be the best viewing situation.
+
+Also someone has made a patch for mpeg_play that gives two more mono
+modes  (mono2 and halftone).
+
+They are by jan@pandonia.canberra.edu.au (Jan Newmarch).
+And the patch can be found on csc.canberra.edu.au (137.92.1.1) under
+/pub/motif/mpeg2.0.mono.patch.
+
+
+Leon Dent
+lcd@umcc.umich.edu
+ 
+

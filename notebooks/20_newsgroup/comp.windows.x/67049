@@ -1,0 +1,28 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!zaphod.mps.ohio-state.edu!magnus.acs.ohio-state.edu!csn!magma!slate!agallagh
+From: agallagh@slate.mines.colorado.edu (GALLAGHER ANDREA J )
+Subject: Re: Forcing a window manager to accept specific coordinates for a window
+Message-ID: <1993Apr20.072905.21350@slate.mines.colorado.edu>
+Date: Tue, 20 Apr 1993 07:29:05 GMT
+References: <C5r25y.HFz@cs.columbia.edu>
+Organization: Colorado School of Mines
+Lines: 18
+
+
+In article <C5r25y.HFz@cs.columbia.edu> Ethan Solomita writes:
+> 
+> 	Hi. I'm trying to figure out how to make a window manager
+> place the window where the create window command tells it,
+> regardless of what it may think is right. (my application has
+> reason to know better)
+> 
+> 	I don't want to set the override-redirect because I do
+> want all the embellishments that the window manager gives, I just
+> want the wm to accept my choice of location.
+
+	window = XCreateWindow(...);
+	XSetTransientForHint(display, window, window);
+	XMapWindow(...);
+
+This is probably cheating, and some window managers might STILL refuse to 
+give it a border and all that other stuff, but it usually works.

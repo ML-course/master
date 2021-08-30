@@ -1,0 +1,34 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.mac.hardware:50450 comp.sys.mac.misc:42509
+Newsgroups: comp.sys.mac.hardware,comp.sys.mac.misc
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!agate!apple!mumbo.apple.com!pcnntp.apple.com!gateway.qm.apple.com!Dale_Adams
+From: Dale_Adams@gateway.qm.apple.com (Dale Adams)
+Subject: Re: HELP INSTALL RAM ON CENTRIS 610
+Sender: news@pcnntp.apple.com
+Message-ID: <1993Apr6.015502.12661@pcnntp.apple.com>
+Date: Tue, 6 Apr 1993 01:55:02 GMT
+Organization: Apple Computer Inc.
+Lines: 23
+
+In article <C5115s.5Fy@murdoch.acc.Virginia.EDU> 
+jht9e@faraday.clas.Virginia.EDU (Jason Harvey Titus) writes:
+>         I had asked everyone about problems installing a 4 meg
+> simm and an 8 meg simm in my Centris 610, but the folks at the
+> local Apple store called the folks in Cupertino and found that
+> you can't have simms of different speeds in one machine, even
+> if they are both fast enough - ie - My 80 ns 8 meg and 60ns 4
+> meg simms were incompatibable...  Just thought people might
+> want to know.....
+
+There's absolutely no reason why differences in the DRAM access time 
+_alone_ would cause an incompatibility.  There would have to be another 
+difference between the SIMMs for there to be a problem.  I've often used 
+memory of different speeds with no problems whatsoever.  As long as it's
+as fast (or faster) than the minimum requirement you should be fine.
+
+Just out of curiosity, did you actually try this and see a problem, or 
+were you told it wouldn't work and so never tried it?  Also out of 
+curiosity, do you know exactly who in Cupertino you dealer talked to (as 
+I'd like to find out what they're basing this recommendation on).
+
+- Dale Adams
+  Apple Computer, Inc.

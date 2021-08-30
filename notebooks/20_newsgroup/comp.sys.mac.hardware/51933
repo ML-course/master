@@ -1,0 +1,21 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!agate!dog.ee.lbl.gov!network.ucsd.edu!news.cerf.net!iat.holonet.net!bmug!Ken_M._Kampman
+Message-ID: <1993Apr19.085722.381625@bmug.org>
+Newsgroups: comp.sys.mac.hardware
+Distribution: world
+From: Ken_M._Kampman@bmug.org
+Organization: BMUG, Inc.
+Date: Mon, 19 Apr 1993 08:57:22 PST
+Subject: Re: IIsi question
+Lines: 11
+
+The si has a single expansion slot, that can be either PDS or Nubus, but not
+both together. The card lies parallel to and above the motherboard & HD and
+requires an adaptor slot to do this. There are Nubus and PDS adaptort cards.
+Thus, what kind of slots you have depends on what kind of adapter card you
+have. With the exception of the Radius rocket, all NuBus cards I know of work
+in the si. PDS slots and thus cards are Mac specific, thus not all PDS cards
+work in all Macs. 
+
+**** From Planet BMUG, the FirstClass BBS of BMUG.  The message contained in
+**** this posting does not in any way reflect BMUG's official views.
+

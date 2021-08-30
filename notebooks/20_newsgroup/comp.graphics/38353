@@ -1,0 +1,19 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.multimedia:6524 comp.graphics:38353
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!pipex!uknet!warwick!str-ccsun!strath-cs!prlhp1!ukrphil
+From: ukrphil@prlhp1.prl.philips.co.uk (M.J.Phillips)
+Newsgroups: comp.multimedia,comp.graphics
+Subject: Re: Rumours about 3DO ???
+Message-ID: <1854@prlhp1.prl.philips.co.uk>
+Date: 16 Apr 93 09:13:32 GMT
+References: <1993Mar31.074502.3590@aragorn.unibe.ch> <1993Apr15.143444.32980@rchland.ibm.com> <1993Apr15.143444.32980@rchland.ibm.com> <1993Apr15.164940.11632@mercury.unt.edu>
+Reply-To: ukrphil@prlhp1.UUCP (M.J.Phillips)
+Organization: Philips Research Laboratories, Redhill, UK
+Lines: 7
+
+The 68070 _does_ exist. It's number was licensed to Philips to make their
+own variant. This chip includes extra featurfes such as more I/O ports, 
+I2C bus... making it more microcontroller like.
+
+Because of the confusion with numbering (!), Philips other products in the
+[range with the 68??? core have been given differend numbers like PCF...
+or PCD7.. or something.

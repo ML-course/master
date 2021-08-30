@@ -1,0 +1,26 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.ms-windows.misc:10674 comp.os.ms-windows.setup:4722
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!geraldo.cc.utexas.edu!donald.cc.utexas.edu!not-for-mail
+From: bkv@donald.cc.utexas.edu
+Newsgroups: comp.os.ms-windows.misc,comp.os.ms-windows.setup
+Subject: Suggestions for WinForWG COM redirection needed!
+Followup-To: comp.os.ms-windows.misc
+Date: 13 May 1993 08:00:01 -0500
+Organization: The University of Texas - Austin
+Lines: 11
+Sender: bkv@ccwf.cc.utexas.edu
+Distribution: usa
+Message-ID: <1stgoh$adq@donald.cc.utexas.edu>
+NNTP-Posting-Host: donald.cc.utexas.edu
+Summary: Help with WFWG
+
+HELP!
+
+I am trying to find software that will allow COM port redirection under
+Windows for Workgroups.  Can anyone out there make a suggestion or reccommend
+something.  I would really hate to have to write some driver for the serial
+port that would support the network, but that is my next step.
+
+Thanks in advance.
+
+bkv
+

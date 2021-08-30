@@ -1,0 +1,17 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!seas.gwu.edu!louray
+From: louray@seas.gwu.edu (Michael Panayiotakis)
+Subject: Re: Hot-key for Screen Saver?
+Message-ID: <1993May15.042551.17892@seas.gwu.edu>
+Sender: news@seas.gwu.edu
+Organization: George Washington University
+References: <1ssq6t$6qc@usenet.INS.CWRU.Edu> <35721@castle.ed.ac.uk> <1sv27f$pc3@sunb.ocs.mq.edu.au>
+Date: Sat, 15 May 1993 04:25:51 GMT
+Lines: 6
+
+
+Well, renaming screensavers (.scr) to .exe, and running them, as has
+been pposted, (I haven't tried changing win.ini , but should have same
+effect) shows me the "setup" dialog. box, butdoesn't enable the saver.
+
+Mickey

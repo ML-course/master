@@ -1,0 +1,24 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!sol.ctr.columbia.edu!ursa!buzz
+From: buzz@bear.com (Buzz Moschetti)
+Newsgroups: comp.windows.x
+Subject: Re: XCopyPlane Question
+Message-ID: <BUZZ.93Apr20081842@lion.bear.com>
+Date: 20 Apr 93 12:18:42 GMT
+References: <9304141450.AA04287@neko.CSS.GOV> <WHALEY.93Apr15103931@sigma.kpc.com>
+	<BUZZ.93Apr19101538@lion.bear.com> <WHALEY.93Apr19171228@sigma.kpc.com>
+Sender: news@bear.com
+Reply-To: buzz@bear.com (Buzz Moschetti)
+Organization: Bear, Stearns & Co. - FAST
+Lines: 10
+In-reply-to: whaley@sigma.kpc.com's message of 20 Apr 93 01:12:28 GMT
+
+In article <WHALEY.93Apr19171228@sigma.kpc.com> whaley@sigma.kpc.com (Ken Whaley) writes:
+>   As per your question: why not have the button handler add the object, and
+>   then call the "window_redraw()" (or whatever) directly?  Although, depending
+
+This design will work but I don't think it can take easily take advantage
+of expose event redraw optimization; that is, the whole window will be
+redrawn, not just the area with the new item.
+
+P.S.  I'm replying here because my/your mailer didn't agree with the
+      return address whaley@sigma.kpc.com.

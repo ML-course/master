@@ -1,0 +1,30 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!noc.near.net!usenet.ccur.com!black
+From: black@westford.ccur.com (Samuel Black)
+Subject: Re: Realtime X-tensions
+Message-ID: <1993Apr27.210207.25312@westford.ccur.com>
+Sender: usenet@westford.ccur.com (UNIX News)
+Organization: Concurrent Computer Corp.  Westford, MA
+References: <C65sus.M7s@ms.uky.edu>
+Date: Tue, 27 Apr 1993 21:02:07 GMT
+Lines: 19
+
+>	I am looking for information on any work that deals with real-time
+>	support in X-windows????!!
+>	Would be happy if you could provide any pointers or information
+
+Concurrent has a product called RealTimeX (tm) that is a set of real-time
+extensions to the X Window System.  RealTimeX is currently supported on
+the Concurrent Series 7000 and Series 8000 with the GA5000 graphics
+accelerator.  If you need/want more info, let me know.
+
+		- sam black
+
+-------------------------------------------------------------------------------
+Once you remove the absurdity from human existence, there isn't much left.
+		     __________
+		    /  _______/__
+		   /__/______/  /	black@westford.ccur.com
+	  Concurrent /_________/
+	Computer Corporation
+-------------------------------------------------------------------------------

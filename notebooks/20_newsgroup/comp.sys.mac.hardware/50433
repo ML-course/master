@@ -1,0 +1,20 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.mac.hardware:50433 comp.sys.mac.misc:42494
+Newsgroups: comp.sys.mac.hardware,comp.sys.mac.misc
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!usenet.ins.cwru.edu!magnus.acs.ohio-state.edu!zaphod.mps.ohio-state.edu!caen!uvaarpa!murdoch!faraday.clas.Virginia.EDU!jht9e
+From: jht9e@faraday.clas.Virginia.EDU (Jason Harvey Titus)
+Subject: Re: HELP INSTALL RAM ON CENTRIS 610
+Message-ID: <C5115s.5Fy@murdoch.acc.Virginia.EDU>
+Sender: usenet@murdoch.acc.Virginia.EDU
+Organization: University of Virginia
+References: <Mar.31.23.02.16.1993.25015@gandalf.rutgers.edu> <1993Apr1.142722.28774@pcnntp.apple.com>
+Date: Mon, 5 Apr 1993 20:05:51 GMT
+Lines: 8
+
+	I had asked everyone about problems installing a 4 meg
+simm and an 8 meg simm in my Centris 610, but the folks at the
+local Apple store called the folks in Cupertino and found that
+you can't have simms of different speeds in one machine, even
+if they are both fast enough - ie - My 80 ns 8 meg and 60ns 4
+meg simms were incompatibable...  Just thought people might
+want to know.....
+					Jason.

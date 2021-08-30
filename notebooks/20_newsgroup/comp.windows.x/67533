@@ -1,0 +1,20 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.lang.perl:16909 comp.windows.x:67533
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!newsserver.jvnc.net!rutgers!vpbuild!admin1!u013!jessea
+From: jessea@u013.me.vp.com (Jesse W. Asher)
+Newsgroups: comp.lang.perl,comp.windows.x
+Subject: X-windows extensions for Perl???
+Message-ID: <1993Apr30.194446.18499@vpbuild.vp.com>
+Date: 30 Apr 93 19:44:46 GMT
+Sender: @vpbuild.vp.com
+Organization: Varco-Pruden Buildings
+Lines: 9
+
+Using the usersub stuff in perl, you can incorporate things like curses for
+use in perl.  I was wondering if anyone had done this with X (preferably
+Motif), and if so, where I could get the source for it?
+
+-- 
+      Jesse W. Asher                                          (901)762-6000
+                             Varco-Pruden Buildings
+                 6000 Poplar Ave., Suite 400, Memphis, TN  38119
+    Internet: jessea@vpbuild.vp.com                   UUCP: vpbuild!jessea

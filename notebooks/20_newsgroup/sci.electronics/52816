@@ -1,0 +1,28 @@
+Newsgroups: sci.electronics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!ux1.cso.uiuc.edu!news.cso.uiuc.edu!uimrl7.mrl.uiuc.edu!ritley
+From: ritley@uimrl7.mrl.uiuc.edu ()
+Subject: SEEKING THERMOCOUPLE AMPLIFIER CIRCUIT
+Date: Tue, 6 Apr 1993 21:40:45 GMT
+Message-ID: <C5307x.AGv@news.cso.uiuc.edu>
+Sender: usenet@news.cso.uiuc.edu (Net Noise owner)
+Reply-To: ritley@uiucmrl.bitnet ()
+Organization: Materials Research Lab
+Lines: 17
+
+
+
+I would like to be able to amplify a voltage signal which is
+output from a thermocouple, preferably by a factor of
+100 or 1000 ---- so that the resulting voltage can be fed
+more easily into a personal-computer-based ADC data
+acquisition card.
+
+Might anyone be able to point me to references to such
+circuits?  I have seen simple amplifier circuits before, but
+I am not sure how well they work in practice.
+
+In this case, I'd like something which will amplify sufficiently
+"nicely" to be used for thermocouples (say, a few degrees
+accuracy or better).
+
+Any pointers would be greatly appreciated!

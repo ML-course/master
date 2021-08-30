@@ -1,0 +1,54 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:67326 comp.windows.x.apps:2551 comp.windows.x.i386unix:1395 comp.windows.x.intrinsics:1176 comp.windows.x.motif:16824
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!darwin.sura.net!howland.reston.ans.net!usenet.ins.cwru.edu!cert.org!news.sei.cmu.edu!bb3.andrew.cmu.edu!andrew.cmu.edu!postman+
+From: Wilfred.Hansen@cs.cmu.edu
+Newsgroups: comp.windows.x,comp.windows.x.apps,comp.windows.x.i386unix,comp.windows.x.intrinsics,comp.windows.x.motif
+Subject: Andrew (was Re: X Toolkits)
+Date: Mon, 26 Apr 1993 12:17:26 -0400
+Organization: Carnegie Mellon, Pittsburgh, PA
+Lines: 40
+Distribution: inet
+Message-ID: <0fr0gKC00gpm4HOHdD@cs.cmu.edu>
+References: <C5y8wJ.3zE@undergrad.math.uwaterloo.ca>
+NNTP-Posting-Host: po5.andrew.cmu.edu
+In-Reply-To: <C5y8wJ.3zE@undergrad.math.uwaterloo.ca>
+
+Excerpts from netnews.comp.windows.x: 23-Apr-93 X Toolkits Paul
+Prescod@undergrad.m (1132)
+
+> I get the impression Andrew is from the FSF, but I don't know what it
+> looks like either.
+
+The Andrew User Interface System is supported, maintained, enhanced, and
+distributed by the Andrew Consortium, Carnegie Mellon.  The distribution
+terms are those of the X consortium, not the GNU Public License.  Thus
+anyone can commercially exploit the Andrew code without restriction. 
+(To encourage membership, however, we defer universal release of the
+latest versions until Consortium members have had an opportunity to
+explore the new capabilities.)
+
+To se what AUIS looks like, you can try a remote demo.  You need an X
+server (R5 is best) on a machine linked to the internet.  Give the
+command 
+
+	finger help@atk.itc.cmu.edu 
+
+for instructions.
+
+NOTE:  The demo version does not use the Motif-look-and-feel scrollbar,
+but one is available.  You can use it on the demo by changing an option
+in the ~/preferences file and starting a new editor.
+
+The Andrew Toolkit component of AUIS is ideal if you want to build
+applications using compound documents.  Andrew's major feature is its
+architecture for recursive embedding of objects: equation in table in
+figure in text, for example.  This architecture extends to areas not
+usually found in toolkits, including file stream formats, cut/paste, and
+printing.
+
+Andrew also provides some of the most commonly requested applications: 
+word processor, spreadsheet, drawing editor, and font editor (the latter
+two are in version 5.2 which will be generally released on the XR6 tape
+in December.)
+
+Fred Hansen
+Director, Andrew Consortium

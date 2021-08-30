@@ -1,0 +1,31 @@
+Path: cantaloupe.srv.cs.cmu.edu!rochester!cornell!batcomputer!caen!uwm.edu!wupost!howland.reston.ans.net!gatech!hubcap!ncrcae!ncrhub2!ncrlnk!ncrwic!mickey!donald!kthompso
+From: kthompso@donald.WichitaKS.NCR.COM (Ken Thompson)
+Newsgroups: sci.electronics
+Subject: Re: 68HC11 problem
+Message-ID: <81450@donald.WichitaKS.NCR.COM>
+Date: 2 Apr 93 14:05:37 GMT
+References: <C4nx6F.GA1@ireq.hydro.qc.ca> <1993Mar30.141742.28642@cerberus.ulaval.ca>
+Organization: NCR Corporation Wichita, KS
+Lines: 21
+
+mdanjou@gel.ulaval.ca (Martin D'Anjou) writes:
+B
+)>>>>>>>>> Votre host est mal configure... <<<<<<<<<<<<
+
+
+)Bonjour Sylvain,
+)	J'ai travaille avec le hc11 il y a 3 ans et je ne me souviens pas de toutes les possibilites mais je vais quand meme essayer de t'aider.
+
+)	Je ne crois pas que downloader une programme directement dans le eeprom soit une bonne idee (le eeprom a une duree de vie limitee a 10 000 cycles il me semble). Le communication break down vient peut-etre du fait que le eeprom est long a programmer (1ms par 8 bytes mais c'est a verifier) et que les delais de transfer de programme s19 vers la memoire sont excedes. Normalement, les transferts en RAM du code s19 est plus rapide car le RAM est plus rapide que le eeprom en ecriture.
+
+)	C'est tout ce que ma memoire me permet de me souvenir!
+
+)Bonne chance,
+
+Oh yeah easy for him to say!...
+
+-- 
+Ken Thompson    N0ITL  
+NCR Corp.  Peripheral Products Division   Disk Array Development
+3718 N. Rock Road  Wichita KS 67226   (316)636-8783
+Ken.Thompson@wichitaks.ncr.com 

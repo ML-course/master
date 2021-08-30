@@ -1,0 +1,23 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!gatech!darwin.sura.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!geraldo.cc.utexas.edu!portal.austin.ibm.com!awdprime.austin.ibm.com!skywalker.bocaraton.ibm.com!tomk
+From: tomk@skywalker.bocaraton.ibm.com (Thomas Chun-Hong Kok)
+Subject: Re: MOOLIT and OLIT
+Message-ID: <C63u0z.x47@austin.ibm.com>
+Sender: tomk@skywalker.bocaraton.ibm.com (Thomas Chung-Hong Kok)
+Date: Mon, 26 Apr 1993 18:58:11 GMT
+References:  <stevedavC5y2Jz.3D7@netcom.com>
+Organization: IBM Austin
+Lines: 12
+
+In article <stevedavC5y2Jz.3D7@netcom.com>, stevedav@netcom.com (Steve Davidson) writes:
+> Does anyone know the difference between MOOLIT and OLIT?  Does Sun
+> support MOOLIT?  Is MOOLIT available on Sparcstations?
+> 
+
+-- 
+MoOLIT (Motif/Open Look Intrinsic Toolkit allows developers to build 
+applications that can switch between Motif and Open Look at run-time,
+while OLIT only gives you Open Look.
+
+--
+Internet: chunhong@vnet.ibm.com

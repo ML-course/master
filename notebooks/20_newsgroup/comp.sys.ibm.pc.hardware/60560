@@ -1,0 +1,20 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.ibm.pc.hardware:60560 comp.os.ms-windows.setup:4329
+Newsgroups: comp.sys.ibm.pc.hardware,comp.os.ms-windows.setup
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!agate!doc.ic.ac.uk!pipex!uknet!mcsun!news.funet.fi!ousrvr.oulu.fi!oulu.fi!vmp
+From: vmp@zombie.oulu.fi (Vesa-Matti Perttunen)
+Subject: Re: Diamond Stealth 24 giving 9.4 Winmarks?
+In-Reply-To: westes@netcom.com's message of 19 Apr 93 18:56:49 GMT
+Message-ID: <VMP.93Apr20005222@zombie.oulu.fi>
+Lines: 7
+Sender: news@ousrvr.oulu.fi
+Organization: Real Life, Inc.
+References: <westesC5qvAp.BGJ@netcom.com>
+Date: Mon, 19 Apr 1993 22:52:22 GMT
+
+Does your Stealth 24 have a row of DIP switches on the back plane?
+
+If so, you have the older Revision A board and the winmark results
+are absolutely normal. The later Revision B board benchmarks at 13
+to 15 million winmarks (at least mine does in 486DX-50 toy).
+
+V

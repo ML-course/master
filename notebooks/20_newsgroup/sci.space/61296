@@ -1,0 +1,61 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.physics:52007 sci.astro:35083 sci.space:61296 sci.space:61297
+Path: cantaloupe.srv.cs.cmu.edu!rochester!cornell!newsstand.cit.cornell.edu!newsstand.cit.cornell.edu!lazio
+From: lazio@astrosun.tn.cornell.edu (T. Joseph Lazio)
+Newsgroups: sci.physics,sci.astro,sci.space,sci.space
+Subject: Re: Gamma Ray Burst Mystery
+Date: 27 Apr 93 10:23:43
+Organization: Department of Astronomy, Cornell University
+Lines: 45
+Message-ID: <LAZIO.93Apr27102343@seti.astrosun.tn.cornell.edu>
+References: <sarfattiC649tL.3It@netcom.com>
+Reply-To: lazio@astrosun.tn.cornell.edu
+NNTP-Posting-Host: seti.tn.cornell.edu
+Summary: Gamma Ray Bursts are still a mystery.
+Keywords: GRBs - cyclotron lines - cosmological bursts
+In-reply-to: sarfatti@netcom.com's message of Tue, 27 Apr 1993 00:39:20 GMT
+
+>>>>> On Tue, 27 Apr 1993 00:39:20 GMT, sarfatti@netcom.com (Jack Sarfatti) said:
+
+js> Question: what is the power spectrum of the bursts. Are their sharp lines?
+js> If so, can they be interpreted as blue-shifted atomic or molecular lines?
+
+ Don't remember the spectra, but have seen some autocorrelation functions
+ recently.  The ACFs show correlation times of milliseconds to 10s of 
+ seconds; interestingly, the higher energies show a shorter correlation 
+ time.
+
+js> Can electron-positron annihilation gammas be seen in the bursts? Are they
+js> red shifted or blue shifted?
+
+ I believe there were claims from an earlier satellite (Ginga?) of 
+ detection of cyclotron absorption lines.  These lines were taken as 
+ strong evidence for neutron stars being the objects responsible for 
+ GRBs since the magnetic field indicated was 1.0E12, fairly typical 
+ for a neutron star.  However, Compton GRO has not seen any of these 
+ lines and I get the impression that many are beginning to doubt whether
+ these lines were ever real.
+
+js> Since the bursts are isotropic and maybe in the galactic halo they may
+js> be saying something about dark matter in the halo.
+
+ *If* the bursts are in the halo, they most certainly are saying something 
+ about dark matter there.  However, if they are in the halo, in order 
+ that they appear isotropic, the "core radius" of the halo (i.e. the 
+ innermost region of the halo) has to be greater than about 50 kpc.
+ The halo itself would stretch much further than this.  Since the 
+ Andromeda Galaxy is only 700 kpc away, we should be seeing bursts
+ from that galaxy's halo, which we aren't.
+
+js> If the bursts are something like the cosmic black body radiation from
+js> way back then where are the red shifts - I mean cosmological red shifts?
+
+ Remember to get a redshift, one needs some type of emission or 
+ absorption line so one can compare the observed line frequency 
+ to the rest line frequency.  Since no lines are seen in GRB spectra, 
+ that comparison cannot be made.
+
+--
+                         | e-mail: lazio@astrosun.tn.cornell.edu
+   T. Joseph Lazio       | phone:  (607) 255-6420
+                         | ICBM:   42 deg. 20' 08" N  76 deg. 28' 48" W
+Cornell knows I exist?!? |       STOP RAPE

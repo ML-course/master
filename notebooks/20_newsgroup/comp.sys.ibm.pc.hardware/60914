@@ -1,0 +1,34 @@
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!bogus.sura.net!howland.reston.ans.net!newsserver.jvnc.net!gmd.de!rrz.uni-koeln.de!rrz.Uni-Koeln.DE!mw
+From: mw@rrz.Uni-Koeln.DE (Markus Wischerath)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: Re: Soundblaster IRQ and Port settings
+Date: 22 Apr 1993 08:58:52 GMT
+Organization: Reg. Computing Center, University of Cologne
+Lines: 21
+Distribution: world
+Message-ID: <1r5mocINN1in6@rs1.rrz.Uni-Koeln.DE>
+References: <C5J39o.3JL@acsu.buffalo.edu> <1993Apr16.105809.22218@walter.cray.com> <C5MGx0.Dxy@news.Hawaii.Edu> <3130@shaman.wv.tek.com> <pdb059-210493145738@kilimanjaro.jpl.nasa.gov>
+Reply-To: mw@spinfo.uni-koeln.de
+NNTP-Posting-Host: tuennes.spinfo.uni-koeln.de
+
+
+In article <pdb059-210493145738@kilimanjaro.jpl.nasa.gov>, pdb059@ipl.jpl.nasa.gov (Paul Bartholomew) writes:
+
+|> > When two or more devices in an ISA bus PC share an interrupt, it's
+|> > because they're implemented by a single card.
+|> 
+|> Interesting.  Would you care to explain to me then, how my SoundBlaster
+|> Pro card and my printer card are sharing IRQ 7 successfully?  I assure
+|> you that they are both set to IRQ 7 and that I have no problem.  My
+|> computer is a DTK 286-12 IBM clone.
+|> 
+|> Paul Bartholomew
+|> pdb059@ipl.jpl.nasa.gov
+|> 
+You can configure devices for the same IRQ as long as you don't use them
+*simultaneously*, under Dos at least. Both LPT1: and SB just sit there until
+you tell them to do something. You can't configure a SoundBlaster for IRQ7
+if you got an Ethernet Card which hits that IRQ a thousand times or so per 
+second.
+
+Markus

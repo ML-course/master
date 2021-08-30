@@ -1,0 +1,30 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.human-factors:4694 comp.graphics:38887 comp.graphics.visualization:3404
+Newsgroups: cs.imager,comp.human-factors,comp.graphics,comp.graphics.visualization
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!ub!galileo.cc.rochester.edu!rochester!rit!isc-newsserver!nick.csh.rit.edu!pat
+From: pat@nick.csh.rit.edu (Pat Fleckenstein (A jedi in training))
+Subject: Re: 3-D widget wish list?
+Message-ID: <1993Apr29.052716.27114@ultb.isc.rit.edu>
+Keywords: 3-D widget, manipulation, feedback, user interface design system
+Sender: news@ultb.isc.rit.edu (USENET News System)
+Nntp-Posting-Host: nick.csh.rit.edu
+Organization: Computer Science House @ RIT
+References: <1rmhip$jqv@cs.ubc.ca>
+Date: Thu, 29 Apr 1993 05:27:16 GMT
+Lines: 16
+
+
+What I'd like to see is the more generic N-dimensional widget set.
+I realize, that there wouldn't be a whole shitload of people
+who'd want more than 3, but why stop?
+
+All I need is a Widget with up to N viewports showing me different
+3-D or 2-D slices of my stuff.
+
+alter,
+pat
+
+-- 
+  pat@ritcsh.csh.rit.edu*paf3580@ritvax.rit.edu*paflecke@spectrum.xerox.com
+*****************************************************************************
+    "All Objects are Macroscopic, Invisible, Non-Physical, or otherwise
+     Non-Heisenbergish.  Fuck the Cat!"  -- me

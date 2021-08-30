@@ -1,0 +1,23 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!emory!swrinde!zaphod.mps.ohio-state.edu!magnus.acs.ohio-state.edu!usenet.ins.cwru.edu!news.ysu.edu!yfn.ysu.edu!ah301
+From: ah301@yfn.ysu.edu (Jerry Sy)
+Newsgroups: comp.sys.mac.hardware
+Subject: how to boot from ext HD on power on ?
+Date: 17 Apr 1993 20:13:17 GMT
+Organization: St. Elizabeth Hospital, Youngstown, OH
+Lines: 12
+Message-ID: <1qpoct$7uj@news.ysu.edu>
+Reply-To: ah301@yfn.ysu.edu (Jerry Sy)
+NNTP-Posting-Host: yfn.ysu.edu
+
+
+I have an external hard drive I wish to use as startup disk.
+problem is, when I switch on the mac, it boots on the internal HD,
+but when I restart  (warm boot) the mac, it boots from the external.
+how do I make  it boot directly from the external ?
+
+please email replies if possible.
+
+thanks in advance.
+
+jerry
+

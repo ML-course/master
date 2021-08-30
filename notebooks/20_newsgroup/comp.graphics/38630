@@ -1,0 +1,34 @@
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!bogus.sura.net!howland.reston.ans.net!usenet.ins.cwru.edu!cleveland.Freenet.Edu!ch381
+From: ch381@cleveland.Freenet.Edu (James K. Black)
+Newsgroups: comp.graphics
+Subject: NEEDED: algorithms for 2-d & 3-d object recognition
+Date: 22 Apr 1993 15:06:53 GMT
+Organization: Case Western Reserve University, Cleveland, OH (USA)
+Lines: 23
+Message-ID: <1r6cad$on0@usenet.INS.CWRU.Edu>
+Reply-To: ch381@cleveland.Freenet.Edu (James K. Black)
+NNTP-Posting-Host: hela.ins.cwru.edu
+
+
+Hi,
+         I have a friend who is working on 2-d and 3-d object recognition. He is looking
+for references describing algorithms on the following subject areas:
+
+Thresholding
+Edge Segmentation
+Marr-Hildreth
+Sobel Operator
+Chain Codes
+Thinning - Skeletonising
+
+If anybody is willing to post an algorithm that they have implemented which demonstrates
+any of the above topics, it would be much appreciated.
+
+Please post all replies to my e-mail address. If requested I will post a summary to the
+newsgroup in a couple of weeks.
+
+
+Thanks in advance for all replies
+
+James
+eb192@city.ac.uk

@@ -1,0 +1,40 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.mac.hardware:50421 comp.sys.mac.system:29732
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!ogicse!uwm.edu!cs.utexas.edu!sun-barr!lll-winken.llnl.gov!snll-arpagw!dfclark
+From: dfclark@snll-arpagw.llnl.gov (clark dean f)
+Newsgroups: comp.sys.mac.hardware,comp.sys.mac.system
+Subject: Re: Centris Cache & Bernoulli Box
+Message-ID: <519@snll-arpagw.llnl.gov>
+Date: 5 Apr 93 17:25:25 GMT
+Article-I.D.: snll-arp.519
+References: <1993Apr2.123619.548@physc1.byu.edu>
+Distribution: world
+Organization: Sandia National Laboratories
+Lines: 27
+
+In article <1993Apr2.123619.548@physc1.byu.edu> goblec@physc1.byu.edu writes:
+>I just tried running my Bernoulli Box off a Centris and the driver
+>software only seems to work when the 040 cache is off.  If it is
+>on I get the message "This is not a Macintosh Disk - do you wish
+>to initialize it."  
+>
+>I have IOMEGA Driver 3.4.2.  Is there a newer version that works
+>with the 040's?  Is there something I am doing wrong?
+>
+>Clark Goble
+>goblec@theory.byu.edu
+
+I Have Version 3.5.1 which I believe was needed for a 040 machine.
+You should be able to get the newest version by calling their tech
+support at 1-800-456-5522 or if you have a modem you can get the
+driver from their BBS at 801-778-4400.
+
+
+
+dean
+
+
+
+-- 
+
+Dean Clark
+Internet dfclark@ca.sandia.gov

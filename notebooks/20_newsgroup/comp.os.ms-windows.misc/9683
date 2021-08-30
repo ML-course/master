@@ -1,0 +1,13 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!zaphod.mps.ohio-state.edu!cs.utexas.edu!asuvax!ncar!catch-the-fever.scd.ucar.edu!baseball
+From: baseball@catch-the-fever.scd.ucar.edu (Gregg Walters)
+Subject: MathCad 4.0 swap file
+Message-ID: <1993Apr20.175608.23949@ncar.ucar.edu>
+Sender: news@ncar.ucar.edu (USENET Maintenance)
+Organization: Scientific Computing Divison/NCAR Boulder, CO
+Date: Tue, 20 Apr 1993 17:56:08 GMT
+Lines: 3
+
+I have 16MB of memory on my 386SX.  I have been running Windows
+without a swap file for several months.  Will Mathcad 4.0 be
+happy with this, or insist on a swap file?

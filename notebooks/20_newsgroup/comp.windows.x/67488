@@ -1,0 +1,27 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!news
+From: sirosh@cs.utexas.edu (Joseph Sirosh)
+Newsgroups: comp.windows.x
+Subject: X Design choice for color handling: question
+Date: 30 Apr 1993 03:23:25 -0500
+Organization: CS Dept, University of Texas at Austin
+Lines: 16
+Message-ID: <lu1oftINNnfk@cascais.cs.utexas.edu>
+NNTP-Posting-Host: cascais.cs.utexas.edu
+Keywords: color
+
+Most graphics systems I have seen have drawing routines that also specify
+a color for drawing, like
+
+Drawpoint(x,y,color) or Drawline(x1,y1,x2,y2,color) or
+Fillrectangle(x1,y1,x2,y2,color) 
+
+With X, I have to do something like 
+XSetForeground(current_color)
+XDrawPoint(d,w,x,y)
+
+Why split this into two functions? Why did X designers decide to not associate
+the color with the object being drawn, and instead associate it with the
+display it is being drawn on?
+
+Joseph Sirosh
+

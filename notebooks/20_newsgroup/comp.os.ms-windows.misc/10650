@@ -1,0 +1,22 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!math.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!darwin.sura.net!news-feed-1.peachnet.edu!gatech!usenet.rpi.edu!usenet.rpi.edu!wiseb
+From: wiseb@colossus.cs.rpi.edu (Bowden Wise)
+Newsgroups: comp.os.ms-windows.misc
+Subject: Displaying stream output in a Window
+Date: 12 May 1993 21:23:59 GMT
+Organization: Rensselaer Polytechnic Institute Computer Science, Troy NY
+Lines: 11
+Distribution: comp
+Message-ID: <1srptf$5i7@usenet.rpi.edu>
+NNTP-Posting-Host: colossus.cs.rpi.edu
+
+I am using OWL and want to display the output from a stream in a popup
+window.  Is there a way to perhaps redirect cout to a window?   Or
+alternatively set up a separate stream that supports output and be
+able to display the stream output in an TEdit control?
+
+Anyone ever done something like this?
+--
+--------------------------------------------------------------------
+- Bowden Wise
+  Computer Science Dept, Rensselaer Polytechnic Inst, Troy, NY 12180
+  internet: wiseb@cs.rpi.edu

@@ -1,0 +1,18 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!gatech!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!bose!maddox
+From: maddox@bose.com (John Maddox)
+Subject: Color Tektronics term emulation
+Message-ID: <1993May12.151216@bose.com>
+Originator: maddox@oz
+Keywords: xterm tek 4105 4107
+Sender: news@bose.com
+Nntp-Posting-Host: oz
+Organization: Bose Corporation
+Date: Wed, 12 May 1993 19:12:16 GMT
+Lines: 5
+
+
+Does anyone know of an X-based terminal emulator which can
+emulate a color tektronics graphics terminal such as 
+TEK 4105 or TEK 4107, etc?
+

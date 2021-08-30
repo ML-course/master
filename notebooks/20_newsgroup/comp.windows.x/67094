@@ -1,0 +1,43 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.open-look:8378 comp.windows.x.motif:16673 comp.windows.x:67094
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!imp!loki!devil
+From: devil@loki.HellNet.org (Gil Tene)
+Newsgroups: comp.windows.open-look,comp.windows.x.motif,comp.windows.x
+Subject: COSE GUI - Just what is it they agreed on?
+Message-ID: <537@imp.HellNet.org>
+Date: 20 Apr 93 14:20:25 GMT
+Sender: devil@imp.HellNet.org
+Followup-To: comp.windows.open-look
+Lines: 31
+Nntp-Posting-Host: loki
+
+The COSE announcement specifies that Motif will become the common
+GUI. But what does this mean exactly? 
+
+- Do they mean that all "COSE-complient" apps will have the Motif
+  look and feel?
+
+- Do they mean that all "COSE-complient" apps will use the Motif
+  toolkit API?
+
+- Do they mean both of the above?
+
+- Is it possible that there will be a Motif-API complient toolkit with
+  an OpenLook Look & Feel?
+
+- How about an OLIT/XView/OI/Interviews API toolkit with a Motif L & F?
+  (I know OI already does this, but will this be considered COSE-complient?)
+
+- Will there be more than one "standard" toolkit API or L & F supported?
+
+- How does using ToolTalk fit in with Motif?
+
+This is my attempt to start a discussion in order to pull as much 
+knowledge about these questions off the net... Feel free to e-mail
+or followup.
+
+-- 
+--------------------------------------------------------------------
+-- Gil Tene			"Some days it just doesn't pay     -
+-- devil@imp.HellNet.org	   to go to sleep in the morning." -
+-- devil@diablery.10A.com 					   -
+--------------------------------------------------------------------

@@ -1,0 +1,30 @@
+From: ffritze@hpwad.WAD.HP.COM (Fromut Fritze)
+Date: Mon, 19 Apr 1993 07:12:56 GMT
+Subject: Re: Need help writing MS EXCEL macro
+Message-ID: <93040001@hpwad.WAD.HP.COM>
+Organization: Hewlett-Packard Waldbronn, Germany
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!sdd.hp.com!hpscit.sc.hp.com!hplextra!hpcc05!hpbbn!hpwad!ffritze
+Newsgroups: comp.os.ms-windows.misc
+References: <1993Apr2.210003.28696@colorado.edu>
+Lines: 20
+
+>    for each_student do
+>       begin
+>          Lowest_Score_Found := Max_Possible_Value
+>          for I := 1 to Number_Of_Assignments do
+>             begin
+>                  if Score[I] < Lowest_Score_Found then
+>                     Lowest_Score_Found := Score[I] 
+>             end
+>          Total_Score := SUM(all scores) - Lowest_Score_Found
+>       end
+
+Couldn't you simply use MIN() as you use SUM() and than subtract it
+from SUM() ??
+
+------------------------------------------------------------------------------
+internet: ffritze@hpwbe007.wad.hp.com
+phone:    Germany 7243 602296
+address:  Fromut FRITZE, Waldbronn Analytic Division R&D,
+	  Hewlett Packard Str, D 7517 Waldbronn 2, Germany
+------------------------------------------------------------------------------

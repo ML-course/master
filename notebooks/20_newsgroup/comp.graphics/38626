@@ -1,0 +1,34 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.ms-windows.programmer.misc:8907 comp.os.ms-windows.programmer.tools:3194 comp.graphics:38626
+Newsgroups: comp.os.ms-windows.programmer.misc,comp.os.ms-windows.programmer.tools,comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!rochester!cornell!batcomputer!caen!uwm.edu!ux1.cso.uiuc.edu!news.cso.uiuc.edu!ux2.cso.uiuc.edu!sink
+From: e-sink@uiuc.edu (Eric W. Sink)
+Subject: Re: Looking for WMF Converter
+Date: Thu, 22 Apr 1993 12:36:25 GMT
+Message-ID: <C5vxoq.6s8@news.cso.uiuc.edu>
+References: <C5ut8E.21p@HQ.Ileaf.COM>
+Sender: usenet@news.cso.uiuc.edu (Net Noise owner)
+Keywords: WMF, windowsmetafile
+Reply-To: e-sink@uiuc.edu
+Originator: sink@ux2.cso.uiuc.edu
+Organization: University of Illinois at Urbana
+Lines: 19
+
+buck@HQ.Ileaf.COM (David Buchholz x3252) writes:
+
+>I'm looking for any leads to the source of a good Windows
+>Meta File converter or interpreter. I need this for use
+>outside the Windows environment. PD sources preferred, but
+>not a requirement. Please reply to the address below.
+
+On a related topic, I have been searching (with no success)
+for a specification of the Enhanced Metafile format.  I have
+the original WMF format (Graphics File Formats, Levine et al),
+but no info on the 32 bit version.
+
+Any pointers ?
+
+-- 
+Eric W. Sink, Spyglass        | "In all the earth, only humans have the ability
+1800 Woodfield Drive          |    to be content in bad situations...
+Savoy, IL  61826              |    and vice-versa."
+---- e-sink@uiuc.edu ---------|---------- 217-355-6000 -----------------------

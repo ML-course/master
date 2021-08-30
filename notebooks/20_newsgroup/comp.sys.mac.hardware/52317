@@ -1,0 +1,19 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.next.hardware:4469 comp.sys.mac.hardware:52317
+Newsgroups: comp.sys.next.hardware,comp.sys.mac.hardware
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!usenet.ins.cwru.edu!agate!headwall.Stanford.EDU!nntp.Stanford.EDU!news
+From: avery@gestalt.Stanford.EDU (Avery Wang)
+Subject: CD300 Audio CD SCSI commands
+Message-ID: <1993Apr25.052316.12710@leland.Stanford.EDU>
+Sender: news@leland.Stanford.EDU (Mr News)
+Organization: DSO, Stanford University
+Date: Sun, 25 Apr 93 05:23:16 GMT
+Lines: 8
+
+Hi-
+Does anyone out there know how I would get started on writing a
+device driver for the Apple CD300 CD-ROM drive, which *can*
+read audio CD formats out through the SCSI bus? 
+
+Thanks,
+-Avery
+

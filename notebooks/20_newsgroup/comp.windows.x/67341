@@ -1,0 +1,20 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.open-look:8435 comp.windows.x:67341
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!gatech!paladin.american.edu!europa.eng.gtefsd.com!darwin.sura.net!zaphod.mps.ohio-state.edu!sol.ctr.columbia.edu!eff!news.kei.com!ub!acsu.buffalo.edu!vidya-v
+From: vidya-v@acsu.buffalo.edu (vidyaranya)
+Newsgroups: comp.windows.open-look,comp.windows.x
+Subject: Red color on button on enter window.
+Message-ID: <C63xA7.9Dr@acsu.buffalo.edu>
+Date: 26 Apr 93 20:08:30 GMT
+Sender: nntp@acsu.buffalo.edu
+Distribution: usa
+Organization: UB
+Lines: 7
+Nntp-Posting-Host: beatrix.eng.buffalo.edu
+
+
+This may be an FAQ, but I dont know where to get the FAQ list!
+My OpenLook application has a few buttons. The first button turns
+red(gets highlighted?) as soon as the sprite(mouse) is moved into the
+application window. How do I suppress this?
+
+Vidyaranya

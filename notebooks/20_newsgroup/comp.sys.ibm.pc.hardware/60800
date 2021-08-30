@@ -1,0 +1,34 @@
+Newsgroups: comp.sys.ibm.pc.hardware
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!sdd.hp.com!network.ucsd.edu!pacbell.com!unet!zippy!jrs
+From: jrs@zippy.unet.com (John Switzer Frame 3.0)
+Subject: Re: CMOS Checksum error
+Message-ID: <1993Apr21.202116.27892@unet.net.com>
+Sender: news@unet.net.com
+Nntp-Posting-Host: zippy
+Organization: Network Equipment Technologies, Redwood City
+References: <C5uAoq.5v@ulowell.ulowell.edu>
+Date: Wed, 21 Apr 1993 20:21:16 GMT
+Lines: 22
+
+In article <C5uAoq.5v@ulowell.ulowell.edu> mcook@cs.ulowell.edu (Michael Cook) writes:
+>Recently, I have been getting a CMOS Checksum error when I first turn on my
+>computer.  It doesn't happen everytime I turn it on, nor can I predict when it
+>is going to happen.  I have an AMI BIOS and all of the setting are lost, for
+>example the drive types and the password options.  However, the date and time
+>remain correct.  If anyone knows what can be causing this, please let me know.
+
+Most likely reason is that your backup battery is failing - this battery 
+maintains the contents of the CMOS memory when AC power is turned off, and
+if the battery is flakey then the contents of the CMOS will be lost and 
+the checksum will be wrong (along with most other of the CMOS data). Try 
+replacing the battery.
+
+If, however, your PC doesn't use a battery but a large capacitor to power
+the CMOS, you should check to see if you can replace the capacitor with a 
+more normal lithium battery. If this isn't possible, make sure you leave
+your PC on for a half hour or hour each day; this will keep the capacitor 
+charged. I'd opt for the battery change, though.
+
+It's also possible, but unlikely that a rogue problem or even a virus is 
+corrupting the CMOS. If your battery seems okay, get a virus scanner and
+check out your system.

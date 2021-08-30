@@ -1,0 +1,39 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:67436 comp.windows.open-look:8458
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!pitt.edu!zaphod.mps.ohio-state.edu!ub!galileo.cc.rochester.edu!rochester!rit!mmc
+From: mmc@cs.rit.edu (Mahendra M Chheda)
+Newsgroups: comp.windows.x,comp.windows.open-look
+Subject: Print from within an application
+Message-ID: <1993Apr29.145834.23769@cs.rit.edu>
+Date: 29 Apr 93 14:58:34 GMT
+Sender: news@cs.rit.edu
+Organization: Rochester Institute of Technology
+Lines: 27
+Nntp-Posting-Host: mackinac
+
+Hi,
+
+I have an application which draws graphs, bar charts etc. I need to include
+print support for these from within my application i.e. a user can print
+the graphs from within the applictaion by clicking on a print button. I am 
+not sure if I can invoke xwd & xpr from within my application and specify
+the window id to get my window dump and then send this file for printing or 
+if there are other ways of doing this. I would appreciate any help in this 
+regard. Thanx.
+
+	- Mahendra.
+
+PS : Please mail your replies to me as I am not a regular reader of this 
+news group. I will post a summary if there is sufficient interest.
+
+-- 
+
+***************************************************************************
+	Mahendra Chheda			#
+	mmc@cs.rit.edu			#
+	mmc7274@ritvax.isc.rit.edu	#
+					#
+	Office :			#	Residence :
+	Dept. of Computer Science	#	440 Kimball Drive
+	Rochester Institute of Tech.	#	Rochester, NY 14623
+	Tel. 716-475-2079		#	Tel. 716-292-5726
+***************************************************************************

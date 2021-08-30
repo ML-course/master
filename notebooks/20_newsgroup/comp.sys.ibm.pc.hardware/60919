@@ -1,0 +1,30 @@
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!bogus.sura.net!howland.reston.ans.net!ira.uka.de!news.dfn.de!mailgzrz.TU-Berlin.DE!cs.tu-berlin.de!fauern!rz.uni-passau.de!kirk.fmi.uni-passau.de!opheys
+From: opheys@kirk.fmi.uni-passau.de (Thomas "Sledge" Opheys)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: fooling check for existance of keyboard with resistor?
+Date: 22 Apr 1993 10:09:26 GMT
+Organization: Universitaet Passau, Germany
+Lines: 19
+Message-ID: <1r5qsmINN2ft@tom.rz.uni-passau.de>
+References: <C5vLw8.29G@cbnewsj.cb.att.com>
+NNTP-Posting-Host: bones.fmi.uni-passau.de
+
+Hi,
+
+I have the following problem: I have to use a computer for special purposes
+that doesn't have a monitor and keyboard connected. No monitor isn't a 
+program - but no keyboard.
+I can't disable the keyboard from BIOS setup (in fact, there is no setup).
+I spoke to someone who said that he had fooled the BIOS with simply
+using a self-made connector that connects two pins via a resistor.
+Pity, pity... I lost contact to the person before getting more detail.
+So does anyone of you experts can help?
+
+Thanks for any hints, even vague ones :-)
+
+Thomas
+-- 
+Thomas S. Opheys                  Mutter Beimer, Erich, Robert Engel, Tanja
+opheys@kirk.fmi.uni-passau.de     Schildknecht, Klausi, Onkel Franz, Rehlein,
+Franz-Stockbauer-Weg 1/88         Pichelsteiner, Walze, Else Kling, Iffi,
+W-8390 Passau, Germany              -- ich liiiiiiebe Euch! Echt!

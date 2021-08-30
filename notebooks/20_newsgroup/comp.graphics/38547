@@ -1,0 +1,18 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!concert!duke!news.duke.edu!north13.acpub.duke.edu!seth
+From: seth@north13.acpub.duke.edu (Seth Wandersman)
+Newsgroups: comp.graphics
+Subject: univesa driver
+Message-ID: <13622@news.duke.edu>
+Date: 21 Apr 93 00:03:04 GMT
+Sender: news@news.duke.edu
+Reply-To: seth@north13.acpub.duke.edu (Seth Wandersman)
+Lines: 7
+Nntp-Posting-Host: north13.acpub.duke.edu
+
+
+	I got the univesa driver available over the net. I thought that finally
+my 1-meg oak board would be able to show 680x1024 256 colors. Unfortunately a
+program still says that I can't do this. Is it the fault of the program (fractint)
+or is there something wrong with my card.
+	univesa- a free driver available over the net that makes many boards
+vesa compatible. 

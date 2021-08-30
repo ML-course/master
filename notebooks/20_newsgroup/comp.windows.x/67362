@@ -1,0 +1,25 @@
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!wupost!uunet!ogicse!psgrain!ee.und.ac.za!hippo!kudu!ccdw
+From: ccdw@kudu.ru.ac.za (Dave Wilson)
+Newsgroups: comp.windows.x
+Subject: Xlib timeouts?
+Summary: How to do timeouts using Xlib
+Keywords: Xlib timeouts
+Message-ID: <ccdw.735917051@kudu>
+Date: 27 Apr 93 13:24:11 GMT
+Article-I.D.: kudu.ccdw.735917051
+Sender: news@hippo.ru.ac.za (Usenet News Admin)
+Organization: Rhodes University, Grahamstown, South Africa
+Lines: 12
+
+I am in the process of modifying an X application that uses Xlib.  I'd
+like to include a timer-driven facility (for network polling), but cannot
+see how to do it using Xlib.  I know it can be done with Xaw, using
+XtAppAddTimeout and XtTimerCallBackProc.  How do I do the same using
+Xlib?
+
+Thanks for any help.  Please email.
+
+--
+Dave Wilson
+Computing Centre, Rhodes University
+Grahamstown, South Africa

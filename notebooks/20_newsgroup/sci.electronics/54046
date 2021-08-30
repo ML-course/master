@@ -1,0 +1,33 @@
+Newsgroups: sci.electronics
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!uwm.edu!msuinfo!uchinews!att-out!cbfsb!cbnewsf.cb.att.com!rdell
+From: rdell@cbnewsf.cb.att.com (richard.b.dell)
+Subject: Re: A question about 120VAC outlet wiring.
+Message-ID: <C5wFJH.A5u@cbfsb.cb.att.com>
+Sender: news@cbfsb.cb.att.com
+Organization: AT&T
+References: <1993Apr20.184059.13082@imax.imax.com> <1993Apr22.004728.6736@mtu.edu>
+Distribution: na
+Date: Thu, 22 Apr 1993 19:02:04 GMT
+Lines: 21
+
+In article <1993Apr22.004728.6736@mtu.edu> cmwolf@mtu.edu (Engineer by Day - Asleep by Night) writes:
+>Dave Martindale (dave@imax.imax.com) wrote:
+>: They require two separate grounds.  One ground goes to the ground pin
+>: of the outlet, and the other ground wire is connected to the outlet's
+>: mounting tabs (and thus grounds the box and faceplate screw and metal
+>: faceplate, if any).
+>
+>I thought the ground WAS connected to the metal frame on the socket.
+>
+>-- 
+>------------------------------------------------------------------------------
+>Christopher Wolf             Electrical Engineer                cmwolf@mtu.edu
+>------------------------------------------------------------------------------
+>         Remember, even if you win the Rat Race - You're still a rat.
+
+Not in isolated ground recepticles (usually an unusual color, such as orange
+or yellow) often used in low noise, low leakage applications, as mentioned
+earlier in the thread.
+
+Richard Dell
+

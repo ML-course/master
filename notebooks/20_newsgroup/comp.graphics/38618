@@ -1,0 +1,27 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.graphics:38618 comp.graphics.animation:3069
+Newsgroups: comp.graphics,comp.graphics.animation
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!mcsun!sunic!uts!daimi!rued
+From: rued@daimi.aau.dk (Thomas Rued J|rgensen)
+Subject: Re: .SCF files, help needed
+Message-ID: <1993Apr22.123832.23894@daimi.aau.dk>
+Sender: rued@daimi.aau.dk (Thomas Rued J|rgensen)
+Organization: DAIMI: Computer Science Department, Aarhus University, Denmark
+References: <1993Apr21.013846.1374@cx5.com>
+Date: Thu, 22 Apr 93 12:38:32 GMT
+Lines: 15
+
+tlc@cx5.com writes:
+
+>Second problem: I can't find any graphics program that will open and display  
+>these files. I have a couple of image conversion programs, none mention .scf  
+>files.
+
+RIX's files with the extension  .sci and .scf are just a RAW file with
+a 256 color palette.
+The first 10 bytes is a kind of header, with the name RIX among 7bytes unknown stuff. The you have 768 bytes of palette info (3*256 for the colors RGB)
+and then you have the picture in raw format.
+If you dont know how to make a viewer of of this description you can get VPIC
+it is able to read the files!
+
+regards
+Thomas 

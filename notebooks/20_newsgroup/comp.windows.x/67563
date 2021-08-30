@@ -1,0 +1,104 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.sgi.apps:583 comp.sys.sun.apps:4155 comp.windows.x.apps:2583 comp.sys.dec:16040 comp.sys.hp:30955 comp.unix.aix:24712 comp.windows.x:67563 comp.windows.x.motif:16969 sci.math.stat:6463 sci.math.num-analysis:8069 comp.graphics:39057
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!ogicse!amb4.ccalmr.ogi.edu!pturner
+From: pturner@amb4.ese.ogi.edu (Paul J Turner)
+Newsgroups: comp.sys.sgi.apps,comp.sys.sun.apps,comp.windows.x.apps,comp.sys.dec,comp.sys.hp,comp.unix.aix,comp.windows.x,comp.windows.x.motif,sci.math.stat,sci.math.num-analysis,comp.graphics
+Subject: Announcing xmgr (ACE/gr, Motif version) v2.10
+Summary: XY-plotting tool available
+Keywords: plot, graph
+Message-ID: <53123@ogicse.ogi.edu>
+Date: 2 May 93 15:04:37 GMT
+Article-I.D.: ogicse.53123
+Sender: news@ogicse.ogi.edu
+Followup-To: pturner@amb4.ccalmr.ogi.edu
+Distribution: world
+Organization: Center for Coastal and Land-Margin Research
+Lines: 87
+Originator: pturner@amb4.ccalmr.ogi.edu
+
+
+Announcing xmgr (ACE/gr, Motif version) v2.10
+
+Xmgr is a full-featured XY-plotting tool for UNIX workstations 
+using X or OpenWindows. There is an XView version called xvgr for
+Suns. Collectively, these 2 tools are known as ACE/gr. Compiling 
+xmgr requires the Motif toolkit version 1.1 and X11R4 - xmgr will 
+not compile under X11R3/Motif 1.0x.  X11R5+Motif 1.2 should work 
+fine, but I've not been able to test this.
+
+For a summary of xmgr's capabilities, get the file BLURB from
+either site mentioned below.
+
+Available via anonymous ftp to either:
+
+ftp.ccalmr.ogi.edu:/CCALMR/pub/acegr/xmgr-2.10.tar.Z
+
+or
+
+export.lcs.mit.edu:/contrib/acegr/xmgr-2.10.tar.Z
+
+Please remember to set the transfer type to binary.
+
+I am not able to E-mail xmgr, but there are services provided 
+by various Internet sites that allow ftp by mail. You might try 
+sending mail to ftpmail@decwrl.dec.com as follows:
+
+Subject: (hit return) Body-of-letter: help (return) quit
+
+I've not tried this, but it should give you instructions on how 
+to use this service.
+
+2.10 has been compiled and tested on:
+
+ IBM RS6000 - AIX 3.2 X11R4/Motif 1.1
+ DECstation - Ultrix 4.2a X11R4/Motif 1.1
+ SGI Indigo - Irix 4.0.1 X11R4/Motif 1.1
+ Sun SPARC  - SunOS 4.1.1 X11R4/Motif 1.1
+ HP 720     - HP-UX 8.05 X11R4/Motif 1.1
+
+Compiling with gcc should be no problem, but use settings 
+appropriate for K&R C.
+
+Of interest:
+
+In light of recent announcements (COSE), I'm suspending further 
+development of the XView version. For those without Motif on 
+SUNs, I'll provide a compiled binary (eventually).
+
+I've begun re-writing ACE/gr in C++, the initial target is
+MS-Windows.
+
+Improvements/fixes from 2.09 are:
+
+ * The explicit placement of items in popups has been replaced
+	with manager widgets. The previous method led to problems
+	on some servers (all widgets in a popup would get scrunched
+	into the upper left corner).
+
+ * Many set operations can now be done in the File/Status popup.
+
+ * The PostScript driver should do a better job of producing
+	EPSF'able output.
+
+A few things remain to do (I could use some ideas/help on these):
+
+1. Replace the Hershey fonts used for on-screen text with the
+	xvertext routines posted to the net by Alan Richardson.
+	The problem here is how to include support for this in the
+	user interface.
+
+2. Add support for Adobe Font Metrics. I could use some PD or freely
+	distributable routines for this.
+
+3. Add support for pattern fills in the PostScript driver. Presently
+	the only way to get hardcopy for fills is to import MIF into
+	FrameMaker. Need PS routines for pattern fills.
+
+4. Add support for HDF/NetCDF. I'm interested in your opinion on
+	how one would write a generic reader for these file formats.
+
+--Paul
+
+Paul J Turner - pturner@amb4.ccalmr.ogi.edu
+Center for Coastal and Land-Margin Research
+Oregon Graduate Institute
+Beaverton, OR 97006-1999

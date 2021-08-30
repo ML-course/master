@@ -1,0 +1,22 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:66890 comp.windows.open-look:8335
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!andrew.cmu.edu!db74+
+From: "Derrick J. Brashear" <db74+@andrew.cmu.edu>
+Newsgroups: comp.windows.x,comp.windows.open-look
+Subject: mouseless operation in ol{v}wm
+Date: Fri, 16 Apr 1993 02:40:22 -0400
+Organization: Sophomore, Civil Engineering, Carnegie Mellon, Pittsburgh, PA
+Lines: 11
+Message-ID: <QfnZHKS00WB7BCOUpx@andrew.cmu.edu>
+NNTP-Posting-Host: po5.andrew.cmu.edu
+
+Mouseless operation is documented in the man pages for olwm and olvwm...
+However, I can't get it to work in either.
+I have this line in my .Xdefaults:
+OpenWindows.KeyboardCommands:           Full
+
+That should do it...
+I haven't rebound the keys.
+Am I missing something?
+
+-D
+

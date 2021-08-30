@@ -1,0 +1,29 @@
+Xref: cantaloupe.srv.cs.cmu.edu alt.3d:2141 comp.graphics:37921
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!swrinde!zaphod.mps.ohio-state.edu!usc!elroy.jpl.nasa.gov!ames!olivea!uunet!mcsun!fuug!kiae!relcom!newsserv
+From: alex@talus.msk.su (Alex Kolesov)
+Newsgroups: alt.3d,comp.graphics
+Subject: Help on RenderMan language wanted!
+Message-ID: <9304051103.AA01274@talus.msk.su>
+Date: 5 Apr 93 11:00:50 GMT
+Sender: news-service@newcom.kiae.su
+Reply-To: alex@talus.msk.su
+Organization: unknown
+Lines: 17
+
+Hello everybody !
+
+If you are using PIXAR'S RenderMan 3D scene description language for creating 3D worlds, please, help me. 
+
+I'm using RenderMan library on my NeXT but there is no documentation about NeXTSTEP version of RenderMan available. I can create very complicated scenes and render them using surface shaders, 
+but I can not bring them to life by applying shadows and reflections.
+
+As far as I understand I have to define environmental and shadows maps to produce reflections and shadows, but I do not know how to use them.
+
+Any advises or simple RIB or C examples will be appreciated.
+Thanks in advance...
+
+---
+Alex Kolesov                             Moscow, Russia.
+Talus Imaging & Communications Corporation
+e-mail: <alex@talus.msk.su> 		(NeXT mail accepted)  			   
+.   

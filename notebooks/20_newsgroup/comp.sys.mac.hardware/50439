@@ -1,0 +1,32 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.mac.misc:42499 comp.sys.mac.hardware:50439
+Newsgroups: comp.sys.mac.misc,comp.sys.mac.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!emory!swrinde!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!decwrl!netcomsv!optimla!lex
+From: lex@optimla.aimla.com (Lex van Sonderen)
+Subject: Re: CD-ROM multisession
+Message-ID: <C51AoB.3s1@optimla.aimla.com>
+Sender: news@optimla.aimla.com
+Nntp-Posting-Host: emerald
+Organization: Philips Interactive Media of America
+References: <31MAR199317590392@nssdca.gsfc.nasa.gov> <1pgifo$efb@msuinfo.cl.msu.edu>
+Date: Mon, 5 Apr 1993 23:31:23 GMT
+Lines: 19
+
+In article <1pgifo$efb@msuinfo.cl.msu.edu> gary@ah3.cal.msu.edu writes:
+>As I said "I know a multisession CD-ROM is necessary if you do more photos..."
+>BUT what if it is just a writable CD-ROM drive and do a second "session"
+>do you need one for that too?
+
+If you write a second time to a CD you need to have multi-session capability to
+read the second session.  Whether it is photos or just data or whatever.
+
+Here is a simplified way of looking at it:
+The first session has the directory structure burned at some tracks.  The
+second session has a newer directory structure, but the first directory still
+exists, because you cannot change, only add.  So if you put that in a 'normal'
+drive and it will only look to the first directory and think it has found all
+data.  Multisession kindof means that the drive will look for the last
+directory written to the disc, older systems look only for 'the' directory, not
+taking multiple directories into account.
+
+Lex van Sonderen
+Philips Interactive Media

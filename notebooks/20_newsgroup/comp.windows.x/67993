@@ -1,0 +1,37 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!newsserver.jvnc.net!gmd.de!erde!mainzer
+From: mainzer@garte.darmstadt.gmd.de (Joerg Mainzer)
+Newsgroups: comp.windows.x
+Subject: wordwrap
+Message-ID: <6598@darmstadt.gmd.de>
+Date: 12 May 93 12:51:51 GMT
+Sender: news@darmstadt.gmd.de
+Reply-To: mainzer@garte.darmstadt.gmd.de (Joerg Mainzer)
+Organization: German National Research Center for Information Technology (GMD)
+Lines: 26
+
+
+Hello everybody!
+
+Does anybody know how to implement wordwrap with use of XDrawImageString?
+The problem is that I don't know how many characters can be drawn in 
+a region. Have I to calculate character for character the width of the drawn
+text?
+
+Thank you in advance.
+
+                                ,,,
+                               (o o)
+ --------------------------oOO--(_)--OOo--------------------------------
+Joerg Mainzer                  Internet: mainzer@darmstadt.gmd.de
+German Nat. Research Center    X.400net: mainzer@ipsi.darmstadt.gmd.dbp.de
+for Information Technology     Voice   : ++49-6151-869923
+Dolivostrasse 15	       Fax     : ++49-6151-869818
+W-6100 Darmstadt, Germany
+-----------------------------------------------------------------------
+
+Symptom  : Bar moving.
+Fault    : You are being carried out.
+Solution : Find out if you are being taken to another bar - if not complain
+           loudly that you are being hi-jacked.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

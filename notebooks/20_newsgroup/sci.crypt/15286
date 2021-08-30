@@ -1,0 +1,25 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.crypt:15286 alt.security:9967 comp.org.eff.talk:16906 comp.security.misc:3401 comp.org.acm:1612 comp.org.ieee:1544
+Newsgroups: sci.crypt,alt.security,comp.org.eff.talk,comp.security.misc,comp.org.acm,comp.org.ieee
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!asuvax!ncar!csn!boulder!ucsu!spot.Colorado.EDU!cuffell
+From: cuffell@spot.Colorado.EDU (Tim Cuffel)
+Subject: Re: Once tapped, your code is no good any more.
+Message-ID: <1993Apr17.190632.210@ucsu.Colorado.EDU>
+Sender: news@ucsu.Colorado.EDU (USENET News System)
+Nntp-Posting-Host: spot.colorado.edu
+Organization: University of Colorado, Boulder
+References: <1993Apr17.032828.14262@clarinet.com> <tcmayC5M2xv.JEx@netcom.com> <1993Apr17.061326.16130@clarinet.com>
+Distribution: na
+Date: Sat, 17 Apr 1993 19:06:32 GMT
+Lines: 11
+
+I change login passwords every couple of months.  I sure would suck if I had
+to get a new sparc station everytime I wanted to do this.  It seems that this
+is what they expect you to do if you want to routinely change your password
+on your phone.  I'm sure the government contractor doesn't mind, but a system
+where you can cheaply change keys (DES) has inherent security advantages, 
+regardless of the algorithms involved.
+-- 
+-Tim Cuffel	Finger for PGP 2.1  The CIA has admitted that the assassination
+                                    of Saddam Hussien was one of their goals.
+They failed, of course.  Seems as though that motorcade through downtown Dallas
+trick only works once.

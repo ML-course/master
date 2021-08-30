@@ -1,0 +1,29 @@
+Newsgroups: sci.electronics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!usenet.ins.cwru.edu!neoucom.edu!wtm
+From: wtm@uhura.neoucom.edu (Bill Mayhew)
+Subject: Re: mysterious TV problem -- source?
+Message-ID: <1993Apr16.135837.28099@uhura.neoucom.edu>
+Organization: Northeastern Ohio Universities College of Medicine
+References: <9304151511.AA06281@deepthought.cs.utexas.edu>
+Date: Fri, 16 Apr 1993 13:58:37 GMT
+Lines: 19
+
+If the set is direct line powered, try checking the [likely to be
+there] hybrid regulator module down stream from the 170 volt
+supply.  Several sets I've looked at use a 135 volt regulator.  The
+regulators have a tendency to short out, making the safety circuits
+shut down the EHT supply section.
+
+Try putting the set on a Variac or adjustable transformer and lower
+the AC input voltage to the set to about 90 volts.  If the set
+operates nromally, then you know you've got a shorted regulator.
+
+There are myriad other areas for problems, but I've seen the one
+above several times.  Also, if the set uses one, the trippler
+module may be shot; that's fairly common.
+
+
+-- 
+Bill Mayhew      NEOUCOM Computer Services Department
+Rootstown, OH  44272-9995  USA    phone: 216-325-2511
+wtm@uhura.neoucom.edu (140.220.1.1)    146.580: N8WED

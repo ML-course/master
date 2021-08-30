@@ -1,0 +1,16 @@
+Newsgroups: sci.crypt
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!uwm.edu!linac!att!att!allegra!ulysses!ulysses!smb
+From: smb@research.att.com (Steven Bellovin)
+Subject: Re: Clipper and conference calls
+Message-ID: <1993Apr25.114820.14022@ulysses.att.com>
+Date: Sun, 25 Apr 1993 11:48:20 GMT
+References:  <122723@netnews.upenn.edu>
+Organization: AT&T Bell Laboratories
+Lines: 6
+
+In article <122723@netnews.upenn.edu>, feeley@cattell.psych.upenn.edu (Wm. Michael Feeley) writes:
+> Just curious, how would the Clipper Chip system handle
+> conference calls?
+
+It's not Clipper, it's any encryption system.  I've seen a number of
+designs; they generally involve a multi-line cleartext bridge.

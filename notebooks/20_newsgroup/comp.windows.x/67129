@@ -1,0 +1,27 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:67129 comp.graphics:38589
+Newsgroups: comp.windows.x,comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!wotan.compaq.com!twisto.eng.hou.compaq.com!cpqhou!gregk
+From: gregk@cpqhou.se.hou.compaq.com (Greg Kincaid)
+Subject: X11 Fill Rules
+Organization: Compaq Computer Corp.
+Date: Wed, 21 Apr 1993 13:54:17 GMT
+Message-ID: <C5u6MI.LEp@cpqhou.se.hou.compaq.com>
+Lines: 17
+
+Can anyone explain the polygon fill rules for X? I know about the even-odd
+rule but what is the nonzero winding number rule? What happens when the 
+left and right boundary lines have many pixels on a given scanline? What 
+are the rules concerning abutting polygons?(Are they the same as the 
+join-style in the GC?) 
+
+I've read the X pixelization rule but how does the X server determine the 
+center point of a pixel? Is there any support for shading?(color interpolation)
+
+Can someone point me to a definitive book that discusses these issues?
+
+			Thanks in advance to the Gurus for there responses
+-- 
+____________________________________________________________________________
+|Greg Kincade			                     ..uunet!cpqhou!gregk   |
+|Any opinions expressed here are my own, but you're welcome to share them!  |
+-----------------------------------------------------------------------------

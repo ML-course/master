@@ -1,0 +1,36 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!gatech!enterpoop.mit.edu!eru.mt.luth.se!kth.se!hemul.nada.kth.se!d88-jwa
+From: d88-jwa@hemul.nada.kth.se (Jon Wtte)
+Newsgroups: comp.sys.mac.hardware
+Subject: Re: [ NETWORKING ] How to get 10 Ma
+Message-ID: <1993Apr19.095123.17613@kth.se>
+Date: 19 Apr 93 09:51:23 GMT
+References: <92.2bd1cd0c@axolotl>
+Sender: usenet@kth.se (Usenet)
+Organization: Royal Institute of Technology, Stockholm, Sweden
+Lines: 24
+Nntp-Posting-Host: hemul.nada.kth.se
+
+In <92.2bd1cd0c@axolotl> Steed.Bell@macrocosm.omahug.org (Steed Bell) writes:
+
+>networked together using Appletalk and PhoneNet connectors. To chat we use a
+>program called 'Broadcast'. With it we can send brief messages to all or
+>selected machines within the network.
+
+If you use System 7, you can use my application Zing which has
+a 30 kB footprint (meaning you can have it running all the time
+without losing memory)
+
+It is also compatible with the chat program "FishBomb" which allows
+sounds and pictures as well.
+
+Both are, as far as I know, freeware (I dustribute Zing with source)
+and should be available on the normal services (mac.archive.umich.edu
+for instance)
+
+Cheers,
+
+					/ h+
+-- 
+ -- Jon W{tte, h+@nada.kth.se, Mac Hacker Deluxe --
+   This signature is kept shorter than 4 lines in the interests of UseNet
+   S/N ratio.

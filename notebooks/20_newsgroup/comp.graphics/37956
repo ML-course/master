@@ -1,0 +1,19 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.graphics:37956 comp.graphics.visualization:3300
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!uwm.edu!caen!batcomputer!cornell!uw-beaver!cs.ubc.ca!ironduke.cs.ubc.ca!not-for-mail
+From: ranjan@cs.ubc.ca (Vishwa Ranjan)
+Newsgroups: comp.graphics,comp.graphics.visualization
+Subject: Complex (i.e. with real and imaginary parts) bio-medical images..
+Date: 6 Apr 1993 13:10:31 -0700
+Organization: Computer Science, University of B.C., Vancouver, B.C., Canada
+Lines: 7
+Distribution: world
+Message-ID: <1pso3nINNgdo@ironduke.cs.ubc.ca>
+NNTP-Posting-Host: ironduke.cs.ubc.ca
+
+Are  complex  bio-medical  images  available  anywhere on the net for 
+experimentation?  By complex I mean that every sampled data point has 
+a magnitude and phase information both. 
+
+Thanks for any pointers,
+--Vishwa
+

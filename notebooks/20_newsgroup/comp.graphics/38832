@@ -1,0 +1,19 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!linac!att!news.cs.indiana.edu!kkim@cs.indiana.edu
+From: "kwansik kim" <kkim@cs.indiana.edu>
+Subject: Triangulized Data Wanted : with texture to be mapped.
+Message-ID: <1993Apr27.120439.18151@news.cs.indiana.edu>
+Organization: Indiana University Computer Science, Bloomington
+Date: Tue, 27 Apr 1993 12:04:30 -0500
+Lines: 10
+
+I need triangulized data of some nice looking model with some
+texture mapping. It would be better if the parametric values
+of each vertex( for the surface before triangulized ) are
+avaliable along with the Euclidean points so that we
+could use them for texture mapping.
+
+Thanks, Kwansik
+
+
+

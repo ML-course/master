@@ -1,0 +1,27 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:67227 comp.windows.x.motif:16762
+Newsgroups: comp.windows.x,comp.windows.x.motif
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!asuvax!ncar!mitch
+From: mitch@unidata.ucar.edu (Mitch Baltuch)
+Subject: motif based graphing package
+Message-ID: <mitch.735573561@unidata.ucar.edu>
+Sender: news@ncar.ucar.edu (USENET Maintenance)
+Organization: University Corporation for Atmospheric Research (UCAR)
+Distribution: na
+Date: Fri, 23 Apr 1993 13:59:21 GMT
+Lines: 15
+
+
+i am in need of a motif-based graphing package to integrate into a large
+software package under development for distribution to universities.  it
+can be either public domain or commercial, although a commercial package
+can't have royalties required for binary only distribution.  we need 2-d
+graphing capabilities at a minimum, but 3-d  would be nice.  any info would
+be appreciated and i will summarize if there is interest.
+
+thanks,
+mitch
+--
+_______________________________________________________________________________
+Mitchell S. Baltuch					Unidata Program Center
+mitch@unidata.ucar.edu					UCAR, PO Box 3000
+303/497-8652						Boulder, CO 80307-3000

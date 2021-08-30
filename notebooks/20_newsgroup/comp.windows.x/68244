@@ -1,0 +1,33 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!news.univie.ac.at!iiasa.ac.at!herb
+From: herb@iiasa.ac.at (Herb HASLER)
+Subject: X11R5 on IBM RS6000
+Message-ID: <1993May18.095939.8013@iiasa.ac.at>
+Organization: IIASA, Laxenburg, Austria
+X-Newsreader: TIN [version 1.1 PL6]
+Date: Tue, 18 May 1993 09:59:39 GMT
+Lines: 23
+
+Yes we have the same problem with xinit.  The problems seems to come from the
+fact that the XOpenDisplay(":0") fails.   If we try (on our machine
+named godzilla)
+
+setenv DISPLAY godzilla:0.0
+Xibm&
+xterm 
+
+
+It works fine, but the following will not work
+
+setenv DISPLAY unix:0.0
+Xibm&
+xterm 
+
+Did we set a configuration option incorrectly?  Thank you for any assistance
+you can offer.
+
+---------------------------------------------------------------------------
+                    Herb Hasler --- herb@iiasa.ac.at
+      International Institute for Applied Systems Anaylsis  (IIASA)
+          A-2361 Laxemburg, Austria --- +43 2236 715 21 ext 548
+---------------------------------------------------------------------------

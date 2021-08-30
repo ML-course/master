@@ -1,0 +1,21 @@
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!news.udel.edu!darwin.sura.net!haven.umd.edu!uunet!comp.vuw.ac.nz!zephyr.grace.cri.nz!zephyr.grace.cri.nz!usenet
+From: srgxnbs@grace.cri.nz
+Newsgroups: sci.electronics
+Subject: Re: CAD Program for Electronics?
+Date: Thu, 22 Apr 93 20:56:44 GMT
+Organization: Industrial Research Ltd., New Zealand.
+Lines: 10
+Message-ID: <1r73vqINNftu@zephyr.grace.cri.nz>
+References: <1993Apr17.211126.23467@norfolk.vak12ed.edu>,<2784@snap>
+NNTP-Posting-Host: grv.grace.cri.nz
+
+>>What I want the CAD program to do is to draw diagrams by
+>>dragging elements onto the screen, and in this the elements
+>>needed are as diverse as vacuum tubes to ICs (case with pins).
+..
+try DraftChoice, its not windows but its shareware and object
+oriented. Use it with PrintGL for high quality output.
+
+Bruce
+
+

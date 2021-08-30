@@ -1,0 +1,30 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.ibm.pc.hardware:60799 comp.sys.novell:18918
+Newsgroups: comp.sys.ibm.pc.hardware,comp.sys.novell
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!sdd.hp.com!think.com!spdcc!jti.com!richb
+From: richb@jti.com (Rich Braun)
+Subject: Re: Can I have 2 printers on a PC LAN ??????????????
+Message-ID: <C5uI1B.H1o@jti.com>
+Keywords: 2 printers
+Sender: news@jti.com (News Admin)
+Nntp-Posting-Host: europa.jti.com
+Organization: Jupiter Technology Inc. / Waltham, MA
+References: <mac1.735267342@Isis.MsState.Edu>
+Date: Wed, 21 Apr 1993 18:00:46 GMT
+Lines: 16
+
+mac1@Isis.MsState.Edu (Mubashir Cheema) writes:
+> Trying to establish a network (LAN) here that could use 2 different printers.
+> Panasonic KXP2124 for printing receipts and Okidata OL400 for letters etc.
+> Is it at all possible in this world ?
+
+This is a fundamental aspect of Novell's business; they wouldn't be
+where they are if they didn't live up to their "Novell Does Printing"
+slogan.  We run 6 printers of varying types off our Novell network;
+I'm sure there are places with hundreds.
+
+RTFM on the CAPTURE command, PRINTCON, PSERVER, and the sections of
+the Windows 3.1 manual which cover network printing.  If you haven't bought
+Novell's products yet, rephrase your question and look for information about
+how *well* various competitors do printing.
+
+-rich

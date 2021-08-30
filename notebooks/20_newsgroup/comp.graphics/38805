@@ -1,0 +1,29 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!rpi!cary115.its.rpi.edu!weilej
+From: weilej@cary115.its.rpi.edu (Jason Lee Weiler)
+Subject: Re: need a viewer for gl files
+Message-ID: <_c15kkk@rpi.edu>
+Nntp-Posting-Host: cary115.its.rpi.edu
+Reply-To: weilej@rpi.edu
+Organization: Rensselaer Polytechnic Institute, Troy, NY.
+References:  <1qu36i$kh7@dux.dundee.ac.uk>
+Date: Thu, 22 Apr 1993 09:34:52 GMT
+Lines: 17
+
+In article <1qu36i$kh7@dux.dundee.ac.uk>, dwestner@cardhu.mcs.dundee.ac.uk (Dominik Westner) writes:
+|> Hi, 
+|> 
+|> the subject says it all. Is there a PD viewer for gl files (for X)?
+|> 
+|> Thanks
+|> 
+|> 
+|> Dominik
+|> 
+
+Dominik,
+
+	Have you tried xgrasp?  It's out there on several ftp sites.(not sure which, but archie can find it, I'm sure.)  It works ok but it lacks an interface.
+
+-Jason Weiler
+<weilej@rpi.edu>

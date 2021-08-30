@@ -1,0 +1,40 @@
+Xref: cantaloupe.srv.cs.cmu.edu alt.toolkits.xview:1920 comp.windows.open-look:8439 comp.windows.x:67352
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!bogus.sura.net!news-feed-1.peachnet.edu!emory!ogicse!das-news.harvard.edu!noc.near.net!news.centerline.com!matt
+From: matt@centerline.com (Matt Landau)
+Newsgroups: alt.toolkits.xview,comp.windows.open-look,comp.windows.x
+Subject: Looking for updated XView textedit source (w/d-n-d support)
+Message-ID: <1ri2o2$3hm@armory.centerline.com>
+Date: 27 Apr 93 01:37:06 GMT
+Article-I.D.: armory.1ri2o2$3hm
+Organization: CenterLine Software, Inc.
+Lines: 28
+NNTP-Posting-Host: 140.239.1.32
+
+The XView version 3 source distribution included in the contrib section 
+of X11R5 included the source to the textedit program.  I'd like to take 
+the sources and modify them to add support for a ToolTalk-like message 
+server, and maybe for ToolTalk while I'm at it, since the Sun-supplied
+textedit binary doesn't seem to speak tooltalk.
+
+However, the sources in the R5 contrib area seem to be for an older
+version of textedit than the version shipped with OpenWindows 3.  For
+example, the OWN 3.0 textedit includes drag and drop support and a 
+dropsite in the main control area, while the source in contrib/xview
+knows nothing about drag and drop.
+
+The textedit.c included in the xview sources says it's version 15.50,
+dated 5/22/90, while doing a 'what textedit' on the OWN 3.0 binary says:
+
+        textedit.c 2.62 91/09/14 Copyr 1990 Sun Micro
+        dragdrop.c 1.26 91/09/14 Copyr 1990 Sun Micro
+        tooltalk.c 2.16 91/09/14 Copyr 1990 Sun Micro
+        ds_relname.c    1.7 91/09/14 Copyr 1990 Sun Micro
+
+So, does anyone know if the 9/14/91 sources to textedit are available?
+I'd really like to work from the latest source if possible.
+
+Please reply by email, and I'll post a summary if there's enough 
+interest.
+--
+ Matt Landau			Waiting for a flash of enlightenment
+ matt@centerline.com			  in all this blood and thunder

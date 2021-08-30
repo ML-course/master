@@ -1,0 +1,36 @@
+Newsgroups: sci.electronics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!paladin.american.edu!howland.reston.ans.net!newsserver.jvnc.net!gmd.de!ph
+From: ph@gmd.de (Peter Hendricks)
+Subject: Re: Wanted: A to D hardware for a PC
+Message-ID: <ph.734085977@gmd.de>
+To: ebuddington@eagle.wesleyan.edu
+Sender: news@gmd.de (USENET News)
+Nntp-Posting-Host: gmdzi
+Organization: GMD, Sankt Augustin, Germany
+References: <1993Apr2.163825.955@news.wesleyan.edu> <3889@ncr-mpd.FtCollinsCO.NCR.COM>
+Date: Tue, 6 Apr 1993 08:46:17 GMT
+Lines: 23
+
+In <3889@ncr-mpd.FtCollinsCO.NCR.COM> Brad Wright writes:
+
+>	If you know much about PC's (IBM comp) you might try the joystick
+>port.  Though I haven't tried this myself, I've been told that the port
+>has built in A-D converters.  This would allow the joystick to be a couple of 
+>pots.  If you could find the specs this might just work for you...
+
+I guess 100k, connecting pins 1-3 (1x), 1-6 (1y), 9-11 (2x), and 9-13 (2y).
+
+Or: Get an 8-bit DA-Converter (merely a couple of transistors and
+Resistors) and an OpAmp to compare its output to the voltage you want to
+measure, connect them to a spared printer port (if you have one), and do
+the rest by software (stepwise refinement). The port addresses for your
+printer ports are probably: &H378 (LPT1), &H278 (LPT2). This should work
+well enough for your purposes.
+
+Hope this helps
+
+--
+GMD,  Schloss Birlinghoven,  Postfach 1316,  D-5205 St. Augustin 1,  FRG
+
+e-mail:  Peter.Hendricks@gmd.de			ph@zi.gmd.dbp.de
+	 ph@gmd.de

@@ -1,0 +1,58 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.ms-windows.misc:9700 comp.graphics:38544
+Newsgroups: comp.os.ms-windows.misc,comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!darwin.sura.net!sgiblab!news.kpc.com!kpc!pcarmack
+From: pcarmack@gimp.kpc.com (Phil Carmack)
+Subject: Re: So what is the fastest Windows video card for graphics and imaging ?
+Message-ID: <1993Apr20.234215.24528@kpc.com>
+Keywords: Windows, graphics, imaging
+Sender: pcarmack@gimp (Phil Carmack)
+Organization: Kubota Pacific Computer
+References:  <o4fzrApDBh107h@eosvcr.wimsey.bc.ca>
+Date: Tue, 20 Apr 1993 23:42:15 GMT
+Lines: 45
+
+In article <o4fzrApDBh107h@eosvcr.wimsey.bc.ca>, aew@eosvcr.wimsey.bc.ca (Alan Walford) writes:
+|> We have heard many bad things about the ATI Ultra Plus card (mainly having
+|> to do with its buggy Windows drivers).
+|> 
+|> I would like to replace by ATI Graphics Ultra with a true-colour accelerated
+|> card. I was about to buy the ATI Ultra Plus (EISA) but it has had so much
+|> bad press that I am reconsidering.
+I have the ATI Ultra Pro local bus with 2MB VRAM, and I am perfectly happy with
+the Windows drivers (currently using version 59).  It does everything you
+mention below, but also does 1024x768x16bpp true color.  As a matter of
+fact it also supports high refresh 1280x1024 at 256 colors.  The performance
+is great.
+|> 
+|> 
+|> I would like an accelerated card
+|>              a card that does 24bit true colour at 800x600 at least
+|>              a card that does 1024x758 at 256 colours (or more)
+|>              a card that has fast polygon fills
+|>              a card that has fast bit blits
+|>              a card that has a robust windows driver
+|>              a card that has high speed non-interlaced refresh
+|> 
+|> Any suggestions?
+|> 
+|> My app requires lots of 3d poly grahics and complexing true colour
+|> imaging.  I would sure like a faster solution that what I have now.
+Supposedly the new Matrox Ultra-something-or-other actually does some
+3d rendering (at least has some hardware support for Z).  Good luck in
+your search.
+
+
+Cheers,
+Phil
+|> 
+|> Thanks,
+|> 
+|> Al
+|> 
+|> -- 
+|> Alan Walford     Eos Systems Inc., Vancouver,B.C., Canada  Tel: 604-734-8655
+|> aew@eosvcr.wimsey.bc.ca           OR        ...uunet!wimsey.bc.ca!eosvcr!aew  
+
+-- 
+Philip Carmack				| pcarmack@kpc.com	(408)987-3336
+Kubota Pacific Computers, Inc.		|

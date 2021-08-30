@@ -1,0 +1,62 @@
+Xref: cantaloupe.srv.cs.cmu.edu talk.abortion:120912 alt.atheism:53556 talk.religion.misc:83914
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!agate!netsys!ibmpcug!mantis!tony
+From: Tony Lezard <tony@mantis.co.uk>
+Newsgroups: talk.abortion,alt.atheism,talk.religion.misc
+Subject: Re: After 2000 years, can we say that Christian Morality is
+Message-ID: <cNyg3B1w165w@mantis.co.uk>
+Date: Fri, 23 Apr 93 17:05:11 +0100
+References: <930423.141218.0x1.rusnews.w165w@mantis.co.uk>
+Distribution: world
+Organization: Mantis Consultants, Cambridge. UK.
+Lines: 50
+
+mathew <mathew@mantis.co.uk> writes:
+
+> Yes, do see item 18 in the sci.physics FAQ file.  The mass is only
+> fundamental and invariant under the new definition.  Since most people are
+> more familiar with the old definition of mass, I claim it's reasonable to use
+> the old definition when posting to alt.atheism.
+
+Referring to the rest mass, or what I would just call mass, as m0...
+
+The "new definition" is decades old! Anyone who has worked with SR
+since then would be familiar with it. If "most people" are familiar
+with m = gamma m0 (a highly questionable assertion anyway), I would
+expect it is on the large part due to learning SR from lousy
+popularizations instead of proper textbooks!
+
+> In particular, as the FAQ points out, with mass redefined as a fundamental and
+> invariant property, E is no longer mc^2.  I suspect that using the new
+> definition would cause more confusion than it would remove...
+
+Why should we require E = mc^2 even when p != 0? Because it's cute?
+Saying m = gamma m0 adds confusion. For example, people might think
+that the formula for kinetic energy still works if m = gaamma m0, ie.
+K.E. != 1/2 gamma m0 v^2.  Wrong. (In fact it's (gamma - 1)m0 c^2.)
+However, if you say p = gamma m v you always get the right answers.
+
+In the end it does boil down to a matter of definition. You and I
+both know what is going on, and *that* is invariant! To say that
+things actually get heavier when moving fast (relative to the observer)
+misrepresents what is actually going on: it is better to say that
+momentum / velocity is observed to increase according to an external
+observer.
+
+But people who haven't studied SR properly will still make mistakes
+or miss the point regardless of what you call mass.
+
+> > You need a gravitational field to curve space, not speed (relative to
+> > what?).
+> 
+> I didn't say it was the speed that was curving space.
+
+Yes you did. From <930423.110254.3I5.rusnews.w165w@mantis.co.uk>:
+
+# Again, things get tricky when they move fast.  Objects get heavier, space
+# gets curved, and reality generally fails to live up to one's expectations.
+
+-- 
+Tony Lezard IS tony@mantis.co.uk | PGP 2.2 public key available from key
+OR tony%mantis.co.uk@uknet.ac.uk | servers such as pgp-public-keys@demon.co.uk
+OR EVEN      arl10@phx.cam.ac.uk | 172045 / 3C85783F 09BBEA0C B86CF9C6 7A5FA172
+

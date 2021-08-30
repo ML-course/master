@@ -1,0 +1,44 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.msdos.programmer:23227 alt.msdos.programmer:6782 sci.electronics:53900
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!wupost!uunet!pipex!sunic!isgate!krafla!einari
+From: einari@rhi.hi.is (Einar Indridason)
+Newsgroups: comp.os.msdos.programmer,alt.msdos.programmer,sci.electronics
+Subject: Re: How to the disks copy protected.
+Message-ID: <6810@krafla.rhi.hi.is>
+Date: 21 Apr 93 12:51:04 GMT
+References: <sehari.735331566@marge.ecss.iastate.edu> <1993Apr20.230749.12821@reed.edu> <1993Apr21.085848.12704W@lumina.edb.tih.no>
+Sender: usenet@rhi.hi.is
+Followup-To: comp.os.msdos.programmer
+Lines: 31
+Nntp-Posting-Host: hengill.rhi.hi.is
+
+In <1993Apr21.085848.12704W@lumina.edb.tih.no> ketil@edb.tih.no (Ketil Albertsen,TIH) writes:
+
+>May we interpret this as an offer to volunteer as editor for a
+>"Copy protection FAQ" ? I am quite sure that I am not alone welcoming such
+>an initiative! *I* will volunteer to ask some of the questions, if you will
+>provide the answers :-)
+
+
+Ok, here could be the first question or answer or something:
+
+Q: I want to copyprotect a program I wrote.  How should I do it?
+A: You would be wise not to copyprotect that program.  You see, those 
+   people that wants to get a cracked copy of your program will go to 
+   various length to crack your program, and some of those crackers 
+   are good, and know the common tricks.
+   So, the copy protection wouldn't stop those.
+   Ok, then.  What about legitimate users?  Copy protection can be a hassle
+   for legitimate users, and can hinder them in their work, expecially
+   if there is some "key" item that can get lost.
+   So, the copy protection wouldn't help much of the legitimate users, but
+   would make life somewhat of a misery for them.
+
+
+
+(This is my opinion, and I speak as a legitimate user :-)
+You are of course free to have your opinion about this subject....
+
+
+
+--
+einari@rhi.hi.is

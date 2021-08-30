@@ -1,0 +1,22 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!agate!dog.ee.lbl.gov!network.ucsd.edu!munnari.oz.au!titan!trlluna!bruce.cs.monash.edu.au!merlin!mel.dit.csiro.au!its.csiro.au!dmssyd.syd.dms.CSIRO.AU!news.cs.uow.edu.au!news.cs.uow.edu.au!not-for-mail
+From: g9134255@wampyr.cc.uow.edu.au (Coronado Emmanuel Abad)
+Newsgroups: comp.graphics
+Subject: Need polygon splitting algo...
+Date: 20 Apr 1993 13:19:39 +1000
+Organization: University of Wollongong, NSW, Australia.
+Lines: 11
+Message-ID: <1qvq4b$r4t@wampyr.cc.uow.edu.au>
+NNTP-Posting-Host: wampyr.cc.uow.edu.au
+Keywords: polygons, splitting, clipping
+
+
+The idea is to clip one polygon using another polygon (not
+necessarily rectangular) as a window.  My problem then is in
+finding out all the new vertices of the resulting "subpolygons"
+from the first one.  Is this simply a matter of extending the
+usual algorithm whereby each of the edges of one polygon is checked
+against another polygon???  Is there a simpler way??
+
+Comments welcome.
+
+Noel.

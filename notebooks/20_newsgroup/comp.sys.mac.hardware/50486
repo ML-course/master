@@ -1,0 +1,33 @@
+Newsgroups: comp.sys.mac.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!noc.near.net!saturn.caps.maine.edu!dartvax!coos.dartmouth.edu!hades
+From: hades@coos.dartmouth.edu (Brian V. Hughes)
+Subject: Re: New Apple Ergo-Mouse
+Message-ID: <C52EqG.6H2@dartvax.dartmouth.edu>
+Sender: news@dartvax.dartmouth.edu (The News Manager)
+Reply-To: hades@Dartmouth.Edu
+Organization: Dartmouth College, Hanover, NH
+Disclaimer: Personally, I really don't care who you think I speak for.
+References: <5APR199312491648@utkvx.utk.edu>
+Date: Tue, 6 Apr 1993 13:56:39 GMT
+Moderator: Rec.Arts.Comics.Info
+Lines: 19
+
+nwcs@utkvx.utk.edu (Schizophrenia means never being alone) writes:
+
+>Does anyone know how to open up the Apple Ergo-Mouse (ADB Mouse II)?
+>Mine lives near a cat (true, really...) and picks up her fur.  From what
+>I can tell, it looks like Apple welded it shut.
+
+    You must not have tried very hard. I just opend mine in about 2
+seconds. Take a look on the bottom, it has a dial that turns to open
+much like the older ADB mouses used to have. It's a bit harder to turn
+at first but it is quite simple to open.
+
+>Also, does anyone know about installing FPUs in a Mac LC III?  I've heard some
+>people saying it has fried the motherboard of the LC III.
+
+    Well, if you don't match up the pins correctly you will have some
+problems. A close look at the socket should give you an idea of the
+proper orientation of the chip.
+
+-Hades

@@ -1,0 +1,25 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!emory!darwin.sura.net!haven.umd.edu!uunet!utcsri!newsflash.concordia.ca!daily-planet.concordia.ca!christy
+From: christy@cs.concordia.ca (Christy)
+Newsgroups: comp.windows.x
+Subject: X11R5 and Gateway2000
+Message-ID: <5914@daily-planet.concordia.ca>
+Date: 16 Apr 93 13:41:45 GMT
+Sender: usenet@daily-planet.concordia.ca
+Organization: Computer Science, Concordia University, Montreal, Quebec
+Lines: 15
+
+Hi,
+     I just got myself a Gateway 4DX-33V and trying to configure
+X11R5 for it.  Has anyone done this before ?  More specifically,
+I need a correct Xconfig file entry that is set up for my 
+graphics card and monitor.  I have a 15" Color CrystalScan 1572FS monitor
+and a VESA LOCAL BUS ATI Ultra Pro with 1MB VRAM video card.
+
+Any help will be extremely appreciated.
+
+Thanks in advance.
+
+Please send replies to christy@alex.qc.ca
+
+
+Christy

@@ -1,0 +1,18 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!csc.ti.com!tilde.csc.ti.com!skitzo.dseg.ti.com!dittman
+From: dittman@skitzo.dseg.ti.com (Eric Dittman)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: Question about IRQ2 and IRQ9
+Message-ID: <1993Apr21.184901.1115@skitzo.dseg.ti.com>
+Date: 21 Apr 93 18:49:01 CDT
+Organization: Texas Instruments Component Test Facility
+Lines: 9
+
+I have an 8-bit serial card with two ports.  Each port has the option of
+using IRQ 2,3,4 or 5.  I also have two serial ports on a multi-I/O card,
+and the ports can be set to IRQ 3,4,5,7 or 9.  From other posts I've read,
+I get the impression that IRQ2 on the 8-bit card is the same as IRQ9 on
+the multi-I/O card.  Am I right?
+-- 
+Eric Dittman                  Texas Instruments - Component Test Facility
+dittman@skitzo.dseg.ti.com    (214) 480-7313
+Disclaimer:  Not even my opinions.  I found them by the side of the road.

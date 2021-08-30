@@ -1,0 +1,34 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!darwin.sura.net!haven.umd.edu!wam.umd.edu!usenet
+From: mmeltzer@wam.umd.edu
+Subject: Re: Diamond Speedstar Driver for v3.1
+Message-ID: <1993Apr21.143815.7774@wam.umd.edu>
+Sender: usenet@wam.umd.edu (USENET News system)
+Nntp-Posting-Host: next02cville.wam.umd.edu
+Reply-To: mmeltzer@wam.umd.edu
+Organization: Workstations at Maryland, University of Maryland, College Park
+References: <116005@bu.edu>
+Date: Wed, 21 Apr 1993 14:38:15 GMT
+Lines: 21
+
+In article <116005@bu.edu> rem@buitc.bu.edu (Robert Mee) writes:
+:-> 
+:-> I am looking for a WIN31 driver (or set) for my Diamond 
+:-> Speedstar 1MB video card. Does anybody know of an archive
+:-> site that has these? I looked at CICA and it had drivers for
+:-> the Stealth card and for Generic ET4000 cards but not one 
+:-> specifically for the Speedstar. Is there one? Or has Diamond
+:-> dropped the Speedstar out of the driver development loop.
+:-> 
+
+I just looked at CICA yesterday and noticed that they didn't have  
+anything, but I seem to remember seeing something at WUARCHIVE in the  
+/mirrors/msdos/windows3 directory.  I think I got my 3.1 drivers from  
+America Online though.
+
+---------------------------------------------------------------------
+			mmeltzer@wam.umd.edu is
+
+			     Marc Meltzer
+		      President of The Meltz Inc
+	 "Our job is to play games.  Our hobby is to consult."

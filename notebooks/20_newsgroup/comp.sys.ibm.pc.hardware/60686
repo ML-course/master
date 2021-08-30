@@ -1,0 +1,29 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!uwm.edu!spool.mu.edu!olivea!pagesat!news.cerf.net!network.ucsd.edu!qualcom.qualcomm.com!athena!rkimball
+From: rkimball@athena.qualcomm.com (Robert Kimball)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: VLB bus master problem?
+Summary: Is there a problem with VLB and bus master devices?
+Keywords: VLB Bus Master Controller SCSI
+Message-ID: <rkimball.735340669@athena>
+Date: 20 Apr 93 21:17:49 GMT
+Sender: news@qualcomm.com
+Organization: Qualcomm, Inc., San Diego, CA
+Lines: 16
+Nntp-Posting-Host: athena.qualcomm.com
+
+I am trying to put together a new PC with VESA Local Bus.  I would like
+to get VLB cards for Video and SCSI but I have heard of a problem with
+bus mastering controllers on VLB.  Something to the effect that they will
+actually slow down a system.  Anyone heard of this problem?
+
+Specifically, I am interested in the Ultrastor 34F VLB SCSI controller.
+Before I shell out the bucks for this thing I would like to get the
+straight scoop from someone who knows.  Does anyone have this controller?
+Any problems with it?
+
+
+-- 
+
+
+Bob Kimball
+rkimball@qualcomm.com

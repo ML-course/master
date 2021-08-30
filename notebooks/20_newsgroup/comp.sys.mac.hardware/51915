@@ -1,0 +1,16 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!zaphod.mps.ohio-state.edu!sdd.hp.com!think.com!yale.edu!yale!gumby!destroyer!cs.ubc.ca!unixg.ubc.ca!swiss.ucs.ubc.ca!ferch
+From: ferch@ucs.ubc.ca (Les Ferch)
+Newsgroups: comp.sys.mac.hardware
+Subject: Re: When is Apple going to ship CD300i's?
+Date: 20 Apr 93 09:22:50 GMT
+Organization: The University of British Columbia
+Lines: 5
+Message-ID: <ferch.735297770@swiss.ucs.ubc.ca>
+References: <1993Apr19.164734.24779@newsgate.sps.mot.com> <1quod6$i3n@menudo.uh.edu> <Z1PCB7IB@math.fu-berlin.de> <1r00fdINNddt@senator-bedfellow.MIT.EDU>
+NNTP-Posting-Host: swiss.ucs.ubc.ca
+
+Note that if you get the external CD300 for your Centris or Q800 you will
+miss out on the sound mixing feature unless you are willing to run a wire
+from the motherboard sound input connector to the stereo output on the CD. 
+Connecting to the sound input port on the back of the computer won't do
+unless you can live with mono.

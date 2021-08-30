@@ -1,0 +1,41 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.space:61415 sci.astro:35255 alt.sci.planetary:1247
+Newsgroups: sci.space,sci.astro,alt.sci.planetary
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!orca!pebbles!mrowley
+From: mrowley@pebbles.es.com (Michael Rowley)
+Subject: Re: Command Loss Timer (Re: Galileo Update - 04/22/93)
+Message-ID: <1993Apr29.211942.25826@dsd.es.com>
+Keywords: Galileo, JPL
+Sender: usenet@dsd.es.com
+Nntp-Posting-Host: 130.187.85.70
+Organization: Design Systems Division, Evans & Sutherland, SLC, UT
+References: <1993Apr23.103038.27467@bnr.ca> <23APR199315464525@kelvin.jpl.nasa.gov> <1993Apr26.193924.1189@bnr.ca>
+Date: Thu, 29 Apr 93 21:19:42 GMT
+Lines: 27
+
+In article <1993Apr26.193924.1189@bnr.ca> jcobban@bnr.ca (Jim Cobban) writes:
+>Having read in the past about the fail-safe mechanisms on spacecraft, I had
+>assumed that the Command Loss Timer had that sort of function.  However I
+>always find disturbing the oxymoron of a "NO-OP" command that does something.
+>If the command changes the behavior or status of the spacecraft it is not
+>a "NO-OP" command.
+>
+>Of course this terminology comes from a Jet Propulsion Laboratory which has
+>nothing to do with jet propulsion.
+>
+
+	I don't know where you got this idea from, JPL's history dates back to 
+	to the 1930s when a Caltech professor named Von Karman conducted  
+	experiments in rocket PROPULSION with a group of graduate students
+	on the present site of the Jet Propulsion Laboratory.   The Army started
+	funding the laboratory and had jurisdiction untill the late 1950s when
+	NASA took over. The early research conducted at the Laboratory
+	led to many applications the first being Jet-assisted takeoff rockets
+	for aircraft.  I think this should explain where JPL got it's name, I
+	should know, I worked there for five wonderful years.
+----------mike. 
+>-- 
+>-------------------------------------------------------------------------------
+>Jim Cobban   |  jcobban@bnr.ca                        |  Phone: (613) 763-8013
+>BNR Ltd.     |  bnrgate.bnr.ca!bcars5!jcobban         |  FAX:   (613) 763-2626
+
+

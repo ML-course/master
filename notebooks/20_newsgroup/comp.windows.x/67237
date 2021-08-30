@@ -1,0 +1,26 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!usc!cs.utexas.edu!csc.ti.com!tilde.csc.ti.com!cauldron!bshaw
+From: bshaw@spdc.ti.com (Bob Shaw)
+Subject: SUMMARY  xon and X11R5
+Message-ID: <bshaw.735577952@bobasun>
+Sender: usenet@spdc.ti.com (USENET News System)
+Nntp-Posting-Host: bobasun
+Organization: TI Semiconductor Process and Design Center
+Date: Fri, 23 Apr 1993 15:12:32 GMT
+Lines: 15
+
+
+Hi folks
+Thanks to the ones that replied, however, my problem turned out
+to be very simple.
+
+In my .Xresources I had a space after XTerm*font:   10x20.
+Removing this and xrdb fixed my problem.
+
+Also, same symptom, was that some of my users did not have the
+proper capitals for XTerm*font.
+
+Thanks again
+
+Bob
+

@@ -1,0 +1,21 @@
+Newsgroups: sci.electronics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!darwin.sura.net!haven.umd.edu!uunet!nwnexus!ole!ray
+From: ray@ole.cdac.com (Ray Berry)
+Subject: Re: $25 network
+Message-ID: <1993Apr15.205926.17100@ole.cdac.com>
+Organization: Cascade Design Automation
+References: <babb-230390125451@larc.sdsu.edu> <1993Apr14.125232.18436@amoco.com>
+Date: Thu, 15 Apr 1993 20:59:26 GMT
+Lines: 11
+
+zjoc01@hou.amoco.com (Jack O. Coats) writes:
+
+>The same folks now have out LBL (Little Big Lan) for $75.  I think you
+>get it for $50 if you already own $25 Network.  LBL works with Arcnet,
+>parallel ports, and serial ports in any combination for up to 250 or so
+>nodes.
+
+    LBL now offers ethernet support also, although presently it is limited
+to NE1000/NE2000 style boards.  LBL owners can get an update for $8.50.
+-- 
+Ray Berry kb7ht ray@ole.cdac.com  rjberry@eskimo.com  73407.3152@compuserve.com

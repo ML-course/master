@@ -1,0 +1,17 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!gatech!enterpoop.mit.edu!eru.mt.luth.se!lunic!sunic!seunet!his!lina!sp1marse
+From: sp1marse@lina (Marco Seirio)
+Newsgroups: comp.graphics
+Subject: Surface intersections
+Message-ID: <4251@his.UUCP>
+Date: 19 Apr 93 10:00:22 GMT
+Sender: news@his.UUCP
+Lines: 7
+X-Newsreader: Tin 1.1 PL3
+
+
+I have a problem with intersections between two surfaces.
+Does anybody have a easy to understand algorithm for that or maybe
+even C source??
+
+
+      Marco Seirio - In real life sp1marse@caligula.his.s

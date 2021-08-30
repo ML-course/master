@@ -1,0 +1,20 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!zaphod.mps.ohio-state.edu!malgudi.oar.net!caen!batcomputer!munnari.oz.au!ariel.ucs.unimelb.EDU.AU!ucsvc.ucs.unimelb.edu.au!lugb!lux!cs416530
+Newsgroups: comp.os.ms-windows.misc
+Subject: Boot-up sometimes fails.
+Message-ID: <1993Apr28.053700.12929@lugb.latrobe.edu.au>
+From: cs416530@lux.latrobe.edu.au (Matthew I Gillard)
+Date: Wed, 28 Apr 1993 05:37:00 GMT
+Sender: news@lugb.latrobe.edu.au (USENET News System)
+Organization: La Trobe University
+Lines: 10
+
+Sometimes when I boot up windows 3.1, after the windows logo comes up it han
+gs, I am using Dos 6 and doublespace, and a 5 meg temp swap file on an
+uncompressed drive.
+But when I press the reset button on the computer,  windows boots up
+fine... Why is this??? is it dos 6?
+-- 
+-----------------------------------------------------------------------------
+Matthew Gillard,                    | Blessed are they who run around
+Computer Systems Engineering,       | in circles, for they shall be 
+La Trobe University,                | known as wheels.

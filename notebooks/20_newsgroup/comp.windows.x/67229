@@ -1,0 +1,29 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!wupost!howland.reston.ans.net!usc!cs.utexas.edu!geraldo.cc.utexas.edu!portal.austin.ibm.com!awdprime.austin.ibm.com!skywalker.bocaraton.ibm.com!tomk
+From: tomk@skywalker.bocaraton.ibm.com (Thomas Chun-Hong Kok)
+Subject: Re: Hypercard for UNIX
+Message-ID: <C5xx7I.33B7@austin.ibm.com>
+Sender: tomk@skywalker.bocaraton.ibm.com (Thomas Chung-Hong Kok)
+Date: Fri, 23 Apr 1993 14:21:18 GMT
+References:  <1993Apr23.114028.17633@bernina.ethz.ch>
+Organization: IBM Austin
+Lines: 18
+
+In article <1993Apr23.114028.17633@bernina.ethz.ch>, queloz@bernina.ethz.ch (Ronald Queloz) writes:
+> Hi netlanders,
+> 
+> Does anybody know if there is something like Macintosh Hypercard for any UNIX 
+> platform?
+> 
+> 
+> Thanks in advance
+> 
+> 
+> Ron.
+
+-- 
+
+Try MetaCard - a HyperCard-like programming environment on X.
+
+
+Chun Hong

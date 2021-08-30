@@ -1,0 +1,29 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!uwm.edu!caen!tdawson
+From: tdawson@llullaillaco.engin.umich.edu (Chris Herringshaw)
+Newsgroups: comp.graphics
+Subject: Re: Sun IPX root window display - background picture
+Date: 20 Apr 1993 17:42:32 GMT
+Organization: University of Michigan Engineering, Ann Arbor
+Lines: 15
+Distribution: world
+Message-ID: <1r1cm8INNjcr@srvr1.engin.umich.edu>
+References: <1993Apr19.220817.22480@osi.com>
+NNTP-Posting-Host: llullaillaco.engin.umich.edu
+Keywords: sun ipx background picture
+Originator: tdawson@llullaillaco.engin.umich.edu
+
+
+I'm not sure if you got the information you were looking for, so I'll
+post it anyway for the general public.  To load an image on your root
+window add this line to the end of your .xsession file:
+
+ xloadimage -onroot -fullscreen <gif_file_name> &
+
+This is assuming of course you have the xloadimage client, and as
+for the switches, I think they pretty much explain what is going on.
+If you leave out the <&>, the terminal locks till you kill it.
+(You already knew that though...)
+
+Hope this helps.
+
+Daemon

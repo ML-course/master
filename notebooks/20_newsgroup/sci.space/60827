@@ -1,0 +1,26 @@
+Xref: cantaloupe.srv.cs.cmu.edu rec.arts.sf.science:5719 sci.space:60827
+Newsgroups: rec.arts.sf.science,sci.space
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!cs.utexas.edu!utnut!utzoo!henry
+From: henry@zoo.toronto.edu (Henry Spencer)
+Subject: Re: Orion drive in vacuum -- how?
+Message-ID: <C5LFJ7.3AD@zoo.toronto.edu>
+Date: Fri, 16 Apr 1993 20:28:17 GMT
+References: <1qn4bgINN4s7@mimi.UU.NET>
+Organization: U of Toronto Zoology
+Lines: 15
+
+In article <1qn4bgINN4s7@mimi.UU.NET> goltz@mimi.UU.NET (James P. Goltz) writes:
+>  Would this work?  I can't see the EM radiation impelling very much
+>momentum (especially given the mass of the pusher plate), and it seems
+>to me you're going to get more momentum transfer throwing the bombs
+>out the back of the ship than you get from detonating them once
+>they're there.
+
+The Orion concept as actually proposed (as opposed to the way it has been
+somewhat misrepresented in some fiction) included wrapping a thick layer
+of reaction mass -- probably plastic of some sort -- around each bomb.
+The bomb vaporizes the reaction mass, and it's that which transfers
+momentum to the pusher plate.
+-- 
+All work is one man's work.             | Henry Spencer @ U of Toronto Zoology
+                    - Kipling           |  henry@zoo.toronto.edu  utzoo!henry

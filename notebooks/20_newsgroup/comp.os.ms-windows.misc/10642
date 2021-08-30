@@ -1,0 +1,42 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.ms-windows.misc:10642 comp.os.ms-windows.programmer.misc:9813
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!darwin.sura.net!news-feed-1.peachnet.edu!gatech!usenet.rpi.edu!usenet.rpi.edu!wiseb
+From: wiseb@colossus.cs.rpi.edu (Bowden Wise)
+Newsgroups: comp.os.ms-windows.misc,comp.os.ms-windows.programmer.misc
+Subject: Deriving from class Object with OWL
+Date: 12 May 1993 18:47:10 GMT
+Organization: Rensselaer Polytechnic Institute Computer Science, Troy NY
+Lines: 30
+Distribution: comp
+Message-ID: <1srgne$m4i@usenet.rpi.edu>
+NNTP-Posting-Host: colossus.cs.rpi.edu
+
+I am trying to define my own class derived from the Object class so
+that I may insert them into a HashTable (a class provided by the
+Container class library).
+
+I have defined all of the pure virtual functions of Object, but I
+still get an error when I attempt to allocate a HashEntry object:
+
+  Cannot create instance of abstract class HashEntry
+
+Has anyone derived from class Object before?  What have I left out?
+Here are the virtual functions that I defined from Object:
+
+virtual classType      isA()   const { return hashEntryClass; }
+virtual Pchar          nameOf()const { return "HashEntry"; }
+
+virtual hashValueType hashValue() const { return hashValue(hWindow); }
+// Note: hWindow is defined in HashEntry
+
+virtual int            isEqual (const Object _FAR &obj) const
+{ return this == &(HashEntry&) obj; }
+
+virtual void           printOn( Rostream os) const
+{
+ os << "[ HWindow is " << (void _FAR *) hWindow << " ]\n"; 
+}
+--
+--------------------------------------------------------------------
+- Bowden Wise
+  Computer Science Dept, Rensselaer Polytechnic Inst, Troy, NY 12180
+  internet: wiseb@cs.rpi.edu

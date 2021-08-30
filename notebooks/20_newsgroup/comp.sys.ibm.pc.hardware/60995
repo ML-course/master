@@ -1,0 +1,24 @@
+Newsgroups: comp.sys.ibm.pc.hardware
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!darwin.sura.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!news!wrs.com!edm
+From: edm@wrs.com (Ed McClanahan)
+Subject: Re: VLB bus master problem?
+Message-ID: <edm.735512260@wrs.com>
+Keywords: VLB Bus Master Controller SCSI
+Sender: news@wrs.com (News Manager)
+Nntp-Posting-Host: chaos
+Organization: Wind River Systems, Inc.
+References: <rkimball.735340669@athena> <ltdtt2INNnh3@news.bbn.com>
+Date: Thu, 22 Apr 1993 20:57:40 GMT
+Lines: 11
+
+rbrown@spchp21.BBN.COM (Ralph Brown) writes:
+
+>I've yet to hear from someone running a 34F on any motherboard with
+>NT without shutting off the cache.
+
+Consider it heard!  AMI Enterprise III EISA/VLB w/ UltraStor 34F
+-- 
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+  Edward McClanahan                    edm@wrs.com

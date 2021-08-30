@@ -1,0 +1,27 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:68078 comp.windows.open-look:8571
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!wupost!darwin.sura.net!news-feed-1.peachnet.edu!concert!epa-rtp!hermes.ath.epa.gov!helios.ath.epa.gov!kbw
+From: kbw@helios.ath.epa.gov (Kevin B. Weinrich)
+Newsgroups: comp.windows.x,comp.windows.open-look
+Subject: How to make a window's input be ALL CAPS without Caps Lock?
+Date: 13 May 1993 20:06:41 GMT
+Organization: Computer Sciences Corp.
+Lines: 15
+Distribution: world
+Message-ID: <1su9oh$97@hermes.ath.epa.gov>
+NNTP-Posting-Host: helios.ath.epa.gov
+
+An application we *must* use requires upper-case input.  I'd like to be
+able to simply move my cursor into the window where that application is running
+(just a text window, xterm or some such) and have everything I type be entered
+as ALL CAPS.  When the cursor is in any of my many other windows, I want to
+automatically return to normal functionality.  I have point-to-type set.
+
+Is there a way to do this in X (specifically OW 3.0 on SPARCs)?  Is there a
+way to mess with .Xdefaults to make a category of window do this?  Any
+hints would be most appreciated.  I program in C but not X, although I can
+pick up somthing that's not too involved.
+
+Thanks kindly.
+-- 
+Kevin Weinrich     Computer Sciences Corp.
+kbw@helios.ath.epa.gov

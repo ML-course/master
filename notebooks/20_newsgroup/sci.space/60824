@@ -1,0 +1,42 @@
+Xref: cantaloupe.srv.cs.cmu.edu rec.arts.sf.science:5718 sci.space:60824
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!not-for-mail
+From: goltz@mimi.UU.NET (James P. Goltz)
+Newsgroups: rec.arts.sf.science,sci.space
+Subject: Orion drive in vacuum -- how?
+Date: 16 Apr 1993 16:18:56 -0400
+Organization: UUNET Technologies Inc, Falls Church, VA, USA
+Lines: 31
+Message-ID: <1qn4bgINN4s7@mimi.UU.NET>
+NNTP-Posting-Host: mimi.uu.net
+
+
+  Background: The Orion spacedrive was a theoretical concept.  It
+would be a drive using thermonuclear explosions to drive a spacecraft.
+The idea was that you'd detonate devices with somewhere from one to
+ten megatons yield behind a "pusher plate" attached to the main
+spacecraft.  The shock wave from the explosions would transfer
+momentum to the ship.
+
+  Now, in an atmosphere I can see this.  The energy of the explosion
+heats the atmosphere, which expands explosively and slams a shock wave
+into the pusher plate.  But in a vacuum, only two things I can see are
+going to hit the plate: fission/fusion products (barium, krypton,
+helium, neutrons, evaporated bomb casing) and electromagnetic
+radiation (gammas mostly, some light/heat from irradiated fission
+products).
+
+  Would this work?  I can't see the EM radiation impelling very much
+momentum (especially given the mass of the pusher plate), and it seems
+to me you're going to get more momentum transfer throwing the bombs
+out the back of the ship than you get from detonating them once
+they're there.
+
+  I must be missing something.  Would someone enlighten me via email?
+
+  Thanks.
+
+-- 
+	--Jim
+
+---
+Jim Goltz                    AlterNet Engineer               goltz@uunet.uu.net

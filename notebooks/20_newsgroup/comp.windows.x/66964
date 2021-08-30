@@ -1,0 +1,21 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!darwin.sura.net!haven.umd.edu!uunet!pipex!uknet!mcsun!sun4nl!ahds!dick
+From: dick@ahold.nl (Dick Heijne)
+Newsgroups: comp.windows.x
+Subject: Re: xdm and Solaris2.1
+Message-ID: <3976@ahds.ahold.nl>
+Date: 17 Apr 93 20:56:09 GMT
+References: <9304091210.AA13794@sunbim.sunbim.be>
+Organization: Ahold NV, Zaandam, Netherlands, EEC
+Lines: 11
+
+The XDM on Solaris 2.1 *WAS* broke. Since two weeks, Sun distributes
+a patched release, which works fine (supports /etc/shadow and all).
+We have it up and running ever since and have not experienced any
+problems. Call your local Sun rep.
+
+Dick.
+-- 
++==============================Ahold NV===============================+
+| Room 146 , Ankersmidplein 2, 1506 CK Zaandam,  The Netherlands, EEC |
+| Dick.Heijne@ccsds.ahold.nl - Tel: +31 75 592151, Fax: +31 75 313030 |
++=====================================================================+

@@ -1,0 +1,19 @@
+Newsgroups: comp.sys.ibm.pc.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!caen!uvaarpa!software.org!hofkin
+From: hofkin@software.org (Bob Hofkin)
+Subject: Re: ATI build 59 drivers "good"?
+Message-ID: <1993Apr21.155805.12288@software.org>
+Sender: usenet@software.org (Usenet News/Mail Support)
+Reply-To: hofkin@software.org
+Organization: Software Productivity Consortium
+X-Newsreader: TIN [version 1.1 PL9]
+References: <C5sunH.7A4@m2.dseg.ti.com>
+Date: Wed, 21 Apr 1993 15:58:05 GMT
+Lines: 6
+
+Build 59 causes 2 exceptions when I exit Windows. In fact, I have had
+this happen on all builds after 44, which shipped with my Gateway
+system.  Am I doing something wrong, or is this problem commonly
+overlooked?
+
+Bob Hofkin

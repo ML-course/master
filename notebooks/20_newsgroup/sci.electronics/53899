@@ -1,0 +1,37 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!darwin.sura.net!haven.umd.edu!uunet!pipex!uknet!warwick!warwick!not-for-mail
+From: csulo@csv.warwick.ac.uk (Mr M J Brown)
+Newsgroups: sci.electronics
+Subject: 600RPM Floopy drives - UPDATE!
+Date: 21 Apr 1993 14:43:49 +0100
+Organization: Computing Services, University of Warwick, UK
+Lines: 26
+Distribution: world
+Message-ID: <1r3j2lINNf13@clover.csv.warwick.ac.uk>
+NNTP-Posting-Host: clover.csv.warwick.ac.uk
+
+Many thanks to those who replied to my appeal for info on a drive I have
+which is 3.5" 600RPM!!
+
+I now have some information on how to modify this for use with a BBC B 
+computer. Not only do you have to change the speed from 600 to 300 rpm
+(tried that) but also change 8 components in the Rec/Play section to allow
+for the lower data rate (250kbit, not 500kbit as it was designed for) and also
+change the Recording Current to allow for the low data rate/rev speed!
+
+Hopefully this should sort it all out .... not bad for 9 quid (normally 32 
+quid and upwards ....)
+
+The drive is a JVC MDP series drive ...
+
+=============================================================================  
+     _/      _/   _/   _/  _/   _/_/_/_/   |
+    _/_/  _/_/   _/   _/_/     _/          |         Michael Brown
+   _/  _/  _/   _/   _/       _/_/         |
+  _/      _/   _/   _/_/     _/            |    csulo@csv.warwick.ac.uk
+ _/      _/   _/   _/  _/   _/_/_/_/  _/   |     mjb@dcs.warwick.ac.uk
+                                           |
+=============================================================================
+              Lost interest ?? It's so bad I've lost apathy!
+=============================================================================
+
+

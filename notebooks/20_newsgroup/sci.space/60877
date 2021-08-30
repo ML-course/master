@@ -1,0 +1,91 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.astro:34684 sci.space:60877 comp.graphics:38416
+Newsgroups: sci.astro,sci.space,comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!spool.mu.edu!uwm.edu!cs.utexas.edu!wotan.compaq.com!twisto.eng.hou.compaq.com!twisto!edm
+From: edm@twisto.compaq.com (Ed McCreary)
+Subject: SOFTWARE RELEASE for use with Voyager CDROMs
+Message-ID: <EDM.93Apr18133611@gocart.twisto.compaq.com>
+Sender: news@twisto.eng.hou.compaq.com (Netnews Account)
+Organization: Compaq Computer Corp
+Date: Sun, 18 Apr 1993 18:36:11 GMT
+Lines: 80
+
+
+                        T h e  I m a g e  M a c h i n e
+                                 Version 1.0
+
+                              by Eddie McCreary
+
+Introduction
+
+The Image Machine is a Windows based image processing package for use with
+the CDROMs distributed by the NSSDC containing data from Voyager and other
+spacecraft.  It it intended mainly for use with these disks and should not
+be considered a general imaging application.  Future versions will correct
+this.
+
+Features include:
+
+             *  Read compressed images directly from disk.  No preprocessing
+                required!
+
+             *  Basic image processing functions such as low and high pass
+                filtering, zoom, rotate, flip, and much, much more!
+
+             *  Complete customizable filter kernels.  Write your own
+                filters if you don't like those provided with program.
+
+             *  Reseau mark removal.  Get rid of unsightly reseau marks
+                with the click of a button.
+
+             *  It's Freeware!  Give it to your best friend, give it to
+                your mother-in-law, give it to your dog, I just don't care!
+
+Media
+
+The Image Machine has been tested with the following CDROMs:
+
+             *  Voyagers to the Outer Planets, Vol. 1 - 12
+
+             *  Mission To Mars: Viking Orbiter Images of Mars, Vol.  1 - 8
+
+             *  Mars Mosaicked Digital Image Model, Vol. 1 - 6
+
+             *  Mission To Jupiter: Galileo Images of Venus, Earth, & Moon,
+                Vol. 2 - 6
+
+             *  Magellan MIDR CDROMs (tested with only select images)
+
+It should be compatible with most images stored in PDS and VICAR format,
+but unless the image belongs to one of the above sets, it hasn't been
+tested.
+
+Requirements
+
+             *  80386SX processor or above (20+MHz preferred)
+
+             *  4 MB RAM, the more the better.
+
+             *  Microsoft Window 3.1+
+
+Availability
+
+The Image Machine can be found on ames.arc.nasa.gov under pub/SPACE/SOFTWARE
+as imach10.zip.  I've also submitted it to comp.binaries.ms-windows so
+if you don't have ftp access, wait a few days and it should appear at your
+site.
+
+Disclaimer
+
+The Image Machine is a private project written by myself in my spare time.
+I am in no way associated with the National Space Science Data Center
+or NASA and this project should not be consider endorsed by them.
+
+Thanks to Peter Yee for placing it on the ames archives.
+
+Questions or comments should be mailed to me directly at:
+edm@twisto.compaq.com.
+
+--
+Ed McCreary                                               ,__o
+edm@twisto.compaq.com                                   _-\_<, 
+"If it were not for laughter, there would be no Tao."  (*)/'(*)

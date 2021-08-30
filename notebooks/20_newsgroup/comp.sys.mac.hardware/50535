@@ -1,0 +1,19 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!agate!apple!mumbo.apple.com!Matt_Harrop@magic-bbs.corp.apple.com
+Message-ID: <1993Apr04.141144.644897@magic-bbs.corp.apple.com>
+Newsgroups: comp.sys.mac.hardware
+From: Matt_Harrop@magic-bbs.corp.apple.com
+Distribution: na
+Organization: Macintosh Awareness Group In Canada
+Date: Sun, 04 Apr 1993 14:11:44 EST
+Subject: Re: Internal SCSI installation, How?
+Lines: 9
+
+>But Apple HD SC says "Unable to locate a suitable drive on SCSI"... 
+>what's he doing wrong?
+
+Apples HDSC will only format a hard drive that Apple sold.  You need to use
+a third party formater like Drive7 or SpotOn.
+
+
+
+

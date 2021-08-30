@@ -1,0 +1,39 @@
+Newsgroups: sci.crypt
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!usc!sdd.hp.com!decwrl!apple!mumbo.apple.com!wingosmac.apple.com!user
+From: wingo@apple.com (Tony Wingo)
+Subject: Re: new encryption
+Sender: news@mumbo.apple.com (The News System)
+Message-ID: <wingo-220493101120@wingosmac.apple.com>
+Date: Thu, 22 Apr 1993 17:16:58 GMT
+References: <1993Apr20.192105.11751@ulysses.att.com> <1993Apr21.001230.26384@lokkur.dexter.mi.us> <1r4e9d$pdo@sol.TIS.COM> <1993Apr21.225435.6292@wam.umd.edu> <1993Apr22.092959@magic.mcc.com>
+Organization: Apple Computer
+Followup-To: sci.crypt,alt.security.pgp,alt.privacy.clipper
+Lines: 27
+
+In article <1993Apr22.092959@magic.mcc.com>, croley@magic.mcc.com (David
+Croley) wrote:
+
+> 
+> It would seem that the one fact that the government has overlooked in this
+> whole fiasco is the economic standpoint.  As others have mentioned, the most
+> difficulty the Clipper chip faces is an economic one.  Let's face it, the
+> average consumer doesn't care or know that the Clipper is a bad idea.  If
+> there is a perceived need for cellular encryption, then the companies will
+> provide one.  Most likely, a standard will emerge.  But if the Clipper is
+> too expensive (and $25 a chip is way too much) then they will develope their
+> own or buy a cheaper one.  
+
+This is an interesting point.  As a VERY COARSE rule of thumb, you can
+figure that the final price of a product is 3 to 5 times the Cost Of Goods.
+(The exact multiplier depends largely on economies of scale: Products that
+sell tens of millions of units/year will be at the low end, those that sell
+thousands of units/year will be at the high end.  I suspect cellular phones
+are in the middle).  This implies that adding a $25 chip would increase the
+cost of the phone by approx $100, or about 25% - 30%.
+
+I don't think you'll get a lot of consumer support for this.
+
+
+-tony
+
+>>usual disclaimer<<

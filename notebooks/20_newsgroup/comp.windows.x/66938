@@ -1,0 +1,14 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!howland.reston.ans.net!zaphod.mps.ohio-state.edu!darwin.sura.net!udel!rochester!rocksanne!wsanders
+From: wsanders@spectrum.xerox.com (bob hosid r382-423)
+Subject: Dynamic changing of the title bar
+Message-ID: <1993Apr16.162008.4904@spectrum.xerox.com>
+Organization: Xerox
+X-Newsreader: TIN [version 1.1 PL8]
+Date: Fri, 16 Apr 1993 16:20:08 GMT
+Lines: 4
+
+I am looking for a program I can insert into some code that will allow the title bar to be changed on a window dynamicly.  If one already is out there, I would appreciate a location so I don't have to create this from scratch.
+
+Thanks in advance.
+Bob Hosid:dloslv300:xerox

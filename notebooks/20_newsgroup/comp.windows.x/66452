@@ -1,0 +1,28 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!pipex!uknet!uknet!zaphod.axion.bt.co.uk!nemesis.muppet.bt.co.uk!mugwump!carlj
+From: carlj@mugwump (Carl Johnson)
+Newsgroups: comp.windows.x
+Subject: xterm and default text cursor color
+Message-ID: <1prvbh$plu@nemesis.muppet.bt.co.uk>
+Date: 6 Apr 93 13:08:01 GMT
+Reply-To: carlj@cyclone.bt.co.uk
+Organization: British Telecom Research Labs
+Lines: 17
+NNTP-Posting-Host: mugwump.muppet.bt.co.uk
+
+What I want to be able to do is to set the cursor
+color to the same as the forground color that is set
+for that xterm.
+
+From the man page.....
+
+-cr color
+ This option specifies the color to use for text cur-
+ sor.   The  default  is  to  use the same foreground  <---
+ color that is used for text.  <---
+
+However this doesnt seem to be the case, it appears to default to black
+or to whatever XTerm*cursorColor is set to.
+
+Feel free to point me at the relevant FM or whatever,
+Cheers,
+C

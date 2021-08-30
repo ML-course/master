@@ -1,0 +1,37 @@
+From: Philip.Schuler@f421.n109.z1.his.com (Philip Schuler)
+Sender: UUCP@Clone.his.com
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!wupost!uunet!Clone!UUCP
+Newsgroups: comp.sys.mac.hardware
+Subject: Re: CENTRIS 610 VIDEO PROBLEM-HELP
+Message-ID: <735724842.AA02089@Clone.his.com>
+Date: Sun, 18 Apr 1993 10:53:24
+Lines: 28
+
+> When the computer is set for 256 colors and certain operations are done,
+> particularly vertical scrolling through a window, horizontal white lines
+> appear on the monitor (which generally but not always spare open windows). 
+> These lines accummulate as the operation is continued.  If a window is
+moved
+> over the involved area of the screen and then moved away the line disappear
+> from that area of the screen.  This problem is not observed if the monitor
+is
+> configured for 16 colors or a 14 inch Apple monitor with 256 colors is
+used.
+> 
+> I suspect a bad video RAM chip but cannot be certain.  The problem has been
+> apparent since day 1 but has gotten worse.
+ 
+Andrew,
+        I had the same problem when I bought some additional VRAM. In my case
+the problem arose when I set the color depth to 16 bit on a 14" monitor.  The
+problem was solved by sending back the SIMMs and getting different ones. 
+Someone on a local bbs I use said that the problem is with incompatible VRAM
+chips and that Apple has some kind of repair/technical note discussing the
+issue.
+
+        If you've had the problem since day 1, I'd take the chips back to
+whomever sold them to you and get good ones.
+
+--Phil Schuler
+
+

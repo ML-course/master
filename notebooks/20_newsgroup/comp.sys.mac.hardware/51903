@@ -1,0 +1,26 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.mac.programmer:58148 comp.sys.mac.hardware:51903
+Newsgroups: comp.sys.mac.programmer,comp.sys.mac.hardware
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!usenet.ins.cwru.edu!agate!iat.holonet.net!folta
+From: folta@zen.holonet.net (Steve Folta)
+Subject: Re: Using SetWUTime() with a PB170
+Message-ID: <C5ru6o.42r@iat.holonet.net>
+Sender: usenet@iat.holonet.net (USENET News System)
+Nntp-Posting-Host: zen.holonet.net
+Organization: HoloNet National Internet Access System: 510-704-1058/modem
+References: <C5qFLr.Lon@world.std.com>
+Date: Tue, 20 Apr 1993 07:30:23 GMT
+Lines: 13
+
+aep@world.std.com (Andrew E Page) writes:
+>   I can get the mac to go to sleep, but I can't make seem to 
+>make it wake up with SetWUTime().
+
+The PowerBook 170 hardware doesn't have a wakeup timer.  Nor does the 140.
+The Mac Portable had one, and I think the PowerBook 100 had one.  I don't
+know about the newer PowerBooks, but I kind of doubt it.  I got bit by
+this too, and it took my a while rooting around on the developer CD
+before I found this out.
+
+Steve Folta
+folta@well.sf.ca.us
+

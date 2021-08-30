@@ -1,0 +1,23 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:67263 comp.windows.x.motif:16778 comp.windows.x.apps:2538 comp.windows.x.i386unix:1379 comp.windows.x.intrinsics:1167
+Path: cantaloupe.srv.cs.cmu.edu!rochester!galileo.cc.rochester.edu!ub!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!vtserf.cc.vt.edu!vtaix.cc.vt.edu!tdunbar
+From: tdunbar@vtaix.cc.vt.edu (Thomas Dunbar)
+Newsgroups: comp.windows.x,comp.windows.x.motif,comp.windows.x.apps,comp.windows.x.i386unix,comp.windows.x.intrinsics
+Subject: Re: X Toolkits
+Summary: Get the Athena 3D widget set
+Message-ID: <1r9im4$tf@vtserf.cc.vt.edu>
+Date: 23 Apr 93 20:13:56 GMT
+References: <C5y8wJ.3zE@undergrad.math.uwaterloo.ca>
+Distribution: inet
+Organization: Virginia Tech, Blacksburg, VA
+Lines: 9
+NNTP-Posting-Host: vtaix.cc.vt.edu
+
+
+ libXaw3d, the 3D Athena widget set will greatly improve the
+"sculptured" look. In Linux, with its shared, jump-table libs, you
+don't even have to recompile or relink. you merely have to:
+ ln -sf /lib/libXaw3d.so.3.0 /lib/libXaw.so.3
+
+
+
+   thomas

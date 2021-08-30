@@ -1,0 +1,35 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.graphics:38739 comp.graphics.animation:3095 comp.sys.mac.misc:43643
+Path: cantaloupe.srv.cs.cmu.edu!rochester!rutgers!att-out!att!bu.edu!olivea!mintaka.lcs.mit.edu!ai-lab!enterpoop.mit.edu!tamsun.tamu.edu!news.utdallas.edu!wupost!uunet!dev!uunet!gatekeeper.us.oracle.com!decwrl!elroy.jpl.nasa.gov!kelvin.jpl.nasa.gov!baalke
+From: baalke@kelvin.jpl.nasa.gov (Ron Baalke)
+Newsgroups: comp.graphics,comp.graphics.animation,comp.sys.mac.misc
+Subject: Gaspra Animation (QuickTime)
+Keywords: Gaspra, JPL
+Message-ID: <13MAR199301294579@kelvin.jpl.nasa.gov>
+Date: 4 Apr 93 01:24:57 GMT
+Organization: Jet Propulsion Laboratory
+Lines: 22
+NNTP-Posting-Host: kelvin.jpl.nasa.gov
+News-Software: VAX/VMS VNEWS 1.41
+
+
+                       ==============================
+                              GASPRA ANIMATION
+                                March 12, 1993
+                       ==============================
+
+     The Gaspra animation is now available at the Ames Space Archives in 
+QuickTime format.  The animation was formed from 11 images taken by the 
+Galileo spaecraft shortly before its closest approach to the asteroid in 
+October 1991.  The animation is available using anonymous ftp to:
+
+        ftp:      ames.arc.nasa.gov (128.102.18.3)
+        user:     anonymous
+        cd:       pub/SPACE/ANIMATION
+        files:
+                  gaspra.qt 
+     ___    _____     ___
+    /_ /|  /____/ \  /_ /|     Ron Baalke         | baalke@kelvin.jpl.nasa.gov
+    | | | |  __ \ /| | | |     Jet Propulsion Lab |
+ ___| | | | |__) |/  | | |__   M/S 525-3684 Telos | It's kind of fun to do
+/___| | | |  ___/    | |/__ /| Pasadena, CA 91109 | the impossible. 
+|_____|/  |_|/       |_____|/                     | Walt Disney

@@ -1,0 +1,30 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!spool.mu.edu!uwm.edu!msuinfo!scss3.cl.msu.edu!mrr
+From: mrr@scss3.cl.msu.edu (Mark Riordan)
+Newsgroups: sci.crypt
+Subject: Re: Source of random bits on a Unix workstation
+Date: 18 Apr 1993 18:24:16 GMT
+Organization: Michigan State University
+Lines: 18
+Message-ID: <1qs6cg$7cq@msuinfo.cl.msu.edu>
+References: <899@pivot.sbi.com>
+NNTP-Posting-Host: scss3.cl.msu.edu
+X-Newsreader: TIN [version 1.1 PL8]
+
+Bennett Todd @ Salomon Brothers Inc., NY (bet@sbi.com) wrote:
+: However, unless I
+: missed something, the only source they suggested (aside from a hardware RNG)
+: that seems available, and unguessable by an intruder, when a Unix is
+: fresh-booted, is I/O buffers related to network traffic. I believe my
+: solution basically uses that strategy, without requiring me to reach into
+: the kernel.
+
+A few more sources are statistics on your filesystems (easily
+and quickly obtained) and the output from the "rusage" system
+call.  
+
+You can also exec a finger to one or more favorite heavily-used
+systems, though this can take several seconds.
+
+cf. the source code to RIPEM on ripem.msu.edu.
+
+Mark R.

@@ -1,0 +1,25 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!nic.umass.edu!umassd.edu!ulowell!cs.ulowell.edu!kseethar
+From: kseethar@cs.ulowell.edu (Krishnan Seetharaman)
+Subject: Looking for Info on Quadratic Spline to Bezier Conversion ...
+Message-ID: <C6BnnA.6MD@ulowell.ulowell.edu>
+Sender: usenet@ulowell.ulowell.edu (News manager - ulowell)
+Organization: UMass-Lowell Computer Science
+Date: Sat, 1 May 1993 00:21:10 GMT
+Lines: 15
+
+Hi
+
+I am looking for an algorithm or pointers to any papers on how to convert
+Quadratic Splines to Cubic Splines or Beizeirs. If source is available
+in the public domain, please let me know.
+
+Thanks very much
+
+-ks
+
+-- 
+Krishnan Seetharaman	
+E-mail     : kseethar@cs.ulowell.edu	           Phone : 508-934-3628 (W)
+Snail-mail : Department of Computer Science, UMass/Lowell, Lowell, MA 01854
+

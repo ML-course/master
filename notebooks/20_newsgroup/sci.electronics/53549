@@ -1,0 +1,41 @@
+Xref: cantaloupe.srv.cs.cmu.edu rec.autos:102655 rec.autos.tech:53910 rec.autos.driving:16431 sci.electronics:53549
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!concert!duke!news.duke.edu!mookie!klg
+From: klg@mookie.mc.duke.edu (Kim Greer)
+Newsgroups: rec.autos,rec.autos.tech,rec.autos.driving,sci.electronics
+Subject: Re: electronic odometers (was: Used BMW Question ..... ???)
+Message-ID: <13269@news.duke.edu>
+Date: 15 Apr 93 11:02:14 GMT
+References: <1993Apr14.193720.20483@slcs.slb.com> <RRUSK.93Apr14165622@jade.ssd.csd.harris.com> <1993Apr15.044636.29924@slcs.slb.com>
+Sender: news@news.duke.edu
+Followup-To: rec.autos
+Organization: Duke Medical Center - Radiology
+Lines: 27
+Nntp-Posting-Host: mookie.mc.duke.edu
+
+In article <1993Apr15.044636.29924@slcs.slb.com> dcd@se.houston.geoquest.slb.com (Dan Day) writes:
+>That's scary -- if there's a way to set an arbitrary mileage figure
+>into the odometer, you can't trust *any* odometer reading, even
+>if you can prove that the odometer itself is the same one that
+>came on the car originally.
+
+  I was wondering if anyone can shed any light on just how it is that these
+electronic odometers remember the total elapsed mileage?  What kind of
+memory is stable/reliable enough, non-volatile enough and independent enough
+(of outside battery power) to last say, 10 years or more, in the life of a
+vehicle?  I'm amazed that anything like this could be expected to work for
+this length of time (especially in light of all the gizmos I work with that
+are doing good to work for 2 months without breaking down somehow).
+
+Side question:  how about the legal ramifications of selling a used car with
+a replaced odometer that starts over at 0 miles, after say 100/200/300K
+actual miles.  Looks like fraud would be fairly easy - for the price of a
+new odometer, you can say it has however many miles you want to tell the
+buyer it has.
+
+Thanks for any insight.
+
+
+Kim Greer                       
+Duke University Medical Center		 klg@orion.mc.duke.edu
+Div. Nuclear Medicine  POB 3949		 voice: 919-681-5894
+Durham, NC 27710  		         fax: 919-681-5636

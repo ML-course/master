@@ -1,0 +1,33 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.mac.hardware:51818 comp.sys.mac.wanted:21861
+Newsgroups: comp.sys.mac.hardware,comp.sys.mac.wanted
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!usc!sdd.hp.com!swrinde!cs.utexas.edu!uunet!pipex!uknet!warwick!zaphod.crihan.fr!univ-lyon1.fr!babbage!isis!oueichek
+From: oueichek@imag.fr (Ibaa Oueichek)
+Subject: Cache card for IIsi
+Message-ID: <C5qnow.IH2@imag.fr>
+Sender: news@imag.fr (Administration des news)
+Nntp-Posting-Host: gram3
+Organization: IMAG Institute, University of Grenoble, France
+X-Newsreader: Tin 1.1 PL5
+Date: Mon, 19 Apr 1993 16:12:32 GMT
+Lines: 20
+
+	I'm looking for a Cache card for my IIsi. I can spend $250 Max for it,
+	what i need is 64 kb cache with a fpu socket and a dual slot adapter.
+	Or at least a passe_through connector so i can keep my graphic card.
+	I need your advice about the best card i can buy. How much performance
+	increase i should expect, does the performance increase between the
+	32 and 64 kb Cache worths the price difference ?. And what's the best
+	price i can get for such a card (i really need to spare each possible
+	$). 
+	I have an Ethernet card for the LC with fpu. I don't think it would
+	work for the IIsi but the fpu is socketed. Do you think i can take the
+	fpu out of the card and put it in the empty fpu socket ?. Would it work
+	at 20 Mhz ?. If not, how much should i pay for an extra fpu ?.
+
+--
+Sham(u) ya tha (s)seif(u) lam yaghib(i) | Ibaa Oueichek. oueichek@imag.imag.fr
+    Ya jamal(al) majd(i) fi(l) kutub(i) |Lab de Genie Informatique (LGI). 
+Kablak(i) (t)tareekh(u) fi thulmaten    |IMAG, INPG. 
+    Baadak(i) staula ala (sh)shuhub(i)  |46, Av. Felix Viallet, Grenoble. 
+					
+

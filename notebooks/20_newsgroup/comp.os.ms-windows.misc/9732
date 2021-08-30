@@ -1,0 +1,27 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!darwin.sura.net!zaphod.mps.ohio-state.edu!moe.ksu.ksu.edu!crcnis1.unl.edu!news.unomaha.edu!nevada.edu!cat.lv-lib.nevada.edu!downs
+From: downs@helios.nevada.edu (Lamont Downs)
+Subject: Re: ATM
+Message-ID: <downs.220.735423628@helios.nevada.edu>
+Lines: 15
+Sender: news@nevada.edu (USENET News System)
+Nntp-Posting-Host: cat.lv-lib.nevada.edu
+Organization: UNLV
+References: <1r1jq4$af5@network.ucsd.edu> <1993Apr21.180110.14945@merl.com>
+Date: Wed, 21 Apr 1993 20:20:28 GMT
+
+>>So good that there isn't any diff whether or not ATManager is turned
+>>on or not. Is it worth it to run ATM at all? Especially with these
+>>better printer technologies ... and TT?
+>
+>There are some fonts that are only available as PS fonts.  If you
+>have a PS font that you want to use, use ATM.  Otherwise, it is
+>a waste of system resources.
+>
+-----Or, if you need to use a service bureau and they're only set up to use
+Type 1 fonts. From what I've heard (pure hearsay) the results of outputting
+TT fonts as Type 1 is _not_ as good as using high-quality Type 1 fonts in
+the first place.
+
+Lamont Downs
+downs@nevada.edu

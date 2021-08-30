@@ -1,0 +1,24 @@
+Newsgroups: sci.electronics
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!gatech!howland.reston.ans.net!ux1.cso.uiuc.edu!news.cso.uiuc.edu!mrcnext.cso.uiuc.edu!martyj
+From: martyj@mrcnext.cso.uiuc.edu (martin johnson)
+Subject: Hi Volt from battery
+Date: Wed, 21 Apr 1993 17:06:16 GMT
+Message-ID: <C5uFIG.1Dv@news.cso.uiuc.edu>
+Sender: usenet@news.cso.uiuc.edu (Net Noise owner)
+Keywords: capacitive discharge
+Organization: University of Illinois at Urbana
+Lines: 13
+
+I need a small battery powered hi voltage capacitive discharge supply to
+deliver ~6 joules at 250 volts. This implies a 200uf cap. I have built
+a very satisfactorily operating version from a MAX641, but do not like
+the idea of using a $6 single source part. It seems that the ubiquitous
+camera flash circuit is what I want, but I cant get mine apart without
+breaking it. I would appreciate receiving the circuit description or
+a source of one. I have already looked in several electronics circuits
+handbooks to no avail. Thanx
+--
+______________________________________________
+|  martin johnson      martyj@uiuc.edu       |
+|  "mind your business", on first US coin    |
+|____________________________________________|

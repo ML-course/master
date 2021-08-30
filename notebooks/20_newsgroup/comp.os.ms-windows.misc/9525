@@ -1,0 +1,29 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.ms-windows.apps:11569 comp.os.ms-windows.misc:9525 comp.os.ms-windows.setup:4290 comp.windows.ms:36383
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!spool.mu.edu!uunet!pipex!uknet!uknet!gdt!absgh
+From: absgh@gdr.bath.ac.uk (G Hunt)
+Newsgroups: comp.os.ms-windows.apps,comp.os.ms-windows.misc,comp.os.ms-windows.setup,comp.windows.ms
+Subject: Windows for WorkGroups and LAN Workplace
+Message-ID: <1993Apr16.142027.107@gdr.bath.ac.uk>
+Date: 16 Apr 93 14:20:27 GMT
+Organization: School of Architecture, University of Bath, UK
+Lines: 19
+
+This may be a simple question but:
+
+We have a number of PC's which we use to link to a mainframe using 
+Novell LAN WorkPlace for DOS (via WIndows 3.1). 
+Now, to make life easier for us we are thinking of using Windows for
+Workgroups to allow file sharing across our PC network. 
+
+Now does anyone know if it is possible to use W4WG and Lan Workplace
+for DOS at the same time. 
+
+ie Can I access a file on another PC while being logged on to the
+mainframe at the same time, simultaneously.
+
+Any help well appreciated.
+
+Gary Hunt.
+Centre for Advanced Studies in Architecture
+University of Bath
+absgh@gdr.bath.ac.uk

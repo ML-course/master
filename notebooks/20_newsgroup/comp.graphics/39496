@@ -1,0 +1,43 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.sgi.graphics:1042 comp.graphics.visualization:3460 comp.graphics:39496
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!ira.uka.de!rz.uni-karlsruhe.de!news.uni-stuttgart.de!ikesg1!wnkretz
+From: wnkretz@ikesg1.energietechnik.uni-stuttgart.de (Oliver Kretzschmar)
+Newsgroups: comp.sys.sgi.graphics,comp.graphics.visualization,comp.graphics
+Subject: Need C-algorithm, which decide whether a 3D-point is inside a space, defined by 6 planes
+Date: 12 May 1993 05:55:54 GMT
+Organization: IKE
+Lines: 31
+Distribution: world
+Message-ID: <1sq3ha$1qko@info2.rus.uni-stuttgart.de>
+NNTP-Posting-Host: ikesg1.energietechnik.uni-stuttgart.de
+
+
+
+
+   Hey,
+
+   I am looking for C-algorithm, which decide,whether a 3D-Point is
+   inside a space which was defined by 8 x 3D-points.
+   With a space defined by 8 x 3D-points, I mean a space defined by
+   6 closed 3D meshes defined by 8 points. Like this :
+
+              _____
+             /    /|
+            /____/ |
+            |    | |
+            |    | /
+            |____|/
+
+
+   But in this simple example, the sides are parallel, but my problem,
+   the sides can be non parallel and the opposite sides must not have
+   the same size etc. Please mail me your informations !
+
+   Thanks for your great efforts
+
+      Oliver
+
+-- 
+ NAME : O.Kretzschmar                      Inst.IKE / University Stuttgart
+ PHONE: +49 711 685 2130                           Pfaffenwaldring 31
+ FAX  : +49 711 685 2010                            7000 Stuttgart 80
+ EMAIL: wnkretz@ikesg1.energietechnik.uni-stuttgart.de

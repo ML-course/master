@@ -1,0 +1,51 @@
+Newsgroups: comp.sys.ibm.pc.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!paladin.american.edu!howland.reston.ans.net!usenet.ins.cwru.edu!agate!deep.rsoft.bc.ca!mindlink!a7861
+From: Doug_Oke@mindlink.bc.ca (Doug Oke)
+Subject: Memory Access Time (Was Re: SRAM and SIMMS 4 sale)
+Organization: MIND LINK! - British Columbia, Canada
+Date: Fri, 16 Apr 1993 19:49:53 GMT
+Message-ID: <23202@mindlink.bc.ca>
+Sender: news@deep.rsoft.bc.ca (Usenet News at rsoft.bc.ca)
+Lines: 41
+
+> ben elliston writes:
+>
+> Msg-ID: <734606726.AA00887@f262.n620.z3.fidonet.org>
+> Posted: Mon, 12 Apr 1993 10:41:0
+>
+> Organization: Compact Solutions, Canberra ACT Australia
+>
+>  > 64k of 25ns SRAM
+>
+> By my way of thinking, Michael, how could this memory be static RAM if it
+> has a speed rating?  I didn't think SRAM needed a refresh time.
+>
+> Doesn't that make it fast DRAM?
+
+This chip would take 25ns to return valid data after being issued an address.
+
+Refresh time (none for SRAM, as you pointed out) is a different parameter,
+and is not generally referred to except by motherboard designers.
+>
+> Cheers,
+> Ben
+> ----------------------------------------------------------------------------
+> --
+> Ben Elliston
+> Bachelor of Engineering (Computer Engineering)
+> University of Canberra
+>
+> Email:      tp923021@jarrah.canberra.edu.au
+> UUCP:       ..!uunet!munnari!sserve.adfa.oz.au!compsol!root
+> FidoNet:    3:620/262
+> ----------------------------------------------------------------------------
+> --
+> If a train station is where the train stops, what's a workstation?!
+> ----------------------------------------------------------------------------
+> --
+>
+>  * Origin: % Compact Solutions % Canberra ACT Australia % (3:620/262)
+
+
+--
+Doug Oke - Vancouver, Canada                  Doug_Oke@mindlink.bc.ca

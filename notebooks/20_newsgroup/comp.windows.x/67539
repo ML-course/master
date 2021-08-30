@@ -1,0 +1,22 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.unix.wizards:34861 comp.windows.x:67539
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!gatech!prism!ma201rs
+From: ma201rs@prism.gatech.EDU (SHONKWILER R W)
+Newsgroups: comp.unix.wizards,comp.windows.x
+Subject: scrollbar in xterm
+Keywords: xterm, scrollbar
+Message-ID: <95563@hydra.gatech.EDU>
+Date: 30 Apr 93 21:54:30 GMT
+Followup-To: poster
+Organization: Georgia Institute of Technology
+Lines: 10
+
+Is it possible to get an xterm scrollbar to come out on the right
+side instead of the left?
+
+Ron Shenk
+
+-- 
+SHONKWILER R W
+Georgia Institute of Technology, Atlanta Georgia, 30332
+uucp: ...!{allegra,amd,hplabs,seismo,ut-ngp}!gatech!prism!ma201rs
+ARPA: ma201rs@prism.gatech.edu

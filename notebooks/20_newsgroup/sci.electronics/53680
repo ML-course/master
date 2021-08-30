@@ -1,0 +1,26 @@
+Newsgroups: sci.electronics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!usenet.ins.cwru.edu!magnus.acs.ohio-state.edu!zaphod.mps.ohio-state.edu!uwm.edu!cs.utexas.edu!utnut!utzoo!henry
+From: henry@zoo.toronto.edu (Henry Spencer)
+Subject: Re: Public-domain circuits in commercial applications
+Message-ID: <C5nILJ.6sn@zoo.toronto.edu>
+Date: Sat, 17 Apr 1993 23:29:40 GMT
+References: <1993Apr13.164924.2606@wuecl.wustl.edu> <C5GE03.LIF@athena.cs.uga.edu>
+Organization: U of Toronto Zoology
+Lines: 16
+
+In article <C5GE03.LIF@athena.cs.uga.edu> mcovingt@aisun3.ai.uga.edu (Michael Covington) writes:
+>... Patent law says you can build anything
+>you want to, for your own personal noncommercial use...
+
+I'm not up on the details of US patent law, but I think this is incorrect.
+There is a "reasonable use" exemption for *copyright*.  There is none for
+*patents*.  The exemptions from patent licensing are quite narrow; R&D work
+is exempt but personal use is not.  That is, it's okay to experiment with
+a patented idea, but not to put it to practical use (e.g. to improve your
+stereo), even if it's only your own private practical use.
+
+Of course, it is unlikely that discreet personal use will ever be detected
+or that you will ever be sued over it.
+-- 
+All work is one man's work.             | Henry Spencer @ U of Toronto Zoology
+                    - Kipling           |  henry@zoo.toronto.edu  utzoo!henry

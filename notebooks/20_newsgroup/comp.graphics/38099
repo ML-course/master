@@ -1,0 +1,34 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!news.ans.net!howland.reston.ans.net!bogus.sura.net!darwin.sura.net!mojo.eng.umd.edu!amjad
+From: amjad@eng.umd.edu (Amjad A Soomro)
+Newsgroups: comp.graphics
+Subject: Gamma-Law Correction
+Date: 9 Apr 1993 15:51:44 GMT
+Organization: Project GLUE, University of Maryland, College Park
+Lines: 22
+Distribution: USA
+Expires: 05/15/93
+Message-ID: <1q462gINNdhe@mojo.eng.umd.edu>
+NNTP-Posting-Host: filter.eng.umd.edu
+
+Hi:
+
+I am digitizing a NTSC signal and displaying on a PC video monitor.
+It is known that the display response of tubes is non-linear and is
+sometimes said to follow Gamma-Law. I am not certain if these
+non-linearities are "Gamma-corrected" before encoding NTSC signals
+or if the TV display is supposed to correct this.
+ 
+Also, if  256 grey levels, for example, are coded in a C program do
+these intensity levels appear with linear brightness on a PC
+monitor? In other words does PC monitor display circuitry
+correct for "gamma errrors"?
+ 
+Your response is much appreciated.
+ 
+Amjad.
+
+Amjad Soomro
+CCS, Computer Science Center
+U. of Maryland at College Park
+email: amjad@wam.umd.edu
+

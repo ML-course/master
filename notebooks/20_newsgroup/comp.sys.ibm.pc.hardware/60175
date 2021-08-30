@@ -1,0 +1,20 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!spool.mu.edu!uunet!emba-news.uvm.edu!idx.com!bc
+From: bc@idx.com
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: Request info on a mystery PC card
+Message-ID: <1993Apr15.130723.108@idx.com>
+Date: 15 Apr 93 13:07:23 GMT
+Organization: IDX Corporation, S. Burlington, VT
+Lines: 11
+
+While rummaging through a box of old PC (5150) parts, I found a half-size
+board that looks like a comm port board.  It was made by Forte Data Systems and
+has a copyright date of 1986 on it.  The board provides a male 24-pin connector
+and has 3 jumpers of 3 pins each, two labelled A B C.  I plugged it into my PC
+and ran Advanced diagnostics several times, changing the jumper positions each
+time, but the system did not recognise a comm port.
+
+Does anyone have a clue as to what this board might be or how to configure it?
+I could use another comm port if it's free.
+
+Bryan

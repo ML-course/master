@@ -1,0 +1,31 @@
+Newsgroups: sci.electronics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!noc.near.net!news.centerline.com!uunet!emba-news.uvm.edu!freehold.emba.uvm.edu!me170pjd
+From: me170pjd@emba-news.uvm.edu.UUCP (Peter J Demko)
+Subject: Re: PC parallel I (!= I/O)
+Message-ID: <1993Apr27.154350.1998@uvm.edu>
+Originator: me170pjd@freehold.emba.uvm.edu
+Sender: news@uvm.edu
+Organization: University of Vermont -- Division of EMBA Computer Facility
+References: <1993Apr26.110250.5243@nmt.edu>
+Date: Tue, 27 Apr 1993 15:43:50 GMT
+Lines: 19
+
+From article <1993Apr26.110250.5243@nmt.edu>, by erickson@azure.nmt.edu (Alan Erickson):
+> 	I'm trying to bring in 8+ bits to a PC, and would like
+> 	to use interrupt-driven routines. Without buying an IO
+> 	board or making a new port, _where_ can I bring in these
+> 	bits? LPT seems to have only a few inputs, but I've heard
+> 	rumours that some LPTs have bidirectional lines. Anybody
+> 	know fer sure? If any bi-d LPTs, which boards have them
+> 	(I'll be running a new 386DX-33)?
+> 
+> ------------------------------------------------------------------
+> Alan Erickson   erickson@baltic.nmt.edu		
+> 
+> to all SunRayce '93 competitors: I hope you're getting
+> about as much sleep as I am.....
+> ------------------------------------------------------------------
+
+I'M WATCHING ONE BEING BUILT RIGHT HERE AT UVM AND THE TEAM IS 
+SHAGGIN' IT THESE DAYS.
+                                 ME170PJD@UVM.EDU

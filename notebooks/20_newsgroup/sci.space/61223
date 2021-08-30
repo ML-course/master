@@ -1,0 +1,28 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.misc:8164 sci.math:43554 sci.space:61223
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!darwin.sura.net!haven.umd.edu!uunet!math.fu-berlin.de!fauern!rrze.uni-erlangen.de!lte.e-technik.uni-erlangen.de!bon
+From: bon@lte.e-technik.uni-erlangen.de (Uwe Bonnes)
+Newsgroups: sci.misc,sci.math,sci.space
+Subject: Re: Sunrise/ sunset times
+Date: Wed, 21 Apr 1993 18:51:21 GMT
+Organization: LTE, University of Erlangen, Germany
+Distribution: world
+Message-ID: <1r4539Elvp@uni-erlangen.de>
+References: <1993Apr21.141824.23536@cbis.ece.drexel.edu>
+NNTP-Posting-Host: aladin.e-technik.uni-erlangen.de
+Lines: 15
+
+
+In article <1993Apr21.141824.23536@cbis.ece.drexel.edu>, jpw@cbis.ece.drexel.edu (Joseph Wetstein) asked:
+|> 
+|> Hello. I am looking for a program (or algorithm) that can be used
+|> to compute sunrise and sunset times.
+|> 
+|> I would appreciate any advice.
+|> 
+|> Joe Wetstein
+|> jpw@coe.drexel.edu
+
+To compute this, and many other astronomical things, go and get (x)ephem written
+by Elwood C. Downey. It is e.g. on export.lcs.mit.edu
+
+Uwe Bonnes  bon@lte.e-technik.uni-erlangen.de

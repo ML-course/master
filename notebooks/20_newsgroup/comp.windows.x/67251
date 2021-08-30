@@ -1,0 +1,40 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:67251 comp.windows.x.motif:16769 comp.windows.x.apps:2536 comp.windows.x.i386unix:1377 comp.windows.x.intrinsics:1166
+Newsgroups: comp.windows.x,comp.windows.x.motif,comp.windows.x.apps,comp.windows.x.i386unix,comp.windows.x.intrinsics
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!utnut!torn!watserv2.uwaterloo.ca!watmath!undergrad.math.uwaterloo.ca!papresco
+From: papresco@undergrad.math.uwaterloo.ca (Paul Prescod)
+Subject: X Toolkits
+Message-ID: <C5y8wJ.3zE@undergrad.math.uwaterloo.ca>
+Sender: news@undergrad.math.uwaterloo.ca
+Organization: University of Waterloo
+Date: Fri, 23 Apr 1993 18:33:55 GMT
+Lines: 29
+
+I am considering making a reasonably large application for free
+distribution (probably copylefted).  I am going to use X.  Now I'm
+bewildered by the huge number of "standards" that "open systems" has
+created.  
+
+I've lived in a fairly tookit-sheltered environment.  Most of the tools
+here were produced with the Athena Widget set, or X Intrinsics or Xw
+(??).  
+
+In my humble opinion, they look like crap.  I don't know, however, if
+this is a characteristic of the tookits, or just poor aestetic taste
+in the programmers.
+
+I would like my app to look a little more "sculptured" like mwm.  I
+understand, however, that mwm isn't free like the other tookits.
+
+I am getting Linux, so I will have InterViews, but I don't know how it
+will look.  I get the impression Andrew is from the FSF, but I don't
+know what it looks like either.
+
+If you can help explain this toolkit mess to me, I would be much
+obliged.  Which are free?  Which are the best?  Which are portable?  Which
+looks nice?  Which is not a resource hog?
+
+Also, if you happen to know which are available on Linux and/or Sun,
+that would be a big help too.
+
+Thanks in advance.
+

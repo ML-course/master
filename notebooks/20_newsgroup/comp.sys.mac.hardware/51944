@@ -1,0 +1,33 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.mac.comm:22972 comp.sys.mac.hardware:51944
+Newsgroups: comp.sys.mac.comm,comp.sys.mac.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!noc.near.net!uunet!newsstand.cit.cornell.edu!piccolo.cit.cornell.edu!crux2!dr17
+From: dr17@crux2.cit.cornell.edu (Dean M Robinson)
+Subject: Re: Buying a high speed v.everything modem
+Message-ID: <dr17.735319226@crux1.cit.cornell.edu>
+Sender: usenet@piccolo.cit.cornell.edu (NNTP Connect)
+Nntp-Posting-Host: crux2.cit.cornell.edu
+Organization: Cornell University
+References: <1993Apr20.001127.4928@rs6000.cmp.ilstu.edu>
+Date: 20 Apr 93 15:20:26 GMT
+Lines: 20
+
+ejbehr@rs6000.cmp.ilstu.edu (Eric Behr) writes:
+
+>Just a quick summary of recent findings re. high speed modems. Top three
+>contenders seem to be AT&T Paradyne, ZyXEL, and US Robotics. ZyXEL has the
+>biggest "cult following", and can be had for under $300, but I ignored it
+>because I need something with Mac software, which will work without any
+>tweaking.
+
+You shouldn't have ignored the ZyXEL.  It can be purchased with a "Mac
+bundle", which includes a hardware-handshaking cable and FaxSTF software.
+The bundle adds between $35 and $60 to the price of the modem, depending
+on the supplier.  It is true that the modem has no Mac-specific docs,
+but it doesn't require much 'tweaking' (aside from setting &D0 in the
+init string, to enable hardware handshaking).
+
+For more information on the ZyXEL, including sources, look at various files 
+on sumex-aim.stanford.edu, in info-mac/report.
+
+Disclaimer:  I have no affiliation with ZyXEL, though I did buy a ZyXEL
+a U1496E modem.
