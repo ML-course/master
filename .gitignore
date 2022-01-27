@@ -2,4 +2,5 @@ assignments-old/*
 assign/*
 .ipynb_checkpoints/
 __pycache__/
-.DS_Store
+**/.DS_Store
+**/*.icloud
