@@ -73,57 +73,57 @@
               <li
                 class="list-group-item d-flex justify-content-between showlinks"
               >
-                <span>01 - Introduction</span>
+                <span>00 - Introduction</span>
               </li>
               <li
                 class="list-group-item d-flex justify-content-between showlinks"
               >
-                <span>02 - Linear Models</span>
+                <span>01 - Linear Models</span>
               </li>
               <li
                 class="list-group-item d-flex justify-content-between showlinks"
               >
-                <span>03 - Kernelization</span>
+                <span>02 - Kernelization</span>
               </li>
               <li
                 class="list-group-item d-flex justify-content-between showlinks"
               >
-                <span>04 - Model Selection</span>
+                <span>03 - Model Selection</span>
               </li>
               <li
                 class="list-group-item d-flex justify-content-between showlinks"
               >
-                <span>05 - Ensemble Learning</span>
+                <span>04 - Ensemble Learning</span>
               </li>
               <li
                 class="list-group-item d-flex justify-content-between showlinks"
               >
-                <span>06 - Data Preprocessing</span>
+                <span>05 - Data Preprocessing</span>
               </li>
               <li
                 class="list-group-item d-flex justify-content-between showlinks"
               >
-                <span>07 - Bayesian Learning</span>
+                <span>06 - Bayesian Learning</span>
               </li>
               <li
                 class="list-group-item d-flex justify-content-between showlinks"
               >
-                <span>08 - Neural Networks</span>
+                <span>07 - Neural Networks</span>
               </li>
               <li
                 class="list-group-item d-flex justify-content-between showlinks"
               >
-                <span>09 - Convolutional Neural Networks</span>
+                <span>08 - Convolutional Neural Networks</span>
               </li>
               <li
                 class="list-group-item d-flex justify-content-between showlinks"
               >
-                <span>10 - Neural Networks for text</span>
+                <span>09 - Neural Networks for text</span>
               </li>
               <li
                 class="list-group-item d-flex justify-content-between showpdflink"
               >
-                <span>11 - Automated Machine Learning</span>
+                <span>10 - Automated Machine Learning</span>
               </li>
             </ul>
 
@@ -356,8 +356,9 @@
               $(this)
                 .find("span")
                 .html() +
-              ".ipynb')>Download</a><a class='btn btn-outline-primary' href='labs\/" +
-              "</div>"
+              ".ipynb')>Download</a><a class='btn btn-outline-primary' href='https://colab.research.google.com/github/ML-course/master/blob/master/labs\/" +
+              encodeURIComponent($(this).find("span").html()) +
+              ".ipynb'>Colab</a></div>"
           );
         });
         $(".showlablinks").each(function() {
@@ -374,8 +375,9 @@
               $(this)
                 .find("span")
                 .html() +
-              " Solution.ipynb')>Solution</a><a class='btn btn-outline-primary' href='https:\/\/github.com\/ML-course\/master\/blob\/master\/labs\/" +
-              "</div>"
+              " Solution.ipynb')>Solution</a><a class='btn btn-outline-primary' href='https://colab.research.google.com/github/ML-course/master/blob/master/labs\/" +
+              encodeURIComponent($(this).find("span").html()) +
+              ".ipynb'>Colab</a></div>"
           );
         });
       });
