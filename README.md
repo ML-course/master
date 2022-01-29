@@ -29,3 +29,31 @@ For a deeper understanding of machine learning techniques, we can recommend the 
 
 "[Gaussian Processes for Machine Learning](http://www.gaussianprocess.org/gpml/)" by Carl Edward Rasmussen and Christopher K. I. Williams. The reference for Bayesian Inference. Also see [David MacKay's book](http://www.inference.phy.cam.ac.uk/itila/book.html) for additional insights. Also see [this course by Neil Lawrence](http://inverseprobability.com/mlai2015/) for a great introduction to Gaussian Processes, all from first principles.
 
+## Generating slides
+These instructions are for teachers. As a student, you can simply run the notebooks in jupyter lab and/or use the pre-compiled slides and videos.
+
+### Interactive slides
+To generate interactive slides (as shown in the videos and lectures), you'll need to install the notebook extensions `rise` and `hide_input_all`.
+
+```
+conda install -c conda-forge rise
+conda install -c conda-forge jupyter_nbextensions_configurator
+jupyter nbextension enable rise
+jupyter nbextension enable hide_input_all
+```
+
+You'll need to launch `jupyter notebook` since rise is not yet supported in jupyterlab. You'll see two new icons when you open a notebook. One will start the slideshow, and the other will hide the code. You'll need to set `interactive = True` in the first cell and then run all cells before starting the slideshow to allow the interactions.
+
+### Static slides
+You can generate slides from the notebooks using `nbconvert`. First, set `interactive = False` in the first cell of the notebook and rerun the notebooks to generate static versions of the interactive visualizations.
+
+```
+jupyter nbconvert --to slides --template reveal --SlidesExporter.reveal_theme=simple --no-input --post serve <NotebookName>
+```
+
+To generate PDF handouts, remove `#/` from the url and add `?print-pdf`, then print as PDF.
+
+Caveat: nbconvert doesn't properly hide the output of interactive cells. You'll have to hack the css by looking for a file called `custom_reveal.css` in your `nbconvert` installation and add the line `display: none !important;` in class `.reveal pre`.
+
+
+

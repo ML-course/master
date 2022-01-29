@@ -2,6 +2,7 @@ from .plot_linear_svc_regularization import plot_linear_svc_regularization
 from .plot_interactive_tree import plot_tree_progressive, plot_tree_partition, plot_tree, tree_image
 from .plot_animal_tree import plot_animal_tree
 from .plot_rbf_svm_parameters import plot_svm
+from .plot_classifiers import plot_classifiers
 from .plot_knn_regression import plot_knn_regression
 from .plot_knn_classification import plot_knn_classification
 from .plot_2d_separator import plot_2d_classification, plot_2d_separator
@@ -35,6 +36,7 @@ __all__ = ['plot_linear_svc_regularization',
            "plot_animal_tree", "plot_tree_progressive",
            'plot_tree_partition', 'plot_svm',
            'plot_knn_regression',
+           'plot_classifiers',
            'plot_logistic_regression_graph',
            'plot_single_hidden_layer_graph',
            'plot_two_hidden_layer_graph',

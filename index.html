@@ -304,11 +304,7 @@
       $(function() {
         $(".showlinks").each(function() {
           $(this).append(
-            "<div class='btn-group snug' role='group'><a class='btn btn-outline-primary' href='https:\/\/github.com\/ML-course\/master\/blob\/master\/notebooks\/" +
-              $(this)
-                .find("span")
-                .html() +
-              ".ipynb')>View</a><a class='btn btn-outline-primary' href='notebooks\/" +
+            "<div class='btn-group snug' role='group'><a class='btn btn-outline-primary' href='notebooks\/" +
               $(this)
                 .find("span")
                 .html() +
@@ -320,7 +316,9 @@
               $(this)
                 .find("span")
                 .html() +
-              ".pdf')>PDF</a></div>"
+              ".pdf')>PDF</a><a class='btn btn-outline-primary' href='https://colab.research.google.com/github/ML-course/master/blob/master/notebooks\/" +
+              encodeURIComponent($(this).find("span").html()) +
+              ".ipynb'>Colab</a></div>"
           );
         });
         $(".showlinksvideo").each(function() {

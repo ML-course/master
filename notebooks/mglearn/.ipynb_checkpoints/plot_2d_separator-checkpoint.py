@@ -60,7 +60,7 @@ def plot_2d_scores(classifier, X, ax=None, eps=None, alpha=1, cm="viridis", func
     ax.set_xticks(())
     #ax.set_yticks(())
     return grr
-
+ 
 
 def plot_2d_separator(classifier, X, fill=False, ax=None, eps=None, alpha=1,
                       cm=cm2, linewidth=None, threshold=None, linestyle="solid"):
@@ -89,7 +89,7 @@ def plot_2d_separator(classifier, X, fill=False, ax=None, eps=None, alpha=1,
         fill_levels = [0] + levels + [1]
     if fill:
         ax.contourf(X1, X2, decision_values.reshape(X1.shape),
-                    levels=fill_levels, alpha=alpha, cmap=cm)
+                    fill_levels, alpha=alpha, cmap=cm)
     else:
         ax.contour(X1, X2, decision_values.reshape(X1.shape), levels=levels,
                    colors="black", alpha=alpha, linewidths=linewidth,

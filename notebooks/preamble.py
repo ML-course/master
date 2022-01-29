@@ -25,7 +25,7 @@ plt.rc('axes', prop_cycle=(cycler('color', mglearn.plot_helpers.cm_cycle.colors)
 np.set_printoptions(precision=3, suppress=True)
 
 pd.set_option("display.max_columns", 8)
-pd.set_option('precision', 2)
+pd.set_option('display.precision', 2)
 
 np, mglearn
 
@@ -50,3 +50,7 @@ warnings.simplefilter(action="ignore", category=FutureWarning)
 warnings.simplefilter(action="ignore", category=UserWarning)
 warnings.simplefilter(action="ignore", category=RuntimeWarning)
 warnings.simplefilter(action="ignore", category=DeprecationWarning)
+
+# Styling
+fig_scale = 1
+HTML('''<style>html, body{overflow-y: visible !important} .CodeMirror{min-width:105% !important;} .rise-enabled .CodeMirror, .rise-enabled .output_subarea{font-size:140%; line-height:1.2; overflow: visible;} .output_subarea pre{width:110%}</style>''')
