@@ -1,0 +1,1273 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Installation note &#8212; ML Engineering</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/banner.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ML Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Overview
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/X1 - Decision Trees.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ml-course/master"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ml-course/master/issues/new?title=Issue%20on%20page%20%2Fnotebooks/X1 - Decision Trees.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ml-course/master/master?urlpath=tree/notebooks/X1 - Decision Trees.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ml-course/master/blob/master/notebooks/X1 - Decision Trees.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Installation note
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap-decision-trees">
+   Recap: Decision Trees
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decision-tree-classification">
+     Decision Tree classification
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#heuristics">
+     Heuristics
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example">
+     Example
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#heuristics-in-scikit-learn">
+       Heuristics in scikit-learn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#handling-many-valued-features">
+     Handling many-valued features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overfitting-controlling-complexity-of-decision-trees">
+     Overfitting: Controlling complexity of Decision Trees
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decision-tree-regression">
+     Decision tree regression
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#in-scikit-learn">
+       In scikit-learn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-trees">
+     Model trees
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#strengths-weaknesses-and-parameters">
+       Strengths, weaknesses and parameters
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#on-under-and-overfitting">
+   On under- and overfitting
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algorithm-overview">
+     Algorithm overview
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Installation note</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Installation note
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap-decision-trees">
+   Recap: Decision Trees
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decision-tree-classification">
+     Decision Tree classification
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#heuristics">
+     Heuristics
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example">
+     Example
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#heuristics-in-scikit-learn">
+       Heuristics in scikit-learn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#handling-many-valued-features">
+     Handling many-valued features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overfitting-controlling-complexity-of-decision-trees">
+     Overfitting: Controlling complexity of Decision Trees
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decision-tree-regression">
+     Decision tree regression
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#in-scikit-learn">
+       In scikit-learn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-trees">
+     Model trees
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#strengths-weaknesses-and-parameters">
+       Strengths, weaknesses and parameters
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#on-under-and-overfitting">
+   On under- and overfitting
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algorithm-overview">
+     Algorithm overview
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Global imports and settings</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">preamble</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">interactive</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Set to True for interactive plots</span>
+<span class="k">if</span> <span class="n">interactive</span><span class="p">:</span>
+    <span class="n">fig_scale</span> <span class="o">=</span> <span class="mf">1.5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="installation-note">
+<h1>Installation note<a class="headerlink" href="#installation-note" title="Permalink to this headline">¶</a></h1>
+<p>To plot the decision trees in this notebook, you’ll need to install the graphviz executable:</p>
+<ul class="simple">
+<li><p>OS X: use homebrew: <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">graphviz</span></code></p></li>
+<li><p>Ubuntu/debian: use apt-get: <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">graphviz</span></code>.</p></li>
+<li><p>Installing graphviz on Windows can be tricky and using conda / anaconda is recommended.</p></li>
+</ul>
+<p>And the python package: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">graphviz</span></code></p>
+</div>
+<div class="section" id="recap-decision-trees">
+<h1>Recap: Decision Trees<a class="headerlink" href="#recap-decision-trees" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Representation: Assume we can represent the concept we want to learn with a <em>decision tree</em></p>
+<ul>
+<li><p>Repeatedly split the data based on one feature at a time</p></li>
+<li><p>Note: <em>Oblique trees</em> can split on combinations of features</p></li>
+</ul>
+</li>
+<li><p>Evaluation (loss): One tree is better that another tree according to some heuristic</p>
+<ul>
+<li><p>Classification: Instances in a leaf are all of the same class (<code class="docutils literal notranslate"><span class="pre">pure</span></code> leafs)</p></li>
+<li><p>Regression: Instances in a leaf have values close to each other</p></li>
+</ul>
+</li>
+<li><p>Optimization: Recursive, heuristic greedy search (Hunt’s algorithm)</p>
+<ul>
+<li><p>Make first split based on the heuristic</p></li>
+<li><p>In each branch, repeat splitting in the same way</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="decision-tree-classification">
+<h2>Decision Tree classification<a class="headerlink" href="#decision-tree-classification" title="Permalink to this headline">¶</a></h2>
+<p>Where would you make the first split?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_moons</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_moons</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">4</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">mglearn</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">discrete_scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(());</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/X1 - Decision Trees_4_0.png" src="../_images/X1 - Decision Trees_4_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphviz</span>
+<span class="k">def</span> <span class="nf">plot_depth</span><span class="p">(</span><span class="n">depth</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">),</span>
+                           <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;xticks&#39;</span><span class="p">:</span> <span class="p">(),</span> <span class="s1">&#39;yticks&#39;</span><span class="p">:</span> <span class="p">()})</span>
+
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">mglearn</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_tree</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">depth</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mglearn</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">tree_image</span><span class="p">(</span><span class="n">tree</span><span class="p">))</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plot_depth</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/X1 - Decision Trees_5_0.png" src="../_images/X1 - Decision Trees_5_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_depth</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/X1 - Decision Trees_6_0.png" src="../_images/X1 - Decision Trees_6_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_depth</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/X1 - Decision Trees_7_0.png" src="../_images/X1 - Decision Trees_7_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="heuristics">
+<h2>Heuristics<a class="headerlink" href="#heuristics" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>We start from a dataset of <span class="math notranslate nohighlight">\(n\)</span> points <span class="math notranslate nohighlight">\(D = \{(x_i,y_i)\}_{i=1}^{n}\)</span> where <span class="math notranslate nohighlight">\(y_i\)</span> is one of <span class="math notranslate nohighlight">\(k\)</span> classes</p></li>
+<li><p>Consider splits between adjacent data point of different class, for every variable</p></li>
+<li><p>After splitting, each leaf will have <span class="math notranslate nohighlight">\(\hat{p}_k\)</span> = the relative frequency of class <span class="math notranslate nohighlight">\(k\)</span></p></li>
+</ul>
+<p>We can define several <em>impurity measures</em>z:</p>
+<ul class="simple">
+<li><p>Misclassification Error (leads to larger trees):
+<span class="math notranslate nohighlight">\( 1 - \underset{k}{\operatorname{argmax}} \hat{p}_{k} \)</span></p></li>
+<li><p>Gini-Index:
+<span class="math notranslate nohighlight">\( \sum_{k\neq k'} \hat{p}_k \hat{p}_{k'} = \sum_{k=1}^K \hat{p}_k(1-\hat{p}_k) \)</span></p></li>
+<li><p>Sum up the heuristics per leaf, weighted by the number of examples in each leaf</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \sum_{l=1}^L \frac{|X_{i=l}|}{|X_{i}|} Gini(X_{i=l}) \]</div>
+<p>Visualization: the plots on the right show the class distribution of the ‘top’ and ‘bottom’ leaf, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interact_manual</span>
+
+<span class="k">def</span> <span class="nf">misclassification_error</span><span class="p">(</span><span class="n">leaf1_distr</span><span class="p">,</span> <span class="n">leaf2_distr</span><span class="p">,</span> <span class="n">leaf1_size</span><span class="p">,</span> <span class="n">leaf2_size</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">leaf1_size</span> <span class="o">+</span> <span class="n">leaf2_size</span>
+    <span class="k">return</span> <span class="n">leaf1_size</span><span class="o">/</span><span class="n">total</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="nb">max</span><span class="p">(</span><span class="n">leaf1_distr</span><span class="p">))</span> <span class="o">+</span> <span class="n">leaf2_size</span><span class="o">/</span><span class="n">total</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="nb">max</span><span class="p">(</span><span class="n">leaf2_distr</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">gini_index</span><span class="p">(</span><span class="n">leaf1_distr</span><span class="p">,</span> <span class="n">leaf2_distr</span><span class="p">,</span> <span class="n">leaf1_size</span><span class="p">,</span> <span class="n">leaf2_size</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">leaf1_size</span> <span class="o">+</span> <span class="n">leaf2_size</span>
+    <span class="k">return</span> <span class="n">leaf1_size</span><span class="o">/</span><span class="n">total</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">leaf1_distr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">leaf1_distr</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> \
+            <span class="n">leaf2_size</span><span class="o">/</span><span class="n">total</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">leaf2_distr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">leaf2_distr</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="nd">@interact</span>
+<span class="k">def</span> <span class="nf">plot_heuristics</span><span class="p">(</span><span class="n">split</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)):</span>
+    
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">),</span>
+                           <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;xticks&#39;</span><span class="p">:</span> <span class="p">(),</span> <span class="s1">&#39;yticks&#39;</span><span class="p">:</span> <span class="p">()})</span>
+    <span class="n">mglearn</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">discrete_scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]),</span><span class="nb">max</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])],[</span><span class="n">split</span><span class="p">,</span><span class="n">split</span><span class="p">])</span>
+
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="mf">0.35</span>
+    <span class="n">top</span><span class="p">,</span> <span class="n">bottom</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">&gt;</span><span class="n">split</span><span class="p">)],</span> <span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">split</span><span class="p">)]</span>
+    <span class="n">top_0</span><span class="p">,</span> <span class="n">top_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">top</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">top</span><span class="p">),</span> <span class="p">(</span><span class="n">top</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">top</span><span class="p">)</span>
+    <span class="n">bottom_0</span><span class="p">,</span> <span class="n">bottom_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">bottom</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">bottom</span><span class="p">),</span> <span class="p">(</span><span class="n">bottom</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">bottom</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="p">[</span><span class="n">bottom_1</span><span class="p">,</span><span class="n">top_1</span><span class="p">],</span> <span class="n">width</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">bottom_1</span><span class="p">,</span><span class="n">top_1</span><span class="p">]):</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;p_1=</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">ind</span><span class="o">+</span><span class="n">width</span><span class="p">,</span> <span class="p">[</span><span class="n">bottom_0</span><span class="p">,</span><span class="n">top_0</span><span class="p">],</span> <span class="n">width</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;royalblue&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">bottom_0</span><span class="p">,</span><span class="n">top_0</span><span class="p">]):</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">width</span><span class="p">,</span> <span class="s1">&#39;p_0=</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">misclassification_error</span><span class="p">([</span><span class="n">top_0</span><span class="p">,</span><span class="n">top_1</span><span class="p">],[</span><span class="n">bottom_0</span><span class="p">,</span><span class="n">bottom_1</span><span class="p">],</span><span class="nb">len</span><span class="p">(</span><span class="n">top</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">bottom</span><span class="p">))</span>
+    <span class="n">gini</span> <span class="o">=</span> <span class="n">gini_index</span><span class="p">([</span><span class="n">top_0</span><span class="p">,</span><span class="n">top_1</span><span class="p">],[</span><span class="n">bottom_0</span><span class="p">,</span><span class="n">bottom_1</span><span class="p">],</span><span class="nb">len</span><span class="p">(</span><span class="n">top</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">bottom</span><span class="p">))</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Misclass. Error:</span><span class="si">{:.2f}</span><span class="s2">, Gini:</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">gini</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "0640980f3d304a0cab5b5125825d65fc", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">interactive</span><span class="p">:</span>
+    <span class="n">plot_heuristics</span><span class="p">(</span><span class="n">split</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/X1 - Decision Trees_11_0.png" src="../_images/X1 - Decision Trees_11_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Entropy (of the class attribute) measures <em>unpredictability</em> of the data:</p>
+<ul>
+<li><p>How likely will random example have class k?
+$<span class="math notranslate nohighlight">\( E(X) = -\sum_{k=1}^K \hat{p}_k \log_{2}\hat{p}_k \)</span>$</p></li>
+</ul>
+</li>
+<li><p>Information Gain (a.k.a. Kullback–Leibler divergence) measures how much entropy has reduced by splitting on attribute <span class="math notranslate nohighlight">\(X_i\)</span>:
+$<span class="math notranslate nohighlight">\( G(X,X_i) = E(X) - \sum_{l=1}^L \frac{|X_{i=l}|}{|X_{i}|} E(X_{i=l}) \)</span>$</p></li>
+</ul>
+<p>with <span class="math notranslate nohighlight">\(X\)</span> = the training set, <span class="math notranslate nohighlight">\(l\)</span> a specific leaf after splitting on feature <span class="math notranslate nohighlight">\(X_i\)</span>, <span class="math notranslate nohighlight">\(X_{i=l}\)</span> is the set of examples in leaf <span class="math notranslate nohighlight">\(l\)</span>: <span class="math notranslate nohighlight">\(\{x \in X | X_i \in l\}\)</span></p>
+<p>Heuristics visualized (binary class)</p>
+<ul class="simple">
+<li><p>Note that <code class="docutils literal notranslate"><span class="pre">gini</span> <span class="pre">!=</span> <span class="pre">entropy/2</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gini</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+   <span class="k">return</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">p</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+   <span class="k">return</span> <span class="o">-</span> <span class="n">p</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">classification_error</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+   <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">([</span><span class="n">p</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">])</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">ent</span> <span class="o">=</span> <span class="p">[</span><span class="n">entropy</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">if</span> <span class="n">p</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<span class="n">scaled_ent</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">*</span><span class="mf">0.5</span> <span class="k">if</span> <span class="n">e</span> <span class="k">else</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">ent</span><span class="p">]</span>
+<span class="n">c_err</span> <span class="o">=</span> <span class="p">[</span><span class="n">classification_error</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">lab</span><span class="p">,</span> <span class="n">ls</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">ent</span><span class="p">,</span> <span class="n">scaled_ent</span><span class="p">,</span> <span class="n">gini</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">c_err</span><span class="p">],</span>
+      <span class="p">[</span><span class="s1">&#39;Entropy&#39;</span><span class="p">,</span> <span class="s1">&#39;Entropy (scaled)&#39;</span><span class="p">,</span> <span class="s1">&#39;Gini Impurity&#39;</span><span class="p">,</span> <span class="s1">&#39;Misclassification Error&#39;</span><span class="p">],</span>
+      <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="s1">&#39;-.&#39;</span><span class="p">],</span>
+      <span class="p">[</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]):</span>
+   <span class="n">line</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">lab</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">ls</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">),</span>
+         <span class="n">ncol</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fancybox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;p(j=1)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Impurity Index&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/X1 - Decision Trees_14_0.png" src="../_images/X1 - Decision Trees_14_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="w"></span>
+<span class="nt">td</span><span class="w"> </span><span class="p">{</span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">}</span><span class="w"></span>
+<span class="nt">th</span><span class="w"> </span><span class="p">{</span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">}</span><span class="w"></span>
+<span class="p">.</span><span class="nc">rendered_html</span><span class="w"> </span><span class="nt">table</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">rendered_html</span><span class="w"> </span><span class="nt">td</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">rendered_html</span><span class="w"> </span><span class="nt">th</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+td {font-size: 20px}
+th {font-size: 20px}
+.rendered_html table, .rendered_html td, .rendered_html th {
+    font-size: 20px;
+}
+</style>
+</div></div>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Compute information gain for a dataset with categorical features:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ex.</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>a1</p></td>
+<td><p>T</p></td>
+<td><p>T</p></td>
+<td><p>T</p></td>
+<td><p>F</p></td>
+<td><p>F</p></td>
+<td><p>F</p></td>
+</tr>
+<tr class="row-odd"><td><p>a2</p></td>
+<td><p>T</p></td>
+<td><p>T</p></td>
+<td><p>F</p></td>
+<td><p>F</p></td>
+<td><p>T</p></td>
+<td><p>T</p></td>
+</tr>
+<tr class="row-even"><td><p>class</p></td>
+<td><p>+</p></td>
+<td><p>+</p></td>
+<td><p>-</p></td>
+<td><p>+</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+<div class="math notranslate nohighlight">
+\[E(X)?\]</div>
+<div class="math notranslate nohighlight">
+\[G(X,X_{a2})?\]</div>
+<div class="math notranslate nohighlight">
+\[G(X,X_{a1})?\]</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ex.</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>a1</p></td>
+<td><p>T</p></td>
+<td><p>T</p></td>
+<td><p>T</p></td>
+<td><p>F</p></td>
+<td><p>F</p></td>
+<td><p>F</p></td>
+</tr>
+<tr class="row-odd"><td><p>a2</p></td>
+<td><p>T</p></td>
+<td><p>T</p></td>
+<td><p>F</p></td>
+<td><p>F</p></td>
+<td><p>T</p></td>
+<td><p>T</p></td>
+</tr>
+<tr class="row-even"><td><p>class</p></td>
+<td><p>+</p></td>
+<td><p>+</p></td>
+<td><p>-</p></td>
+<td><p>+</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math notranslate nohighlight">\(E(X)\)</span> = <span class="math notranslate nohighlight">\(-(\frac{1}{2}*log_2(\frac{1}{2})+\frac{1}{2}*log_2(\frac{1}{2})) = 1\)</span> (classes have equal probabilities)<br />
+<span class="math notranslate nohighlight">\(G(X, X_{a2})\)</span> = 0 (after split, classes still have equal probabilities, entropy stays 1)</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ex.</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>a1</p></td>
+<td><p>T</p></td>
+<td><p>T</p></td>
+<td><p>T</p></td>
+<td><p>F</p></td>
+<td><p>F</p></td>
+<td><p>F</p></td>
+</tr>
+<tr class="row-odd"><td><p>a2</p></td>
+<td><p>T</p></td>
+<td><p>T</p></td>
+<td><p>F</p></td>
+<td><p>F</p></td>
+<td><p>T</p></td>
+<td><p>T</p></td>
+</tr>
+<tr class="row-even"><td><p>class</p></td>
+<td><p>+</p></td>
+<td><p>+</p></td>
+<td><p>-</p></td>
+<td><p>+</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+<div class="math notranslate nohighlight">
+\[ E(X) = -\sum_{k=1}^K \hat{p}_k \log\hat{p}_k \quad , \quad G(X,X_i) = E(X) - \sum_{v=1}^V \frac{|X_{i=v}|}{|X_{i}|} E(X_{i=v}) \]</div>
+<div class="math notranslate nohighlight">
+\[E(X_{a1=T}) = - \frac{2}{3} \log_{2}(\frac{2}{3}) - \frac{1}{3} \log_{2}(\frac{1}{3}) = 0.9183 \quad (= E(X_{a1=F}))\]</div>
+<div class="math notranslate nohighlight">
+\[G(X, X_{a1}) = 1 - \frac{1}{2} 0.9183 - \frac{1}{2} 0.9183 = 0.0817 \]</div>
+<p>hence we split on a1</p>
+<div class="section" id="heuristics-in-scikit-learn">
+<h3>Heuristics in scikit-learn<a class="headerlink" href="#heuristics-in-scikit-learn" title="Permalink to this headline">¶</a></h3>
+<p>The splitting criterion can be set with the <code class="docutils literal notranslate"><span class="pre">criterion</span></code> option in <code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gini</span></code> (default): gini impurity index</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">entropy</span></code>: information gain</p></li>
+</ul>
+<p>Best value depends on dataset, as well as other hyperparameters</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Decision tree - gini&quot;</span><span class="p">,</span> <span class="s2">&quot;Decision tree - entropy&quot;</span><span class="p">]</span>
+
+<span class="n">classifiers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">DecisionTreeClassifier</span><span class="p">(),</span>
+    <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;entropy&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
+
+<span class="n">mglearn</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_classifiers</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">classifiers</span><span class="p">,</span> <span class="n">figuresize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/X1 - Decision Trees_20_0.png" src="../_images/X1 - Decision Trees_20_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="handling-many-valued-features">
+<h2>Handling many-valued features<a class="headerlink" href="#handling-many-valued-features" title="Permalink to this headline">¶</a></h2>
+<p>What happens when a categorical feature has (almost) as many values as examples?</p>
+<ul class="simple">
+<li><p>Information Gain will select it</p></li>
+</ul>
+<p>One approach: use Gain Ratio instead (not available scikit-learn):
+$<span class="math notranslate nohighlight">\( GainRatio(X,X_i) = \frac{Gain(X,X_i)}{SplitInfo(X,X_i)}\)</span><span class="math notranslate nohighlight">\(  
+\)</span><span class="math notranslate nohighlight">\( SplitInfo(X,X_i) = - \sum_{v=1}^V \frac{|X_{i=v}|}{|X|} log_{2} \frac{|X_{i=v}|}{|X|} \)</span>$</p>
+<p>where <span class="math notranslate nohighlight">\(X_{i=v}\)</span> is the subset of examples for which feature <span class="math notranslate nohighlight">\(X_i\)</span> has value v.</p>
+<p>SplitInfo will be big if <span class="math notranslate nohighlight">\(X_i\)</span> fragments the data into many small subsets, resulting in a smaller Gain Ratio.</p>
+</div>
+<div class="section" id="overfitting-controlling-complexity-of-decision-trees">
+<h2>Overfitting: Controlling complexity of Decision Trees<a class="headerlink" href="#overfitting-controlling-complexity-of-decision-trees" title="Permalink to this headline">¶</a></h2>
+<p>Decision trees can very easily overfit the data. Regularization strategies:</p>
+<ul class="simple">
+<li><p>Pre-pruning: stop creation of new leafs at some point</p>
+<ul>
+<li><p>Limiting the depth of the tree, or the number of leafs</p></li>
+<li><p>Requiring a minimal leaf size (number of instances) to allow a split</p></li>
+</ul>
+</li>
+<li><p>Post-pruning: build full tree, then prune (join) leafs</p>
+<ul>
+<li><p>Reduced error pruning: evaluate against held-out data</p></li>
+<li><p>Many other strategies exist.</p></li>
+<li><p>scikit-learn supports none of them (yet)</p></li>
+</ul>
+</li>
+</ul>
+<p>Effect of pre-pruning:</p>
+<ul class="simple">
+<li><p>Shallow trees tend to underfit (high bias)</p></li>
+<li><p>Deep trees tend to overfit (high variance)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_breast_cancer</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">cancer</span> <span class="o">=</span> <span class="n">load_breast_cancer</span><span class="p">()</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">cancer</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">cancer</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">cancer</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">train_score</span><span class="p">,</span> <span class="n">test_score</span> <span class="o">=</span> <span class="p">[],[]</span>
+<span class="k">for</span> <span class="n">depth</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">depth</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">train_score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+    <span class="n">test_score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">train_score</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;train_score&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">test_score</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;test_score&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">borderaxespad</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x17fa8aaf0&gt;
+</pre></div>
+</div>
+<img alt="../_images/X1 - Decision Trees_24_1.png" src="../_images/X1 - Decision Trees_24_1.png" />
+</div>
+</div>
+<p>Decision Trees are easy to interpet</p>
+<ul class="simple">
+<li><p>Visualize and find the path that most data takes</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creates a .dot file</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">export_graphviz</span>
+<span class="n">export_graphviz</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="s2">&quot;tree.dot&quot;</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;malignant&quot;</span><span class="p">,</span> <span class="s2">&quot;benign&quot;</span><span class="p">],</span> 
+                <span class="n">feature_names</span><span class="o">=</span><span class="n">cancer</span><span class="o">.</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">impurity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Open and display</span>
+<span class="kn">import</span> <span class="nn">graphviz</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;tree.dot&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">dot_graph</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">graphviz</span><span class="o">.</span><span class="n">Source</span><span class="p">(</span><span class="n">dot_graph</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/X1 - Decision Trees_26_0.svg" src="../_images/X1 - Decision Trees_26_0.svg" /></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code> also returns <em>feature importances</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tree</span><span class="o">.</span><span class="n">feature_importances_</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>In [0,1], sum up to 1</p></li>
+<li><p>High values for features selected early (near the root)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Feature importances sum up to 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feature importances:</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Feature importances:
+[0.    0.008 0.    0.    0.009 0.    0.008 0.    0.    0.    0.01  0.046
+ 0.    0.002 0.002 0.    0.    0.    0.    0.007 0.695 0.054 0.    0.014
+ 0.    0.    0.017 0.117 0.011 0.   ]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_feature_importances_cancer</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+    <span class="n">n_features</span> <span class="o">=</span> <span class="n">cancer</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">),</span> <span class="n">model</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_features</span><span class="p">),</span> <span class="n">cancer</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Feature importance&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Feature&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_features</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">)</span>
+<span class="n">plot_feature_importances_cancer</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/X1 - Decision Trees_29_0.png" src="../_images/X1 - Decision Trees_29_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="decision-tree-regression">
+<h2>Decision tree regression<a class="headerlink" href="#decision-tree-regression" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Heuristic: <em>Minimal quadratic distance</em></p></li>
+<li><p>Consider splits at every data point for every variable (or halfway between)</p></li>
+<li><p>Dividing the data on <span class="math notranslate nohighlight">\(X_j\)</span> at splitpoint <span class="math notranslate nohighlight">\(s\)</span> leads to the following half-spaces:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ R_1(j, s) = { X : X_j \leq s} \quad and \quad R_2(j, s) = { X : X_j &gt; s} \]</div>
+<ul class="simple">
+<li><p>The best split, with predicted value <span class="math notranslate nohighlight">\(c_i\)</span> (mean of all values in the leaf) and actual value <span class="math notranslate nohighlight">\(y_i\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \min_{j,s} \left(\min_{c_1} \sum_{x_{i} \in R_1(j,s)} (y_i - c_1)^2 + \min_{c_2} \sum_{x_{i} \in R_2(j,s)} (y_i - c_2)^2 \right) \]</div>
+<ul class="simple">
+<li><p>Assuming that the tree predicts <span class="math notranslate nohighlight">\(y_i\)</span> as the average of all <span class="math notranslate nohighlight">\(x_i\)</span> in the leaf:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \hat{c}_1 = \text{avg}(y_i | x_{i} \in R_1(j,s)) \quad and \quad \hat{c}_2 = \text{avg}(y_i | x_{i} \in R_2(j,s)) \]</div>
+<p>with <span class="math notranslate nohighlight">\(x_i\)</span> being the i-th example in the data, with target value <span class="math notranslate nohighlight">\(y_i\)</span></p>
+<div class="section" id="in-scikit-learn">
+<h3>In scikit-learn<a class="headerlink" href="#in-scikit-learn" title="Permalink to this headline">¶</a></h3>
+<p>Regression is done with  <code class="docutils literal notranslate"><span class="pre">DecisionTreeRegressor</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_decision_tree_regression</span><span class="p">(</span><span class="n">regr_1</span><span class="p">,</span> <span class="n">regr_2</span><span class="p">):</span>
+    <span class="c1"># Create a random dataset</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">Xr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">yr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">Xr</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="n">yr</span><span class="p">[::</span><span class="mi">5</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">-</span> <span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>
+
+    <span class="c1"># Fit regression model</span>
+    <span class="n">regr_1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xr</span><span class="p">,</span> <span class="n">yr</span><span class="p">)</span>
+    <span class="n">regr_2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xr</span><span class="p">,</span> <span class="n">yr</span><span class="p">)</span>
+
+    <span class="c1"># Predict</span>
+    <span class="n">Xr_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+    <span class="n">y_1</span> <span class="o">=</span> <span class="n">regr_1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xr_test</span><span class="p">)</span>
+    <span class="n">y_2</span> <span class="o">=</span> <span class="n">regr_2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xr_test</span><span class="p">)</span>
+
+    <span class="c1"># Plot the results</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xr</span><span class="p">,</span> <span class="n">yr</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;darkorange&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xr_test</span><span class="p">,</span> <span class="n">y_1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;cornflowerblue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;max_depth=2&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xr_test</span><span class="p">,</span> <span class="n">y_2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;yellowgreen&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;max_depth=5&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Decision Tree Regression&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">)</span>
+<span class="n">regr_1</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">regr_2</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">plot_decision_tree_regression</span><span class="p">(</span><span class="n">regr_1</span><span class="p">,</span><span class="n">regr_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/X1 - Decision Trees_33_0.png" src="../_images/X1 - Decision Trees_33_0.png" />
+</div>
+</div>
+<p>Note that decision trees do not extrapolate well.</p>
+<ul class="simple">
+<li><p>The leafs return the same <em>mean</em> value no matter how far the new data point lies from the training examples.</p></li>
+<li><p>Example on the <code class="docutils literal notranslate"><span class="pre">ram_price</span></code> forecasting dataset</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ram_prices</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/ram_price.csv&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">ram_prices</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">ram_prices</span><span class="o">.</span><span class="n">price</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Price in $/Mbyte&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/X1 - Decision Trees_35_0.png" src="../_images/X1 - Decision Trees_35_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="c1"># Use historical data to forecast prices after the year 2000</span>
+<span class="n">data_train</span> <span class="o">=</span> <span class="n">ram_prices</span><span class="p">[</span><span class="n">ram_prices</span><span class="o">.</span><span class="n">date</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">]</span>
+<span class="n">data_test</span> <span class="o">=</span> <span class="n">ram_prices</span><span class="p">[</span><span class="n">ram_prices</span><span class="o">.</span><span class="n">date</span> <span class="o">&gt;=</span> <span class="mi">2000</span><span class="p">]</span>
+
+<span class="c1"># predict prices based on date:</span>
+<span class="n">Xl_train</span> <span class="o">=</span> <span class="n">data_train</span><span class="o">.</span><span class="n">date</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="c1"># we use a log-transform to get a simpler relationship of data to target</span>
+<span class="n">yl_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">data_train</span><span class="o">.</span><span class="n">price</span><span class="p">)</span>
+
+<span class="n">tree</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xl_train</span><span class="p">,</span> <span class="n">yl_train</span><span class="p">)</span>
+<span class="n">linear_reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xl_train</span><span class="p">,</span> <span class="n">yl_train</span><span class="p">)</span>
+
+<span class="c1"># predict on all data</span>
+<span class="n">X_all</span> <span class="o">=</span> <span class="n">ram_prices</span><span class="o">.</span><span class="n">date</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+
+<span class="n">pred_tree</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_all</span><span class="p">)</span>
+<span class="n">pred_lr</span> <span class="o">=</span> <span class="n">linear_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_all</span><span class="p">)</span>
+
+<span class="c1"># undo log-transform</span>
+<span class="n">price_tree</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">pred_tree</span><span class="p">)</span>
+<span class="n">price_lr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">pred_lr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">data_train</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">data_train</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Training data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">data_test</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">data_test</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Test data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">ram_prices</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">price_tree</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Tree prediction&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">ram_prices</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">price_lr</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Linear prediction&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/X1 - Decision Trees_37_0.png" src="../_images/X1 - Decision Trees_37_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model-trees">
+<h2>Model trees<a class="headerlink" href="#model-trees" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Instead of predicting a single value per leaf (e.g. mean value for regression), you can build a model on all the points remaining in a leaf</p>
+<ul>
+<li><p>E.g. a linear regression model</p></li>
+</ul>
+</li>
+<li><p>Can learn more complex concepts, extrapolates better. Overfits easily.</p></li>
+</ul>
+<img src="images/04_model_trees.png" alt="ml" style="float: left; width: 60%;"/><div class="section" id="strengths-weaknesses-and-parameters">
+<h3>Strengths, weaknesses and parameters<a class="headerlink" href="#strengths-weaknesses-and-parameters" title="Permalink to this headline">¶</a></h3>
+<p>Decision trees:</p>
+<ul class="simple">
+<li><p>Work well with features on completely different scales, or a mix of binary and continuous features</p>
+<ul>
+<li><p>Does not require normalization</p></li>
+</ul>
+</li>
+<li><p>Interpretable, easily visualized</p></li>
+<li><p>Tend to overfit easily.</p></li>
+</ul>
+<p>Pre-pruning: regularize by:</p>
+<ul class="simple">
+<li><p>Setting a low <code class="docutils literal notranslate"><span class="pre">max_depth</span></code>, <code class="docutils literal notranslate"><span class="pre">max_leaf_nodes</span></code></p></li>
+<li><p>Setting a higher <code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code> (default=1)</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="on-under-and-overfitting">
+<h1>On under- and overfitting<a class="headerlink" href="#on-under-and-overfitting" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Let’s study which types of errors are made by decision trees</p></li>
+<li><p>Deep trees have high variance but low bias</p>
+<ul>
+<li><p>What if we built many deep trees and average them out to reduce variance?</p></li>
+</ul>
+</li>
+<li><p>Shallow trees have high bias but very low variance</p>
+<ul>
+<li><p>What if we could correct the systematic mistakes to reduce bias?</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">ShuffleSplit</span><span class="p">,</span> <span class="n">train_test_split</span>
+
+<span class="c1"># Bias-Variance Computation </span>
+<span class="k">def</span> <span class="nf">compute_bias_variance</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="c1"># Bootstraps</span>
+    <span class="n">n_repeat</span> <span class="o">=</span> <span class="mi">40</span> <span class="c1"># 40 is on the low side to get a good estimate. 100 is better.</span>
+    <span class="n">shuffle_split</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">n_splits</span><span class="o">=</span><span class="n">n_repeat</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># Store sample predictions</span>
+    <span class="n">y_all_pred</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))]</span>
+
+    <span class="c1"># Train classifier on each bootstrap and score predictions</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">shuffle_split</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
+        <span class="c1"># Train and predict</span>
+        <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">train_index</span><span class="p">])</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">test_index</span><span class="p">])</span>
+
+        <span class="c1"># Store predictions</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">index</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">test_index</span><span class="p">):</span>
+            <span class="n">y_all_pred</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_pred</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="c1"># Compute bias, variance, error</span>
+    <span class="n">bias_sq</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">n_repeat</span> 
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y_all_pred</span><span class="p">)])</span>
+    <span class="n">var</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([((</span><span class="mi">1</span> <span class="o">-</span> <span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">n_repeat</span>
+               <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y_all_pred</span><span class="p">)])</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">n_repeat</span> 
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y_all_pred</span><span class="p">)])</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">bias_sq</span><span class="p">),</span> <span class="n">var</span><span class="p">,</span> <span class="n">error</span>
+
+<span class="k">def</span> <span class="nf">plot_bias_variance</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">bias_scores</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">var_scores</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">err_scores</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">max_depth</span><span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">max_depth</span><span class="p">:</span>
+        <span class="n">b</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">e</span> <span class="o">=</span> <span class="n">compute_bias_variance</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">max_depth</span><span class="o">=</span><span class="n">i</span><span class="p">),</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">bias_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">var_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="n">err_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">})</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">max_depth</span><span class="p">,</span> <span class="n">var_scores</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span><span class="s2">&quot;variance&quot;</span> <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">max_depth</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">bias_scores</span><span class="p">),</span><span class="n">label</span> <span class="o">=</span><span class="s2">&quot;bias^2&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">max_depth</span><span class="p">,</span> <span class="n">err_scores</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span><span class="s2">&quot;error&quot;</span> <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;max_depth&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">cancer</span> <span class="o">=</span> <span class="n">load_breast_cancer</span><span class="p">()</span>
+<span class="n">Xc</span><span class="p">,</span> <span class="n">yc</span> <span class="o">=</span> <span class="n">cancer</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">cancer</span><span class="o">.</span><span class="n">target</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+<span class="n">plot_bias_variance</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">Xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/X1 - Decision Trees_41_0.png" src="../_images/X1 - Decision Trees_41_0.png" />
+</div>
+</div>
+<div class="section" id="algorithm-overview">
+<h2>Algorithm overview<a class="headerlink" href="#algorithm-overview" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Representation</p></th>
+<th class="head"><p>Loss function</p></th>
+<th class="head"><p>Optimization</p></th>
+<th class="head"><p>Regularization</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Classification trees</p></td>
+<td><p>Decision tree</p></td>
+<td><p>Information Gain (KL div.) / Gini index</p></td>
+<td><p>Hunt’s algorithm</p></td>
+<td><p>Tree depth,…</p></td>
+</tr>
+<tr class="row-odd"><td><p>Regression trees</p></td>
+<td><p>Decision tree</p></td>
+<td><p>Min. quadratic distance</p></td>
+<td><p>Hunt’s algorithm</p></td>
+<td><p>Tree depth,…</p></td>
+</tr>
+<tr class="row-even"><td><p>Model trees</p></td>
+<td><p>Decision tree + other models in leafs</p></td>
+<td><p>As above + used model’s loss</p></td>
+<td><p>Hunt’s algorithm + used model’s optimization</p></td>
+<td><p>Tree depth,…</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Joaquin Vanschoren<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

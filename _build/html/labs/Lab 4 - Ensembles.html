@@ -1,0 +1,504 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 4: Using trees to detect trees &#8212; ML Engineering</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/banner.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ML Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Overview
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/labs/Lab 4 - Ensembles.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ml-course/master"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ml-course/master/issues/new?title=Issue%20on%20page%20%2Flabs/Lab 4 - Ensembles.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ml-course/master/master?urlpath=tree/labs/Lab 4 - Ensembles.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ml-course/master/blob/master/labs/Lab 4 - Ensembles.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1-random-forests">
+   Exercise 1: Random Forests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2-other-measures">
+   Exercise 2: Other measures
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-3-feature-importance">
+   Exercise 3: Feature importance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-4-feature-selection">
+   Exercise 4: Feature selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-5-confusion-matrix">
+   Exercise 5: Confusion matrix
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-6-a-second-level-model">
+   Exercise 6: A second-level model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-7-model-calibration">
+   Exercise 7: Model calibration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-8-gradient-boosting">
+   Exercise 8: Gradient Boosting
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lab 4: Using trees to detect trees</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1-random-forests">
+   Exercise 1: Random Forests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2-other-measures">
+   Exercise 2: Other measures
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-3-feature-importance">
+   Exercise 3: Feature importance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-4-feature-selection">
+   Exercise 4: Feature selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-5-confusion-matrix">
+   Exercise 5: Confusion matrix
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-6-a-second-level-model">
+   Exercise 6: A second-level model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-7-model-calibration">
+   Exercise 7: Model calibration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-8-gradient-boosting">
+   Exercise 8: Gradient Boosting
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="lab-4-using-trees-to-detect-trees">
+<h1>Lab 4: Using trees to detect trees<a class="headerlink" href="#lab-4-using-trees-to-detect-trees" title="Permalink to this headline">¶</a></h1>
+<p>We will be using tree-based ensemble methods on the <a class="reference external" href="https://www.openml.org/d/180">Covertype dataset</a>.
+It contains about 100,000 observations of 7 types of trees (Spruce, Pine, Cottonwood, Aspen,…) described by 55 features describing elevation, distance to water, soil type, etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1"># imports</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">openml</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span><span class="p">,</span> <span class="n">tqdm_notebook</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> <span class="c1"># Plotting library, install with &#39;pip install seaborn&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download Covertype data. Takes a while the first time.</span>
+<span class="n">covertype</span> <span class="o">=</span> <span class="n">openml</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">(</span><span class="mi">180</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">covertype</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">covertype</span><span class="o">.</span><span class="n">default_target_attribute</span><span class="p">,</span> <span class="n">dataset_format</span><span class="o">=</span><span class="s1">&#39;array&#39;</span><span class="p">);</span> 
+<span class="n">classes</span> <span class="o">=</span> <span class="n">covertype</span><span class="o">.</span><span class="n">retrieve_class_labels</span><span class="p">()</span>
+<span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">covertype</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">items</span><span class="p">()][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Spruce_Fir&#39;,
+ &#39;Lodgepole_Pine&#39;,
+ &#39;Ponderosa_Pine&#39;,
+ &#39;Cottonwood_Willow&#39;,
+ &#39;Aspen&#39;,
+ &#39;Douglas_fir&#39;,
+ &#39;Krummholz&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;elevation&#39;,
+ &#39;aspect&#39;,
+ &#39;slope&#39;,
+ &#39;horizontal_distance_to_hydrology&#39;,
+ &#39;Vertical_Distance_To_Hydrology&#39;,
+ &#39;Horizontal_Distance_To_Roadways&#39;,
+ &#39;Hillshade_9am&#39;,
+ &#39;Hillshade_Noon&#39;,
+ &#39;Hillshade_3pm&#39;,
+ &#39;Horizontal_Distance_To_Fire_Points&#39;,
+ &#39;wilderness_area1&#39;,
+ &#39;wilderness_area2&#39;,
+ &#39;wilderness_area3&#39;,
+ &#39;wilderness_area4&#39;,
+ &#39;soil_type_1&#39;,
+ &#39;soil_type_2&#39;,
+ &#39;soil_type_3&#39;,
+ &#39;soil_type_4&#39;,
+ &#39;soil_type_5&#39;,
+ &#39;soil_type_6&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To understand the data a bit better, we can use a scatter matrix. From this, it looks like elevation is a relevant feature.
+Douglas Fir and Aspen grow at low elevations, while only Krummholz pines survive at very high elevations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using seaborn to build the scatter matrix</span>
+<span class="c1"># only first 3 columns, first 1000 examples</span>
+<span class="n">n_points</span> <span class="o">=</span> <span class="mi">1500</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="n">n_points</span><span class="p">,:</span><span class="mi">3</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">features</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">classes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y</span><span class="p">[:</span><span class="n">n_points</span><span class="p">]]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Lab 4 - Ensembles_6_0.png" src="../_images/Lab 4 - Ensembles_6_0.png" />
+</div>
+</div>
+<div class="section" id="exercise-1-random-forests">
+<h2>Exercise 1: Random Forests<a class="headerlink" href="#exercise-1-random-forests" title="Permalink to this headline">¶</a></h2>
+<p>Implement a function <code class="docutils literal notranslate"><span class="pre">evaluate_RF</span></code> that measures the performance of a Random Forest Classifier, using trees
+of (max) depth 2,8,32,64, for any number of trees in the ensemble (<code class="docutils literal notranslate"><span class="pre">n_estimators</span></code>).
+For the evaluation you should measure accuracy using 3-fold cross-validation.
+Use <code class="docutils literal notranslate"><span class="pre">random_state=1</span></code> to ensure reproducibility. Finally, plot the results for at least 5 values of <code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> ranging from 1 to 30. You can, of course, reuse code from earlier labs and assignments. Interpret the results.
+You can take a 50% subsample to speed the plotting.</p>
+</div>
+<div class="section" id="exercise-2-other-measures">
+<h2>Exercise 2: Other measures<a class="headerlink" href="#exercise-2-other-measures" title="Permalink to this headline">¶</a></h2>
+<p>Repeat the same plot but now use balanced_accuracy as the evaluation measure. See the <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#balanced-accuracy-score">documentation</a>.
+Only use the optimal max_depth from the previous question. Do you see an important difference?</p>
+</div>
+<div class="section" id="exercise-3-feature-importance">
+<h2>Exercise 3: Feature importance<a class="headerlink" href="#exercise-3-feature-importance" title="Permalink to this headline">¶</a></h2>
+<p>Retrieve the feature importances according to the (tuned) random forest model. Which feature are most important?</p>
+</div>
+<div class="section" id="exercise-4-feature-selection">
+<h2>Exercise 4: Feature selection<a class="headerlink" href="#exercise-4-feature-selection" title="Permalink to this headline">¶</a></h2>
+<p>Re-build your tuned random forest, but this time only using the first 10 features.
+Return both the balanced accuracy and training time. Interpret the results.</p>
+</div>
+<div class="section" id="exercise-5-confusion-matrix">
+<h2>Exercise 5: Confusion matrix<a class="headerlink" href="#exercise-5-confusion-matrix" title="Permalink to this headline">¶</a></h2>
+<p>Do a standard stratified holdout and generate the confusion matrix of the tuned random forest. Which classes are still often confused?</p>
+</div>
+<div class="section" id="exercise-6-a-second-level-model">
+<h2>Exercise 6: A second-level model<a class="headerlink" href="#exercise-6-a-second-level-model" title="Permalink to this headline">¶</a></h2>
+<p>Build a binary model specifically to correctly choose between the first and the second class.
+Select only the data points with those classes and train a new random forest. Do a standard stratified split and plot the resulting ROC curve. Can we still improve the model by calibrating the threshold?</p>
+</div>
+<div class="section" id="exercise-7-model-calibration">
+<h2>Exercise 7: Model calibration<a class="headerlink" href="#exercise-7-model-calibration" title="Permalink to this headline">¶</a></h2>
+<p>For the trained binary random forest model, plot a calibration curve (see <a class="reference external" href="https://ml-course.github.io/engineer/slides_html/03%20-%20Model%20Selection.slides.html#/40">course notebook</a>).
+Next, try to correct for this using Platt Scaling (or sigmoid scaling).</p>
+<p>Probability calibration should be done on new data not used for model fitting. The class <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/calibration/plot_calibration_curve.html#sphx-glr-auto-examples-calibration-plot-calibration-curve-py">CalibratedClassifierCV</a> uses a cross-validation generator and estimates for each split the model parameter on the train samples and the calibration of the test samples. The probabilities predicted for the folds are then averaged. Already fitted classifiers can be calibrated by CalibratedClassifierCV via the parameter cv=”prefit”. <a class="reference external" href="https://scikit-learn.org/stable/modules/calibration.html">Read more</a></p>
+</div>
+<div class="section" id="exercise-8-gradient-boosting">
+<h2>Exercise 8: Gradient Boosting<a class="headerlink" href="#exercise-8-gradient-boosting" title="Permalink to this headline">¶</a></h2>
+<p>Implement a function <code class="docutils literal notranslate"><span class="pre">evaluate_GB</span></code> that measures the performance of <code class="docutils literal notranslate"><span class="pre">GradientBoostingClassifier</span></code> or the <code class="docutils literal notranslate"><span class="pre">XGBoostClassifier</span></code> for
+different learning rates (0.01, 0.1, 1, and 10). As before, use a 3-fold cross-validation. You can use a 5% stratified sample of the whole dataset.
+Finally plot the results for <code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> ranging from 1 to 100. Run all the GBClassifiers with <code class="docutils literal notranslate"><span class="pre">random_state=1</span></code> to ensure reproducibility.</p>
+<p>Implement a function that plots the score of <code class="docutils literal notranslate"><span class="pre">evaluate_GB</span></code> for <code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> = 10,20,30,…,100 on a linear scale.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./labs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Joaquin Vanschoren<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

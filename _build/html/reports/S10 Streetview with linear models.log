@@ -1,0 +1,89 @@
+Traceback (most recent call last):
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/nbclient/client.py", line 1093, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/jvanscho/miniforge3/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/nbclient/client.py", line 559, in async_execute
+    await self.async_execute_cell(
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/nbclient/client.py", line 854, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/nbclient/client.py", line 756, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from sklearn.model_selection import cross_validate, train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import LinearSVC
+from sklearn.neighbors import KNeighborsClassifier
+
+# Take a 10% stratified subsample to speed up experimentation
+Xs, Xt, ys, yt = train_test_split(X,y, stratify=y, train_size=0.1)
+
+# Evaluate with 3-fold cross-validation.
+clfs = [LogisticRegression(), LinearSVC(), KNeighborsClassifier()]
+xvals = [cross_validate(clf, Xs, ys, return_train_score= True, n_jobs=-1) for clf in clfs]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTerminatedWorkerError[0m                     Traceback (most recent call last)
+[0;32m/var/folders/0t/5d8ttqzd773fy0wq3h5db0xr0000gn/T/ipykernel_69748/1781387137.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      9[0m [0;31m# Evaluate with 3-fold cross-validation.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0mclfs[0m [0;34m=[0m [0;34m[[0m[0mLogisticRegression[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mLinearSVC[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mKNeighborsClassifier[0m[0;34m([0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 11[0;31m [0mxvals[0m [0;34m=[0m [0;34m[[0m[0mcross_validate[0m[0;34m([0m[0mclf[0m[0;34m,[0m [0mXs[0m[0;34m,[0m [0mys[0m[0;34m,[0m [0mreturn_train_score[0m[0;34m=[0m [0;32mTrue[0m[0;34m,[0m [0mn_jobs[0m[0;34m=[0m[0;34m-[0m[0;36m1[0m[0;34m)[0m [0;32mfor[0m [0mclf[0m [0;32min[0m [0mclfs[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/var/folders/0t/5d8ttqzd773fy0wq3h5db0xr0000gn/T/ipykernel_69748/1781387137.py[0m in [0;36m<listcomp>[0;34m(.0)[0m
+[1;32m      9[0m [0;31m# Evaluate with 3-fold cross-validation.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0mclfs[0m [0;34m=[0m [0;34m[[0m[0mLogisticRegression[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mLinearSVC[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mKNeighborsClassifier[0m[0;34m([0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 11[0;31m [0mxvals[0m [0;34m=[0m [0;34m[[0m[0mcross_validate[0m[0;34m([0m[0mclf[0m[0;34m,[0m [0mXs[0m[0;34m,[0m [0mys[0m[0;34m,[0m [0mreturn_train_score[0m[0;34m=[0m [0;32mTrue[0m[0;34m,[0m [0mn_jobs[0m[0;34m=[0m[0;34m-[0m[0;36m1[0m[0;34m)[0m [0;32mfor[0m [0mclf[0m [0;32min[0m [0mclfs[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/miniforge3/lib/python3.9/site-packages/sklearn/model_selection/_validation.py[0m in [0;36mcross_validate[0;34m(estimator, X, y, groups, scoring, cv, n_jobs, verbose, fit_params, pre_dispatch, return_train_score, return_estimator, error_score)[0m
+[1;32m    265[0m     [0;31m# independent, and that it is pickle-able.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    266[0m     [0mparallel[0m [0;34m=[0m [0mParallel[0m[0;34m([0m[0mn_jobs[0m[0;34m=[0m[0mn_jobs[0m[0;34m,[0m [0mverbose[0m[0;34m=[0m[0mverbose[0m[0;34m,[0m [0mpre_dispatch[0m[0;34m=[0m[0mpre_dispatch[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 267[0;31m     results = parallel(
+[0m[1;32m    268[0m         delayed(_fit_and_score)(
+[1;32m    269[0m             [0mclone[0m[0;34m([0m[0mestimator[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/joblib/parallel.py[0m in [0;36m__call__[0;34m(self, iterable)[0m
+[1;32m   1014[0m [0;34m[0m[0m
+[1;32m   1015[0m             [0;32mwith[0m [0mself[0m[0;34m.[0m[0m_backend[0m[0;34m.[0m[0mretrieval_context[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1016[0;31m                 [0mself[0m[0;34m.[0m[0mretrieve[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1017[0m             [0;31m# Make sure that we get a last message telling us we are done[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1018[0m             [0melapsed_time[0m [0;34m=[0m [0mtime[0m[0;34m.[0m[0mtime[0m[0;34m([0m[0;34m)[0m [0;34m-[0m [0mself[0m[0;34m.[0m[0m_start_time[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/joblib/parallel.py[0m in [0;36mretrieve[0;34m(self)[0m
+[1;32m    906[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    907[0m                 [0;32mif[0m [0mgetattr[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_backend[0m[0;34m,[0m [0;34m'supports_timeout'[0m[0;34m,[0m [0;32mFalse[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 908[0;31m                     [0mself[0m[0;34m.[0m[0m_output[0m[0;34m.[0m[0mextend[0m[0;34m([0m[0mjob[0m[0;34m.[0m[0mget[0m[0;34m([0m[0mtimeout[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0mtimeout[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    909[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    910[0m                     [0mself[0m[0;34m.[0m[0m_output[0m[0;34m.[0m[0mextend[0m[0;34m([0m[0mjob[0m[0;34m.[0m[0mget[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/joblib/_parallel_backends.py[0m in [0;36mwrap_future_result[0;34m(future, timeout)[0m
+[1;32m    552[0m         AsyncResults.get from multiprocessing."""
+[1;32m    553[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 554[0;31m             [0;32mreturn[0m [0mfuture[0m[0;34m.[0m[0mresult[0m[0;34m([0m[0mtimeout[0m[0;34m=[0m[0mtimeout[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    555[0m         [0;32mexcept[0m [0mLokyTimeoutError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    556[0m             [0;32mraise[0m [0mTimeoutError[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/concurrent/futures/_base.py[0m in [0;36mresult[0;34m(self, timeout)[0m
+[1;32m    443[0m                     [0;32mraise[0m [0mCancelledError[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    444[0m                 [0;32melif[0m [0mself[0m[0;34m.[0m[0m_state[0m [0;34m==[0m [0mFINISHED[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 445[0;31m                     [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m__get_result[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    446[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    447[0m                     [0;32mraise[0m [0mTimeoutError[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/concurrent/futures/_base.py[0m in [0;36m__get_result[0;34m(self)[0m
+[1;32m    388[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0m_exception[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    389[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 390[0;31m                 [0;32mraise[0m [0mself[0m[0;34m.[0m[0m_exception[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    391[0m             [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    392[0m                 [0;31m# Break a reference cycle with the exception in self._exception[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTerminatedWorkerError[0m: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker. The exit codes of the workers are {EXIT(1)}
+TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker. The exit codes of the workers are {EXIT(1)}
+

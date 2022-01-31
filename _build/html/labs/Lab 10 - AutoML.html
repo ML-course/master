@@ -1,0 +1,1001 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 10: AutoML &#8212; ML Engineering</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/banner.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ML Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Overview
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/labs/Lab 10 - AutoML.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ml-course/master"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ml-course/master/issues/new?title=Issue%20on%20page%20%2Flabs/Lab 10 - AutoML.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ml-course/master/master?urlpath=tree/labs/Lab 10 - AutoML.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ml-course/master/blob/master/labs/Lab 10 - AutoML.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1-using-gama">
+   Exercise 1: Using GAMA
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation">
+     Installation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standard-use-case-on-no-sub-2-sub-data">
+     Standard use case on NO
+     <sub>
+      2
+     </sub>
+     data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exercise-1-1">
+       Exercise 1.1
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exercise-1-2">
+       Exercise 1.2:
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#automatic-ensembles-on-covertype">
+     Automatic Ensembles on Covertype
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exercise-1-3">
+       Exercise 1.3:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exercise-1-4">
+       Exercise 1.4
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exercise-1-5">
+       Exercise 1.5
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#image-recognition-with-automl">
+     Image Recognition with AutoML
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exercise-1-6">
+       Exercise 1.6
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2">
+   Exercise 2
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lab 10: AutoML</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1-using-gama">
+   Exercise 1: Using GAMA
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation">
+     Installation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standard-use-case-on-no-sub-2-sub-data">
+     Standard use case on NO
+     <sub>
+      2
+     </sub>
+     data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exercise-1-1">
+       Exercise 1.1
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exercise-1-2">
+       Exercise 1.2:
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#automatic-ensembles-on-covertype">
+     Automatic Ensembles on Covertype
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exercise-1-3">
+       Exercise 1.3:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exercise-1-4">
+       Exercise 1.4
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exercise-1-5">
+       Exercise 1.5
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#image-recognition-with-automl">
+     Image Recognition with AutoML
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exercise-1-6">
+       Exercise 1.6
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2">
+   Exercise 2
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="lab-10-automl">
+<h1>Lab 10: AutoML<a class="headerlink" href="#lab-10-automl" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">openml</span> <span class="k">as</span> <span class="nn">oml</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-1-using-gama">
+<h2>Exercise 1: Using GAMA<a class="headerlink" href="#exercise-1-using-gama" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>In this exercise we will use AutoML tool <a class="reference external" href="https://github.com/PGijsbers/gama/">GAMA</a>.
+The exercise is self-contained, but if you want to know more the documentation is found <a class="reference external" href="https://pgijsbers.github.io/gama/develop/">here</a>.
+First, make sure GAMA is installed and/or check the right version is installed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install --quiet gama
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">packaging</span> <span class="kn">import</span> <span class="n">version</span>
+<span class="kn">import</span> <span class="nn">gama</span>
+<span class="k">if</span> <span class="n">version</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">gama</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">version</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;20.1.0&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GAMA is outdated. Please update now!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OK. You may continue :)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OK. You may continue :)
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>note</em>:</p>
+<blockquote>
+<div><p>GAMA is under active development. Parts of the interface are still subject to change. We are also using small time budgets because the lab only lasts two hours. For that reason some of the results may be affected more than usual by the randomness inherent to evolutionary search.</p>
+</div></blockquote>
+</div>
+<div class="section" id="standard-use-case-on-no-sub-2-sub-data">
+<h3>Standard use case on NO<sub>2</sub> data<a class="headerlink" href="#standard-use-case-on-no-sub-2-sub-data" title="Permalink to this headline">¶</a></h3>
+<p>In lab session 1, we tested several models the predict <strong>NO<sub>2</sub></strong> levels.
+Here we will use GAMA automatically find a pipeline for this task.
+First we have to fetch the data from OpenML, and split it into a train and test set:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no2</span> <span class="o">=</span> <span class="n">oml</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">(</span><span class="mi">547</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">no2</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">no2</span><span class="o">.</span><span class="n">default_target_attribute</span><span class="p">,</span> <span class="n">dataset_format</span><span class="o">=</span><span class="s1">&#39;dataframe&#39;</span><span class="p">);</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can then import and use GAMA just like a scikit-learn classifier or regressor:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gama</span> <span class="kn">import</span> <span class="n">GamaClassifier</span><span class="p">,</span> <span class="n">GamaRegressor</span>
+<span class="n">automl</span> <span class="o">=</span> <span class="n">GamaRegressor</span><span class="p">(</span>
+    <span class="n">max_total_time</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="c1"># in seconds</span>
+    <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="c1"># one subprocess</span>
+    <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">,</span>  <span class="c1"># metric to optimize for</span>
+    <span class="n">verbosity</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>  <span class="c1"># to get printed updates about search progress</span>
+    <span class="n">keep_analysis_log</span><span class="o">=</span><span class="s2">&quot;no2.log&quot;</span><span class="p">,</span>  <span class="c1"># name for a log file to record search output in</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using GAMA version 20.1.0.
+GamaRegressor(scoring=r2,regularize_length=True,max_pipeline_length=None,random_state=None,max_total_time=60,max_eval_time=None,n_jobs=1,verbosity=20,keep_analysis_log=/Users/joa/notebooks/mlcourse/engineer/labs/no2.log,search_method=AsyncEA(),post_processing_method=BestFitPostProcessing())
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-1-1">
+<h4>Exercise 1.1<a class="headerlink" href="#exercise-1-1" title="Permalink to this headline">¶</a></h4>
+<p>Starting AutoML is now as simple as calling <code class="docutils literal notranslate"><span class="pre">fit</span></code> with the training data. You can use the <code class="docutils literal notranslate"><span class="pre">score</span></code> function to get the model’s score on the test set. Using GAMA, fit a model to the data and report the score.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exercise 1.1: Call fit and score</span>
+<span class="n">automl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>preprocessing took 0.0641s.
+Starting EA with new population.
+Search phase evaluated 81 individuals.
+search took 53.0513s.
+postprocess took 0.2228s.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5197442219121866
+</pre></div>
+</div>
+</div>
+</div>
+<p>How does the score compare to the maximum of <code class="docutils literal notranslate"><span class="pre">0.4796</span></code> found in lab 1?
+It’s likely better. Because the dataset is so small, even in one minute time GAMA can evaluate many pipelines.
+GAMA also considers more (and different) models than those from lab 1.</p>
+<p>The number of pipelines that have been evaluated should’ve been printed as cell output.
+But we can also have a closer look at which pipelines have been evaluated.
+We do this by parsing the log GAMA created (filename set by <code class="docutils literal notranslate"><span class="pre">keep_analysis_log</span></code>) with the builtin <code class="docutils literal notranslate"><span class="pre">GamaReport</span></code> parser:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transform_evaluations</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; The GamaReport was initially developed for use within GAMA tooling.</span>
+<span class="sd">    For this reason it contains some hard to interpret, useless or internal data.</span>
+<span class="sd">    For clarity, we filter this out for you.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;length_cummax&#39;</span><span class="p">,</span> <span class="s1">&#39;relative_end&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gama.logging.GamaReport</span> <span class="kn">import</span> <span class="n">GamaReport</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">GamaReport</span><span class="p">(</span><span class="n">logfile</span><span class="o">=</span><span class="s2">&quot;no2.log&quot;</span><span class="p">)</span>
+<span class="n">evaluations</span> <span class="o">=</span> <span class="n">transform_evaluations</span><span class="p">(</span><span class="n">report</span><span class="o">.</span><span class="n">evaluations</span><span class="p">)</span>
+<span class="n">evaluations</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;n&#39;</span><span class="p">)</span>  <span class="c1"># Show 5 random samples from the dataframe, but sort them by order of n.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n</th>
+      <th>start</th>
+      <th>duration</th>
+      <th>r2</th>
+      <th>length</th>
+      <th>pipeline</th>
+      <th>r2_cummax</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>2020-04-01 11:43:49.408628</td>
+      <td>00:00:00.141432</td>
+      <td>0.473089</td>
+      <td>3.0</td>
+      <td>LinearSVR(MaxAbsScaler(PolynomialFeatures(data...</td>
+      <td>0.479288</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>41</td>
+      <td>2020-04-01 11:44:16.167167</td>
+      <td>00:00:00.397797</td>
+      <td>0.339547</td>
+      <td>2.0</td>
+      <td>ElasticNetCV(PolynomialFeatures(data, Polynomi...</td>
+      <td>0.577592</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>53</td>
+      <td>2020-04-01 11:44:23.566744</td>
+      <td>00:00:00.466447</td>
+      <td>-12.049856</td>
+      <td>2.0</td>
+      <td>LinearSVR(PolynomialFeatures(data, PolynomialF...</td>
+      <td>0.577592</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>57</td>
+      <td>2020-04-01 11:44:24.362592</td>
+      <td>00:00:00.365840</td>
+      <td>0.479220</td>
+      <td>1.0</td>
+      <td>ElasticNetCV(data, ElasticNetCV.l1_ratio=0.9, ...</td>
+      <td>0.577592</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>65</td>
+      <td>2020-04-01 11:44:26.776819</td>
+      <td>00:00:00.457241</td>
+      <td>-0.051902</td>
+      <td>3.0</td>
+      <td>ElasticNetCV(PCA(Normalizer(data, Normalizer.n...</td>
+      <td>0.577592</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This dataframe has the following columns:</p>
+<ul class="simple">
+<li><p>n: the n-th pipeline to be evaluated in search</p></li>
+<li><p>start: start time of the evaluation</p></li>
+<li><p>duration: the time it took to evaluate the model (in seconds)</p></li>
+<li><p>r2: the r2 score of the pipeline (based on 5-fold cross-validation on the training data)</p></li>
+<li><p>length: the number of steps in the pipeline times (i.e., length 2 means one preprocessing step and one estimator).</p></li>
+<li><p>pipeline: the pipeline (more info below)</p></li>
+<li><p>r2_cummax: the maximum r2 score found at evaluation <code class="docutils literal notranslate"><span class="pre">n</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="exercise-1-2">
+<h4>Exercise 1.2:<a class="headerlink" href="#exercise-1-2" title="Permalink to this headline">¶</a></h4>
+<p>Find the best pipeline of each length from the <code class="docutils literal notranslate"><span class="pre">evaluations</span></code> dataframe (or one of the best, in case of a tie).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exercise 1.2: Find the best pipeline of each length</span>
+<span class="n">evaluations</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;r2&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s1">&#39;length&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n</th>
+      <th>start</th>
+      <th>duration</th>
+      <th>r2</th>
+      <th>length</th>
+      <th>pipeline</th>
+      <th>r2_cummax</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>28</th>
+      <td>28</td>
+      <td>2020-04-01 11:44:11.265527</td>
+      <td>00:00:00.340073</td>
+      <td>0.577592</td>
+      <td>2.0</td>
+      <td>GradientBoostingRegressor(PolynomialFeatures(d...</td>
+      <td>0.577592</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>48</td>
+      <td>2020-04-01 11:44:19.312907</td>
+      <td>00:00:01.151389</td>
+      <td>0.542797</td>
+      <td>1.0</td>
+      <td>RandomForestRegressor(data, RandomForestRegres...</td>
+      <td>0.577592</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>12</td>
+      <td>2020-04-01 11:43:53.681292</td>
+      <td>00:00:00.792249</td>
+      <td>0.516778</td>
+      <td>3.0</td>
+      <td>ExtraTreesRegressor(VarianceThreshold(Polynomi...</td>
+      <td>0.517488</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>54</td>
+      <td>2020-04-01 11:44:24.042641</td>
+      <td>00:00:00.077464</td>
+      <td>0.418263</td>
+      <td>4.0</td>
+      <td>LinearSVR(SelectFwe(MaxAbsScaler(PolynomialFea...</td>
+      <td>0.577592</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>To visualize the progress of search, plot:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">r2</span></code> score for each evaluation as a function of <code class="docutils literal notranslate"><span class="pre">n</span></code>, preferably only for those evaluations with an <code class="docutils literal notranslate"><span class="pre">r2</span></code> score of at least 0.</p></li>
+<li><p>The maximum <code class="docutils literal notranslate"><span class="pre">r2</span></code> score as a function of <code class="docutils literal notranslate"><span class="pre">n</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">evaluations</span><span class="p">[</span><span class="n">evaluations</span><span class="p">[</span><span class="s1">&#39;r2&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)</span>
+<span class="n">evaluations</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;r2_cummax&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11a97cda0&gt;
+</pre></div>
+</div>
+<img alt="../_images/Lab 10 - AutoML_23_1.png" src="../_images/Lab 10 - AutoML_23_1.png" />
+<img alt="../_images/Lab 10 - AutoML_23_2.png" src="../_images/Lab 10 - AutoML_23_2.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="automatic-ensembles-on-covertype">
+<h3>Automatic Ensembles on Covertype<a class="headerlink" href="#automatic-ensembles-on-covertype" title="Permalink to this headline">¶</a></h3>
+<p>Next we will take a look at a classification problem, and change the AutoML pipeline.</p>
+<div class="section" id="exercise-1-3">
+<h4>Exercise 1.3:<a class="headerlink" href="#exercise-1-3" title="Permalink to this headline">¶</a></h4>
+<p>Download the covertype dataset (id: 180) that we saw in lab 3.
+First take a stratified subsample of 50% of the data (using <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code>).
+Then split that data into a train and test set (50%/50%).
+The train and test sets are now both 25% of the total data.</p>
+<p>Initialize a GamaClassifier, similarly to how the GamaRegressor was initialized, but:</p>
+<ul class="simple">
+<li><p>specify the maximum runtime to at least 3 minutes,</p></li>
+<li><p>set <code class="docutils literal notranslate"><span class="pre">n_jobs</span></code> to 2,</p></li>
+<li><p>set the metric to accuracy,</p></li>
+<li><p>specify a different log name,</p></li>
+</ul>
+<p>Then start search (<code class="docutils literal notranslate"><span class="pre">fit</span></code>) and evaluate the model on the test data (<code class="docutils literal notranslate"><span class="pre">score</span></code>).
+Take a short break once it’s all running, or ask us a question about the lecture! :)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##### Exercise 1.3: Split the data and run GAMA</span>
+<span class="n">trees</span> <span class="o">=</span> <span class="n">oml</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">(</span><span class="mi">180</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">trees</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">trees</span><span class="o">.</span><span class="n">default_target_attribute</span><span class="p">,</span> <span class="n">dataset_format</span><span class="o">=</span><span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
+<span class="n">X_sub</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">y_sub</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_sub</span><span class="p">,</span> <span class="n">y_sub</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_sub</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">automl</span> <span class="o">=</span> <span class="n">GamaClassifier</span><span class="p">(</span>
+    <span class="n">max_total_time</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span>
+    <span class="n">verbosity</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>  <span class="c1"># to get printed updates about search progress</span>
+    <span class="n">keep_analysis_log</span><span class="o">=</span><span class="s2">&quot;trees.log&quot;</span><span class="p">,</span>  <span class="c1"># name for a log file to record search output in</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using GAMA version 20.1.0.
+GamaClassifier(scoring=accuracy,regularize_length=True,max_pipeline_length=None,random_state=None,max_total_time=180,max_eval_time=None,n_jobs=2,verbosity=20,keep_analysis_log=/Users/joa/notebooks/mlcourse/engineer/labs/trees.log,search_method=AsyncEA(),post_processing_method=BestFitPostProcessing())
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>preprocessing took 1.4381s.
+Starting EA with new population.
+Search phase evaluated 19 individuals.
+search took 160.0395s.
+postprocess took 1.8072s.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">automl</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5294224219146315
+</pre></div>
+</div>
+</div>
+</div>
+<p>How did the model perform? In lab 3 we had about 80% accuracy after tuning the number of trees in the RandomForest. How does this model compare?</p>
+<p>The covertype dataset is quite large, and three minutes is not much time. For this reason we downsampled such that our training set contained only 25% of the original data. In our experience with these constraints, we find that GAMA can produce models with 80% accuracy, but it’s also possible to see worse results. With more time we could search longer and evaluate more models on more of the data.</p>
+</div>
+<div class="section" id="exercise-1-4">
+<h4>Exercise 1.4<a class="headerlink" href="#exercise-1-4" title="Permalink to this headline">¶</a></h4>
+<p>Up to this point GAMA has been using the best found pipeline to make predictions on the test data.
+However, we saw that constructing ensembles of models can be a useful tool to gain additional performance.
+GAMA can be configured to automatically build an ensemble from the models it found during search. To do this you should initialize GAMA with the <code class="docutils literal notranslate"><span class="pre">post_processing_method</span></code> specified:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gama.postprocessing</span> <span class="kn">import</span> <span class="n">EnsemblePostProcessing</span>
+
+<span class="n">automl_with_ensemble</span> <span class="o">=</span> <span class="n">GamaClassifier</span><span class="p">(</span>
+    <span class="n">max_total_time</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">verbosity</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+    <span class="n">keep_analysis_log</span><span class="o">=</span><span class="s2">&quot;covtype_ensemble.log&quot;</span><span class="p">,</span>
+    <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span>
+    <span class="n">post_processing_method</span><span class="o">=</span><span class="n">EnsemblePostProcessing</span><span class="p">(),</span>  <span class="c1"># Specify to build an ensemble after search</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using GAMA version 20.1.0.
+GamaClassifier(scoring=accuracy,regularize_length=True,max_pipeline_length=None,random_state=None,max_total_time=360,max_eval_time=None,n_jobs=2,verbosity=20,keep_analysis_log=/Users/joa/notebooks/mlcourse/engineer/labs/covtype_ensemble.log,search_method=AsyncEA(),post_processing_method=EnsemblePostProcessing(ensemble_size=25,hillclimb_size=10000,max_models=200))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, start search and record the test set score:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##### Exercise 1.4</span>
+<span class="n">automl_with_ensemble</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>preprocessing took 0.6441s.
+Starting EA with new population.
+Search phase evaluated 23 individuals.
+search took 251.0439s.
+Not downsampling because only 10000 samples were stored.
+Ensemble size 10 , best score: 0.6063
+Ensemble size 11 , best score: 0.6456
+Ensemble size 12 , best score: 0.6542
+Ensemble size 13 , best score: 0.6606
+Ensemble size 14 , best score: 0.6663
+Ensemble size 15 , best score: 0.6665
+Ensemble size 16 , best score: 0.6668
+Ensemble size 17 , best score: 0.6665
+Ensemble size 18 , best score: 0.6688
+Ensemble size 19 , best score: 0.667
+Ensemble size 20 , best score: 0.6671
+Ensemble size 21 , best score: 0.6686
+Ensemble size 22 , best score: 0.6672
+Ensemble size 23 , best score: 0.6674
+Ensemble size 24 , best score: 0.6689
+Ensemble size 25 , best score: 0.6673
+Building ensemble took 1.2759668827056885s. Fitting ensemble with timeout 107.03508734703064s.
+postprocess took 1.2786s.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="n">automl_with_ensemble</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ensemble score: </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ensemble score: 0.6703
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-1-5">
+<h4>Exercise 1.5<a class="headerlink" href="#exercise-1-5" title="Permalink to this headline">¶</a></h4>
+<p>Note that this run was independent from the previous run. This means it might have found better or worse pipelines than last search. We cannot compare the performance of this ensemble directly to the previous best score. Run the code cell below to see how the single best pipeline would have scored <em>this</em> run:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Currently post-hoc switching of post-processing method is not supported directly.</span>
+<span class="c1"># We work around this:</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">log_loss</span>
+
+<span class="n">best</span><span class="p">,</span> <span class="o">=</span> <span class="n">automl_with_ensemble</span><span class="o">.</span><span class="n">_evaluation_library</span><span class="o">.</span><span class="n">n_best</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">best_pipeline</span> <span class="o">=</span> <span class="n">best</span><span class="o">.</span><span class="n">individual</span><span class="o">.</span><span class="n">pipeline</span>
+<span class="n">best_pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">test_score</span> <span class="o">=</span> <span class="n">best_pipeline</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;train score: </span><span class="si">{:.3f}</span><span class="s2">, test score: </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">best</span><span class="o">.</span><span class="n">score</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">test_score</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case, did it improve the performance? Was the improvement big?</p>
+<p>Normally the ensemble should perform better, though the benefit can be very marginal.
+GAMA creates an Ensemble through weighting votes of pipelines evaluated in search (for the interested, the precise procedure is described in <a class="reference external" href="https://www.cs.cornell.edu/~caruana/ctp/ct.papers/caruana.icml04.icdm06long.pdf">Caruana et al. (2004)</a>).
+In the scenario and constraints we have set up just now, creating a good ensemble is hard.
+Can you think of some reason(s) why?</p>
+<blockquote>
+<div><p>Type your answer in this markdown cell.</p>
+</div></blockquote>
+<p>Solution:</p>
+<blockquote>
+<div><p>…</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="image-recognition-with-automl">
+<h3>Image Recognition with AutoML<a class="headerlink" href="#image-recognition-with-automl" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p><em>note</em>: If you are running out of time, or are experiencing errors below, ignore the coding assigment. We are aware that in some scenarios GAMA halts on this example.</p>
+</div></blockquote>
+<div class="section" id="exercise-1-6">
+<h4>Exercise 1.6<a class="headerlink" href="#exercise-1-6" title="Permalink to this headline">¶</a></h4>
+<p>AutoML is still not (yet) a one-tool-fits-all solution.
+GAMA was designed to deal with tabular data.
+Last lab session you trained ConvNets to classify images in the CIFAR dataset.
+The very first model already had at least 60% accuracy, the best model had ~83% accuracy.
+We will now compare those results to GAMA:</p>
+<ul class="simple">
+<li><p>download the CIFAR-10 dataset from OpenML (dataset id: 40926)</p></li>
+<li><p>split the data into a train and test set (80%/20%)</p></li>
+<li><p>run GAMA optimizing for accuracy, with n_jobs=1 and (at least) 5 minutes of runtime</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##### Exercise 1.6</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Results will vary wildly.
+Running it a few times can give scores ranging from ~10% accuracy to ~35% accuracy.
+More time will lead to better results, but it will not approach ConvNet levels of performance.
+Why do you think this is?</p>
+<blockquote>
+<div><p>Type your answer in this markdown cell.</p>
+</div></blockquote>
+<p>Solution:</p>
+<blockquote>
+<div><p>…</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-2">
+<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h2>
+<p>There are AutoML tools that are specifically designed to automatically learn neural network architectures. For example <a class="reference external" href="https://autokeras.com/">AutoKeras</a> (Texas A&amp;M University), <a class="reference external" href="https://autogluon.mxnet.io/">AutoGluon</a> (commercial, Amazon), and <a class="reference external" href="https://cloud.google.com/automl">Cloud AutoML</a> (commercial, Google). If you are eager, do go and compare your own ConvNet to these AutoML systems intead!</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./labs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Joaquin Vanschoren<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

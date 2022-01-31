@@ -1,0 +1,557 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bias-Variance and Ensembles &#8212; ML Engineering</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/banner.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ML Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Overview
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/studies/S3 Bias-Variance and Ensembles.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ml-course/master"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ml-course/master/issues/new?title=Issue%20on%20page%20%2Fstudies/S3 Bias-Variance and Ensembles.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ml-course/master/master?urlpath=tree/studies/S3 Bias-Variance and Ensembles.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ml-course/master/blob/master/studies/S3 Bias-Variance and Ensembles.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bias-variance-analysis">
+   Bias-variance analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bias-variance-and-ensemble-size">
+   Bias, Variance, and ensemble size
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#validation-curves-for-gradient-boosting">
+   Validation curves for Gradient Boosting
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Bias-Variance and Ensembles</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bias-variance-analysis">
+   Bias-variance analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bias-variance-and-ensemble-size">
+   Bias, Variance, and ensemble size
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#validation-curves-for-gradient-boosting">
+   Validation curves for Gradient Boosting
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="bias-variance-and-ensembles">
+<h1>Bias-Variance and Ensembles<a class="headerlink" href="#bias-variance-and-ensembles" title="Permalink to this headline">¶</a></h1>
+<p>Let’s do a deeper analysis of how RandomForests and Gradient Boosting reduce their prediction error. More specifically, we’ll decompose the prediction error into their <em>bias</em> and <em>variance</em> components, and see how these are reduced by different methods: RandomForests (bagging) and GradientBoosting (boosting).</p>
+<p>Although you can repeat this analysis with any classification dataset from OpenML, we’ll use the MAGIC telescope dataset (<a class="reference external" href="http://www.openml.org/d/1120">http://www.openml.org/d/1120</a>). The task is to classifying gamma rays: when high-energy particles hit the atmosphere, they produce chain reactions of other particles called ‘showers’. These are simulated and the resulting patterns are converted into 10 numeric features. You need to detect whether these are gamma rays or background radiation.</p>
+<p>A quick visualization of the features is shown below. Note that this is not a time series, we just plot the instances in the order they occur in the dataset. The first 12500 or so are examples of signal (gamma), the final 6700 or so are background (hadrons).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># General imports</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">preamble</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download MAGIC Telescope data from OpenML. You can repeat this analysis with any other OpenML classification dataset.</span>
+<span class="n">magic</span> <span class="o">=</span> <span class="n">oml</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">(</span><span class="mi">1120</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">attribute_names</span> <span class="o">=</span> <span class="n">magic</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">magic</span><span class="o">.</span><span class="n">default_target_attribute</span><span class="p">,</span> <span class="n">return_attribute_names</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Quick visualization of the features (top) and the target (bottom)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">attribute_names</span> <span class="o">=</span> <span class="n">magic</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">magic</span><span class="o">.</span><span class="n">default_target_attribute</span><span class="p">,</span> <span class="n">return_attribute_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">magic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">attribute_names</span><span class="p">)</span>
+<span class="n">magic</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="c1"># Also plot the target: 1 = background, 0 = gamma</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/S3 Bias-Variance and Ensembles_3_0.png" src="../_images/S3 Bias-Variance and Ensembles_3_0.png" />
+<img alt="../_images/S3 Bias-Variance and Ensembles_3_1.png" src="../_images/S3 Bias-Variance and Ensembles_3_1.png" />
+</div>
+</div>
+<div class="section" id="bias-variance-analysis">
+<h2>Bias-variance analysis<a class="headerlink" href="#bias-variance-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Here is a helper function to compute the bias-variance decomposition. It does 40 bootstraps, measures the bias,
+variance, and error in each data point, and then sums them all up:</p>
+<ul class="simple">
+<li><p><strong>Bias^2</strong> is defined as the number of consistent misclassifications, squared. Ideally, a data point <code class="docutils literal notranslate"><span class="pre">i</span></code> is always predicted to be the true class <code class="docutils literal notranslate"><span class="pre">y[i]</span></code>, and never any of the other classes. The bias is highest if the prediction is always wrong.</p></li>
+<li><p><strong>Variance</strong> is defined as how much variation there is in the predictions for different bootstraps. Worse case, an instance is predicted to be of one class 50% of the time, and the other class in the other 50%.</p></li>
+<li><p><strong>Error</strong> is the total error under zero-one loss. <strong>Error</strong> = <strong>Bias^2</strong> + <strong>Variance</strong> (+ a small intrinsic error in the data)</p></li>
+</ul>
+<p>Because of the random bootstraps, some data points will end up in the test set (out of bag) more often than others, so we need to keep a list of predictions for every datapoint, i.e. a list of lists <code class="docutils literal notranslate"><span class="pre">y_all_pred</span></code>,
+and weight the per-instance calculations by the number of predictions for every instance.</p>
+<p>Note: SKlearn doesn’t support bootstrapping, so we simulate it using a 67%-33% shuffle split: each bootstrap should have about 67% of the original datapoints after sampling.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">ShuffleSplit</span><span class="p">,</span> <span class="n">train_test_split</span>
+
+<span class="c1"># Bias-Variance Computation </span>
+<span class="k">def</span> <span class="nf">compute_bias_variance</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="c1"># Bootstraps</span>
+    <span class="n">n_repeat</span> <span class="o">=</span> <span class="mi">40</span> <span class="c1"># 40 is on the low side to get a good estimate. 100 is better.</span>
+    <span class="n">shuffle_split</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">n_splits</span><span class="o">=</span><span class="n">n_repeat</span><span class="p">)</span>
+
+    <span class="c1"># Store sample predictions</span>
+    <span class="n">y_all_pred</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))]</span>
+
+    <span class="c1"># Train classifier on each bootstrap and score predictions</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">shuffle_split</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
+        <span class="c1"># Train and predict</span>
+        <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">train_index</span><span class="p">])</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">test_index</span><span class="p">])</span>
+
+        <span class="c1"># Store predictions</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">index</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">test_index</span><span class="p">):</span>
+            <span class="n">y_all_pred</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_pred</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="c1"># Compute bias, variance, error</span>
+    <span class="n">bias_sq</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">n_repeat</span> 
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y_all_pred</span><span class="p">)])</span>
+    <span class="n">var</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([((</span><span class="mi">1</span> <span class="o">-</span> <span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">n_repeat</span>
+               <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y_all_pred</span><span class="p">)])</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">n_repeat</span> 
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y_all_pred</span><span class="p">)])</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">bias_sq</span><span class="p">),</span> <span class="n">var</span><span class="p">,</span> <span class="n">error</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, as a point of reference, we compute bias, variance, and error for a relatively large RandomForest and Gradient Boosting ensemble.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span><span class="p">,</span> <span class="n">GradientBoostingClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">StratifiedShuffleSplit</span>
+<span class="n">sh</span> <span class="o">=</span> <span class="n">StratifiedShuffleSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Random Forest</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">rf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;roc_auc&quot;</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">sh</span><span class="p">)</span> <span class="c1"># Calculating AUC just for fun</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Random forest AUC: </span><span class="si">%.3f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+
+<span class="c1"># Gradient Boosting</span>
+<span class="n">gb</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span> <span class="c1"># Increase n_estimators if more time</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">gb</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;roc_auc&quot;</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">sh</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gradient boosting AUC: </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+
+<span class="c1"># Random Forest</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Random forest Bias: </span><span class="si">%.3f</span><span class="s2">, Variance: </span><span class="si">%.3f</span><span class="s2">, Error: </span><span class="si">%.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">compute_bias_variance</span><span class="p">(</span><span class="n">rf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)))</span>
+<span class="c1"># Gradient Boosting</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gradient Boosting Bias: </span><span class="si">%.3f</span><span class="s2">, Variance: </span><span class="si">%.3f</span><span class="s2">, Error: </span><span class="si">%.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">compute_bias_variance</span><span class="p">(</span><span class="n">gb</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Random forest AUC: 0.938
+Gradient boosting AUC: 0.930
+Random forest Bias: 25.914, Variance: 82.578, Error: 754.125
+Gradient Boosting Bias: 26.421, Variance: 84.447, Error: 782.525
+</pre></div>
+</div>
+</div>
+</div>
+<p>The bias-variance results show that RandomForest and Gradient Boosting have a very similar bias-variance profile! They seem to control both bias and variance quite well (although there is also room for improvement).</p>
+</div>
+<div class="section" id="bias-variance-and-ensemble-size">
+<h2>Bias, Variance, and ensemble size<a class="headerlink" href="#bias-variance-and-ensemble-size" title="Permalink to this headline">¶</a></h2>
+<p>We now measure the bias and error component of both algorithms for increasing numbers of trees. We vary the number of trees on a log scale from 1 to 1024, and plot the bias error (squared), variance, and total error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_bias_variance</span><span class="p">(</span><span class="n">clf</span><span class="p">):</span>
+    <span class="n">bias_scores</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">var_scores</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">err_scores</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">n_estimators</span><span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">1024</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">n_estimators</span><span class="p">:</span>
+        <span class="n">b</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">e</span> <span class="o">=</span> <span class="n">compute_bias_variance</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">n_estimators</span><span class="o">=</span><span class="n">i</span><span class="p">),</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">bias_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">var_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="n">err_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">})</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_estimators</span><span class="p">,</span> <span class="n">var_scores</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span><span class="s2">&quot;variance&quot;</span> <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_estimators</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">bias_scores</span><span class="p">),</span><span class="n">label</span> <span class="o">=</span><span class="s2">&quot;bias^2&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_estimators</span><span class="p">,</span> <span class="n">err_scores</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span><span class="s2">&quot;error&quot;</span> <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">,</span><span class="n">basex</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;n_estimators&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+<span class="n">plot_bias_variance</span><span class="p">(</span><span class="n">gb</span><span class="p">)</span>
+<span class="n">plot_bias_variance</span><span class="p">(</span><span class="n">rf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/S3 Bias-Variance and Ensembles_10_0.png" src="../_images/S3 Bias-Variance and Ensembles_10_0.png" />
+<img alt="../_images/S3 Bias-Variance and Ensembles_10_1.png" src="../_images/S3 Bias-Variance and Ensembles_10_1.png" />
+</div>
+</div>
+<p>Now we see that RandomForests (Bagging) and Boosting do two very different things:</p>
+<ul class="simple">
+<li><p>Boosting is a bias reduction technique. We can see that it reduces bias. In fact, the error goes down only because the bias component goes down. Variance actually increases a bit. This is because the ‘hard’ data points are misclassified by some of the models, but not all. Hence, it cannot perfectly eliminate the bias. At some point, the ensemble will start overfitting a bit.</p></li>
+<li><p>Bagging (RandomForest) reduces variance, and we see this in the plot. The variance is almost completely eliminated, but also note that the bias actually slightly increases. So, it also doesn’t perfectly eliminate variance, at some point the ensemble will start underfitting.</p></li>
+</ul>
+</div>
+<div class="section" id="validation-curves-for-gradient-boosting">
+<h2>Validation curves for Gradient Boosting<a class="headerlink" href="#validation-curves-for-gradient-boosting" title="Permalink to this headline">¶</a></h2>
+<p>For gradient boosting, we should still examine the effect of tree depth and learning rate on overall performance.</p>
+<p>A <em>validation curve</em> can help you understand <em>when</em> a model starts under- or overfitting. It plots both training and test set error as you change certain hyperparameters, such as the number of estimators (trees).</p>
+<p>We will now build validation curves for gradient boosting, evaluated using AUROC, by varying the number of iterations between 1 and 500. In addition, we use two different values for the learning rate (e.g. 0.2 and 1), and tree depth (1 and 4).</p>
+<p>Below is another helper function to plot. In this plot the full lines are the test set score and the dashed lines the training set score. The vertical line indicated the optimal value of the test set error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
+
+<span class="c1"># Plots validation curves for every classifier in clfs. </span>
+<span class="c1"># Also indicates the optimal result by a vertical line</span>
+<span class="c1"># Returns 1-AUROC, so lower is better</span>
+<span class="k">def</span> <span class="nf">validation_curve</span><span class="p">(</span><span class="n">clfs</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">n</span><span class="p">,</span><span class="n">clf</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">clfs</span><span class="p">):</span>
+        <span class="n">test_score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">estimators_</span><span class="p">))</span>
+        <span class="n">train_score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">estimators_</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">staged_decision_function</span><span class="p">(</span><span class="n">X_test</span><span class="p">)):</span>
+            <span class="n">test_score</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">staged_decision_function</span><span class="p">(</span><span class="n">X_train</span><span class="p">)):</span>
+            <span class="n">train_score</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">pred</span><span class="p">)</span>
+
+        <span class="n">best_iter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">test_score</span><span class="p">)</span>
+        <span class="n">learn</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">]</span>
+        <span class="n">depth</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="s1">&#39;max_depth&#39;</span><span class="p">]</span>
+        <span class="n">test_line</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_score</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span>
+                             <span class="n">label</span><span class="o">=</span><span class="s1">&#39;learn=</span><span class="si">%.1f</span><span class="s1"> depth=</span><span class="si">%i</span><span class="s1"> (</span><span class="si">%.2f</span><span class="s1">)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">learn</span><span class="p">,</span><span class="n">depth</span><span class="p">,</span>
+                                                                 <span class="n">test_score</span><span class="p">[</span><span class="n">best_iter</span><span class="p">]))</span>
+
+        <span class="n">colour</span> <span class="o">=</span> <span class="n">test_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_color</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_score</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colour</span><span class="p">)</span>
+        
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Number of boosting iterations&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;1 - area under ROC&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">best_iter</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colour</span><span class="p">)</span>
+        
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># Split development set into a train and test sample</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">4685</span><span class="p">)</span>
+<span class="n">clfs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="mf">1.</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>
+          <span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">learn</span><span class="p">,</span><span class="n">depth</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+    <span class="n">gbt_clf</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="n">depth</span><span class="p">,</span>
+                                         <span class="n">learning_rate</span><span class="o">=</span><span class="n">learn</span><span class="p">,</span>
+                                         <span class="n">n_estimators</span><span class="o">=</span><span class="mi">500</span><span class="p">);</span>
+    <span class="n">gbt_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">clfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gbt_clf</span><span class="p">)</span>
+
+<span class="n">validation_curve</span><span class="p">(</span><span class="n">clfs</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/S3 Bias-Variance and Ensembles_15_0.png" src="../_images/S3 Bias-Variance and Ensembles_15_0.png" />
+</div>
+</div>
+<p>We plot 1-AUC, so the lower the better.</p>
+<p><strong>Tree size</strong>:<br />
+We clearly get worse results using very shallow trees (stumps): green and dark blue lines. Shallow trees typically have high bias and underfit a lot. While gradient boosting does reduces bias, you can only reduce bias so much, making the ensembles of decision stumps level off around 0.1. Using deeper trees means bigger variance (which boosting does NOT reduce), but overall this better fits of the data.</p>
+<p><strong>Learning rate</strong>:<br />
+A high learning rate means that the instance weights will get large updates, hence each individual tree will have a large impact on the next ones, and the individual trees will be more different from each other (more varied). This increases variance and the likelihood of overfitting, which can be bad for boosting since it doesn’t reduce variance well. Look at the red curve: the larger learning rate reduces error faster, but then rebounds as it starts overfitting. Looking at the training set error (dashed red line, lower than any other), it indeed looks like it is overfitting. On the other hand, the smaller learning rate causes a slower optimization (weights are updated only a little bit, each individual tree will have less impact on the next, and the trees will be much more similar to each other), but it reduces the chance of overfitting and ultimately leads to the best ensemble (light blue curve). In fact, it already find it best solution after 130 iterations, while all others need 500 iterations (or more).</p>
+<p>The best solution is thus to use slightly larger trees and a low learning rate.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./studies"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Joaquin Vanschoren<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

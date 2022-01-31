@@ -1,0 +1,181 @@
+Traceback (most recent call last):
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/nbclient/client.py", line 1093, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/jvanscho/miniforge3/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/nbclient/client.py", line 559, in async_execute
+    await self.async_execute_cell(
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/nbclient/client.py", line 854, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/nbclient/client.py", line 756, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+anim = FuncAnimation(fig, update, frames=np.arange(0, 5000), interval=1)
+HTML(anim.to_jshtml())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyboardInterrupt[0m                         Traceback (most recent call last)
+[0;32m/var/folders/0t/5d8ttqzd773fy0wq3h5db0xr0000gn/T/ipykernel_69778/275739309.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0manim[0m [0;34m=[0m [0mFuncAnimation[0m[0;34m([0m[0mfig[0m[0;34m,[0m [0mupdate[0m[0;34m,[0m [0mframes[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0marange[0m[0;34m([0m[0;36m0[0m[0;34m,[0m [0;36m5000[0m[0;34m)[0m[0;34m,[0m [0minterval[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mHTML[0m[0;34m([0m[0manim[0m[0;34m.[0m[0mto_jshtml[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/animation.py[0m in [0;36mto_jshtml[0;34m(self, fps, embed_frames, default_mode)[0m
+[1;32m   1331[0m                                     [0membed_frames[0m[0;34m=[0m[0membed_frames[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1332[0m                                     default_mode=default_mode)
+[0;32m-> 1333[0;31m                 [0mself[0m[0;34m.[0m[0msave[0m[0;34m([0m[0mstr[0m[0;34m([0m[0mpath[0m[0;34m)[0m[0;34m,[0m [0mwriter[0m[0;34m=[0m[0mwriter[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1334[0m                 [0mself[0m[0;34m.[0m[0m_html_representation[0m [0;34m=[0m [0mpath[0m[0;34m.[0m[0mread_text[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1335[0m [0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/animation.py[0m in [0;36msave[0;34m(self, filename, writer, fps, dpi, codec, bitrate, extra_args, metadata, extra_anim, savefig_kwargs, progress_callback)[0m
+[1;32m   1093[0m                         [0mprogress_callback[0m[0;34m([0m[0mframe_number[0m[0;34m,[0m [0mtotal_frames[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1094[0m                         [0mframe_number[0m [0;34m+=[0m [0;36m1[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1095[0;31m                 [0mwriter[0m[0;34m.[0m[0mgrab_frame[0m[0;34m([0m[0;34m**[0m[0msavefig_kwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1096[0m [0;34m[0m[0m
+[1;32m   1097[0m     [0;32mdef[0m [0m_step[0m[0;34m([0m[0mself[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/animation.py[0m in [0;36mgrab_frame[0;34m(self, **savefig_kwargs)[0m
+[1;32m    772[0m                 [0;32mreturn[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    773[0m             [0mf[0m [0;34m=[0m [0mBytesIO[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 774[0;31m             self.fig.savefig(f, format=self.frame_format,
+[0m[1;32m    775[0m                              dpi=self.dpi, **savefig_kwargs)
+[1;32m    776[0m             [0mimgdata64[0m [0;34m=[0m [0mbase64[0m[0;34m.[0m[0mencodebytes[0m[0;34m([0m[0mf[0m[0;34m.[0m[0mgetvalue[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m.[0m[0mdecode[0m[0;34m([0m[0;34m'ascii'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/figure.py[0m in [0;36msavefig[0;34m(self, fname, transparent, **kwargs)[0m
+[1;32m   3017[0m                         ax.patch._cm_set(facecolor='none', edgecolor='none'))
+[1;32m   3018[0m [0;34m[0m[0m
+[0;32m-> 3019[0;31m             [0mself[0m[0;34m.[0m[0mcanvas[0m[0;34m.[0m[0mprint_figure[0m[0;34m([0m[0mfname[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3020[0m [0;34m[0m[0m
+[1;32m   3021[0m     def ginput(self, n=1, timeout=30, show_clicks=True,
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/backend_bases.py[0m in [0;36mprint_figure[0;34m(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, pad_inches, bbox_extra_artists, backend, **kwargs)[0m
+[1;32m   2317[0m                 [0;31m# force the figure dpi to 72), so we need to set it again here.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2318[0m                 [0;32mwith[0m [0mcbook[0m[0;34m.[0m[0m_setattr_cm[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mfigure[0m[0;34m,[0m [0mdpi[0m[0;34m=[0m[0mdpi[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2319[0;31m                     result = print_method(
+[0m[1;32m   2320[0m                         [0mfilename[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2321[0m                         [0mfacecolor[0m[0;34m=[0m[0mfacecolor[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/backend_bases.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m   1646[0m             [0mkwargs[0m[0;34m.[0m[0mpop[0m[0;34m([0m[0marg[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1647[0m [0;34m[0m[0m
+[0;32m-> 1648[0;31m         [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1649[0m [0;34m[0m[0m
+[1;32m   1650[0m     [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/_api/deprecation.py[0m in [0;36mwrapper[0;34m(*inner_args, **inner_kwargs)[0m
+[1;32m    410[0m                          [0;32melse[0m [0mdeprecation_addendum[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    411[0m                 **kwargs)
+[0;32m--> 412[0;31m         [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0minner_args[0m[0;34m,[0m [0;34m**[0m[0minner_kwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    413[0m [0;34m[0m[0m
+[1;32m    414[0m     [0mDECORATORS[0m[0;34m[[0m[0mwrapper[0m[0;34m][0m [0;34m=[0m [0mdecorator[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/backends/backend_agg.py[0m in [0;36mprint_png[0;34m(self, filename_or_obj, metadata, pil_kwargs, *args)[0m
+[1;32m    538[0m             [0;34m*[0m[0mmetadata[0m[0;34m*[0m[0;34m,[0m [0mincluding[0m [0mthe[0m [0mdefault[0m [0;34m'Software'[0m [0mkey[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    539[0m         """
+[0;32m--> 540[0;31m         [0mFigureCanvasAgg[0m[0;34m.[0m[0mdraw[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    541[0m         mpl.image.imsave(
+[1;32m    542[0m             [0mfilename_or_obj[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mbuffer_rgba[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0mformat[0m[0;34m=[0m[0;34m"png"[0m[0;34m,[0m [0morigin[0m[0;34m=[0m[0;34m"upper"[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/backends/backend_agg.py[0m in [0;36mdraw[0;34m(self)[0m
+[1;32m    434[0m              (self.toolbar._wait_cursor_for_draw_cm() if self.toolbar
+[1;32m    435[0m               else nullcontext()):
+[0;32m--> 436[0;31m             [0mself[0m[0;34m.[0m[0mfigure[0m[0;34m.[0m[0mdraw[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mrenderer[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    437[0m             [0;31m# A GUI class may be need to update a window using this draw, so[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    438[0m             [0;31m# don't forget to call the superclass.[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/artist.py[0m in [0;36mdraw_wrapper[0;34m(artist, renderer, *args, **kwargs)[0m
+[1;32m     71[0m     [0;34m@[0m[0mwraps[0m[0;34m([0m[0mdraw[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     72[0m     [0;32mdef[0m [0mdraw_wrapper[0m[0;34m([0m[0martist[0m[0;34m,[0m [0mrenderer[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 73[0;31m         [0mresult[0m [0;34m=[0m [0mdraw[0m[0;34m([0m[0martist[0m[0;34m,[0m [0mrenderer[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     74[0m         [0;32mif[0m [0mrenderer[0m[0;34m.[0m[0m_rasterizing[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     75[0m             [0mrenderer[0m[0;34m.[0m[0mstop_rasterizing[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/artist.py[0m in [0;36mdraw_wrapper[0;34m(artist, renderer)[0m
+[1;32m     48[0m                 [0mrenderer[0m[0;34m.[0m[0mstart_filter[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     49[0m [0;34m[0m[0m
+[0;32m---> 50[0;31m             [0;32mreturn[0m [0mdraw[0m[0;34m([0m[0martist[0m[0;34m,[0m [0mrenderer[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     51[0m         [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     52[0m             [0;32mif[0m [0martist[0m[0;34m.[0m[0mget_agg_filter[0m[0;34m([0m[0;34m)[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/figure.py[0m in [0;36mdraw[0;34m(self, renderer)[0m
+[1;32m   2802[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0mget_tight_layout[0m[0;34m([0m[0;34m)[0m [0;32mand[0m [0mself[0m[0;34m.[0m[0maxes[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2803[0m                 [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2804[0;31m                     [0mself[0m[0;34m.[0m[0mtight_layout[0m[0;34m([0m[0;34m**[0m[0mself[0m[0;34m.[0m[0m_tight_parameters[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2805[0m                 [0;32mexcept[0m [0mValueError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2806[0m                     [0;32mpass[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/figure.py[0m in [0;36mtight_layout[0;34m(self, pad, h_pad, w_pad, rect)[0m
+[1;32m   3195[0m         [0mrenderer[0m [0;34m=[0m [0m_get_renderer[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3196[0m         [0;32mwith[0m [0mgetattr[0m[0;34m([0m[0mrenderer[0m[0;34m,[0m [0;34m"_draw_disabled"[0m[0;34m,[0m [0mnullcontext[0m[0;34m)[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3197[0;31m             kwargs = get_tight_layout_figure(
+[0m[1;32m   3198[0m                 [0mself[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0maxes[0m[0;34m,[0m [0msubplotspec_list[0m[0;34m,[0m [0mrenderer[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3199[0m                 pad=pad, h_pad=h_pad, w_pad=w_pad, rect=rect)
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/tight_layout.py[0m in [0;36mget_tight_layout_figure[0;34m(fig, axes_list, subplotspec_list, renderer, pad, h_pad, w_pad, rect)[0m
+[1;32m    318[0m             slice(ss.colspan.start * div_col, ss.colspan.stop * div_col)))
+[1;32m    319[0m [0;34m[0m[0m
+[0;32m--> 320[0;31m     kwargs = _auto_adjust_subplotpars(fig, renderer,
+[0m[1;32m    321[0m                                       [0mshape[0m[0;34m=[0m[0;34m([0m[0mmax_nrows[0m[0;34m,[0m [0mmax_ncols[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    322[0m                                       [0mspan_pairs[0m[0;34m=[0m[0mspan_pairs[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/tight_layout.py[0m in [0;36m_auto_adjust_subplotpars[0;34m(fig, renderer, shape, span_pairs, subplot_list, ax_bbox_list, pad, h_pad, w_pad, rect)[0m
+[1;32m     80[0m             [0;32mif[0m [0max[0m[0;34m.[0m[0mget_visible[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     81[0m                 [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 82[0;31m                     [0mbb[0m [0;34m+=[0m [0;34m[[0m[0max[0m[0;34m.[0m[0mget_tightbbox[0m[0;34m([0m[0mrenderer[0m[0;34m,[0m [0mfor_layout_only[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     83[0m                 [0;32mexcept[0m [0mTypeError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     84[0m                     [0mbb[0m [0;34m+=[0m [0;34m[[0m[0max[0m[0;34m.[0m[0mget_tightbbox[0m[0;34m([0m[0mrenderer[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/axes/_base.py[0m in [0;36mget_tightbbox[0;34m(self, renderer, call_axes_locator, bbox_extra_artists, for_layout_only)[0m
+[1;32m   4617[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0mxaxis[0m[0;34m.[0m[0mget_visible[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   4618[0m                 [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 4619[0;31m                     bb_xaxis = self.xaxis.get_tightbbox(
+[0m[1;32m   4620[0m                         renderer, for_layout_only=for_layout_only)
+[1;32m   4621[0m                 [0;32mexcept[0m [0mTypeError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/axis.py[0m in [0;36mget_tightbbox[0;34m(self, renderer, for_layout_only)[0m
+[1;32m   1103[0m         [0mticks_to_draw[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_update_ticks[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1104[0m [0;34m[0m[0m
+[0;32m-> 1105[0;31m         [0mself[0m[0;34m.[0m[0m_update_label_position[0m[0;34m([0m[0mrenderer[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1106[0m [0;34m[0m[0m
+[1;32m   1107[0m         [0;31m# go back to just this axis's tick labels[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/axis.py[0m in [0;36m_update_label_position[0;34m(self, renderer)[0m
+[1;32m   2092[0m                 [0;31m# use axes if spine doesn't exist[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2093[0m                 [0mspinebbox[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0maxes[0m[0;34m.[0m[0mbbox[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2094[0;31m             [0mbbox[0m [0;34m=[0m [0mmtransforms[0m[0;34m.[0m[0mBbox[0m[0;34m.[0m[0munion[0m[0;34m([0m[0mbboxes[0m [0;34m+[0m [0;34m[[0m[0mspinebbox[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2095[0m             [0mbottom[0m [0;34m=[0m [0mbbox[0m[0;34m.[0m[0my0[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2096[0m [0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/matplotlib/transforms.py[0m in [0;36munion[0;34m(bboxes)[0m
+[1;32m    666[0m             [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"'bboxes' cannot be empty"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    667[0m         [0mx0[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mmin[0m[0;34m([0m[0;34m[[0m[0mbbox[0m[0;34m.[0m[0mxmin[0m [0;32mfor[0m [0mbbox[0m [0;32min[0m [0mbboxes[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 668[0;31m         [0mx1[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mmax[0m[0;34m([0m[0;34m[[0m[0mbbox[0m[0;34m.[0m[0mxmax[0m [0;32mfor[0m [0mbbox[0m [0;32min[0m [0mbboxes[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    669[0m         [0my0[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mmin[0m[0;34m([0m[0;34m[[0m[0mbbox[0m[0;34m.[0m[0mymin[0m [0;32mfor[0m [0mbbox[0m [0;32min[0m [0mbboxes[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    670[0m         [0my1[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mmax[0m[0;34m([0m[0;34m[[0m[0mbbox[0m[0;34m.[0m[0mymax[0m [0;32mfor[0m [0mbbox[0m [0;32min[0m [0mbboxes[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/numpy/core/overrides.py[0m in [0;36mamax[0;34m(*args, **kwargs)[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/numpy/core/fromnumeric.py[0m in [0;36mamax[0;34m(a, axis, out, keepdims, initial, where)[0m
+[1;32m   2789[0m     [0;36m5[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2790[0m     """
+[0;32m-> 2791[0;31m     return _wrapreduction(a, np.maximum, 'max', axis, None, out,
+[0m[1;32m   2792[0m                           keepdims=keepdims, initial=initial, where=where)
+[1;32m   2793[0m [0;34m[0m[0m
+
+[0;32m~/miniforge3/lib/python3.9/site-packages/numpy/core/fromnumeric.py[0m in [0;36m_wrapreduction[0;34m(obj, ufunc, method, axis, dtype, out, **kwargs)[0m
+[1;32m     84[0m                 [0;32mreturn[0m [0mreduction[0m[0;34m([0m[0maxis[0m[0;34m=[0m[0maxis[0m[0;34m,[0m [0mout[0m[0;34m=[0m[0mout[0m[0;34m,[0m [0;34m**[0m[0mpasskwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     85[0m [0;34m[0m[0m
+[0;32m---> 86[0;31m     [0;32mreturn[0m [0mufunc[0m[0;34m.[0m[0mreduce[0m[0;34m([0m[0mobj[0m[0;34m,[0m [0maxis[0m[0;34m,[0m [0mdtype[0m[0;34m,[0m [0mout[0m[0;34m,[0m [0;34m**[0m[0mpasskwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     87[0m [0;34m[0m[0m
+[1;32m     88[0m [0;34m[0m[0m
+
+[0;31mKeyboardInterrupt[0m: 
+KeyboardInterrupt: 
+

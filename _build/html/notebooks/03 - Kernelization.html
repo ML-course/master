@@ -1,0 +1,1538 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 3: Kernelization &#8212; ML Engineering</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/banner.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ML Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Overview
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/03 - Kernelization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ml-course/master"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ml-course/master/issues/new?title=Issue%20on%20page%20%2Fnotebooks/03 - Kernelization.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ml-course/master/master?urlpath=tree/notebooks/03 - Kernelization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ml-course/master/blob/master/notebooks/03 - Kernelization.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-maps">
+   Feature Maps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ridge-regression-example">
+     Ridge regression example
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-expensive-is-this">
+       How expensive is this?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-svm-example-classification">
+     Linear SVM example (classification)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-kernel-trick">
+   The kernel trick
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kernelization">
+   Kernelization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-svms">
+     Example: SVMs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#which-kernels-exist">
+     Which kernels exist?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-kernel">
+     Linear kernel
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#polynomial-kernel">
+     Polynomial kernel
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rbf-gaussian-kernel">
+     RBF (Gaussian) kernel
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kernelized-svms-in-practice">
+   Kernelized SVMs in practice
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#svm-with-rbf-kernel">
+     SVM with RBF kernel
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tuning-rbf-svms">
+     Tuning RBF SVMs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#svms-in-practice">
+     SVMs in practice
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-kernels">
+     Other kernels
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-representer-theorem">
+   The Representer Theorem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kernelized-ridge-regression">
+   Kernelized Ridge regression
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-of-kernelized-ridge">
+     Example of kernelized Ridge
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-kernelized-methods">
+     Other kernelized methods
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lecture 3: Kernelization</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-maps">
+   Feature Maps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ridge-regression-example">
+     Ridge regression example
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-expensive-is-this">
+       How expensive is this?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-svm-example-classification">
+     Linear SVM example (classification)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-kernel-trick">
+   The kernel trick
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kernelization">
+   Kernelization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-svms">
+     Example: SVMs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#which-kernels-exist">
+     Which kernels exist?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-kernel">
+     Linear kernel
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#polynomial-kernel">
+     Polynomial kernel
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rbf-gaussian-kernel">
+     RBF (Gaussian) kernel
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kernelized-svms-in-practice">
+   Kernelized SVMs in practice
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#svm-with-rbf-kernel">
+     SVM with RBF kernel
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tuning-rbf-svms">
+     Tuning RBF SVMs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#svms-in-practice">
+     SVMs in practice
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-kernels">
+     Other kernels
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-representer-theorem">
+   The Representer Theorem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kernelized-ridge-regression">
+   Kernelized Ridge regression
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-of-kernelized-ridge">
+     Example of kernelized Ridge
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-kernelized-methods">
+     Other kernelized methods
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="lecture-3-kernelization">
+<h1>Lecture 3: Kernelization<a class="headerlink" href="#lecture-3-kernelization" title="Permalink to this headline">¶</a></h1>
+<p><strong>Making linear models non-linear</strong></p>
+<p>Joaquin Vanschoren</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Global imports and settings</span>
+<span class="kn">from</span> <span class="nn">preamble</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1">#InteractiveShell.ast_node_interactivity = &quot;all&quot;</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;style&gt;html, body{overflow-y: visible !important} .CodeMirror{min-width:105% !important;} .rise-enabled .CodeMirror, .rise-enabled .output_subarea{font-size:140%; line-height:1.2; overflow: visible;} .output_subarea pre</span><span class="si">{width:110%}</span><span class="s1">&lt;/style&gt;&#39;&#39;&#39;</span><span class="p">)</span> <span class="c1"># For slides</span>
+<span class="n">interactive</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Set to True for interactive plots </span>
+<span class="k">if</span> <span class="n">interactive</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">150</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="feature-maps">
+<h2>Feature Maps<a class="headerlink" href="#feature-maps" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Linear models: <span class="math notranslate nohighlight">\(\hat{y} = \mathbf{w}\mathbf{x} + w_0 = \sum_{i=1}^{p} w_i x_i + w_0 = w_0 + w_1 x_1 + ... + w_p x_p \)</span></p></li>
+<li><p>When we cannot fit the data well, we can add non-linear transformations of the features</p></li>
+<li><p>Feature map (or <em>basis expansion</em> ) <span class="math notranslate nohighlight">\(\phi\)</span> : <span class="math notranslate nohighlight">\( X \rightarrow \mathbb{R}^d \)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[y=\textbf{w}^T\textbf{x} \rightarrow  y=\textbf{w}^T\phi(\textbf{x})\]</div>
+<ul class="simple">
+<li><p>E.g. Polynomial feature map: all polynomials up to degree <span class="math notranslate nohighlight">\(d\)</span> and all products</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[[1, x_1, ..., x_p] \xrightarrow{\phi} [1, x_1, ..., x_p, x_1^2, ..., x_p^2, ..., x_p^d, x_1 x_2, ..., x_{p-1} x_p]\]</div>
+<ul class="simple">
+<li><p>Example with <span class="math notranslate nohighlight">\(p=1, d=3\)</span> :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[y=w_0 + w_1 x_1 \xrightarrow{\phi} y=w_0 + w_1 x_1 + w_2 x_1^2 + w_3 x_1^3\]</div>
+<div class="section" id="ridge-regression-example">
+<h3>Ridge regression example<a class="headerlink" href="#ridge-regression-example" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mglearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_wave</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">reg</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Weights:&quot;</span><span class="p">,</span><span class="n">reg</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;linear regression&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Regression output&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Input feature&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Weights: [0.418]
+</pre></div>
+</div>
+<img alt="../_images/03 - Kernelization_4_1.png" src="../_images/03 - Kernelization_4_1.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Add all polynomials <span class="math notranslate nohighlight">\(x^d\)</span> up to degree 10 and fit again:</p>
+<ul>
+<li><p>e.g. use sklearn <code class="docutils literal notranslate"><span class="pre">PolynomialFeatures</span></code></p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
+
+<span class="c1"># include polynomials up to x ** 10:</span>
+<span class="c1"># the default &quot;include_bias=True&quot; adds a feature that&#39;s constantly 1</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">poly</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">X_poly</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">styles</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">selector</span><span class="o">=</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="n">props</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;font-size&quot;</span><span class="p">,</span> <span class="s2">&quot;150%&quot;</span><span class="p">)]),</span><span class="nb">dict</span><span class="p">(</span><span class="n">selector</span><span class="o">=</span><span class="s2">&quot;th&quot;</span><span class="p">,</span> <span class="n">props</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;font-size&quot;</span><span class="p">,</span> <span class="s2">&quot;150%&quot;</span><span class="p">)])]</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_poly</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">poly</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span><span class="n">styles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+    #T_017cddd0_8840_11eb_9189_8c8590a2faca td {
+          font-size: 150%;
+    }    #T_017cddd0_8840_11eb_9189_8c8590a2faca th {
+          font-size: 150%;
+    }</style><table id="T_017cddd0_8840_11eb_9189_8c8590a2faca" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >x0</th>        <th class="col_heading level0 col1" >x0^2</th>        <th class="col_heading level0 col2" >x0^3</th>        <th class="col_heading level0 col3" >x0^4</th>        <th class="col_heading level0 col4" >x0^5</th>        <th class="col_heading level0 col5" >x0^6</th>        <th class="col_heading level0 col6" >x0^7</th>        <th class="col_heading level0 col7" >x0^8</th>        <th class="col_heading level0 col8" >x0^9</th>        <th class="col_heading level0 col9" >x0^10</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_017cddd0_8840_11eb_9189_8c8590a2facalevel0_row0" class="row_heading level0 row0" >0</th>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow0_col0" class="data row0 col0" >-0.75</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow0_col1" class="data row0 col1" >0.57</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow0_col2" class="data row0 col2" >-0.43</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow0_col3" class="data row0 col3" >0.32</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow0_col4" class="data row0 col4" >-0.24</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow0_col5" class="data row0 col5" >0.18</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow0_col6" class="data row0 col6" >-0.14</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow0_col7" class="data row0 col7" >0.10</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow0_col8" class="data row0 col8" >-0.08</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow0_col9" class="data row0 col9" >0.06</td>
+            </tr>
+            <tr>
+                        <th id="T_017cddd0_8840_11eb_9189_8c8590a2facalevel0_row1" class="row_heading level0 row1" >1</th>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow1_col0" class="data row1 col0" >2.70</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow1_col1" class="data row1 col1" >7.31</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow1_col2" class="data row1 col2" >19.78</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow1_col3" class="data row1 col3" >53.48</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow1_col4" class="data row1 col4" >144.63</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow1_col5" class="data row1 col5" >391.12</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow1_col6" class="data row1 col6" >1057.71</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow1_col7" class="data row1 col7" >2860.36</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow1_col8" class="data row1 col8" >7735.23</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow1_col9" class="data row1 col9" >20918.28</td>
+            </tr>
+            <tr>
+                        <th id="T_017cddd0_8840_11eb_9189_8c8590a2facalevel0_row2" class="row_heading level0 row2" >2</th>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow2_col0" class="data row2 col0" >1.39</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow2_col1" class="data row2 col1" >1.94</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow2_col2" class="data row2 col2" >2.70</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow2_col3" class="data row2 col3" >3.75</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow2_col4" class="data row2 col4" >5.23</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow2_col5" class="data row2 col5" >7.27</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow2_col6" class="data row2 col6" >10.13</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow2_col7" class="data row2 col7" >14.09</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow2_col8" class="data row2 col8" >19.62</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow2_col9" class="data row2 col9" >27.31</td>
+            </tr>
+            <tr>
+                        <th id="T_017cddd0_8840_11eb_9189_8c8590a2facalevel0_row3" class="row_heading level0 row3" >3</th>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow3_col0" class="data row3 col0" >0.59</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow3_col1" class="data row3 col1" >0.35</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow3_col2" class="data row3 col2" >0.21</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow3_col3" class="data row3 col3" >0.12</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow3_col4" class="data row3 col4" >0.07</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow3_col5" class="data row3 col5" >0.04</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow3_col6" class="data row3 col6" >0.03</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow3_col7" class="data row3 col7" >0.02</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow3_col8" class="data row3 col8" >0.01</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow3_col9" class="data row3 col9" >0.01</td>
+            </tr>
+            <tr>
+                        <th id="T_017cddd0_8840_11eb_9189_8c8590a2facalevel0_row4" class="row_heading level0 row4" >4</th>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow4_col0" class="data row4 col0" >-2.06</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow4_col1" class="data row4 col1" >4.26</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow4_col2" class="data row4 col2" >-8.79</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow4_col3" class="data row4 col3" >18.14</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow4_col4" class="data row4 col4" >-37.45</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow4_col5" class="data row4 col5" >77.29</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow4_col6" class="data row4 col6" >-159.52</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow4_col7" class="data row4 col7" >329.22</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow4_col8" class="data row4 col8" >-679.48</td>
+                        <td id="T_017cddd0_8840_11eb_9189_8c8590a2facarow4_col9" class="data row4 col9" >1402.37</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_poly</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Weights:&quot;</span><span class="p">,</span><span class="n">reg</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="n">line_poly</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line_poly</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;polynomial linear regression&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Regression output&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Input feature&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Weights: [ 0.643  0.297 -0.69  -0.264  0.41   0.096 -0.076 -0.014  0.004  0.001]
+</pre></div>
+</div>
+<img alt="../_images/03 - Kernelization_7_1.png" src="../_images/03 - Kernelization_7_1.png" />
+</div>
+</div>
+<div class="section" id="how-expensive-is-this">
+<h4>How expensive is this?<a class="headerlink" href="#how-expensive-is-this" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>You may need MANY dimensions to fit the data</p>
+<ul>
+<li><p>Memory and computational cost</p></li>
+<li><p>More weights to learn, more likely overfitting</p></li>
+</ul>
+</li>
+<li><p>Ridge has a closed-form solution which we can compute with linear algebra:
+$<span class="math notranslate nohighlight">\(w^{*} = (X^{T}X + \alpha I)^{-1} X^T Y\)</span>$</p></li>
+<li><p>Since X has <span class="math notranslate nohighlight">\(n\)</span> rows (examples), and <span class="math notranslate nohighlight">\(d\)</span> columns (features), <span class="math notranslate nohighlight">\(X^{T}X\)</span> has dimensionality <span class="math notranslate nohighlight">\(d x d\)</span></p></li>
+<li><p>Hence Ridge is quadratic in the number of features, <span class="math notranslate nohighlight">\(\mathcal{O}(d^2n)\)</span></p></li>
+<li><p>After the feature map <span class="math notranslate nohighlight">\(\Phi\)</span>, we get
+$<span class="math notranslate nohighlight">\(w^{*} = (\Phi(X)^{T}\Phi(X) + \alpha I)^{-1} \Phi(X)^T Y\)</span>$</p></li>
+<li><p>Since <span class="math notranslate nohighlight">\(\Phi\)</span> increases <span class="math notranslate nohighlight">\(d\)</span> a lot, <span class="math notranslate nohighlight">\(\Phi(X)^{T}\Phi(X)\)</span> becomes <em>huge</em></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="linear-svm-example-classification">
+<h3>Linear SVM example (classification)<a class="headerlink" href="#linear-svm-example-classification" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">LinearSVC</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">centers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">%</span> <span class="mi">2</span>
+<span class="n">linear_svm</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">mglearn</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_2d_separator</span><span class="p">(</span><span class="n">linear_svm</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">mglearn</span><span class="o">.</span><span class="n">discrete_scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Feature 1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Feature 2&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03 - Kernelization_10_0.png" src="../_images/03 - Kernelization_10_0.png" />
+</div>
+</div>
+<p>We can add a new feature by taking the squares of feature1 values</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add the squared first feature</span>
+<span class="n">X_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">X</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">])</span>
+
+
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span><span class="p">,</span> <span class="n">axes3d</span>
+<span class="n">figure</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="c1"># visualize in 3D</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">figure</span><span class="p">,</span> <span class="n">elev</span><span class="o">=-</span><span class="mi">152</span><span class="p">,</span> <span class="n">azim</span><span class="o">=-</span><span class="mi">26</span><span class="p">)</span>
+<span class="c1"># plot first all the points with y==0, then all with y == 1</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_new</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_new</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">X_new</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span>
+           <span class="n">cmap</span><span class="o">=</span><span class="n">mglearn</span><span class="o">.</span><span class="n">cm2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_new</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_new</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">X_new</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;^&#39;</span><span class="p">,</span>
+           <span class="n">cmap</span><span class="o">=</span><span class="n">mglearn</span><span class="o">.</span><span class="n">cm2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;feature1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;feature2&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;feature2 ** 2&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03 - Kernelization_12_0.png" src="../_images/03 - Kernelization_12_0.png" />
+</div>
+</div>
+<p>Now we can fit a linear model</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">linear_svm_3d</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_new</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">coef</span><span class="p">,</span> <span class="n">intercept</span> <span class="o">=</span> <span class="n">linear_svm_3d</span><span class="o">.</span><span class="n">coef_</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">linear_svm_3d</span><span class="o">.</span><span class="n">intercept_</span>
+
+<span class="c1"># show linear decision boundary</span>
+<span class="n">figure</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">figure</span><span class="p">,</span> <span class="n">elev</span><span class="o">=-</span><span class="mi">152</span><span class="p">,</span> <span class="n">azim</span><span class="o">=-</span><span class="mi">26</span><span class="p">)</span>
+<span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">X_new</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">X_new</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">X_new</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">X_new</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="n">XX</span><span class="p">,</span> <span class="n">YY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">)</span>
+<span class="n">ZZ</span> <span class="o">=</span> <span class="p">(</span><span class="n">coef</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">XX</span> <span class="o">+</span> <span class="n">coef</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">YY</span> <span class="o">+</span> <span class="n">intercept</span><span class="p">)</span> <span class="o">/</span> <span class="o">-</span><span class="n">coef</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">YY</span><span class="p">,</span> <span class="n">ZZ</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_new</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_new</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">X_new</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span>
+           <span class="n">cmap</span><span class="o">=</span><span class="n">mglearn</span><span class="o">.</span><span class="n">cm2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_new</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_new</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">X_new</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;^&#39;</span><span class="p">,</span>
+           <span class="n">cmap</span><span class="o">=</span><span class="n">mglearn</span><span class="o">.</span><span class="n">cm2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;feature1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;feature2&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;feature2 ** 2&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03 - Kernelization_14_0.png" src="../_images/03 - Kernelization_14_0.png" />
+</div>
+</div>
+<p>As a function of the original features, the decision boundary is now a polynomial as well
+$<span class="math notranslate nohighlight">\(y = w_0 + w_1 x_1 + w_2 x_2 + w_3 x_2^2 &gt; 0\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ZZ</span> <span class="o">=</span> <span class="n">YY</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">dec</span> <span class="o">=</span> <span class="n">linear_svm_3d</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">XX</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">YY</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">ZZ</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">YY</span><span class="p">,</span> <span class="n">dec</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">XX</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="n">dec</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dec</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span>
+             <span class="n">cmap</span><span class="o">=</span><span class="n">mglearn</span><span class="o">.</span><span class="n">cm2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">mglearn</span><span class="o">.</span><span class="n">discrete_scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Feature 1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Feature 2&quot;</span><span class="p">);</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03 - Kernelization_16_0.png" src="../_images/03 - Kernelization_16_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-kernel-trick">
+<h2>The kernel trick<a class="headerlink" href="#the-kernel-trick" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Computations in explicit, high-dimensional feature maps are <em>expensive</em></p></li>
+<li><p>For <em>some</em> feature maps, we can, however, compute <em>distances</em> between <em>points</em> cheaply</p>
+<ul>
+<li><p>Without explicitly constructing the high-dimensional space at all</p></li>
+</ul>
+</li>
+<li><p>Example: <em>quadratic</em> feature map for <span class="math notranslate nohighlight">\(\mathbf{x} = (x_1,..., x_p )\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \Phi(\mathbf{x}) = (x_1,..., x_p , x_1^2,..., x_p^2 , \sqrt{2} x_1 x_2 , ..., \sqrt{2} x_{p-1} x_{p}) \]</div>
+<ul class="simple">
+<li><p>A <em>kernel function</em> exists for this feature map to compute dot products</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ k_{quad}(\mathbf{x_i},\mathbf{x_j}) =  \Phi(\mathbf{x_i}) \cdot \Phi(\mathbf{x_j}) =  \mathbf{x_i} \cdot \mathbf{x_j} + (\mathbf{x_i} \cdot \mathbf{x_j})^2\]</div>
+<ul class="simple">
+<li><p>Skip computation of <span class="math notranslate nohighlight">\(\Phi(x_i)\)</span> and <span class="math notranslate nohighlight">\(\Phi(x_j)\)</span> and compute <span class="math notranslate nohighlight">\(k(x_i,x_j)\)</span> directly</p></li>
+</ul>
+</div>
+<div class="section" id="kernelization">
+<h2>Kernelization<a class="headerlink" href="#kernelization" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Kernel <span class="math notranslate nohighlight">\(k\)</span> corresponding to a feature map <span class="math notranslate nohighlight">\(\Phi\)</span>: <span class="math notranslate nohighlight">\( k(\mathbf{x_i},\mathbf{x_j}) = \Phi(\mathbf{x_i}) \cdot \Phi(\mathbf{x_j})\)</span></p></li>
+<li><p>Computes dot product between <span class="math notranslate nohighlight">\(x_i,x_j\)</span> in a high-dimensional space <span class="math notranslate nohighlight">\(\mathcal{H}\)</span></p>
+<ul>
+<li><p>Kernels are sometimes called <em>generalized dot products</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{H}\)</span> is called the <em>reproducing kernel Hilbert space</em> (RKHS)</p></li>
+</ul>
+</li>
+<li><p>The dot product is a measure of the <em>similarity</em> between <span class="math notranslate nohighlight">\(x_i,x_j\)</span></p>
+<ul>
+<li><p>Hence, a kernel can be seen as a similarity measure for high-dimensional spaces</p></li>
+</ul>
+</li>
+<li><p>If we have a loss function based on dot products <span class="math notranslate nohighlight">\(\mathbf{x_i}\cdot\mathbf{x_j}\)</span> it can be <em>kernelized</em></p>
+<ul>
+<li><p>Simply replace the dot products with <span class="math notranslate nohighlight">\(k(\mathbf{x_i},\mathbf{x_j})\)</span></p></li>
+</ul>
+</li>
+</ul>
+<img src="../images/RKHS.png" alt="ml" style="margin: 0 auto; width: 900px;"/><div class="section" id="example-svms">
+<h3>Example: SVMs<a class="headerlink" href="#example-svms" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Linear SVMs (dual form, for <span class="math notranslate nohighlight">\(l\)</span> support vectors with dual coefficients <span class="math notranslate nohighlight">\(a_i\)</span> and classes <span class="math notranslate nohighlight">\(y_i\)</span>):
+$<span class="math notranslate nohighlight">\(\mathcal{L}_{Dual} (a_i) = \sum_{i=1}^{l} a_i - \frac{1}{2} \sum_{i,j=1}^{l} a_i a_j y_i y_j (\mathbf{x_i} . \mathbf{x_j}) \)</span>$</p></li>
+<li><p>Kernelized SVM, using any existing kernel <span class="math notranslate nohighlight">\(k\)</span> we want:
+$<span class="math notranslate nohighlight">\(\mathcal{L}_{Dual} (a_i, k) = \sum_{i=1}^{l} a_i - \frac{1}{2} \sum_{i,j=1}^{l} a_i a_j y_i y_j k(\mathbf{x_i},\mathbf{x_j}) \)</span>$</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+
+<span class="k">def</span> <span class="nf">plot_svm_kernels</span><span class="p">(</span><span class="n">kernels</span><span class="p">,</span> <span class="n">poly_degree</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="c1"># Our dataset and targets</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[(</span><span class="mf">.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">.7</span><span class="p">),</span>
+              <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+              <span class="p">(</span><span class="o">-</span><span class="mf">1.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">.9</span><span class="p">),</span>
+              <span class="p">(</span><span class="o">-</span><span class="mf">1.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2</span><span class="p">),</span>
+              <span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">.2</span><span class="p">),</span>
+              <span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">.4</span><span class="p">),</span>
+              <span class="p">(</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">),</span>
+              <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">),</span>
+              <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+              <span class="c1"># --</span>
+              <span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">.8</span><span class="p">),</span>
+              <span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">.5</span><span class="p">),</span>
+              <span class="p">(</span><span class="mf">.2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span>
+              <span class="p">(</span><span class="mf">.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.4</span><span class="p">),</span>
+              <span class="p">(</span><span class="mf">.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.3</span><span class="p">),</span>
+              <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.7</span><span class="p">),</span>
+              <span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">)]</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">8</span>
+
+    <span class="c1"># figure number</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">kernels</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">kernels</span><span class="p">)</span><span class="o">*</span><span class="n">size</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">size</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kernels</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">axes</span> <span class="o">=</span> <span class="p">[</span><span class="n">axes</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+        <span class="n">gamma</span> <span class="o">=</span> <span class="p">[</span><span class="n">gamma</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">kernels</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="p">[</span><span class="n">C</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">kernels</span><span class="p">)</span>
+    <span class="c1"># fit the model</span>
+    <span class="k">for</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">kernels</span><span class="p">,</span><span class="n">axes</span><span class="p">,</span><span class="n">gamma</span><span class="p">,</span><span class="n">C</span><span class="p">):</span>
+        <span class="n">clf</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="n">kernel</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">g</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="n">poly_degree</span><span class="p">)</span>
+        <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+
+        <span class="c1"># plot the line, the points, and the nearest vectors to the plane</span>
+        <span class="k">if</span> <span class="n">kernel</span> <span class="o">==</span> <span class="s1">&#39;rbf&#39;</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;kernel = </span><span class="si">{}</span><span class="s2">, $\gamma$=</span><span class="si">{}</span><span class="s2">, C=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">kernel</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;kernel = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">clf</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+                    <span class="n">s</span><span class="o">=</span><span class="mi">85</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">coef</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">dual_coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">coef</span><span class="p">),</span> <span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mf">0.15</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+        <span class="n">x_min</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
+        <span class="n">x_max</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="n">y_min</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
+        <span class="n">y_max</span> <span class="o">=</span> <span class="mi">3</span>
+
+        <span class="n">XX</span><span class="p">,</span> <span class="n">YY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="n">x_min</span><span class="p">:</span><span class="n">x_max</span><span class="p">:</span><span class="mi">200</span><span class="n">j</span><span class="p">,</span> <span class="n">y_min</span><span class="p">:</span><span class="n">y_max</span><span class="p">:</span><span class="mi">200</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">XX</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">YY</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span>
+
+        <span class="c1"># Put the result into a color plot</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">XX</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="c1">#plt.pcolormesh(XX, YY, Z &gt; 0, cmap=plt.cm.bwr, alpha=0.1)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">YY</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">],</span> <span class="n">linestyles</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">],</span>
+                    <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plot_svm_kernels</span><span class="p">([</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">],</span><span class="n">poly_degree</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03 - Kernelization_20_0.png" src="../_images/03 - Kernelization_20_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="which-kernels-exist">
+<h3>Which kernels exist?<a class="headerlink" href="#which-kernels-exist" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>A (Mercer) kernel is any function <span class="math notranslate nohighlight">\(k: X \times X \rightarrow \mathbb{R}\)</span> with these properties:</p>
+<ul>
+<li><p>Symmetry: <span class="math notranslate nohighlight">\(k(\mathbf{x_1},\mathbf{x_2}) = k(\mathbf{x_2},\mathbf{x_1}) \,\,\, \forall \mathbf{x_1},\mathbf{x_2} \in X\)</span></p></li>
+<li><p>Positive definite: the kernel matrix <span class="math notranslate nohighlight">\(K\)</span> is positive semi-definite</p>
+<ul>
+<li><p>Intuitively, <span class="math notranslate nohighlight">\(k(\mathbf{x_1},\mathbf{x_2}) \geq 0\)</span></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>The kernel matrix (or Gram matrix) for <span class="math notranslate nohighlight">\(n\)</span> points of <span class="math notranslate nohighlight">\(x_1,..., x_n \in X\)</span> is defined as:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split} K = XX^T = \begin{bmatrix}
+                    k(\mathbf{x_1}, \mathbf{x_1}) &amp; \ldots &amp; k(\mathbf{x_1}, \mathbf{x_n}) \\
+                    \vdots &amp; \ddots &amp; \vdots \\
+                    k(\mathbf{x_n}, \mathbf{x_1})  &amp; \ldots &amp; k(\mathbf{x_n}, \mathbf{x_n})
+                  \end{bmatrix} \\[15pt]\end{split}\]</div>
+<ul class="simple">
+<li><p>Once computed (<span class="math notranslate nohighlight">\(\mathcal{O}(n^2)\)</span>), simply lookup <span class="math notranslate nohighlight">\(k(\mathbf{x_1}, \mathbf{x_2})\)</span> for any two points</p></li>
+<li><p>In practice, you can either supply a kernel function or precompute the kernel matrix</p></li>
+</ul>
+</div>
+<div class="section" id="linear-kernel">
+<h3>Linear kernel<a class="headerlink" href="#linear-kernel" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Input space is same as output space: <span class="math notranslate nohighlight">\(X = \mathcal{H} = \mathbb{R}^d\)</span></p></li>
+<li><p>Feature map <span class="math notranslate nohighlight">\(\Phi(\mathbf{x}) = \mathbf{x}\)</span></p></li>
+<li><p>Kernel: <span class="math notranslate nohighlight">\( k_{linear}(\mathbf{x_i},\mathbf{x_j}) = \mathbf{x_i} \cdot \mathbf{x_j}\)</span></p></li>
+<li><p>Geometrically, the dot product is the <em>projection</em> of <span class="math notranslate nohighlight">\(\mathbf{x_j}\)</span> on hyperplane defined by <span class="math notranslate nohighlight">\(\mathbf{x_i}\)</span></p>
+<ul>
+<li><p>Becomes larger if <span class="math notranslate nohighlight">\(\mathbf{x_i}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x_j}\)</span> are in the same ‘direction’</p></li>
+</ul>
+</li>
+</ul>
+<img src="../images/05_dotproduct.png" alt="ml" style="margin: 0 auto; width: 300px;"/><ul class="simple">
+<li><p>Linear kernel between point (0,1) and another unit vector an angle <span class="math notranslate nohighlight">\(a\)</span> (in radians)</p>
+<ul>
+<li><p>Points with similar angles are deemed similar</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">linear_kernel</span><span class="p">,</span> <span class="n">polynomial_kernel</span><span class="p">,</span> <span class="n">rbf_kernel</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interact_manual</span>
+
+<span class="k">def</span> <span class="nf">plot_lin_kernel</span><span class="p">():</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+    <span class="c1"># compare point (0,1) with unit vector at certain angle</span>
+    <span class="c1"># linear_kernel returns the kernel matrix, get first element</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="n">linear_kernel</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[[</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="p">)]])[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;angle $(-\pi,\pi)$ between unit vectors $x_1$ and $x_2$&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;lin_kernel&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plot_lin_kernel</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03 - Kernelization_24_0.png" src="../_images/03 - Kernelization_24_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="polynomial-kernel">
+<h3>Polynomial kernel<a class="headerlink" href="#polynomial-kernel" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(k_1\)</span>, <span class="math notranslate nohighlight">\(k_2\)</span> are kernels, then <span class="math notranslate nohighlight">\(\lambda . k_1\)</span> (<span class="math notranslate nohighlight">\(\lambda \geq 0\)</span>), <span class="math notranslate nohighlight">\(k_1 + k_2\)</span>, and <span class="math notranslate nohighlight">\(k_1 . k_2\)</span> are also kernels</p></li>
+<li><p>The <strong>polynomial kernel</strong> (for degree <span class="math notranslate nohighlight">\(d \in \mathbb{N}\)</span>) reproduces the polynomial feature map</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\gamma\)</span> is a scaling hyperparameter (default <span class="math notranslate nohighlight">\(\frac{1}{p}\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(c_0\)</span> is a hyperparameter (default 1) to trade off influence of higher-order terms
+$<span class="math notranslate nohighlight">\(k_{poly}(\mathbf{x_1},\mathbf{x_2}) = (\gamma (\mathbf{x_1} \cdot \mathbf{x_2}) + c_0)^d\)</span>$</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@interact</span>
+<span class="k">def</span> <span class="nf">plot_poly_kernel</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">coef0</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">gamma</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+    <span class="c1"># compare point (0,1) with unit vector at certain angle</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">degree</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">degree</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="n">polynomial_kernel</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[[</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="p">)]],</span> <span class="n">degree</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">coef0</span><span class="o">=</span><span class="n">coef0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                       <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;degree = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>    
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="n">polynomial_kernel</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[[</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="p">)]],</span> <span class="n">degree</span><span class="o">=</span><span class="n">degree</span><span class="p">,</span> <span class="n">coef0</span><span class="o">=</span><span class="n">coef0</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;degree = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">degree</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>    
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;angle $(-\pi,\pi)$ between unit vectors $x_1$ and $x_2$&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;poly_kernel&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "7c6167b8b664460e83788e63fbd67dd8", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">interactive</span><span class="p">:</span>
+    <span class="n">plot_poly_kernel</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="n">coef0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03 - Kernelization_27_0.png" src="../_images/03 - Kernelization_27_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="rbf-gaussian-kernel">
+<h3>RBF (Gaussian) kernel<a class="headerlink" href="#rbf-gaussian-kernel" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The <em>Radial Basis Function</em> (RBF) feature map builds the Taylor series expansion of <span class="math notranslate nohighlight">\(e^x\)</span>
+$<span class="math notranslate nohighlight">\(\Phi(x) = e^{-x^2/2\gamma^2} \Big[ 1, \sqrt{\frac{1}{1!\gamma^2}}x,\sqrt{\frac{1}{2!\gamma^4}}x^2,\sqrt{\frac{1}{3!\gamma^6}}x^3,\ldots\Big]^T\)</span>$</p></li>
+<li><p>RBF (or <em>Gaussian</em> ) kernel with <em>kernel width</em> <span class="math notranslate nohighlight">\(\gamma \geq 0\)</span>:<br />
+$<span class="math notranslate nohighlight">\(k_{RBF}(\mathbf{x_1},\mathbf{x_2}) = exp(-\gamma ||\mathbf{x_1} - \mathbf{x_2}||^2)\)</span>$</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">polynomial_kernel</span><span class="p">,</span> <span class="n">rbf_kernel</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interact_manual</span>
+
+<span class="nd">@interact</span>
+<span class="k">def</span> <span class="nf">plot_rbf_kernel</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">gamma</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="n">rbf_kernel</span><span class="p">([[</span><span class="n">i</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">gamma</span><span class="o">=</span><span class="n">g</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;gamma = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">g</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="n">rbf_kernel</span><span class="p">([[</span><span class="n">i</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;gamma = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gamma</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (distance )&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;rbf_kernel(0,x)&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "6a4833f4d55d42ed98c24ae3d7d97c3f", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">interactive</span><span class="p">:</span>
+    <span class="n">plot_rbf_kernel</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03 - Kernelization_30_0.png" src="../_images/03 - Kernelization_30_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>The RBF kernel <span class="math notranslate nohighlight">\(k_{RBF}(\mathbf{x_1},\mathbf{x_2}) = exp(-\gamma ||\mathbf{x_1} - \mathbf{x_2}||^2)\)</span> does not use a dot product</p>
+<ul>
+<li><p>It only considers the distance between <span class="math notranslate nohighlight">\(\mathbf{x_1}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x_2}\)</span></p></li>
+<li><p>It’s a <em>local kernel</em> : every data point only influences data points nearby</p>
+<ul>
+<li><p>linear and polynomial kernels are <em>global</em> : every point affects the whole space</p></li>
+</ul>
+</li>
+<li><p>Similarity depends on closeness of points and kernel width</p>
+<ul>
+<li><p>value goes up for closer points and wider kernels (larger overlap)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">gamma</span><span class="p">):</span>
+    <span class="n">k</span><span class="o">=</span><span class="mi">2</span> <span class="c1"># Doubling the distance makes the figure more interpretable</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">gamma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="p">,</span> <span class="mf">2.</span><span class="p">))</span>
+
+<span class="nd">@interact</span>
+<span class="k">def</span> <span class="nf">plot_rbf_kernel_value</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span><span class="n">x_1</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span><span class="n">x_2</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x_1</span><span class="p">,</span> <span class="n">gamma</span><span class="p">),</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;gaussian at x_1&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gamma</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x_2</span><span class="p">,</span> <span class="n">gamma</span><span class="p">),</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;gaussian at x_2&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gamma</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="n">rbf_kernel</span><span class="p">([[</span><span class="n">x_1</span><span class="p">]],</span> <span class="p">[[</span><span class="n">x_2</span><span class="p">]],</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;rfb_kernel(x_1,x_2)&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;rbf_kernel($\gamma$=</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gamma</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "3ee348f79e4546ea80aa4b1ecd2a886e", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">interactive</span><span class="p">:</span>
+    <span class="n">plot_rbf_kernel_value</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">x_1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">x_2</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03 - Kernelization_33_0.png" src="../_images/03 - Kernelization_33_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="kernelized-svms-in-practice">
+<h2>Kernelized SVMs in practice<a class="headerlink" href="#kernelized-svms-in-practice" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>You can use SVMs with any kernel to learn non-linear decision boundaries</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_svm_kernels</span><span class="p">([</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">],</span><span class="n">poly_degree</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">gamma</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03 - Kernelization_35_0.png" src="../_images/03 - Kernelization_35_0.png" />
+</div>
+</div>
+<div class="section" id="svm-with-rbf-kernel">
+<h3>SVM with RBF kernel<a class="headerlink" href="#svm-with-rbf-kernel" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Every support vector <em>locally</em> influences predictions, according to kernel width (<span class="math notranslate nohighlight">\(\gamma\)</span>)</p></li>
+<li><p>The prediction for test point <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>: sum of the remaining influence of each support vector</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(f(x) = \sum_{i=1}^{l} a_i y_i k(\mathbf{x_i},\mathbf{u})\)</span></p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@interact</span>
+<span class="k">def</span> <span class="nf">plot_rbf_data</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span><span class="n">C</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)):</span>
+    <span class="n">plot_svm_kernels</span><span class="p">([</span><span class="s1">&#39;rbf&#39;</span><span class="p">],</span><span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span><span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "204678b7768f41e09791257c6663e4f4", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">interactive</span><span class="p">:</span>
+    <span class="n">plot_svm_kernels</span><span class="p">([</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">],</span><span class="n">gamma</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03 - Kernelization_38_0.png" src="../_images/03 - Kernelization_38_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="tuning-rbf-svms">
+<h3>Tuning RBF SVMs<a class="headerlink" href="#tuning-rbf-svms" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>gamma (kernel width)</p>
+<ul>
+<li><p>high values cause narrow Gaussians, more support vectors, overfitting</p></li>
+<li><p>low values cause wide Gaussians, underfitting</p></li>
+</ul>
+</li>
+<li><p>C (cost of margin violations)</p>
+<ul>
+<li><p>high values punish margin violations, cause narrow margins, overfitting</p></li>
+<li><p>low values cause wider margins, more support vectors, underfitting</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="w"></span>
+<span class="p">.</span><span class="nc">reveal</span><span class="w"> </span><span class="nt">img</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.reveal img {
+    margin-top: 0px;
+}
+</style>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_svm_kernels</span><span class="p">([</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">],</span><span class="n">gamma</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="n">C</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mf">2.3</span><span class="p">)</span>
+<span class="n">plot_svm_kernels</span><span class="p">([</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">],</span><span class="n">gamma</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mf">2.3</span><span class="p">)</span>
+<span class="n">plot_svm_kernels</span><span class="p">([</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">],</span><span class="n">gamma</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="n">C</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mf">2.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03 - Kernelization_41_0.png" src="../_images/03 - Kernelization_41_0.png" />
+<img alt="../_images/03 - Kernelization_41_1.png" src="../_images/03 - Kernelization_41_1.png" />
+<img alt="../_images/03 - Kernelization_41_2.png" src="../_images/03 - Kernelization_41_2.png" />
+</div>
+</div>
+<p>Kernel overview</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plot_classifiers</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Linear SVM&quot;</span><span class="p">,</span> <span class="s2">&quot;RBF&quot;</span><span class="p">,</span> <span class="s2">&quot;Polynomial&quot;</span><span class="p">]</span>
+
+<span class="n">classifiers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">0.025</span><span class="p">),</span>
+    <span class="n">SVC</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;poly&quot;</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="p">]</span>
+ 
+<span class="n">plot_classifiers</span><span class="o">.</span><span class="n">plot_classifiers</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">classifiers</span><span class="p">,</span> <span class="n">figuresize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03 - Kernelization_43_0.png" src="../_images/03 - Kernelization_43_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="svms-in-practice">
+<h3>SVMs in practice<a class="headerlink" href="#svms-in-practice" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>C and gamma <em>always</em> need to be tuned</p>
+<ul>
+<li><p>Interacting regularizers. Find a good C, then finetune gamma</p></li>
+</ul>
+</li>
+<li><p>SVMs expect all features to be approximately on the same scale</p>
+<ul>
+<li><p>Data needs to be scaled beforehand</p></li>
+</ul>
+</li>
+<li><p>Allow to learn complex decision boundaries, even with few features</p>
+<ul>
+<li><p>Work well on both low- and high dimensional data</p></li>
+<li><p>Especially good at small, high-dimensional data</p></li>
+</ul>
+</li>
+<li><p>Hard to inspect, although support vectors can be inspected</p></li>
+<li><p>In sklearn, you can use <code class="docutils literal notranslate"><span class="pre">SVC</span></code> for classification with a range of kernels</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SVR</span></code> for regression</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="other-kernels">
+<h3>Other kernels<a class="headerlink" href="#other-kernels" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>There are many more possible kernels</p></li>
+<li><p>If no kernel function exists, we can still <em>precompute</em> the kernel matrix</p>
+<ul>
+<li><p>All you need is some similarity measure, and you can use SVMs</p></li>
+</ul>
+</li>
+<li><p>Text kernels:</p>
+<ul>
+<li><p>Word kernels: build a bag-of-words representation of the text (e.g. TFIDF)</p>
+<ul>
+<li><p>Kernel is the inner product between these vectors</p></li>
+</ul>
+</li>
+<li><p>Subsequence kernels: sequences are similar if they share many sub-sequences</p>
+<ul>
+<li><p>Build a kernel matrix based on pairwise similarities</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Graph kernels: Same idea (e.g. find common subgraphs to measure similarity)</p></li>
+<li><p>These days, deep learning embeddings are more frequently used</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-representer-theorem">
+<h2>The Representer Theorem<a class="headerlink" href="#the-representer-theorem" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>We can kernelize many other loss functions as well</p></li>
+<li><p>The <em>Representer Theorem</em> states that if we have a loss function <span class="math notranslate nohighlight">\(\mathcal{L}'\)</span> with</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{L}\)</span> an <em>arbitrary</em> loss function using some function <span class="math notranslate nohighlight">\(f\)</span> of the inputs <span class="math notranslate nohighlight">\(\mathbf{x}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{R}\)</span> a (non-decreasing) regularization score (e.g. L1 or L2) and constant <span class="math notranslate nohighlight">\(\lambda\)</span>
+$<span class="math notranslate nohighlight">\(\mathcal{\mathcal{L}'}(\mathbf{w}) = \mathcal{L}(y,f(\mathbf{x})) + \lambda \mathcal{R} (||\mathbf{w}||)\)</span>$</p></li>
+</ul>
+</li>
+<li><p>Then the weights <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> can be described as a linear combination of the training samples:
+$<span class="math notranslate nohighlight">\(\mathbf{w} = \sum_{i=1}^{n} a_i y_i f(\mathbf{x_i})\)</span>$</p></li>
+<li><p>Note that this is exactly what we found for SVMs: <span class="math notranslate nohighlight">\( \mathbf{w} = \sum_{i=1}^{l} a_i y_i \mathbf{\mathbf{x_i}} \)</span></p></li>
+<li><p>Hence, we can also kernelize Ridge regression, Logistic regression, Perceptrons, Support Vector Regression, …</p></li>
+</ul>
+</div>
+<div class="section" id="kernelized-ridge-regression">
+<h2>Kernelized Ridge regression<a class="headerlink" href="#kernelized-ridge-regression" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The linear Ridge regression loss (with <span class="math notranslate nohighlight">\(\mathbf{x_0}=1\)</span>):
+$<span class="math notranslate nohighlight">\(\mathcal{L}_{Ridge}(\mathbf{w}) = \sum_{i=0}^{n} (y_i-\mathbf{w}\mathbf{x_i})^2 + \lambda \| w \|^2\)</span>$</p></li>
+<li><p>Filling in <span class="math notranslate nohighlight">\(\mathbf{w} = \sum_{i=1}^{n} \alpha_i y_i \mathbf{x_i}\)</span> yields the dual formulation:
+$<span class="math notranslate nohighlight">\(\mathcal{L}_{Ridge}(\mathbf{w}) = \sum_{i=1}^{n} (y_i-\sum_{j=1}^{n} \alpha_j y_j \mathbf{x_i}\mathbf{x_j})^2 + \lambda \sum_{i=1}^{n} \sum_{j=1}^{n} \alpha_i \alpha_j y_i y_j \mathbf{x_i}\mathbf{x_j}\)</span>$</p></li>
+<li><p>Generalize <span class="math notranslate nohighlight">\(\mathbf{x_i}\cdot\mathbf{x_j}\)</span> to <span class="math notranslate nohighlight">\(k(\mathbf{x_i},\mathbf{x_j})\)</span>
+$<span class="math notranslate nohighlight">\(\mathcal{L}_{KernelRidge}(\mathbf{\alpha},k) = \sum_{i=1}^{n} (y_i-\sum_{j=1}^{n} \alpha_j y_j k(\mathbf{x_i},\mathbf{x_n}))^2 + \lambda \sum_{i=1}^{n} \sum_{j=1}^{n} \alpha_i \alpha_j y_i y_j k(\mathbf{x_i},\mathbf{x_j})\)</span>$</p></li>
+</ul>
+<div class="section" id="example-of-kernelized-ridge">
+<h3>Example of kernelized Ridge<a class="headerlink" href="#example-of-kernelized-ridge" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Prediction (red) is now a linear combination of kernels (blue): <span class="math notranslate nohighlight">\(y = \sum_{j=1}^{n} \alpha_j y_j k(\mathbf{x},\mathbf{x_j})\)</span></p></li>
+<li><p>We learn a dual coefficient for each point</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="nd">@interact</span>
+<span class="k">def</span> <span class="nf">plot_kernel_ridge</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span><span class="n">a1</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span><span class="n">a2</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span><span class="n">a3</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)):</span>   
+    <span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">ys</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.16</span><span class="p">,</span><span class="o">-</span><span class="mf">0.05</span><span class="p">]</span>
+    <span class="n">alphas</span> <span class="o">=</span> <span class="p">[</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">a3</span><span class="p">,</span><span class="mf">.7</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="o">-</span><span class="mf">0.2</span><span class="p">]</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">alphas</span><span class="p">,</span><span class="n">xs</span><span class="p">,</span><span class="n">ys</span><span class="p">):</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">gamma</span><span class="p">)</span>
+        <span class="n">f</span> <span class="o">+=</span> <span class="n">a</span><span class="o">*</span><span class="n">k</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mf">0.1</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="mf">0.01</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="n">ys</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "9e25b357785040c0b728ca0bea0999f4", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">interactive</span><span class="p">:</span>
+    <span class="n">plot_kernel_ridge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mf">.8</span><span class="p">,</span><span class="mf">.5</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03 - Kernelization_50_0.png" src="../_images/03 - Kernelization_50_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Fitting our regression data with <code class="docutils literal notranslate"><span class="pre">KernelRidge</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.kernel_ridge</span> <span class="kn">import</span> <span class="n">KernelRidge</span>
+
+<span class="nd">@interact</span>
+<span class="k">def</span> <span class="nf">plot_kernel_ridge</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)):</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mglearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_wave</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">reg</span> <span class="o">=</span> <span class="n">KernelRidge</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Kernel Ridge (RBF)&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Regression output&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Input feature&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "048656febb44424488aaa79c4fbdae51", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">interactive</span><span class="p">:</span>
+    <span class="n">plot_kernel_ridge</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03 - Kernelization_53_0.png" src="../_images/03 - Kernelization_53_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="other-kernelized-methods">
+<h3>Other kernelized methods<a class="headerlink" href="#other-kernelized-methods" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Same procedure can be done for logistic regression</p></li>
+<li><p>For perceptrons, <span class="math notranslate nohighlight">\(\alpha \rightarrow \alpha+1\)</span> after every misclassification
+$<span class="math notranslate nohighlight">\(\mathcal{L}_{DualPerceptron}(x_i,k) = max(0,y_i \sum_{j=1}^{n} \alpha_j y_j k(\mathbf{x_j},\mathbf{x_i}))\)</span>$</p></li>
+<li><p>Support Vector Regression behaves similarly to Kernel Ridge</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
+
+<span class="nd">@interact</span>
+<span class="k">def</span> <span class="nf">plot_kernel_ridge_svr</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)):</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mglearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_wave</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">reg</span> <span class="o">=</span> <span class="n">KernelRidge</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Kernel Ridge (RBF)&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">svr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Support Vector Regression (RBF)&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Regression output&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Input feature&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "295435d4abcd4a69a0998a3b5286e46a", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">interactive</span><span class="p">:</span>
+    <span class="n">plot_kernel_ridge_svr</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03 - Kernelization_56_0.png" src="../_images/03 - Kernelization_56_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Feature maps <span class="math notranslate nohighlight">\(\Phi(x)\)</span> transform features to create a higher-dimensional space</p>
+<ul>
+<li><p>Allows learning non-linear functions or boundaries, but very expensive/slow</p></li>
+</ul>
+</li>
+<li><p>For some <span class="math notranslate nohighlight">\(\Phi(x)\)</span>, we can compute dot products without constructing this space</p>
+<ul>
+<li><p>Kernel trick: <span class="math notranslate nohighlight">\(k(\mathbf{x_i},\mathbf{x_j}) = \Phi(\mathbf{x_i}) \cdot \Phi(\mathbf{x_j})\)</span></p></li>
+<li><p>Kernel <span class="math notranslate nohighlight">\(k\)</span> (generalized dot product) is a measure of similarity between <span class="math notranslate nohighlight">\(\mathbf{x_i}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x_j}\)</span></p></li>
+</ul>
+</li>
+<li><p>There are many such kernels</p>
+<ul>
+<li><p>Polynomial kernel: <span class="math notranslate nohighlight">\(k_{poly}(\mathbf{x_1},\mathbf{x_2}) = (\gamma (\mathbf{x_1} \cdot \mathbf{x_2}) + c_0)^d\)</span></p></li>
+<li><p>RBF (Gaussian) kernel: <span class="math notranslate nohighlight">\(k_{RBF}(\mathbf{x_1},\mathbf{x_2}) = exp(-\gamma ||\mathbf{x_1} - \mathbf{x_2}||^2)\)</span></p></li>
+<li><p>A kernel matrix can be precomputed using any similarity measure (e.g. for text, graphs,…)</p></li>
+</ul>
+</li>
+<li><p>Any loss function where inputs appear only as dot products can be kernelized</p>
+<ul>
+<li><p>E.g. Linear SVMs: simply replace the dot product with a kernel of choice</p></li>
+</ul>
+</li>
+<li><p>The Representer theorem states which <em>other</em> loss functions can also be kernelized and how</p>
+<ul>
+<li><p>Ridge regression, Logistic regression, Perceptrons,…</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Joaquin Vanschoren<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
