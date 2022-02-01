@@ -336,7 +336,7 @@ ax.set_ylim((-6, 100));
 # ### Time series
 # When the data is ordered, random test sets are not a good idea
 
-# In[52]:
+# In[14]:
 
 
 import pandas as pd

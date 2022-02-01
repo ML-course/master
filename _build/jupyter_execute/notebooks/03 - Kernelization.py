@@ -513,7 +513,7 @@ plot_svm_kernels(['rbf','rbf','rbf'],gamma=[0.1,1,5],C=100,size=2.3)
 
 # Kernel overview
 
-# In[24]:
+# In[22]:
 
 
 from sklearn.svm import SVC
@@ -576,7 +576,7 @@ mglearn.plots.plot_classifiers(names, classifiers, figuresize=(20,8))
 # * Prediction (red) is now a linear combination of kernels (blue): $y = \sum_{j=1}^{n} \alpha_j y_j k(\mathbf{x},\mathbf{x_j})$
 # * We learn a dual coefficient for each point
 
-# In[25]:
+# In[23]:
 
 
 import scipy.stats as stats
@@ -598,7 +598,7 @@ def plot_kernel_ridge(gamma=(0.1,2,0.1),a1=(-1,1,0.1),a2=(-1,1,0.1),a3=(-1,1,0.1
     plt.scatter(xs,ys);
 
 
-# In[26]:
+# In[24]:
 
 
 if not interactive:
@@ -607,7 +607,7 @@ if not interactive:
 
 # * Fitting our regression data with `KernelRidge`
 
-# In[27]:
+# In[25]:
 
 
 from sklearn.kernel_ridge import KernelRidge
@@ -627,7 +627,7 @@ def plot_kernel_ridge(gamma=(0.01,10,0.5)):
     plt.legend(loc="best");
 
 
-# In[28]:
+# In[26]:
 
 
 if not interactive:
@@ -640,7 +640,7 @@ if not interactive:
 # $$\mathcal{L}_{DualPerceptron}(x_i,k) = max(0,y_i \sum_{j=1}^{n} \alpha_j y_j k(\mathbf{x_j},\mathbf{x_i}))$$
 # * Support Vector Regression behaves similarly to Kernel Ridge
 
-# In[29]:
+# In[27]:
 
 
 from sklearn.svm import SVR
@@ -662,7 +662,7 @@ def plot_kernel_ridge_svr(gamma=(0.01,10,0.5)):
     plt.legend(loc="best");
 
 
-# In[30]:
+# In[28]:
 
 
 if not interactive:
