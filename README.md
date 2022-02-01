@@ -1,8 +1,12 @@
+[![Jupyter Book Badge](https://raw.githubusercontent.com/executablebooks/jupyter-book/master/docs/images/badge.svg)](https://ml-course.github.io/)
+[![YouTube Channel Views](https://img.shields.io/youtube/channel/views/UCurDcl-q8dkRF5WFMCW1tSA?style=social)](https://www.youtube.com/channel/UCurDcl-q8dkRF5WFMCW1tSA)
+
+
 # An Open Machine Learning Course
 
 Jupyter notebooks for teaching machine learning. Based on scikit-learn and Keras, with OpenML used to experiment more extensively on many datasets.
 
-[Course website](https://ml-course.github.io/)
+[Online course book](https://ml-course.github.io/) - powered by Jupyter-book
 
 ## Sources
 ### Practice-oriented materials
@@ -29,3 +33,11 @@ For a deeper understanding of machine learning techniques, we can recommend the 
 
 "[Gaussian Processes for Machine Learning](http://www.gaussianprocess.org/gpml/)" by Carl Edward Rasmussen and Christopher K. I. Williams. The reference for Bayesian Inference. Also see [David MacKay's book](http://www.inference.phy.cam.ac.uk/itila/book.html) for additional insights. Also see [this course by Neil Lawrence](http://inverseprobability.com/mlai2015/) for a great introduction to Gaussian Processes, all from first principles.
 
+## Open course
+Made with love by [Joaquin Vanschoren](https://joaquinvanschoren.github.io/). 
+Materials are released under the [CC0 License](https://creativecommons.org/share-your-work/public-domain/cc0). You can use them as you like.
+
+Partly based on notebooks by [Andreas Mueller](https://github.com/amueller/introduction_to_ml_with_python) (CC0 licenced),
+[François Chollet](https://github.com/fchollet/deep-learning-with-python-notebooks) (MIT licenced),
+[Sebastian Raschka](https://github.com/rasbt/python-machine-learning-book-2nd-edition) (MIT licenced), and
+[Neil Lawrence](https://github.com/lawrennd/talks) (with permission)
