@@ -1,624 +1,411 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lab 7 Tutorial: Deep Learning in Python
-# **Using the Keras API**
+# # Lab 7 Tutorial: Deep Learning for text
 
 # In[1]:
 
 
 # Global imports and settings
 from preamble import *
-import tensorflow.keras as keras
+from tensorflow import keras
 print("Using Keras",keras.__version__)
 get_ipython().run_line_magic('matplotlib', 'inline')
+plt.rcParams['figure.dpi'] = 300 # Use 300 for PDF, 100 for slides
+# InteractiveShell.ast_node_interactivity = "all"
+HTML('''<style>html, body{overflow-y: visible !important} .CodeMirror{min-width:105% !important;} .rise-enabled .CodeMirror, .rise-enabled .output_subarea{font-size:140%; line-height:1.2; overflow: visible;} .output_subarea pre{width:110%}</style>''') # For slides
 
 
-# ## Running example
-# We use the Fashion-MNIST dataset, which consists of 28x28 pixel images of 10 classes of fashion items.
+# ## 3 examples
+# * Binary classification (of movie reviews)
+# * Multiclass classification (of news topics)
+# * Regression (of house prices)
+# 
+# We'll use the Keras API, integrated in TensorFlow 2.  
+# Examples from _Deep Learning with Python_, by _François Chollet_
+
+# ### Binary classification
+# * Dataset: 50,000 IMDB reviews, labeled positive (1) or negative (0)
+#     - Included in Keras, with a 50/50 train-test split
+# * Each row is one review, with only the 10,000 most frequent words retained
+# * Each word is replaced by a _word index_ (word ID)
+# * Hence, this data is already preprocessed. If you want to start from raw text data, you need to [Tokenize](https://keras.io/preprocessing/text/#tokenizer) the text first.
 
 # In[2]:
 
 
-# Download FMINST data. Takes a while the first time.
-mnist = oml.datasets.get_dataset(40996)
-X, y, _, _ = mnist.get_data(target=mnist.default_target_attribute, dataset_format='array');
-X = X.reshape(70000, 28, 28)
-fmnist_classes = {0:"T-shirt/top", 1: "Trouser", 2: "Pullover", 3: "Dress", 4: "Coat", 5: "Sandal", 
-                  6: "Shirt", 7: "Sneaker", 8: "Bag", 9: "Ankle boot"}
+from tensorflow.keras.datasets import imdb
+# Download IMDB data with 10000 most frequent words
+(train_data, train_labels), (test_data, test_labels) = imdb.load_data(num_words=10000)
+print("Encoded review: ", train_data[0][0:10])
 
-# Take some random examples
-from random import randint
-fig, axes = plt.subplots(1, 5,  figsize=(10, 5))
-for i in range(5):
-    n = randint(0,70000)
-    axes[i].imshow(X[n], cmap=plt.cm.gray_r)
-    axes[i].set_xticks([])
-    axes[i].set_yticks([])
-    axes[i].set_xlabel("{}".format(fmnist_classes[y[n]]))
-plt.show();
+word_index = imdb.get_word_index()
+reverse_word_index = dict([(value, key) for (key, value) in word_index.items()])
+print("Original review: ", ' '.join([reverse_word_index.get(i - 3, '?') for i in train_data[0]][0:10]))
 
+
+# The data is encoded as sequences of word IDs, so we need to properly encode them first.
+# We could use a word embedding (see later), or [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf), but for now we will just one-hot-encode them. For instance, if the text contains word '14', the 14th feature should be '1'. The following is a helper function for doing this. We also need to convert the target label to floats, since they need to be compared with the numerical outputs of the neural net.
 
 # In[3]:
 
 
-X.shape
+# Custom implementation of one-hot-encoding
+def vectorize_sequences(sequences, dimension=10000):
+    results = np.zeros((len(sequences), dimension))
+    for i, sequence in enumerate(sequences):
+        results[i, sequence] = 1.  # set specific indices of results[i] to 1s
+    return results
+x_train = vectorize_sequences(train_data)
+x_test = vectorize_sequences(test_data)
+print("Encoded review: ", train_data[0][0:10])
+print("One-hot-encoded review: ", x_train[0][0:10])
+
+# Convert 0/1 labels to float
+y_train = np.asarray(train_labels).astype('float32')
+y_test = np.asarray(test_labels).astype('float32')
+
+print("Label for the first review: ", y_train[0])
 
 
-# ### Preprocessing
-# #### Reshaping
-# To be able to feed this data through the network, the shape of the data must match the shape of the input layer.
-# For normal dense layers, this will be a 'flattened' array. You can use:
-# * [numpy.reshape()](https://numpy.org/doc/stable/reference/generated/numpy.reshape.html)
-# * [Keras reshaping layers](https://keras.io/api/layers/reshaping_layers/), e.g. [Flatten](https://keras.io/api/layers/reshaping_layers/flatten/)
-#     * Can also be used to flatten the data at the *output* of the network
-# 
+# #### Building the network
+# * We can solve this problem using a network of _Dense_ layers and the _ReLU_ activation function.
+# * For now, we start with 2 layers of 16 hidden units each
+# * Output layer: since this is a binary classification problem, we will use a single unit with _sigmoid_ activation function
+#     - Close to 1: positive review, close to 0: negative review
+# * The loss function should be binary cross-entropy.
 
 # In[4]:
 
 
-X = X.reshape((70000, 28 * 28))
+from tensorflow.keras import models
+from tensorflow.keras import layers 
+
+model = models.Sequential()
+model.add(layers.Dense(16, activation='relu', input_shape=(10000,)))
+model.add(layers.Dense(16, activation='relu'))
+model.add(layers.Dense(1, activation='sigmoid'))
+
+model.compile(optimizer='rmsprop',
+              loss='binary_crossentropy',
+              metrics=['accuracy'])
 
 
-# #### Rescaling
-# Rescaling the data will help training a lot, and lead to faster convergence.
-# You can use min-max scaling to [0,1] or standardization (mean 0, standard deviation 1).
-# Note: We're using a simple division by the maximum possible value. This won't cause data leakage.
+# Note: for more control, you can explictly create the optimizer, loss, and metrics. 
+# You can also change hyperparameters such as the SGD learning rate.
+# 
+# ``` python
+# from tensorflow.keras import optimizers
+# from tensorflow.keras import losses
+# from tensorflow.keras import metrics
+# model.compile(optimizer=optimizers.RMSprop(lr=0.001),
+#               loss=losses.binary_crossentropy,
+#               metrics=[metrics.binary_accuracy])
+# ```
+
+# #### Model selection
+# * To tune the hyperparameters, split the training data into a training and validation set.
+# * Train the neural net and track the loss after every iteration on the validation set
+#     - This is returned as a `History` object by the `fit()` function 
+#     - The `History` object contains the loss, accuracy, validation loss, and validation accuracy for every epoch.
+# * We start with 20 epochs in minibatches of 512 samples
 
 # In[5]:
 
 
-X = X.astype('float32') / 255
+x_val, partial_x_train = x_train[:10000], x_train[10000:]
+y_val, partial_y_train = y_train[:10000], y_train[10000:] 
+history = model.fit(partial_x_train, partial_y_train,
+                    epochs=20, batch_size=512, verbose=1,
+                    validation_data=(x_val, y_val))
 
 
-# #### Label formatting
-# For multi-class classification, our output layer will usually have one output node per class. Therefore, we need to on-hot-encode the labels. E.g. class '4' becomes [0,0,0,0,1,0,...]
-# * Keras has a helper function [to_categorical](https://www.tensorflow.org/api_docs/python/tf/keras/utils/to_categorical) to do this
+# We can now visualize the learning curves
+# * The training loss keeps decreasing, due to gradient descent
+# * The validation loss peaks after a few epochs, after which the model starts to overfit
 
 # In[6]:
 
 
-from tensorflow.keras.utils import to_categorical
-y = to_categorical(y)
+# Using pandas' built-in plotting of series
+pd.DataFrame(history.history).plot(lw=2);
 
+
+# #### Predictions
+# Out of curiosity, let's look at a few predictions:
 
 # In[7]:
 
 
-X.shape, y.shape
+predictions = model.predict(x_test)
+print("Review 0: ", ' '.join([reverse_word_index.get(i - 3, '?') for i in test_data[0]]))
+print("Predicted positiveness: ", predictions[0])
+print("\nReview 16: ", ' '.join([reverse_word_index.get(i - 3, '?') for i in test_data[16]]))
+print("Predicted positiveness: ", predictions[16])
 
 
-# ### Train-test splits
-# Usually, simple hold-outs are used. This is valid if the datasets are large enough, and you take into account the usual concerns, such as stratification and grouping. For smaller datasets, you can use cross-validation as well, but you may get high variance in the per-fold results as neural networks may not always converge.
+# ### Using Keras models with the scikit-learn API
+# * Model selection can be tedious with the Keras API
+# * We can wrap a Keras model as a scikit-learn estimator and use the scikit-learn API instead
+# * For instance, we can now use a grid search to tune the number of epochs and the size of the hidden laayers.
+# * Note that we need a helper function `make_model` to pass some of the hyperparameters to the Keras model 
 
 # In[8]:
 
 
-# For Fashion MNIST, there exists a predefined stratified train-test split of 60000-10000. We therefore don't shuffle or stratify here.
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=60000, random_state=0)
+from tensorflow.keras.wrappers.scikit_learn import KerasClassifier, KerasRegressor
+from sklearn.model_selection import GridSearchCV
+
+def make_model(optimizer="adam", hidden_size=32):
+    model = models.Sequential()
+    model.add(layers.Dense(hidden_size, activation='relu', input_shape=(10000,)))
+    model.add(layers.Dense(hidden_size, activation='relu'))
+    model.add(layers.Dense(1, activation='sigmoid'))
+
+    model.compile(optimizer='rmsprop',
+                  loss='binary_crossentropy',
+                  metrics=['accuracy'])
+    return model
+
+clf = KerasClassifier(make_model)
+param_grid = {'epochs': [1, 5, 10],  # epochs is fit parameter, not in make_model!
+              'hidden_size': [8, 16, 32],
+              'verbose' : [0]}
+grid = GridSearchCV(clf, param_grid=param_grid, cv=3, return_train_score=True)
+grid.fit(x_train, y_train)
 
 
-# We can further split the training set into a training and validation set
+# Grid search results
 
 # In[9]:
 
 
-Xf_train, x_val, yf_train, y_val = train_test_split(X_train, y_train, train_size=50000, shuffle=True, stratify=y_train, random_state=0)
+res = pd.DataFrame(grid.cv_results_)
+res.pivot_table(index=["param_epochs", "param_hidden_size"],
+                values=['mean_train_score', "mean_test_score"])
 
 
-# ### Building Sequential networks
-# * [Sequential](https://www.tensorflow.org/api_docs/python/tf/keras/Sequential) models are the simplest kind of neural nets. They consist of a series of layers, one after the other.
-# * There exist [many types of layers](https://www.tensorflow.org/api_docs/python/tf/keras/layers)
-# * For now, we'll only use [Dense](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense) (fully-connected) layers. It has several important settings:
-#     * units: the number of nodes
-#     * activation: the [activation function](https://www.tensorflow.org/api_docs/python/tf/keras/activations) to use
-#     * kernel_initializer: how to [initialize the weights](https://www.tensorflow.org/api_docs/python/tf/keras/initializers)
-#     * kernel_regularizer: whether to apply L1/L2 [regularization](https://www.tensorflow.org/api_docs/python/tf/keras/regularizers)
-#     
-# ``` python
-# tf.keras.layers.Dense(
-#     units, activation=None, use_bias=True, kernel_initializer='glorot_uniform',
-#     bias_initializer='zeros', kernel_regularizer=None, bias_regularizer=None,
-#     activity_regularizer=None, kernel_constraint=None, bias_constraint=None,
-#     **kwargs
-# )
-# ```
-
-# A simple network with one hidden layer looks like this:
-# * Sequential.add() adds a layer to the network
-# * You can also pass an array of layers to the constructor: 'Sequential([layers])'
-# * We use ReLU activation for the hidden layer and SoftMax for the output layer.
+# ### Multi-class classification (topic classification)
+# * Dataset: 11,000 news stories, 46 topics
+#     - Included in Keras, with a 50/50 train-test split
+# * Each row is one news story, with only the 10,000 most frequent words retained
+# * Again, each word is replaced by a _word index_ (word ID)
 
 # In[10]:
 
 
-from tensorflow.keras import models
-from tensorflow.keras import layers
+from tensorflow.keras.datasets import reuters
 
-model = models.Sequential()
-model.add(layers.Dense(512, activation='relu', input_shape=(28 * 28,)))
-model.add(layers.Dense(10, activation='softmax'))
+(train_data, train_labels), (test_data, test_labels) = reuters.load_data(num_words=10000)
+
+word_index = reuters.get_word_index()
+reverse_word_index = dict([(value, key) for (key, value) in word_index.items()])
+# Note that our indices were offset by 3
+# because 0, 1 and 2 are reserved indices for "padding", "start of sequence", and "unknown".
+decoded_newswire = ' '.join([reverse_word_index.get(i - 3, '?') for i in train_data[0]])
+print("News wire: ",decoded_newswire)
+print("Encoded: ", train_data[0][0:20])
+print("Topic: ",train_labels[0])
 
 
-# #### The input layer
-# Note that the input layer can be defined by 'input_shape'. Alternatively, you could also add an explicit input layer.
-# In this case, the data is a flattened array of 28*28 inputs.
+# #### Preparing the data
+# * As in the previous example, we need to vectorize the data (e.g. using one-hot-encoding)
+# * Since we now have 46 classes, we need to vectorize the labels as well
+#     - We can use one-hot-encoding with Keras' `to_categorical` utility
+#     - This yields a vector of 46 floats (0/1) for every sample
 
 # In[11]:
 
 
-model = models.Sequential()
-model.add(layers.InputLayer(input_shape=(28 * 28,)))
-model.add(layers.Dense(512, activation='relu'))
-model.add(layers.Dense(10, activation='softmax'))
+from tensorflow.keras.utils import to_categorical
+x_train = vectorize_sequences(train_data)
+x_test = vectorize_sequences(test_data)
+one_hot_train_labels = to_categorical(train_labels)
+one_hot_test_labels = to_categorical(test_labels)
 
 
-# #### Activation layers
-
-# You can specify most activation functions, initializers, and regularizers as keyword strings.
-# If you need more control, you can specify the activation as an activation layer. The Dense layer will then use a linear activation, and the next layers applied your preferred activation.
+# ### Building the model
+# * This time we use 64 hidden units because we have many more classes to learn. 
+# * In the final layer we can still use the softmax activation function.
+# * The loss function is now `categorical_crossentropy`
 
 # In[12]:
 
 
 model = models.Sequential()
-model.add(layers.InputLayer(input_shape=(28 * 28,)))
-model.add(layers.Dense(512))
-model.add(layers.ReLU(negative_slope=0.1)) # A leaky ReLU
-model.add(layers.Dense(10, activation='softmax'))
+model.add(layers.Dense(64, activation='relu', input_shape=(10000,)))
+model.add(layers.Dense(64, activation='relu'))
+model.add(layers.Dense(46, activation='softmax'))
+model.compile(optimizer='rmsprop',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
 
 
-# #### Model summary
-# - 'model.summary()' prints a layer-wise summary of the model
-#     - hidden layer 1 : (28 * 28 + 1) * 512 = 401920
-#     - hidden layer 2 : (512 + 1) * 512 = 262656
-#     - output layer: (512 + 1) * 10 = 5130
+# #### Training and tuning
+# * We again take a validation set from the training set
+# * We fit the model with 20 epochs
+# * Plot the learning curves
 
 # In[13]:
 
 
-## Add one more hidden layer for better performance
-model = models.Sequential()
-model.add(layers.Dense(512, activation='relu', input_shape=(28 * 28,)))
-model.add(layers.Dense(512, activation='relu'))
-model.add(layers.Dense(10, activation='softmax'))
+x_val, partial_x_train = x_train[:1000], x_train[1000:]
+y_val, partial_y_train = one_hot_train_labels[:1000], one_hot_train_labels[1000:]
 
 
 # In[14]:
 
 
-model.summary()
+history2 = model.fit(partial_x_train,
+                    partial_y_train,
+                    epochs=20, verbose=1,
+                    batch_size=512,
+                    validation_data=(x_val, y_val))
 
-
-# ### Choosing loss, optimizer, metrics
-# 
-# 'model.compile()' specifies how the model should be trained, i.e. which loss function and optimizer to use and which evaluation metrics to report.
-# 
-# * __Loss function__ [See overview](https://www.tensorflow.org/api_docs/python/tf/keras/losses)
-#     - Cross-entropy (log loss) for multi-class classification ($y_{true}$ is one-hot encoded)
-#     - Use binary crossentropy for binary problems (single output node) 
-#     - Use sparse categorical crossentropy if $y_{true}$ is label-encoded (1,2,3,...)
-# * __Optimizer__ [See overview](https://www.tensorflow.org/api_docs/python/tf/keras/optimizers)
-#     - Any of the available optimizers. RMSprop usually works well.
-# * __Metrics__ [See overview](https://www.tensorflow.org/api_docs/python/tf/keras/metrics)
-#     - To monitor performance during training and testing, e.g. accuracy
-
-# The defaults versions of all of these can be specified by keywords
 
 # In[15]:
 
 
-# Shorthand
-model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
+pd.DataFrame(history2.history).plot(lw=2);
 
-
-# For more control, the actual functions can be passed.
 
 # In[16]:
 
 
-from tensorflow.keras.optimizers import RMSprop
-from tensorflow.keras.losses import CategoricalCrossentropy
-from tensorflow.keras.metrics import Accuracy
-
-# Detailed
-model.compile(loss=CategoricalCrossentropy(label_smoothing=0.01),
-              optimizer=RMSprop(learning_rate=0.001, momentum=0.0),
-              metrics=[Accuracy()])
+model.fit(partial_x_train, partial_y_train, epochs=8, batch_size=512, verbose=0)
+result = model.evaluate(x_test, one_hot_test_labels)
+print("Loss: {:.4f}, Accuracy: {:.4f}".format(*result))
 
 
-# ### Training (fitting)
-# The 'fit' function trains the network and returns a history of the training and validation loss and all metrics per epoch.
-# 
-# ```python
-# network.fit(X_train, y_train, epochs=3, batch_size=64)
-# ```
-# 
-# There are 2 important hyperparameters:
-# * Number of epochs: enough to allow convergence
-#     * Too much: model starts overfitting (or just wastes time)
-#     
-#     
-# * Batch size: small batches (e.g. 32, 64,... samples) often preferred
-#     * 'Noisy' training data makes overfitting less likely
-#         * Larger batches generalize less well ('generalization gap')
-#     * Requires less memory (especially in GPUs)
-#     * Large batches do speed up training, may converge in fewer epochs
-
-# #### Repeated fitting
-# Calling 'model.fit' multiple times does not recreate the model from scratch (like scikit-learn does), it just continues training with the stored weights. To train from scratch, e.g. with different hyperparameters, you need to recreate the model, e.g. by wrapping it as a create_model function.
+# ### Regression
+# * Dataset: 506 examples of houses and sale prices (Boston)
+#     - Included in Keras, with a 1/5 train-test split
+# * Each row is one house price, described by numeric properties of the house and neighborhood
+# * Small dataset, non-normalized features
 
 # In[17]:
 
 
-def create_model():
-    model = models.Sequential()
-    model.add(layers.Dense(512, activation='relu', kernel_initializer='he_normal', input_shape=(28 * 28,)))
-    model.add(layers.Dense(512, activation='relu', kernel_initializer='he_normal'))
-    model.add(layers.Dense(10, activation='softmax'))
-    model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
-    return model
+from tensorflow.keras.datasets import boston_housing
+
+(train_data, train_targets), (test_data, test_targets) =  boston_housing.load_data()
 
 
-# #### Tracking progress
-# Calling 'fit' will print out the progress for every epoch, and returns a 'history' object which all losses and evaluation metrics.
+# #### Building the network
+# * This is a small dataset, so easy to overfit
+#     * We use 2 hidden layers of 64 units each
+# * Use smaller batches, more epochs
+# * Since we want scalar output, the output layer is one unit without activation
+# * Loss function is Mean Squared Error (bigger penalty)
+# * Evaluation metric is Mean Absolute Error (more interpretable)
 
 # In[18]:
 
 
-model = create_model()
-history = model.fit(Xf_train, yf_train, epochs=3, batch_size=64);
+def build_model():
+    model = models.Sequential()
+    model.add(layers.Dense(64, activation='relu',
+                           input_shape=(train_data.shape[1],)))
+    model.add(layers.Dense(64, activation='relu'))
+    model.add(layers.Dense(1))
+    model.compile(optimizer='rmsprop', loss='mse', metrics=['mae'])
+    return model
 
+
+# #### Preprocessing
+# * Neural nets work a lot better if we standardize the features first. 
+# * Keras has no built-in support so we have to do this ourselves
+#     - We can use scikit-learn preprocessors and build a pipeline with KerasClassifier
 
 # In[19]:
 
 
-model.to_json()
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+
+estimators = []
+estimators.append(('standardise', StandardScaler()))
+estimators.append(('keras', KerasRegressor(build_fn=build_model)))
+pipeline = Pipeline(estimators)
 
 
-# You can also specify a validation set so that the validation loss and accuracy is also returned.
-# 'verbose=0' will silence the output prints.
+# * Evaluate the Keras pipeline with cross-validation
 
 # In[20]:
 
 
-model = create_model()
-history = model.fit(Xf_train, yf_train, epochs=3, batch_size=32, verbose=0,
-                    validation_data=(x_val, y_val))
+from sklearn.model_selection import cross_validate
+clf = KerasClassifier(build_model)
+X = np.concatenate([train_data,test_data],axis=0)
+y = np.concatenate([train_targets,test_targets],axis=0)
+scores = cross_validate(pipeline, X, y, cv=3,
+                        scoring=('neg_mean_squared_error'),
+                        return_train_score=True,
+                        fit_params={'keras__epochs': 50, 'keras__batch_size':1, 'keras__verbose':0})
 
-
-# The returned history contains evaluation data (loss and metrics) for every epoch
 
 # In[21]:
 
 
-history.history
-
-
-# ### Predictions and evaluations
-# We can now call `predict` to generate predictions, and `evaluate` the trained model on the entire test set
-# 
-# ``` python
-# network.predict(X_test)
-# test_loss, test_acc = network.evaluate(X_test, y_test)
-# ```
-
-# In[22]:
-
-
-predictions = model.predict(X_test)
-
-# Visualize one of the predictions
-sample_id = 0
-print(predictions[sample_id])
-
-np.set_printoptions(precision=7)
-fig, axes = plt.subplots(1, 1, figsize=(2, 2))
-axes.imshow(X_test[sample_id].reshape(28, 28), cmap=plt.cm.gray_r)
-axes.set_xlabel("True label: {}".format(y_test[sample_id]))
-axes.set_xticks([])
-axes.set_yticks([])
-
-
-# In[23]:
-
-
-test_loss, test_acc = model.evaluate(X_test, y_test)
-print('Test accuracy:', test_acc)
-
-
-# ## Checking the learning curve
-# There are several ways to check the learning curve
-# * Wait until the training is finished, then plot the results in the returned history
-# * Add a callback to the fit function that re-draws the learning curve in real time with every update
-#     * An example implementation is given below
-# * Use an external tool such as [TensorBoard](https://www.tensorflow.org/tensorboard/get_started)
-# * There are also commercial tools, e.g. [WeightsAndBiases](https://www.wandb.com/)
-
-# In[24]:
-
-
-from IPython.display import clear_output
-
-# For plotting the learning curve in real time
-class TrainingPlot(keras.callbacks.Callback):
-    
-    # This function is called when the training begins
-    def on_train_begin(self, logs={}):
-        # Initialize the lists for holding the logs, losses and accuracies
-        self.losses = []
-        self.acc = []
-        self.val_losses = []
-        self.val_acc = []
-        self.logs = []
-        self.max_acc = 0
-    
-    # This function is called at the end of each epoch
-    def on_epoch_end(self, epoch, logs={}):
-        
-        # Append the logs, losses and accuracies to the lists
-        self.logs.append(logs)
-        self.losses.append(logs.get('loss'))
-        self.acc.append(logs.get('accuracy'))
-        self.val_losses.append(logs.get('val_loss'))
-        self.val_acc.append(logs.get('val_accuracy'))
-        self.max_acc = max(self.max_acc, logs.get('val_accuracy'))
-        
-        # Before plotting ensure at least 2 epochs have passed
-        if len(self.losses) > 1:
-            
-            # Clear the previous plot
-            clear_output(wait=True)
-            N = np.arange(0, len(self.losses))
-            
-            # Plot train loss, train acc, val loss and val acc against epochs passed
-            plt.figure(figsize=(8,3))
-            plt.plot(N, self.losses, lw=2, c="b", linestyle="-", label = "train_loss")
-            plt.plot(N, self.acc, lw=2, c="r", linestyle="-", label = "train_acc")
-            plt.plot(N, self.val_losses, lw=2, c="b", linestyle=":", label = "val_loss")
-            plt.plot(N, self.val_acc, lw=2, c="r", linestyle=":", label = "val_acc")
-            plt.title("Training Loss and Accuracy [Epoch {}, Max Acc {:.4f}]".format(epoch, self.max_acc))
-            plt.xlabel("Epoch #")
-            plt.ylabel("Loss/Accuracy")
-            plt.legend()
-            plt.show()
-
-
-# In[25]:
-
-
-from sklearn.model_selection import train_test_split
-
-plot_losses = TrainingPlot()
-model = create_model()
-history = model.fit(Xf_train, yf_train, epochs=25, batch_size=512, verbose=0,
-                    validation_data=(x_val, y_val), callbacks=[plot_losses])
-
-
-# ### Early stopping
-# * Stop training when the validation loss (or validation accuracy) no longer improves
-# * Loss can be bumpy: use a moving average or wait for $k$ steps without improvement
-# 
-# ``` python
-# earlystop = callbacks.EarlyStopping(monitor='val_loss', patience=3)
-# model.fit(x_train, y_train, epochs=25, batch_size=512, callbacks=[earlystop])
-# ```
-
-# In[26]:
-
-
-from tensorflow.keras import callbacks
-
-earlystop = callbacks.EarlyStopping(monitor='val_loss', patience=3)
-model = create_model()
-history = model.fit(Xf_train, yf_train, epochs=25, batch_size=512, verbose=0,
-                    validation_data=(x_val, y_val), callbacks=[plot_losses, earlystop])
+print("MAE: ", -np.mean(scores['test_score']))
 
 
 # ## Regularization
-# There are several ways that we can regularize our models it they are overfitting:
-# - Get more data
-# - Make the network smaller (e.g. use fewer nodes in the layers, or use fewer layers)
-# - Regularize the model weights (e.g. by L1/L2 regularization)
-# - Dropout
-# - Batch normalization also has a regularization effect
-# 
-# ### Weight regularization (weight decay)
-# * Weight regularization can be applied to layers using a [kernel regularizer](https://www.tensorflow.org/api_docs/python/tf/keras/regularizers)
-# - L1 regularization: leads to _sparse networks_ with many weights that are 0
-# - L2 regularization: leads to many very small weights
 
-# In[27]:
-
-
-from tensorflow.keras import regularizers
-
-earlystop = callbacks.EarlyStopping(monitor='val_loss', patience=5)
-model = create_model()
-history = model.fit(Xf_train, yf_train, epochs=50, batch_size=512, verbose=0,
-                    validation_data=(x_val, y_val), callbacks=[plot_losses, earlystop])
-
-
-# ### Dropout
-# * Dropout randomly sets a number of layer activations to 0. This avoids that non-significant patterns are 'memorized' by the model.
-# * It is added to the model via a [Dropout layer](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dropout)
-# * The _dropout rate_ (the fraction of the outputs that are zeroed-out) is usually between 0.1 and 0.5, but should be tuned to the specific network.
-# * You could add dropout after any dense layer.
-
-# In[28]:
-
-
-model = models.Sequential()
-model.add(layers.Dense(256, activation='relu', input_shape=(28 * 28,)))
-model.add(layers.Dropout(0.3))
-model.add(layers.Dense(32, activation='relu'))
-model.add(layers.Dropout(0.3))
-model.add(layers.Dense(10, activation='softmax'))
-model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
-plot_losses = TrainingPlot()
-history = model.fit(Xf_train, yf_train, epochs=50, batch_size=512, verbose=0,
-                    validation_data=(x_val, y_val), callbacks=[plot_losses, earlystop])
-
-
-# ### Batch Normalization
-# * Batch normalization normalizes the activations of the previous layer within each batch
-#     * Within a batch, set the mean activation close to 0 and the standard deviation close to 1
-#         * Across badges, use exponential moving average of batch-wise mean and variance
-#     * Allows deeper networks less prone to vanishing or exploding gradients
-
-# ```python
-# 
-# ```
-# 
-
-# In[29]:
-
-
-model = models.Sequential()
-model.add(layers.Dense(265, activation='relu', input_shape=(28 * 28,)))
-model.add(layers.BatchNormalization())
-model.add(layers.Dense(64, activation='relu'))
-model.add(layers.BatchNormalization())
-model.add(layers.Dense(32, activation='relu'))
-model.add(layers.BatchNormalization())
-model.add(layers.Dense(10, activation='softmax'))
-model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
-plot_losses = TrainingPlot()
-history = model.fit(Xf_train, yf_train, epochs=50, batch_size=512, verbose=0,
-                    validation_data=(x_val, y_val), callbacks=[plot_losses, earlystop])
-
-
-# #### Combining multiple regularizers
-# There is some debate about whether it makes sense to combine multiple regularizers, and in which order. What works (or not) depends on the structure and size of the network and the dataset at hand. 
-# 
-# For instance, since Batch Normalization already does some regularization, Dropout may not be needed. However, in this case (see below), the combination does help. Sometimes it helps do use Dropout after Batch Normalization only in the deepest layers.
-# 
-# BatchNormalization is sometimes done before the Dense layer, but in general it works better if it is applied after the dense layer. Likewise, dropout can be applied before or after Batch Normalization. Using Dropout before Batch Normalization, however, will include 0's in the normalization statistics, which is not ideal.
-# [Here is an interesting paper on this topic](https://arxiv.org/pdf/1801.05134.pdf)
-
-# In[30]:
-
-
-network = models.Sequential()
-network.add(layers.Dense(265, activation='relu', input_shape=(28 * 28,)))
-network.add(layers.BatchNormalization())
-network.add(layers.Dropout(0.3))
-network.add(layers.Dense(64, activation='relu'))
-network.add(layers.BatchNormalization())
-network.add(layers.Dropout(0.3))
-network.add(layers.Dense(32, activation='relu'))
-network.add(layers.BatchNormalization())
-network.add(layers.Dropout(0.3))
-network.add(layers.Dense(10, activation='softmax'))
-network.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
-plot_losses = TrainingPlot()
-history = network.fit(Xf_train, yf_train, epochs=50, batch_size=512, verbose=0,
-                      validation_data=(x_val, y_val), callbacks=[plot_losses, earlystop])
-
-
-# ### Tuning multiple hyperparameters
-# * Keras has an associated tuning library, [keras-tuner](https://www.tensorflow.org/tutorials/keras/keras_tuner), with several tuning techniques:
-# - RandomSearch
-# - Hyperband
-# - BayesianOptimization
-# - Sklearn (for tuning scikit-learn models)
-# 
-# We'll cover Hyperband and Bayesian Optimization later.
-# 
-# Note: keras-tuner creates a folder with all results per 'project' (see the 'project_name' parameter).
-# You will need to remove the folder or change the project name to run it again.
-
-# In[31]:
-
-
-get_ipython().system('pip install -q -U keras-tuner')
-
-
-# In[32]:
-
-
-from tensorflow.keras import optimizers
-import kerastuner as kt
-
-
-def build_model(hp):
-    model = models.Sequential()
-
-    # Tune the number of units in the dense layers
-    # Choose an optimal value between 32-512
-    hp_units = hp.Int('units', min_value = 32, max_value = 265, step = 32)
-
-    model.add(keras.layers.Dense(units = hp_units, activation = 'relu', input_shape=(28 * 28,)))
-    model.add(keras.layers.Dense(units = hp_units, activation = 'relu'))
-    model.add(keras.layers.Dense(10))
-
-    # Tune the learning rate for the optimizer 
-    # Choose an optimal value from 0.01, 0.001, or 0.0001
-    hp_learning_rate = hp.Choice('learning_rate', values = [1e-2, 1e-3, 1e-4]) 
-
-    model.compile(optimizer = optimizers.Adam(learning_rate = hp_learning_rate),
-                  loss = 'categorical_crossentropy',
-                  metrics = ['accuracy'])
-    return model
-
-tuner = kt.RandomSearch(build_model, max_trials=5, objective = 'val_accuracy', project_name='lab7')
-
+# Adding L1/L2 regularization
+# * The input (0.001) is the alpha value
 
 # In[33]:
 
 
-tuner.search(Xf_train, yf_train, epochs = 10, validation_data = (x_val, y_val), callbacks = [TrainingPlot()])
+from tensorflow.keras import regularizers
 
-# Get the optimal hyperparameters
-best_hps = tuner.get_best_hyperparameters(num_trials = 1)[0]
+l2_model = models.Sequential()
+l2_model.add(layers.Dense(16, kernel_regularizer=regularizers.l2(0.001),
+                          activation='relu', input_shape=(10000,)))
+l2_model.add(layers.Dense(16, kernel_regularizer=regularizers.l2(0.001),
+                          activation='relu'))
+l2_model.add(layers.Dense(1, activation='sigmoid'))
+l2_model.summary()
 
 
-# * You can wrap Keras models as scikit-learn models using [KerasClassifier](https://www.tensorflow.org/api_docs/python/tf/keras/wrappers/scikit_learn/KerasClassifier)and use any tuning technique
+# Adding dropout
+# * The input (0.5) is the dropout rate
 
 # In[34]:
 
 
-from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
+dpt_model = models.Sequential()
+dpt_model.add(layers.Dense(16, activation='relu', input_shape=(10000,)))
+dpt_model.add(layers.Dropout(0.5))
+dpt_model.add(layers.Dense(16, activation='relu'))
+dpt_model.add(layers.Dropout(0.5))
+dpt_model.add(layers.Dense(1, activation='sigmoid'))
+dpt_model.summary()
 
-def build_model(var_activation='relu',var_optimizer='adam'):
-    """ Uses arguments to build Keras model. """
-    model = models.Sequential()
-    model.add(layers.Dense(64,activation=var_activation, input_shape=(28 * 28,)))
-    model.add(layers.Dense(32,activation=var_activation))
-    model.add(layers.Dense(16,activation=var_activation))
-    model.add(layers.Dense(10,activation='softmax'))
-    model.compile(loss="categorical_crossentropy",
-                optimizer=var_optimizer,
-                metrics=["accuracy"])
-    return model
 
-# Search space
-_activations=['tanh','relu','selu']
-_optimizers=['sgd','adam']
-_batch_size=[16,32,64]
-params=dict(var_activation=_activations,
-            var_optimizer=_optimizers,
-            batch_size=_batch_size)
-
-# Wrap
-model = KerasClassifier(build_fn=build_model,epochs=4,batch_size=16)
-
+# ### Word embeddings in Keras
+# * Uses a pre-trained embedding, obtained using GloVe
+# * See a complete example [here](https://blog.keras.io/using-pre-trained-word-embeddings-in-a-keras-model.html)
+# 
 
 # In[35]:
 
 
-from sklearn.model_selection import RandomizedSearchCV
+from tensorflow.keras.layers import Embedding, Flatten, Dense
 
-rscv = RandomizedSearchCV(model, param_distributions=params, cv=3, n_iter=10, verbose=1, n_jobs=-1)
-rscv_results = rscv.fit(Xf_train,yf_train)
-
-
-# In[36]:
-
-
-print('Best score is: {} using {}'.format(rscv_results.best_score_,
-rscv_results.best_params_))
+max_length = 20 # pad documents to a maximum number of words
+vocab_size = 10000 # vocabulary size
+embedding_length = 300 # vocabulary size
+# define the model
+model = models.Sequential()
+model.add(Embedding(vocab_size, embedding_length, input_length=max_length))
+model.add(Flatten())
+model.add(Dense(1, activation='sigmoid'))
+# compile the model
+model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=['accuracy'])
+# summarize the model
+print(model.summary())
 
 
 # ### Further reading

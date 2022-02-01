@@ -1,6 +1,5 @@
-assignments-old/*
-assign/*
 .ipynb_checkpoints/
 __pycache__/
+_build/*
 **/.DS_Store
 **/*.icloud

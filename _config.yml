@@ -21,6 +21,11 @@ execute:
     - '09*'
     - '10*'
 
+# Include slides
+sphinx:
+  config:
+    html_extra_path: ['slides_html']
+
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:

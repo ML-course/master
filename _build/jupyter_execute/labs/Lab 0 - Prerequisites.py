@@ -21,7 +21,7 @@ HTML('''<style>html, body{overflow-y: visible !important} .CodeMirror{min-width:
 # 
 # **Windows users**: If you are new to Anaconda, read the [starting guide](https://docs.anaconda.com/anaconda/user-guide/getting-started/). You'll probably use the Anaconda Prompt to run any commands or to start Jupyter Lab.
 # 
-# **Mac users**: You'll probably use your terminal to run any commands or to start Jupyter Lab. Make sure that you have Command Line tools installed. If not, run `xcode-select —install`. You won't need a full XCode installation. 
+# **Mac users**: You'll probably use your terminal to run any commands or to start Jupyter Lab. Make sure that you have Command Line tools installed. If not, run ``xcode-select --install``. You won't need a full XCode installation. 
 # 
 # #### Apple silicon (M1)
 # For those who have a laptop with Apple Silicon (M1), [this guide may be useful](https://betterdatascience.com/install-tensorflow-2-7-on-macbook-pro-m1-pro/) to install a TensorFlow version that will effectively use the GPUs.
@@ -37,7 +37,7 @@ HTML('''<style>html, body{overflow-y: visible !important} .CodeMirror{min-width:
 # #### Using conda
 # To create a new conda environment called 'mlcourse' (or whatever you like), run
 # ```
-# conda create -n mlcourse python=3.9 conda
+# conda create -n mlcourse python=3.9
 # ```
 # You activate the environment with `conda activate mlcourse` and deacticate it with `conda deactivate`.
 # 
