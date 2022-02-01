@@ -4,6 +4,8 @@
 title: ML Engineering
 author: Joaquin Vanschoren
 logo: notebooks/images/banner.jpeg
+copyright: "2021. CC0 Licensed - Use as you like"  # Copyright year to be placed in the footer
+
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -24,7 +26,7 @@ execute:
 # Include slides
 sphinx:
   config:
-    html_extra_path: ['slides_html']
+    html_extra_path: ['slides_html','slides_pdf']
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -45,6 +47,8 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  favicon: notebooks/images/favicon.png
+  extra_navbar: ""
   
 launch_buttons:
   colab_url: "https://colab.research.google.com"
