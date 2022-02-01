@@ -10,7 +10,7 @@ copyright: "2021. CC0 Licensed - Use as you like"  # Copyright year to be placed
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: auto
+  execute_notebooks: force
   exclude_patterns:
     - 'Lab*'
     - 'Tutorial*'
