@@ -1,3 +1,6 @@
+[![Jupyter Book Badge](docs/images/badge.svg)](https://ml-course.github.io/)
+
+
 # An Open Machine Learning Course
 
 Jupyter notebooks for teaching machine learning. Based on scikit-learn and Keras, with OpenML used to experiment more extensively on many datasets.
