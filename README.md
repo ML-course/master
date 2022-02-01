@@ -1,4 +1,4 @@
-[![Jupyter Book Badge](docs/images/badge.svg)](https://ml-course.github.io/)
+[![Jupyter Book Badge](https://raw.githubusercontent.com/executablebooks/jupyter-book/master/docs/images/badge.svg)](https://ml-course.github.io/)
 
 
 # An Open Machine Learning Course
