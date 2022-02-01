@@ -5,3 +5,6 @@ format: jb-book
 root: intro
 chapters:
 - file: notebooks/01 - Introduction
+- file: notebooks/02 - Linear Models
+- file: notebooks/03 - Kernelization
+- file: notebooks/04 - Model Selection

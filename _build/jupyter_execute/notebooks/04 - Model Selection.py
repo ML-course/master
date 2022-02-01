@@ -10,16 +10,21 @@
 # In[1]:
 
 
+# Auto-setup when running on Google Colab
+import os
+if 'google.colab' in str(get_ipython()) and not os.path.exists('/content/master'):
+    get_ipython().system('git clone -q https://github.com/ML-course/master.git /content/master')
+    get_ipython().system('pip install -rq master/requirements_colab.txt')
+    get_ipython().run_line_magic('cd', 'master/notebooks')
+
 # Global imports and settings
-from preamble import *
 get_ipython().run_line_magic('matplotlib', 'inline')
-plt.rcParams['figure.dpi'] = 120 # Use 300 for PDF, 100 for slides
-HTML('''<style>html, body{overflow-y: visible !important} th{font-size: 20px} td{font-size: 20px} .CodeMirror{min-width:105% !important;} .rise-enabled .CodeMirror, .rise-enabled .output_subarea{font-size:140%; line-height:1.2; overflow: visible;} .output_subarea pre{width:110%}</style>''') # For slides
-interactive = True # Set to True for interactive plots 
+from preamble import *
+interactive = False # Set to True for interactive plots
 if interactive:
-    plt.rcParams['figure.dpi'] = 130
+    fig_scale = 1.5
 else:
-    plt.rcParams['figure.dpi'] = 100
+    fig_scale = 1.25
 
 
 # ## Evaluation
@@ -32,7 +37,7 @@ else:
 #     - The signal your model found may just be an artifact of your biased data
 #     - See 'Why Should I Trust You?' by Marco Ribeiro et al.
 #     
-# <img src="../images/eval_trust.png" alt="ml" style="width: 400px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/eval_trust.png" alt="ml" style="width: 400px;"/>
 
 # ### Designing Machine Learning systems
 # 
@@ -45,7 +50,7 @@ else:
 # * Overly complex machine learning systems are hard to maintain
 #     - See 'Machine Learning: The High Interest Credit Card of Technical Debt'   
 # 
-# <img src="../images/eval_debt2.png" alt="ml" style="width: 700px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/eval_debt2.png" alt="ml" style="width: 700px;"/>
 
 # ### Real world evaluations
 # * Evaluate predictions, but also how outcomes improve _because of them_
@@ -55,9 +60,9 @@ else:
 #     * A/B testing: split users in groups, test different models in parallel
 #     * Bandit testing: gradually direct more users to the winning system
 # 
-# <img src="../images/eval_abbandit.png" alt="ml" style="width: 500px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/eval_abbandit.png" alt="ml" style="width: 500px;"/>
 
-# # Performance estimation techniques
+# ## Performance estimation techniques
 # * Always evaluate models _as if they are predicting future data_
 # * We do not have access to future data, so we pretend that some data is hidden
 # * Simplest way: the _holdout_ (simple train-test split)
@@ -96,7 +101,7 @@ groups = np.repeat(np.arange(10), rng.multinomial(100, group_prior))
 
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
-fig, ax = plt.subplots(figsize=(8, 3))
+fig, ax = plt.subplots(figsize=(8*fig_scale, 3*fig_scale))
 mglearn.discrete_scatter(X_train[:, 0], X_train[:, 1], y_train,
                          markers='o', ax=ax)
 mglearn.discrete_scatter(X_test[:, 0], X_test[:, 1], y_test,
@@ -105,7 +110,7 @@ ax.legend(["Train class 0", "Train class 1", "Train class 2", "Test class 0",
                 "Test class 1", "Test class 2"], ncol=6,  loc=(-0.1, 1.1));
 
 
-# ## K-fold Cross-validation
+# ### K-fold Cross-validation
 # - Each random split can yield very different models (and scores)
 #     - e.g. all easy (of hard) examples could end up in the test set
 # - Split data into _k_ equal-sized parts, called _folds_
@@ -162,7 +167,7 @@ def plot_cv_indices(cv, X, y, group, ax, lw=2, show_groups=False, s=700, legend=
 # In[5]:
 
 
-fig, ax = plt.subplots(figsize=(6, 3))
+fig, ax = plt.subplots(figsize=(6*fig_scale, 3*fig_scale))
 cv = KFold(5)
 plot_cv_indices(cv, X, y, groups, ax, s=700);
 
@@ -191,12 +196,12 @@ print("Cross-validation scores KFold(n_splits=3):\n{}".format(
 # In[7]:
 
 
-fig, ax = plt.subplots(figsize=(6, 3))
+fig, ax = plt.subplots(figsize=(6*fig_scale, 3*fig_scale))
 plot_cv_indices(kfold, iris.data, iris.target, iris.target, ax, s=700)
 ax.set_ylim((-6, 150));
 
 
-# ### Stratified K-Fold cross-validation
+# #### Stratified K-Fold cross-validation
 # 
 # - If the data is unbalanced, some classes have only few samples
 # - Likely that some classes are not present in the test set 
@@ -208,13 +213,13 @@ ax.set_ylim((-6, 150));
 # In[8]:
 
 
-fig, ax = plt.subplots(figsize=(6, 3))
+fig, ax = plt.subplots(figsize=(6*fig_scale, 3*fig_scale))
 cv = StratifiedKFold(5)
 plot_cv_indices(cv, X, y, groups, ax, s=700)
 ax.set_ylim((-6, 100));
 
 
-# ### Leave-One-Out cross-validation
+# #### Leave-One-Out cross-validation
 # 
 # - _k_ fold cross-validation with _k_ equal to the number of samples
 # - Completely unbiased (in terms of data splits), but computationally expensive
@@ -227,13 +232,13 @@ ax.set_ylim((-6, 100));
 # In[9]:
 
 
-fig, ax = plt.subplots(figsize=(20, 4))
+fig, ax = plt.subplots(figsize=(20*fig_scale, 4*fig_scale))
 cv = KFold(33) # There are more than 33 classes, but this visualizes better.
 plot_cv_indices(cv, X, y, groups, ax, s=700)
 ax.set_ylim((-6, 100));
 
 
-# ### Shuffle-Split cross-validation
+# #### Shuffle-Split cross-validation
 # - Shuffles the data, samples (`train_size`) points randomly as the training set
 # - Can also use a smaller (`test_size`), handy with very large datasets
 # - Never use if the data is ordered (e.g. time series)
@@ -241,7 +246,7 @@ ax.set_ylim((-6, 100));
 # In[10]:
 
 
-fig, ax = plt.subplots(figsize=(6, 3))
+fig, ax = plt.subplots(figsize=(6*fig_scale, 3*fig_scale))
 cv = ShuffleSplit(8, test_size=.2)
 plot_cv_indices(cv, X, y, groups, ax, n_splits, s=700)
 ax.set_ylim((-6, 100))
@@ -278,7 +283,7 @@ class Bootstrap:
             splits.append((train, test))
         return splits
             
-fig, ax = plt.subplots(figsize=(6, 3))
+fig, ax = plt.subplots(figsize=(6*fig_scale, 3*fig_scale))
 cv = Bootstrap(8)
 plot_cv_indices(cv, X, y, groups, ax, n_splits, s=700)
 ax.set_ylim((-6, 100))
@@ -298,7 +303,7 @@ ax.legend([Patch(color=cmap_cv(.8)), Patch(color=cmap_cv(.2))],
 
 from sklearn.model_selection import RepeatedStratifiedKFold
 from matplotlib.patches import Rectangle
-fig, ax = plt.subplots(figsize=(10, 3))
+fig, ax = plt.subplots(figsize=(10*fig_scale, 3*fig_scale))
 cv = RepeatedStratifiedKFold(n_splits=5, n_repeats=3)
 plot_cv_indices(cv, X, y, groups, ax, lw=2, s=400, legend=False)
 ax.set_ylim((-6, 102))
@@ -322,7 +327,7 @@ for i in range(3):
 # In[13]:
 
 
-fig, ax = plt.subplots(figsize=(6, 3))
+fig, ax = plt.subplots(figsize=(6*fig_scale, 3*fig_scale))
 cv = GroupKFold(5)
 plot_cv_indices(cv, X, y, groups, ax, s=700, show_groups=True)
 ax.set_ylim((-6, 100));
@@ -331,7 +336,7 @@ ax.set_ylim((-6, 100));
 # ### Time series
 # When the data is ordered, random test sets are not a good idea
 
-# In[14]:
+# In[52]:
 
 
 import pandas as pd
@@ -340,6 +345,7 @@ adults = approval.groupby("subgroup").get_group('Adults')
 adults = adults.set_index('modeldate')[::-1]
 adults.approve_estimate.plot()
 ax = plt.gca()
+plt.rcParams["figure.figsize"] = (12*fig_scale,6*fig_scale)
 ax.set_xlabel("")
 xlim, ylim = ax.get_xlim(), ax.get_ylim()
 for i in range(20):
@@ -349,9 +355,8 @@ plt.title("Presidential approval estimates by fivethirtyeight")
 plt.legend([rect], ['Random Test Set'] );
 
 
-# ### Time series
-# * Test-then-train (prequential evaluation)
-#     * Every new sample is evaluated only once, then added to the training set
+# #### Test-then-train (prequential evaluation)
+# * Every new sample is evaluated only once, then added to the training set
 #     * Can also be done in batches (of _n_ samples at a time) 
 # * `TimeSeriesSplit`
 #     * In the kth split, the first k folds are the train set and the (k+1)th fold as the test set
@@ -362,7 +367,7 @@ plt.legend([rect], ['Random Test Set'] );
 
 
 from sklearn.utils import shuffle
-fig, ax = plt.subplots(figsize=(6, 3))
+fig, ax = plt.subplots(figsize=(6*fig_scale, 3*fig_scale))
 cv = TimeSeriesSplit(5, max_train_size=20)
 plot_cv_indices(cv, X, shuffle(y), groups, ax, s=700, lw=2)
 ax.set_ylim((-6, 100))
@@ -383,7 +388,7 @@ ax.set_title("TimeSeriesSplit(5, max_train_size=20)");
 # - Use grouping or leave-one-subject-out for grouped data
 # - Use train-then-test for time series
 
-# # Evaluation Metrics
+# ## Evaluation Metrics for Classification
 
 # ### Evaluation vs Optimization
 # 
@@ -406,7 +411,7 @@ ax.set_title("TimeSeriesSplit(5, max_train_size=20)");
 # - They are not always equally important
 #     - Which side do you want to err on for a medical test?
 # 
-# <img src="../images/type1error.jpg" alt="ml" style="width: 600px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/type1error.jpg" alt="ml" style="width: 600px;"/>
 # 
 
 # #### Confusion matrices
@@ -518,7 +523,7 @@ def plot_confusion_matrix(values, xlabel="predicted labels", ylabel="true labels
             c = 'k'
         else:
             c = 'w'
-        ax.text(x, y, fmt.format(value), color=c, ha="center", va="center")
+        ax.text(x, y, fmt.format(value), color=c, ha="center", va="center", fontsize=16)
     ax.invert_yaxis()
     return ax
 
@@ -602,7 +607,8 @@ plot_measure(f1_score)
 
 
 # __Classification measure Zoo__   
-# ![](../images/07_zoo.png)
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/07_zoo.png" alt="ml" style="width: 1500px;"/>
+# 
 # https://en.wikipedia.org/wiki/Precision_and_recall
 
 # ### Multi-class classification
@@ -615,7 +621,7 @@ plot_measure(f1_score)
 #         - Preferable for imbalanced classes (if all classes are equally important)
 #         - macro-averaged recall is also called _balanced accuracy_ 
 #          $$\frac{1}{C} \sum_{c=1}^C R(y_c,\hat{y_c})$$
-#     - weighted averaging ($w_c$: ratio of examples of class $c$, aka support) $$\sum_{c=1}^C w_c R(y_c,\hat{y_c})$$
+#     - weighted averaging ($w_c$: ratio of examples of class $c$, aka support): $\sum_{c=1}^C w_c R(y_c,\hat{y_c})$
 
 # In[23]:
 
@@ -626,8 +632,8 @@ def report(y_pred):
     fig = plt.figure()
     ax = plt.subplot(111)
     plot_confusion_matrix(confusion_matrix(y_true, y_pred), cmap='gray_r', ax=ax,
-                          xticklabels=["N", "P"], yticklabels=["N", "P"], xtickrotation=0, vmin=0, vmax=100, fsize=2.1)
-    plt.gcf().text(1.1, 0.2, classification_report(y_true, y_pred), fontsize=12, fontname="Consolas")
+                          xticklabels=["N", "P"], yticklabels=["N", "P"], xtickrotation=0, vmin=0, vmax=100, fsize=2.5)
+    plt.gcf().text(1.1, 0.2, classification_report(y_true, y_pred), fontsize=14, fontname="Courier")
 
     plt.tight_layout()
 report(y_pred_1)
@@ -635,7 +641,21 @@ report(y_pred_2)
 report(y_pred_3)
 
 
-# ## Probabilistic evaluation measures
+# ### Other useful classification metrics
+# - Cohen's Kappa
+#     - Measures 'agreement' between different models (aka inter-rater agreement)
+#     - To evaluate a single model, compare it against a model that does random guessing
+#         - Similar to accuracy, but taking into account the possibility of predicting the right class by chance
+#     - Can be weighted: different misclassifications given different weights
+#     - 1: perfect prediction, 0: random prediction, negative: worse than random
+#     - With $p_0$ = accuracy, and $p_e$ = accuracy of random classifier:
+#         $$\kappa = \frac{p_o - p_e}{1 - p_e}$$
+# - Matthews correlation coefficient
+#     - Corrects for imbalanced data, alternative for balanced accuracy or AUROC
+#     - 1: perfect prediction, 0: random prediction, -1: inverse prediction
+#         $$MCC = \frac{tp \times tn - fp \times fn}{\sqrt{(tp + fp)(tp + fn)(tn + fp)(tn + fn)}}$$
+
+# ## Probabilistic evaluation
 # * Classifiers can often provide uncertainty estimates of predictions.  
 # * Remember that linear models actually return a numeric value.
 #     - When $\hat{y}<0$, predict class -1, otherwise predict class +1
@@ -671,7 +691,7 @@ Xs_train, Xs_test, ys_train_named, ys_test_named, ys_train, ys_test =     train_
 lr = LogisticRegression()
 lr.fit(Xs_train, ys_train_named)
 
-fig, axes = plt.subplots(1, 2, figsize=(10, 3.5))
+fig, axes = plt.subplots(1, 2, figsize=(10*fig_scale, 3.5*fig_scale))
     
 mglearn.tools.plot_2d_separator(lr, Xs, ax=axes[0], alpha=.4,
                                 fill=True, cm=mglearn.cm2)
@@ -700,7 +720,7 @@ axes[0].legend(["Test class 0", "Test class 1", "Train class 0",
 # In[25]:
 
 
-fig, axes = plt.subplots(1, 2, figsize=(10, 3.5))
+fig, axes = plt.subplots(1, 2, figsize=(10*fig_scale, 3.5*fig_scale))
     
 mglearn.tools.plot_2d_separator(
     lr, Xs, ax=axes[0], alpha=.4, fill=True, cm=mglearn.cm2)
@@ -723,7 +743,7 @@ axes[0].legend(["Test class 0", "Test class 1", "Train class 0",
                 "Train class 1"], ncol=4, loc=(.1, 1.1));
 
 
-# ## Threshold calibration
+# ### Threshold calibration
 # 
 # - By default, we threshold at 0 for  `decision_function` and 0.5 for `predict_proba`
 # - Depending on the application, you may want to threshold differently
@@ -747,7 +767,7 @@ svc1 = SVC(gamma=.04).fit(Xs_train, ys_train)
     
 @interact
 def plot_decision_threshold(threshold=(-1.2,1.3,0.1)):
-    fig, axes = plt.subplots(1, 2, figsize=(8, 2.2), subplot_kw={'xticks': (), 'yticks': ()})    
+    fig, axes = plt.subplots(1, 2, figsize=(8*fig_scale, 2.2*fig_scale), subplot_kw={'xticks': (), 'yticks': ()})    
     line = np.linspace(Xs_train.min(), Xs_train.max(), 100)
 
     axes[0].set_title("decision with threshold {:.2f}".format(threshold))
@@ -823,7 +843,7 @@ def plot_PR_curve(threshold=(-3.19,1.4,0.1), model=[svc2, rf2]):
             yp_test, model.decision_function(Xp_test))
     # find existing threshold closest to zero
     close_zero = np.argmin(np.abs(thresholds))
-    plt.figure(figsize=(10,4))
+    plt.figure(figsize=(10*fig_scale,4*fig_scale))
     plt.plot(recall[close_zero], precision[close_zero], 'o', markersize=10,
              label="threshold zero", fillstyle="none", c='k', mew=2)
     plt.plot(recall, precision, lw=2, label="precision recall curve")
@@ -846,7 +866,7 @@ if not interactive:
     plot_PR_curve(threshold=-0.99,model=svc2)
 
 
-# ### Model selection
+# #### Model selection
 # - Some models can achieve trade-offs that others can't
 # - Your application may require very high recall (or very high precision)
 #     - Choose the model that offers the best trade-off, given your application
@@ -860,7 +880,7 @@ colors=['b','r','g','y']
 
 def plot_PR_curves(models):
     
-    plt.figure(figsize=(10,4))
+    plt.figure(figsize=(10*fig_scale,4*fig_scale))
     for i, model in enumerate(models):
         if hasattr(model, "predict_proba"):
             precision, recall, thresholds = precision_recall_curve(
@@ -913,7 +933,7 @@ def plot_ROC_curve(threshold=(-3.19,1.4,0.1), model=[svc2, rf2]):
         fpr, tpr, thresholds = roc_curve(yp_test, model.decision_function(Xp_test))
     # find existing threshold closest to zero
     close_zero = np.argmin(np.abs(thresholds))
-    plt.figure(figsize=(10,4))
+    plt.figure(figsize=(10*fig_scale,4*fig_scale))
     plt.plot(fpr[close_zero], tpr[close_zero], 'o', markersize=10, label="threshold zero", fillstyle="none", c='k', mew=2)
     plt.plot(fpr, tpr, lw=2, label="ROC curve")
     
@@ -948,7 +968,7 @@ probs_roc = svc_roc.decision_function(Xb_test)
 
 @interact
 def plot_roc_threshold(threshold=(-2,2,0.1)):
-    fig = plt.figure(constrained_layout=True, figsize=(10,4))
+    fig = plt.figure(constrained_layout=True, figsize=(10*fig_scale,4*fig_scale))
     axes = []
     gs = fig.add_gridspec(2, 2)
     axes.append(fig.add_subplot(gs[0, :-1]))
@@ -990,7 +1010,7 @@ if not interactive:
     plot_roc_threshold(threshold=-0.99)
 
 
-# ### Model selection
+# #### Model selection
 # - Again, some models can achieve trade-offs that others can't
 # - Your application may require minizing FPR (low FP), or maximizing TPR (low FN)
 # - The area under the ROC curve (AUROC or AUC) gives the _best overall_ model
@@ -1004,7 +1024,7 @@ from sklearn.metrics import auc
 from sklearn.dummy import DummyClassifier
 
 def plot_ROC_curves(models):
-    fig = plt.figure(figsize=(10,4))
+    fig = plt.figure(figsize=(10*fig_scale,4*fig_scale))
     for i, model in enumerate(models):
         if hasattr(model, "predict_proba"):
             fpr, tpr, thresholds = roc_curve(
@@ -1028,7 +1048,7 @@ dc2 = DummyClassifier(strategy='uniform').fit(Xb_train, yb_train)
 plot_ROC_curves([dc, dc2, svc, rf])
 
 
-# ### Multi-class AUROC (or AUPRC) 
+# #### Multi-class AUROC (or AUPRC) 
 # * We again need to choose between micro- or macro averaging TPR and FPR.
 #     * Micro-average if every sample is equally important (irrespective of class)
 #     * Macro-average if every class is equally important, especially for imbalanced data
@@ -1086,7 +1106,7 @@ tpr["macro"] = mean_tpr
 roc_auc["macro"] = auc(fpr["macro"], tpr["macro"])
 
 # Plot all ROC curves
-plt.figure(figsize=(10,4))
+plt.figure(figsize=(10*fig_scale,4*fig_scale))
 
 plt.plot(fpr["micro"], tpr["micro"],
          label='micro-average ROC curve (area = {0:0.2f})'
@@ -1114,190 +1134,7 @@ plt.legend(loc="lower right")
 plt.show()
 
 
-# ## Class weighting
-# * If some classes are more important than others, we can give them more weight
-#     * E.g. for imbalanced data, we can give more weight to minority classes
-# * Most classification models can include it in their loss function and optimize for it
-#     * E.g. Logistic regression: add a class weight $w_c$ in the log loss function
-# $$\mathcal{L_{log}}(\mathbf{w}) = - \sum_{c=1}^{C} \color{red}{w_c} \sum_{n=1}^{N} p_{n,c} log(q_{n,c}) $$
-
-# In[38]:
-
-
-def plot_decision_function(classifier, X, y, sample_weight, axis, title):
-    # plot the decision function
-    xx, yy = np.meshgrid(np.linspace(np.min(X[:,0])-1, np.max(X[:,0])+1, 500), np.linspace(np.min(X[:,1])-1, np.max(X[:,1])+1, 500))
-    Z = classifier.decision_function(np.c_[xx.ravel(), yy.ravel()])
-    Z = Z.reshape(xx.shape)
-
-    # plot the line, the points, and the nearest vectors to the plane
-    axis.contourf(xx, yy, Z, alpha=0.75, cmap=plt.cm.bone)
-    axis.scatter(X[:, 0], X[:, 1], c=y, s=100 * sample_weight, alpha=0.9,
-                 cmap=plt.cm.bone, edgecolors='black')
-
-    axis.axis('off')
-    axis.set_title(title)
-    
-def plot_class_weights():
-    X, y = make_blobs(n_samples=(50, 10), centers=2, cluster_std=[7.0, 2], random_state=4)
-    
-    # fit the models
-    clf_weights = SVC(gamma=0.1, C=0.1, class_weight={1: 10}).fit(X, y)
-    clf_no_weights = SVC(gamma=0.1, C=0.1).fit(X, y)
-
-    fig, axes = plt.subplots(1, 2, figsize=(9, 4))
-    plot_decision_function(clf_no_weights, X, y, 1, axes[0],
-                           "Constant weights")
-    plot_decision_function(clf_weights, X, y, 1, axes[1],
-                           "Modified class weights")
-plot_class_weights()
-
-
-# ## Instance weighting
-# * If some _training instances_ are important to get right, we can give them more weight
-#     * E.g. when some examples are from groups underrepresented in the data
-# * These are passed during training (fit), and included in the loss function
-#     * E.g. Logistic regression: add a instance weight $w_n$ in the log loss function
-# $$\mathcal{L_{log}}(\mathbf{w}) = - \sum_{c=1}^{C} \sum_{n=1}^{N} \color{red}{w_n} p_{n,c} log(q_{n,c}) $$
-
-# In[39]:
-
-
-# Example from https://scikit-learn.org/stable/auto_examples/svm/plot_weighted_samples.html
-def plot_instance_weights():
-    np.random.seed(0)
-    X = np.r_[np.random.randn(10, 2) + [1, 1], np.random.randn(10, 2)]
-    y = [1] * 10 + [-1] * 10
-    sample_weight_last_ten = abs(np.random.randn(len(X)))
-    sample_weight_constant = np.ones(len(X))
-    # and bigger weights to some outliers
-    sample_weight_last_ten[15:] *= 5
-    sample_weight_last_ten[9] *= 15
-
-    # for reference, first fit without sample weights
-
-    # fit the model
-    clf_weights = SVC(gamma=1)
-    clf_weights.fit(X, y, sample_weight=sample_weight_last_ten)
-
-    clf_no_weights = SVC(gamma=1)
-    clf_no_weights.fit(X, y)
-
-    fig, axes = plt.subplots(1, 2, figsize=(9, 4))
-    plot_decision_function(clf_no_weights, X, y, sample_weight_constant, axes[0],
-                           "Constant weights")
-    plot_decision_function(clf_weights, X, y, sample_weight_last_ten, axes[1],
-                           "Modified instance weights")
-plot_instance_weights()   
-
-
-# ## Cost-sensitive classification
-# * There are several ways to include misclassification costs
-# * Cost-sensitive resampling
-#     - resample (or reweight) the data to represent real-world expectations
-#     - oversample minority classes (or undersample majority) to 'correct' imbalance
-#     - increase weight of misclassified samples (e.g. in boosting)
-#     - decrease weight of misclassified (noisy) samples (e.g. in model compression)
-# * Cost-sensitive algorithms
-#     - If misclassification cost of some classes is higher, we can give them higher weights
-#     - Some support _cost matrix_ $C$: costs $c_{i,j}$ for every possible type of error
-# * Cost-sensitive ensembles: convert cost-insensitive classifiers into cost-sensitive ones
-#     - MetaCost: Build a model (ensemble) to learn the class probabilities $P(j|x)$
-#         - Relabel training data to minimize expected cost: $\underset{i}{\operatorname{argmin}} \sum_j P_j(x) c_{i,j}$
-#         - Accuracy may decrease but cost decreases as well.
-#     - AdaCost: Boosting with reweighting instances to reduce costs
-
-# ### Tuning the decision threshold to optimize costs
-# - If every FP or FN has a certain cost, we can compute the total cost for a given model:
-# $$\text{total cost} = \text{FPR} * cost_{FP} * ratio_{pos} + (1-\text{TPR}) *  cost_{FN} * (1-ratio_{pos})$$
-# - This yields different _isometrics_ (lines of equal cost) in ROC space
-# - Optimal threshold is the point on the ROC curve where cost is minimal (line search)
-
-# In[40]:
-
-
-import ipywidgets as widgets
-from ipywidgets import interact, interact_manual
-
-# Cost function
-def cost(fpr, tpr, cost_FN, cost_FP, ratio_P):
-    return fpr * cost_FP * ratio_P + (1 - tpr) * (1-ratio_P) * cost_FN;
-
-@interact
-def plot_isometrics(cost_FN=(1,10.0,1.0), cost_FP=(1,10.0,1.0)):
-    from sklearn.metrics import roc_curve
-    fpr, tpr, thresholds = roc_curve(yb_test, svc_roc.decision_function(Xb_test))
-
-    # get minimum
-    ratio_P = len(yb_test[yb_test==1]) / len(yb_test)
-    costs = [cost(fpr[x],tpr[x],cost_FN,cost_FP, ratio_P) for x in range(len(thresholds))]
-    min_cost = np.min(costs)
-    min_thres = np.argmin(costs)
-
-    # plot contours
-    x = np.arange(0.0, 1.1, 0.1)
-    y = np.arange(0.0, 1.1, 0.1)
-    XX, YY = np.meshgrid(x, y)
-    costs = [cost(f, t, cost_FN, cost_FP, ratio_P) for f, t in zip(XX,YY)]
-
-    if interactive:
-        fig, axes = plt.subplots(1, 1, figsize=(9, 3))
-    else:
-        fig, axes = plt.subplots(1, 1, figsize=(6, 2))
-    plt.plot(fpr, tpr, label="ROC Curve", lw=2)
-    levels = np.linspace(np.array(costs).min(), np.array(costs).max(), 10)
-    levels = np.sort(np.append(levels, min_cost))
-    CS = plt.contour(XX, YY, costs, levels)
-    plt.clabel(CS, inline=1, fontsize=10)
-
-    plt.xlabel("FPR")
-    plt.ylabel("TPR (recall)")
-    # find threshold closest to zero:
-    plt.plot(fpr[min_thres], tpr[min_thres], 'o', markersize=4,
-             label="optimal", fillstyle="none", c='k', mew=2)
-    plt.legend(loc=4);
-    plt.title("Isometrics, cost_FN: {}, cost_FP: {}".format(cost_FN, cost_FP))
-    plt.tight_layout()
-    plt.show()
-
-
-# In[41]:
-
-
-if not interactive:
-    plot_isometrics(1,1)
-    plot_isometrics(1,9)
-
-
-# ## Using class confidences, Brier score
-# * You may want to use the predicted class confidence (e.g. class probability) to make decisions
-# * Select models based on how accurate the class confidences are.
-#     * SVM and RandomForest are know to give bad probability estimates
-# * The Brier score loss: squared loss between predicted probability $\hat{p}$ and actual outcome $y$
-#     * Lower is better
-# $$\mathcal{L}_{Brier} =  \frac{1}{n}\sum_{i=1}^n (\hat{p}_i - y_i)^2$$
-
-# In[42]:
-
-
-from sklearn.metrics import brier_score_loss, accuracy_score
-from sklearn.datasets import load_breast_cancer
-cancer = load_breast_cancer()
-XC_train, XC_test, yC_train, yC_test = train_test_split(cancer.data, cancer.target, test_size=.5, random_state=0)
-
-# LogReg
-logreg = LogisticRegression().fit(XC_train, yC_train)
-probs = logreg.predict_proba(XC_test)[:,1]
-print("Logistic Regression Brier score loss: {:.4f}".format(brier_score_loss(yC_test,probs)))
-
-# SVM: scale decision functions
-svc = SVC().fit(XC_train, yC_train)
-prob_pos = svc.decision_function(XC_test)
-prob_pos = (prob_pos - prob_pos.min()) / (prob_pos.max() - prob_pos.min())
-print("SVM Brier score loss: {:.4f}".format(brier_score_loss(yC_test,prob_pos)))
-
-
-# ## Model calibration
+# ### Model calibration
 # 
 # * For some models, the _predicted_ uncertainty does not reflect the _actual_ uncertainty
 #     * If a model is 90% sure that samples are positive, is it also 90% accurate on these?
@@ -1306,12 +1143,13 @@ print("SVM Brier score loss: {:.4f}".format(brier_score_loss(yC_test,prob_pos)))
 #     * LogisticRegression models are well calibrated since they learn probabilities
 #     * SVMs are not well calibrated. _Biased_ towards points close to the decision boundary.
 
-# In[43]:
+# In[38]:
 
 
 from sklearn.svm import SVC
 from sklearn.datasets import make_classification
 from sklearn.calibration import calibration_curve
+from sklearn.metrics import brier_score_loss, accuracy_score
 
 def load_data():
     X, y = make_classification(n_samples=100000, n_features=20, random_state=0)
@@ -1353,7 +1191,7 @@ def plot_calibration_comparison(models, calibrator=None, calibratee=None):
     nr_plots = len(models)
     if calibrator:
         nr_plots += 1
-    fig, axes = plt.subplots(1, nr_plots, figsize=(3*nr_plots, 4*nr_plots))
+    fig, axes = plt.subplots(1, nr_plots, figsize=(3*nr_plots*fig_scale, 4*nr_plots*fig_scale))
     for ax, clf in zip(axes[:len(models)], models):
             clf.fit(Xc_train, yc_train)
             prob_pos = get_probabilities(clf,Xc_test)           
@@ -1380,7 +1218,32 @@ def plot_calibration_comparison(models, calibrator=None, calibratee=None):
 plot_calibration_comparison([LogisticRegression(), SVC()])   
 
 
-# ### Model calibration
+# #### Brier score
+# * You may want to select models based on how accurate the class confidences are.
+# * The **Brier score loss**: squared loss between predicted probability $\hat{p}$ and actual outcome $y$
+#     * Lower is better
+# $$\mathcal{L}_{Brier} =  \frac{1}{n}\sum_{i=1}^n (\hat{p}_i - y_i)^2$$
+
+# In[39]:
+
+
+from sklearn.datasets import load_breast_cancer
+cancer = load_breast_cancer()
+XC_train, XC_test, yC_train, yC_test = train_test_split(cancer.data, cancer.target, test_size=.5, random_state=0)
+
+# LogReg
+logreg = LogisticRegression().fit(XC_train, yC_train)
+probs = logreg.predict_proba(XC_test)[:,1]
+print("Logistic Regression Brier score loss: {:.4f}".format(brier_score_loss(yC_test,probs)))
+
+# SVM: scale decision functions
+svc = SVC().fit(XC_train, yC_train)
+prob_pos = svc.decision_function(XC_test)
+prob_pos = (prob_pos - prob_pos.min()) / (prob_pos.max() - prob_pos.min())
+print("SVM Brier score loss: {:.4f}".format(brier_score_loss(yC_test,prob_pos)))
+
+
+# #### Model calibration techniques
 # 
 # * We can post-process trained models to make them more calibrated.
 # * Fit a regression model (a calibrator) to map the model's outcomes $f(x)$ to a calibrated probability in [0,1]
@@ -1391,12 +1254,12 @@ plot_calibration_comparison([LogisticRegression(), SVC()])
 # 
 # $$f_{calib}(f(x))≈p(y)$$
 
-# ### Platt Scaling
+# ##### Platt Scaling
 # * Calibrator is a logistic (sigmoid) function:
 #     * Learn the weight $w_1$ and bias $w_0$ from data
 # $$f_{platt}=\frac{1}{1+\exp(−w_1 f(x)− w_0)}$$
 
-# In[44]:
+# In[40]:
 
 
 from sklearn.calibration import CalibratedClassifierCV
@@ -1418,13 +1281,13 @@ svm_platt = CalibratedClassifierCV(svm, cv=2, method='sigmoid')
 plot_calibration_comparison([svm, svm_platt],Sigmoid(),svm)
 
 
-# ### Isotonic regression
+# ##### Isotonic regression
 # * Maps input $x_i$ to an output $\hat{y}_i$ so that $\hat{y}_i$ increases monotonically with $x_i$ and minimizes loss $\sum_i^n (y_i-\hat{y}_i)$
 #     * Predictions are made by interpolating the predicted $\hat{y}_i$
 # * Fit to minimize the loss between the uncalibrated predictions $f(x)$ and the actual labels 
 # * Corrects any monotonic distortion, but tends to overfit on small samples
 
-# In[45]:
+# In[41]:
 
 
 from sklearn.isotonic import IsotonicRegression
@@ -1434,19 +1297,163 @@ iso = CalibratedClassifierCV(model, cv=2, method='isotonic')
 plot_calibration_comparison([model, iso],IsotonicRegression(),model)
 
 
-# ### Other useful classification metrics
-# - Cohen's Kappa
-#     - Measures 'agreement' between different models (aka inter-rater agreement)
-#     - To evaluate a single model, compare it against a model that does random guessing
-#         - Similar to accuracy, but taking into account the possibility of predicting the right class by chance
-#     - Can be weighted: different misclassifications given different weights
-#     - 1: perfect prediction, 0: random prediction, negative: worse than random
-#     - With $p_0$ = accuracy, and $p_e$ = accuracy of random classifier:
-#         $$\kappa = \frac{p_o - p_e}{1 - p_e}$$
-# - Matthews correlation coefficient
-#     - Corrects for imbalanced data, alternative for balanced accuracy or AUROC
-#     - 1: perfect prediction, 0: random prediction, -1: inverse prediction
-#         $$MCC = \frac{tp \times tn - fp \times fn}{\sqrt{(tp + fp)(tp + fn)(tn + fp)(tn + fn)}}$$
+# ## Cost-sensitive classification (dealing with imbalance)
+# * In the real worlds, different kinds of misclassification can have different costs 
+#     - Misclassifying certain classes can be more costly than others 
+#     - Misclassifying certain samples can be more costly than others 
+# * Cost-sensitive resampling: resample (or reweight) the data to represent real-world expectations
+#     - oversample minority classes (or undersample majority) to 'correct' imbalance
+#     - increase weight of misclassified samples (e.g. in boosting)
+#     - decrease weight of misclassified (noisy) samples (e.g. in model compression)
+
+# ### Class weighting
+# * If some classes are more important than others, we can give them more weight
+#     * E.g. for imbalanced data, we can give more weight to minority classes
+# * Most classification models can include it in their loss function and optimize for it
+#     * E.g. Logistic regression: add a class weight $w_c$ in the log loss function
+# $$\mathcal{L_{log}}(\mathbf{w}) = - \sum_{c=1}^{C} \color{red}{w_c} \sum_{n=1}^{N} p_{n,c} log(q_{n,c}) $$
+
+# In[42]:
+
+
+def plot_decision_function(classifier, X, y, sample_weight, axis, title):
+    # plot the decision function
+    xx, yy = np.meshgrid(np.linspace(np.min(X[:,0])-1, np.max(X[:,0])+1, 500), np.linspace(np.min(X[:,1])-1, np.max(X[:,1])+1, 500))
+    Z = classifier.decision_function(np.c_[xx.ravel(), yy.ravel()])
+    Z = Z.reshape(xx.shape)
+
+    # plot the line, the points, and the nearest vectors to the plane
+    axis.contourf(xx, yy, Z, alpha=0.75, cmap=plt.cm.bone)
+    axis.scatter(X[:, 0], X[:, 1], c=y, s=100 * sample_weight, alpha=0.9,
+                 cmap=plt.cm.bone, edgecolors='black')
+
+    axis.axis('off')
+    axis.set_title(title)
+    
+def plot_class_weights():
+    X, y = make_blobs(n_samples=(50, 10), centers=2, cluster_std=[7.0, 2], random_state=4)
+    
+    # fit the models
+    clf_weights = SVC(gamma=0.1, C=0.1, class_weight={1: 10}).fit(X, y)
+    clf_no_weights = SVC(gamma=0.1, C=0.1).fit(X, y)
+
+    fig, axes = plt.subplots(1, 2, figsize=(9*fig_scale, 4*fig_scale))
+    plot_decision_function(clf_no_weights, X, y, 1, axes[0],
+                           "Constant weights")
+    plot_decision_function(clf_weights, X, y, 1, axes[1],
+                           "Modified class weights")
+plot_class_weights()
+
+
+# ### Instance weighting
+# * If some _training instances_ are important to get right, we can give them more weight
+#     * E.g. when some examples are from groups underrepresented in the data
+# * These are passed during training (fit), and included in the loss function
+#     * E.g. Logistic regression: add a instance weight $w_n$ in the log loss function
+# $$\mathcal{L_{log}}(\mathbf{w}) = - \sum_{c=1}^{C} \sum_{n=1}^{N} \color{red}{w_n} p_{n,c} log(q_{n,c}) $$
+
+# In[43]:
+
+
+# Example from https://scikit-learn.org/stable/auto_examples/svm/plot_weighted_samples.html
+def plot_instance_weights():
+    np.random.seed(0)
+    X = np.r_[np.random.randn(10, 2) + [1, 1], np.random.randn(10, 2)]
+    y = [1] * 10 + [-1] * 10
+    sample_weight_last_ten = abs(np.random.randn(len(X)))
+    sample_weight_constant = np.ones(len(X))
+    # and bigger weights to some outliers
+    sample_weight_last_ten[15:] *= 5
+    sample_weight_last_ten[9] *= 15
+
+    # for reference, first fit without sample weights
+
+    # fit the model
+    clf_weights = SVC(gamma=1)
+    clf_weights.fit(X, y, sample_weight=sample_weight_last_ten)
+
+    clf_no_weights = SVC(gamma=1)
+    clf_no_weights.fit(X, y)
+
+    fig, axes = plt.subplots(1, 2, figsize=(9*fig_scale, 4*fig_scale))
+    plot_decision_function(clf_no_weights, X, y, sample_weight_constant, axes[0],
+                           "Constant weights")
+    plot_decision_function(clf_weights, X, y, sample_weight_last_ten, axes[1],
+                           "Modified instance weights")
+plot_instance_weights()   
+
+
+# ### Cost-sensitive algorithms
+# * Cost-sensitive algorithms
+#     - If misclassification cost of some classes is higher, we can give them higher weights
+#     - Some support _cost matrix_ $C$: costs $c_{i,j}$ for every possible type of error
+# * Cost-sensitive ensembles: convert cost-insensitive classifiers into cost-sensitive ones
+#     - MetaCost: Build a model (ensemble) to learn the class probabilities $P(j|x)$
+#         - Relabel training data to minimize expected cost: $\underset{i}{\operatorname{argmin}} \sum_j P_j(x) c_{i,j}$
+#         - Accuracy may decrease but cost decreases as well.
+#     - AdaCost: Boosting with reweighting instances to reduce costs
+
+# ### Tuning the decision threshold
+# - If every FP or FN has a certain cost, we can compute the total cost for a given model:
+# $$\text{total cost} = \text{FPR} * cost_{FP} * ratio_{pos} + (1-\text{TPR}) *  cost_{FN} * (1-ratio_{pos})$$
+# - This yields different _isometrics_ (lines of equal cost) in ROC space
+# - Optimal threshold is the point on the ROC curve where cost is minimal (line search)
+
+# In[44]:
+
+
+import ipywidgets as widgets
+from ipywidgets import interact, interact_manual
+
+# Cost function
+def cost(fpr, tpr, cost_FN, cost_FP, ratio_P):
+    return fpr * cost_FP * ratio_P + (1 - tpr) * (1-ratio_P) * cost_FN;
+
+@interact
+def plot_isometrics(cost_FN=(1,10.0,1.0), cost_FP=(1,10.0,1.0)):
+    from sklearn.metrics import roc_curve
+    fpr, tpr, thresholds = roc_curve(yb_test, svc_roc.decision_function(Xb_test))
+
+    # get minimum
+    ratio_P = len(yb_test[yb_test==1]) / len(yb_test)
+    costs = [cost(fpr[x],tpr[x],cost_FN,cost_FP, ratio_P) for x in range(len(thresholds))]
+    min_cost = np.min(costs)
+    min_thres = np.argmin(costs)
+
+    # plot contours
+    x = np.arange(0.0, 1.1, 0.1)
+    y = np.arange(0.0, 1.1, 0.1)
+    XX, YY = np.meshgrid(x, y)
+    costs = [cost(f, t, cost_FN, cost_FP, ratio_P) for f, t in zip(XX,YY)]
+
+    if interactive:
+        fig, axes = plt.subplots(1, 1, figsize=(9*fig_scale, 3*fig_scale))
+    else:
+        fig, axes = plt.subplots(1, 1, figsize=(6*fig_scale, 1.8*fig_scale))
+    plt.plot(fpr, tpr, label="ROC Curve", lw=2)
+    levels = np.linspace(np.array(costs).min(), np.array(costs).max(), 10)
+    levels = np.sort(np.append(levels, min_cost))
+    CS = plt.contour(XX, YY, costs, levels)
+    plt.clabel(CS, inline=1, fontsize=10)
+
+    plt.xlabel("FPR")
+    plt.ylabel("TPR (recall)")
+    # find threshold closest to zero:
+    plt.plot(fpr[min_thres], tpr[min_thres], 'o', markersize=4,
+             label="optimal", fillstyle="none", c='k', mew=2)
+    plt.legend(loc=4);
+    plt.title("Isometrics, cost_FN: {}, cost_FP: {}".format(cost_FN, cost_FP))
+    plt.tight_layout()
+    plt.show()
+
+
+# In[45]:
+
+
+if not interactive:
+    plot_isometrics(1,1)
+    plot_isometrics(1,9)
+
 
 # ## Regression metrics
 # 
@@ -1456,7 +1463,7 @@ plot_calibration_comparison([model, iso],IsotonicRegression(),model)
 # - mean absolute error: $\frac{\sum_{i}|y_{pred_i}-y_{actual_i}|}{n}$
 #     - Less sensitive to outliers and large errors
 # 
-# <img src="../images/distracted_rmse.jpg" alt="ml" style="width: 500px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/distracted_rmse.jpg" alt="ml" style="width: 500px;"/>
 
 # ### R squared
 # - $R^2 = 1 - \frac{\color{blue}{\sum_{i}(y_{pred_i}-y_{actual_i})^2}}{\color{red}{\sum_{i}(y_{mean}-y_{actual_i})^2}}$
@@ -1464,9 +1471,9 @@ plot_calibration_comparison([model, iso],IsotonicRegression(),model)
 #     - Between 0 and 1, but _negative_ if the model is worse than just predicting the mean
 #     - Easier to interpret (higher is better).
 #     
-# <img src="../images/07_r2.png" alt="ml" style="width: 600px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/07_r2.png" alt="ml" style="width: 600px;"/>
 
-# #### Visualizing regression errors
+# ### Visualizing regression errors
 # * Prediction plot (left): predicted vs actual target values
 # * Residual plot (right): residuals vs actual target values
 #     * Over- and underpredictions can be given different costs 
@@ -1507,9 +1514,9 @@ plt.tight_layout();
 #     - Variance error: error due to variability of the model w.r.t. the training sample
 #         - These points are sometimes predicted accurately, sometimes inaccurately
 
-# <img src="../images/03_bias_variance.png" alt="ml" style="width: 400px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/03_bias_variance.png" alt="ml" style="width: 350px;"/>
 
-# #### Computing bias and variance error
+# ### Computing bias and variance error
 # - Take 100 or more bootstraps (or shuffle-splits)
 # - Regression: for each data point x:
 #     - $bias(x)^2 = (x_{true} - mean(x_{predicted}))^2$
@@ -1565,7 +1572,7 @@ def compute_bias_variance(clf, X, y):
 # - Ensembling techniques (see later) reduce bias or variance directly
 #     - Bagging (e.g. RandomForests) reduces variance, Boosting reduces bias
 # 
-# <img src="../images/03_Bias-Variance-Tradeoff.png" alt="ml" style="width: 500px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/03_Bias-Variance-Tradeoff.png" alt="ml" style="width: 500px;"/>
 
 # ### Understanding under- and overfitting
 # - Regularization reduces variance error (increases stability of predictions)
@@ -1612,7 +1619,7 @@ def plot_train_test(clf, param, X, y, ax):
     ax.set_xlabel(name)
     ax.legend(loc="best")
     
-fig, axes = plt.subplots(2, 2)
+fig, axes = plt.subplots(2, 2, figsize=(6*fig_scale, 4*fig_scale))
 X, y = cancer.data, cancer.target
 svm = SVC(gamma=2e-4, random_state=0)
 param = {'C': [1e-4, 1e-2, 1, 1e2, 1e4]}
@@ -1629,7 +1636,7 @@ plt.tight_layout()
 
 # Summary Flowchart (by Andrew Ng)
 # 
-# <img src="../images/03_Bias-Variance-Flowchart.png" alt="ml" style="width: 700px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/03_Bias-Variance-Flowchart.png" alt="ml" style="width: 700px;"/>
 
 # ## Hyperparameter tuning
 # - There exists a huge range of techniques to tune hyperparameters. The simplest:
@@ -1639,10 +1646,9 @@ plt.tight_layout()
 #         - Better, especially when some hyperparameters are less important
 # - Many more advanced techniques exist, see lecture on Automated Machine Learning
 # 
-# <img src="../images/gridvsrandom.png" alt="ml" style="width: 650px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/gridvsrandom.png" alt="ml" style="width: 600px;"/>
 
-# ### Tuning setup
-# * First split the data in training and test sets (outer split)
+# * First, split the data in training and test sets (outer split)
 # * Split up the training data again (inner cross-validation)
 #     * Generate hyperparameter configurations (e.g. random/grid search)
 #     * Evaluate all configurations on all inner splits, select the best one (on average)
@@ -1651,11 +1657,7 @@ plt.tight_layout()
 # In[49]:
 
 
-# Avoid overlapping boxes
-prev = plt.rcParams['figure.dpi']
-plt.rcParams['figure.dpi'] = 70
 mglearn.plots.plot_grid_search_overview()
-plt.rcParams['figure.dpi'] = prev
 
 
 # In[50]:
@@ -1664,7 +1666,7 @@ plt.rcParams['figure.dpi'] = prev
 from scipy.stats.distributions import expon
 
 
-# #### Nested cross-validation
+# ### Nested cross-validation
 # - Simplest approach: single outer split and single inner split (shown below)
 # - Risk of over-tuning hyperparameters on specific train-test split
 #     - Only recommended for very large datasets
@@ -1686,7 +1688,7 @@ from scipy.stats.distributions import expon
 mglearn.plots.plot_threefold_split()
 
 
-# # Summary
+# ## Summary
 # * Split the data into training and test sets according to the application
 #     * Holdout only for large datasets, cross-validation for smaller ones
 #     * For classification, always use stratification
@@ -1702,3 +1704,9 @@ mglearn.plots.plot_threefold_split()
 # * Always tune the most important hyperparameters
 #     * Manual tuning: Use insight and train-test scores for guidance
 #     * Hyperparameter optimization: be careful not to over-tune
+
+# In[ ]:
+
+
+
+

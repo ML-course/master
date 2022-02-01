@@ -98,6 +98,29 @@
   </a>
  </li>
 </ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01%20-%20Introduction.html">
+   Lecture 1: Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02%20-%20Linear%20Models.html">
+   Lecture 2: Linear models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03%20-%20Kernelization.html">
+   Lecture 3: Kernelization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04%20-%20Model%20Selection.html">
+   Lecture 4: Model Selection
+  </a>
+ </li>
+</ul>
+
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -1241,7 +1264,7 @@ $<span class="math notranslate nohighlight">\(\frac{\partial \mathcal{L}}{\parti
 </ul>
 <div class="math notranslate nohighlight">
 \[\frac{\partial \mathcal{L}(a_o)}{\partial W^{(1)}} = \color{red}{\frac{\partial \mathcal{L}(a_o)}{\partial a_{h_1}}} \color{blue}{\frac{\partial a_{h_1}}{\partial z_{h_1}}} \color{green}{\frac{\partial z_{h_1}}{\partial W^{(1)}}} 
-= \left( \color{red}{\frac{\partial \mathcal{L}(a_o)}{\partial a_o}} \color{blue}{\frac{\partial a_o}{\partial z_o}} \color{green}{\frac{\partial z_o}{\partial W^{(o)}}}\right) \color{blue}{\frac{\partial a_{h_1}}{\partial z_{h_1}}} \color{green}{\frac{\partial z_{h_1}}{\partial W^{(1)}}}  \]</div>
+= \left( \color{red}{\frac{\partial \mathcal{L}(a_o)}{\partial a_o}} \color{blue}{\frac{\partial a_o}{\partial z_o}} \color{green}{\frac{\partial z_o}{\partial a_{h_1}}}\right) \color{blue}{\frac{\partial a_{h_1}}{\partial z_{h_1}}} \color{green}{\frac{\partial z_{h_1}}{\partial W^{(1)}}}  \]</div>
 <img src="../images/backprop_schema2.png" alt="ml" style="width: 800px;"/></div>
 </div>
 <div class="section" id="activation-functions-for-hidden-layers">

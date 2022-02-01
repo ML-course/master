@@ -39,7 +39,7 @@ def plot_cross_val_selection():
 
 
 def plot_grid_search_overview():
-    plt.figure(figsize=(10, 3))
+    plt.figure(figsize=(6, 3))
     axes = plt.gca()
     axes.yaxis.set_visible(False)
     axes.xaxis.set_visible(False)

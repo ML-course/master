@@ -24,7 +24,7 @@ if interactive:
 # 
 # Joaquin Vanschoren
 
-# ### Why Machine Learning?
+# ## Why Machine Learning?
 # - Search engines (e.g. Google)
 # - Recommender systems (e.g. Netflix)
 # - Automatic translation (e.g. Google Translate)
@@ -34,7 +34,7 @@ if interactive:
 # - Personalized medicine
 # - Progress in all sciences: Genetics, astronomy, chemistry, neurology, physics,...
 
-# ### What is Machine Learning?
+# ## What is Machine Learning?
 # - Learn to perform a task, based on experience (examples) $X$, minimizing error $\mathcal{E}$
 #     - E.g. recognizing a person in an image as accurately as possible
 # - Often, we want to learn a function (model) $f$ with some model parameters $\theta$ that produces the right output $y$
@@ -101,7 +101,7 @@ if interactive:
 # <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/01_supervised.png" alt="ml" style="width:60%"/>
 # 
 
-# ### Classification
+# #### Classification
 # 
 # - Predict a _class label_ (category), discrete and unordered
 #     - Can be _binary_ (e.g. spam/not spam) or _multi-class_ (e.g. letter recognition)
@@ -153,13 +153,13 @@ if not interactive:
     plot_classifier(classifier=svm)
 
 
-# #### Example: Flower classification
+# ##### Example: Flower classification
 # Classify types of Iris flowers (setosa, versicolor, or virginica). How would you do it?
 # 
 # <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/01_iris.jpeg" alt="ml" style="width: 75%;"/>
 # 
 
-# #### Representation: input features and labels
+# ##### Representation: input features and labels
 # - We could take pictures and use them (pixel values) as inputs (-> Deep Learning)
 # - We can manually define a number of input features (variables), e.g. length and width of leaves
 # - Every `example' is a point in a (possibly high-dimensional) space
@@ -167,7 +167,7 @@ if not interactive:
 # <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/01_terminology.png" alt="ml" style="float: left; width: 50%;"/>
 # <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/01_iris3d.png" alt="ml" style="float: left; width: 35%;"/>
 
-# ### Regression
+# #### Regression
 # - Predict a continuous value, e.g. temperature
 #     - Target variable is numeric
 #     - Some algorithms can return a _confidence interval_
@@ -220,7 +220,7 @@ if not interactive:
 # - Explore the structure of the data to extract information
 # - Many types, we'll just discuss two.
 
-# ### Clustering
+# #### Clustering
 # 
 # - Organize information into meaningful subgroups (clusters)
 # - Objects in cluster share certain degree of similarity (and dissimilarity to other clusters)
@@ -255,7 +255,7 @@ if not interactive:
     plot_clusters(randomize=2)
 
 
-# ### Dimensionality reduction
+# #### Dimensionality reduction
 # 
 # - Data can be very high-dimensional and difficult to understand, learn from, store,...
 # - Dimensionality reduction can compress the data into fewer dimensions, while retaining most of the information
@@ -318,7 +318,8 @@ plt.title('Locally Linear Embedding');
 #     
 # A powerful/flexible model is only useful if it can also be optimized efficiently
 
-# ### Example: neural networks
+# ### Neural networks: representation
+# Let's take neural networks as an example
 # * Representation: (layered) neural network
 #     * Each connection has a _weight_ $\theta_i$ (a.k.a. model parameters)
 #     * Each node receives weighted inputs, emits new value
@@ -330,8 +331,9 @@ plt.title('Locally Linear Embedding');
 #     
 # 
 
-# ### Example: neural networks
-# * Representation: For illustration, consider 2 model parameters ($\theta_0,\theta_1$)
+# ### Neural networks: evaluation and optimization
+# * Representation: Given the structure, the model is represented by its parameters
+#     * Imagine a mini-net with two weights ($\theta_0,\theta_1$): a 2-dimensional search space
 # * Evaluation: A _loss function_ $\mathcal{L}(f_{\theta})$ computes how good the predictions are
 #     * _Estimated_ on a set of training data with the 'correct' predictions
 #     * We can't see the full surface, only evaluate specific sets of parameters
@@ -433,7 +435,7 @@ if not interactive:
     plot_poly(degrees = 15)
 
 
-# ## Model selection
+# ### Model selection
 # - Next to the (internal) loss function, we need an (external) evaluation function
 #     - Feedback signal: are we actually learning the right thing? 
 #         - Are we under/overfitting?
@@ -458,11 +460,14 @@ import mglearn
 mglearn.plots.plot_threefold_split()
 
 
-# Overview
+# * For a given hyperparameter setting, learn the model parameters on training set
+#     * Minize the loss
+# * Evaluate the trained model on the validation set
+#     * Tune the hyperparameters to maximize a certain metric (e.g. accuracy)
 # 
-# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/00_hyperparams.png" alt="ml" style="width: 50%;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/00_hyperparams.png" alt="ml" style="width: 40%;"/>
 
-# ## Only generalization counts!
+# ### Only generalization counts!
 # * Never evaluate your final models on the training data, except for:
 #     * Tracking whether the optimizer converges (learning curves)
 #     * Diagnosing under/overfitting:
@@ -481,7 +486,7 @@ mglearn.plots.plot_threefold_split()
 # 
 # <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/00_representation.png" alt="ml" style="width: 80%"/>
 
-# ## Feature engineering
+# ### Feature engineering
 # * Most machine learning techniques require humans to build a good representation of the data  
 # * Especially when data is naturally structured (e.g. table with meaningful columns)
 # * Feature engineering is often still necessary to get the best results
@@ -492,7 +497,7 @@ mglearn.plots.plot_threefold_split()
 #     
 # Build prototypes early-on
 
-# ## Learning data transformations end-to-end
+# ### Learning data transformations end-to-end
 # * For unstructured data (e.g. images, text), it's hard to extract good features
 # * Deep learning: learn your own representation (embedding) of the data 
 #     * Through multiple layers of representation (e.g. layers of neurons)
@@ -506,7 +511,7 @@ mglearn.plots.plot_threefold_split()
 # 
 # <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/00_layers2.png" alt="ml" style="width: 60%"/>
 
-# ## Curse of dimensionality
+# ### Curse of dimensionality
 # * Just adding lots of features and letting the model figure it out doesn't work
 # * Our assumptions (inductive biases) often fail in high dimensions: 
 #     - Randomly sample points in an n-dimensional space (e.g. a unit hypercube)
@@ -538,7 +543,7 @@ go()
 # * Blessing of non-uniformity: on many applications, the data lives in a very small subspace
 #     * You can drastically improve performance by selecting features or using lower-dimensional data representations
 
-# ### "More data can beat a cleverer algorithm"
+# ## "More data can beat a cleverer algorithm"
 # (but you need both)
 # 
 # * More data reduces the chance of overfitting

@@ -55,6 +55,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 3: Kernelization" href="03%20-%20Kernelization.html" />
+    <link rel="prev" title="Lecture 1: Introduction" href="01%20-%20Introduction.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -98,6 +100,29 @@
   </a>
  </li>
 </ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01%20-%20Introduction.html">
+   Lecture 1: Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Lecture 2: Linear models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03%20-%20Kernelization.html">
+   Lecture 3: Kernelization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04%20-%20Model%20Selection.html">
+   Lecture 4: Model Selection
+  </a>
+ </li>
+</ul>
+
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -281,27 +306,29 @@
          In practice
         </a>
        </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#other-ways-to-reduce-overfitting">
-         Other ways to reduce overfitting
-        </a>
-       </li>
       </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#other-ways-to-reduce-overfitting">
+       Other ways to reduce overfitting
+      </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#lasso-least-absolute-shrinkage-and-selection-operator">
        Lasso (Least Absolute Shrinkage and Selection Operator)
       </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#coordinate-descent">
-       Coordinate descent
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#coordinate-descent-with-lasso">
-       Coordinate descent with Lasso
-      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#coordinate-descent">
+         Coordinate descent
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#coordinate-descent-with-lasso">
+         Coordinate descent with Lasso
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#interpreting-l1-and-l2-loss">
@@ -352,65 +379,65 @@
        Ridge Classification
       </a>
      </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#support-vector-machines">
-     Support vector machines
-    </a>
-    <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#solving-svms-with-lagrange-multipliers">
-       Solving SVMs with Lagrange Multipliers
+      <a class="reference internal nav-link" href="#support-vector-machines">
+       Support vector machines
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#geometric-interpretation">
-         Geometric interpretation
+        <a class="reference internal nav-link" href="#solving-svms-with-lagrange-multipliers">
+         Solving SVMs with Lagrange Multipliers
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#geometric-interpretation">
+           Geometric interpretation
+          </a>
+         </li>
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#solution">
+           Solution
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#making-predictions">
+         Making predictions
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#svms-and-knn">
+           SVMs and kNN
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#regularized-soft-margin-svms">
+         Regularized (soft margin) SVMs
         </a>
        </li>
        <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#solution">
-         Solution
+        <a class="reference internal nav-link" href="#least-squares-svms">
+         Least Squares SVMs
         </a>
        </li>
-      </ul>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#making-predictions">
-       Making predictions
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#svms-and-knn">
-       SVMs and kNN
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#regularized-soft-margin-svms">
-       Regularized (soft margin) SVMs
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#least-squares-svms">
-       Least Squares SVMs
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#effect-of-regularization-on-margin-and-support-vectors">
-       Effect of regularization on margin and support vectors
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#svms-in-scikit-learn">
-       SVMs in scikit-learn
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#solving-svms-with-gradient-descent">
-       Solving SVMs with Gradient Descent
-      </a>
-      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#effect-of-regularization-on-margin-and-support-vectors">
+         Effect of regularization on margin and support vectors
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#svms-in-scikit-learn">
+         SVMs in scikit-learn
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#solving-svms-with-gradient-descent">
+         Solving SVMs with Gradient Descent
+        </a>
+       </li>
        <li class="toc-h4 nav-item toc-entry">
         <a class="reference internal nav-link" href="#generalized-svms">
          Generalized SVMs
@@ -550,27 +577,29 @@
          In practice
         </a>
        </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#other-ways-to-reduce-overfitting">
-         Other ways to reduce overfitting
-        </a>
-       </li>
       </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#other-ways-to-reduce-overfitting">
+       Other ways to reduce overfitting
+      </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#lasso-least-absolute-shrinkage-and-selection-operator">
        Lasso (Least Absolute Shrinkage and Selection Operator)
       </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#coordinate-descent">
-       Coordinate descent
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#coordinate-descent-with-lasso">
-       Coordinate descent with Lasso
-      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#coordinate-descent">
+         Coordinate descent
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#coordinate-descent-with-lasso">
+         Coordinate descent with Lasso
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#interpreting-l1-and-l2-loss">
@@ -621,65 +650,65 @@
        Ridge Classification
       </a>
      </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#support-vector-machines">
-     Support vector machines
-    </a>
-    <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#solving-svms-with-lagrange-multipliers">
-       Solving SVMs with Lagrange Multipliers
+      <a class="reference internal nav-link" href="#support-vector-machines">
+       Support vector machines
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#geometric-interpretation">
-         Geometric interpretation
+        <a class="reference internal nav-link" href="#solving-svms-with-lagrange-multipliers">
+         Solving SVMs with Lagrange Multipliers
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#geometric-interpretation">
+           Geometric interpretation
+          </a>
+         </li>
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#solution">
+           Solution
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#making-predictions">
+         Making predictions
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#svms-and-knn">
+           SVMs and kNN
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#regularized-soft-margin-svms">
+         Regularized (soft margin) SVMs
         </a>
        </li>
        <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#solution">
-         Solution
+        <a class="reference internal nav-link" href="#least-squares-svms">
+         Least Squares SVMs
         </a>
        </li>
-      </ul>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#making-predictions">
-       Making predictions
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#svms-and-knn">
-       SVMs and kNN
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#regularized-soft-margin-svms">
-       Regularized (soft margin) SVMs
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#least-squares-svms">
-       Least Squares SVMs
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#effect-of-regularization-on-margin-and-support-vectors">
-       Effect of regularization on margin and support vectors
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#svms-in-scikit-learn">
-       SVMs in scikit-learn
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#solving-svms-with-gradient-descent">
-       Solving SVMs with Gradient Descent
-      </a>
-      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#effect-of-regularization-on-margin-and-support-vectors">
+         Effect of regularization on margin and support vectors
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#svms-in-scikit-learn">
+         SVMs in scikit-learn
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#solving-svms-with-gradient-descent">
+         Solving SVMs with Gradient Descent
+        </a>
+       </li>
        <li class="toc-h4 nav-item toc-entry">
         <a class="reference internal nav-link" href="#generalized-svms">
          Generalized SVMs
@@ -734,15 +763,21 @@
                 
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Global imports and settings</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Auto-setup when running on Google Colab</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="k">if</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_ipython</span><span class="p">())</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;/content/master&#39;</span><span class="p">):</span>
+    <span class="o">!</span>git clone -q https://github.com/ML-course/master.git /content/master
+    <span class="o">!</span>pip install -rq master/requirements_colab.txt
+    <span class="o">%</span><span class="k">cd</span> master/notebooks
+
+<span class="c1"># Global imports and settings</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">from</span> <span class="nn">preamble</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;style&gt;html, body{overflow-y: visible !important} .CodeMirror{min-width:105% !important;} .rise-enabled .CodeMirror, .rise-enabled .output_subarea{font-size:140%; line-height:1.2; overflow: visible;} .output_subarea pre</span><span class="si">{width:110%}</span><span class="s1"> .rendered_html table, .rendered_html td, .rendered_html th {font-size: 200%;}&lt;/style&gt;&#39;&#39;&#39;</span><span class="p">)</span><span class="c1"># For slides</span>
-<span class="n">interactive</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Set to True for interactive plots </span>
+<span class="n">interactive</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># Set to True for interactive plots</span>
 <span class="k">if</span> <span class="n">interactive</span><span class="p">:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">150</span>
+    <span class="n">fig_scale</span> <span class="o">=</span> <span class="mf">1.5</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">fig_scale</span> <span class="o">=</span> <span class="mf">1.2</span>
 </pre></div>
 </div>
 </div>
@@ -799,7 +834,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_5_0.png" src="../_images/02 - Linear Models_5_0.png" />
+<img alt="../_images/02 - Linear Models_4_0.png" src="../_images/02 - Linear Models_4_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -816,7 +851,7 @@
 </ul>
 </li>
 </ul>
-<img src="../images/08_images.png" alt="ml" style="width: 40%;"/><div class="section" id="basic-operations">
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/08_images.png" alt="ml" style="width: 40%;"/><div class="section" id="basic-operations">
 <h3>Basic operations<a class="headerlink" href="#basic-operations" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Sums and products are denoted by capital Sigma and capital Pi:
@@ -890,7 +925,7 @@ $<span class="math notranslate nohighlight">\(\sum_{i=0}^{p} = x_0 + x_1 + ... +
 <span class="nd">@interact</span>
 <span class="k">def</span> <span class="nf">plot_gradient</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">240</span><span class="p">,</span><span class="mi">10</span><span class="p">)):</span>
     <span class="c1"># plot surface of f</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">4</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
     <span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
@@ -924,7 +959,7 @@ $<span class="math notranslate nohighlight">\(\sum_{i=0}^{p} = x_0 + x_1 + ... +
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "0c028f6984aa48d98968249f3f50d648", "version_major": 2, "version_minor": 0}
+{"model_id": "5c0c71e94a3d4722b6dcc78ff434331e", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell docutils container">
@@ -933,9 +968,6 @@ $<span class="math notranslate nohighlight">\(\sum_{i=0}^{p} = x_0 + x_1 + ... +
     <span class="n">plot_gradient</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_11_0.png" src="../_images/02 - Linear Models_11_0.png" />
 </div>
 </div>
 </div>
@@ -955,7 +987,7 @@ $<span class="math notranslate nohighlight">\(\sum_{i=0}^{p} = x_0 + x_1 + ... +
 </ul>
 </li>
 </ul>
-<img src="../images/02_pdf.png" alt="ml" style="width: 50%;"/></div>
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/02_pdf.png" alt="ml" style="width: 50%;"/></div>
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="linear-models">
@@ -1002,7 +1034,7 @@ $<span class="math notranslate nohighlight">\(\underset{\mathbf{w}}{\operatornam
 <span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xw_train</span><span class="p">,</span> <span class="n">yw_train</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;w_1: </span><span class="si">%f</span><span class="s2">  w_0: </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xw_train</span><span class="p">,</span> <span class="n">yw_train</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 <span class="c1">#plt.plot(X_test, y_test, &#39;.&#39;, c=&#39;r&#39;)</span>
@@ -1019,7 +1051,7 @@ $<span class="math notranslate nohighlight">\(\underset{\mathbf{w}}{\operatornam
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>w_1: 0.393906  w_0: -0.031804
 </pre></div>
 </div>
-<img alt="../_images/02 - Linear Models_15_1.png" src="../_images/02 - Linear Models_15_1.png" />
+<img alt="../_images/02 - Linear Models_14_1.png" src="../_images/02 - Linear Models_14_1.png" />
 </div>
 </div>
 <div class="section" id="linear-regression-aka-ordinary-least-squares">
@@ -1028,7 +1060,7 @@ $<span class="math notranslate nohighlight">\(\underset{\mathbf{w}}{\operatornam
 <li><p>Loss function is the <em>sum of squared errors</em> (SSE) (or residuals) between predictions <span class="math notranslate nohighlight">\(\hat{y}_i\)</span> (red) and the true regression targets <span class="math notranslate nohighlight">\(y_i\)</span> (blue) on the training set.
 $<span class="math notranslate nohighlight">\(\mathcal{L}_{SSE} = \sum_{n=1}^{N} (y_n-\hat{y}_n)^2 = \sum_{n=1}^{N} (y_n-(\mathbf{w}\mathbf{x_n} + w_0))^2\)</span>$</p></li>
 </ul>
-<img src="../images/02_least_squares.png" alt="ml" style="margin: 0 auto; width: 550px;"/><div class="section" id="solving-ordinary-least-squares">
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/02_least_squares.png" alt="ml" style="margin: 0 auto; width: 550px;"/><div class="section" id="solving-ordinary-least-squares">
 <h4>Solving ordinary least squares<a class="headerlink" href="#solving-ordinary-least-squares" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Convex optimization problem with unique closed-form solution:
@@ -1071,7 +1103,7 @@ $<span class="math notranslate nohighlight">\(w^{*} = (X^{T}X)^{-1} X^T Y\)</spa
 <li><p>Update <em>all</em> weights slightly (by <em>step size</em> or <em>learning rate</em> <span class="math notranslate nohighlight">\(\eta\)</span>) in ‘downhill’ direction.</p></li>
 <li><p>Basic <em>update rule</em> (step s): $<span class="math notranslate nohighlight">\(\mathbf{w}^{s+1} = \mathbf{w}^s-\eta\nabla \mathcal{L}(\mathbf{w}^s)\)</span>$</p></li>
 </ul>
-<img src="../images/01_gradient_descent.jpg" alt="ml" style="width: 500px;"/><ul class="simple">
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/01_gradient_descent.jpg" alt="ml" style="width: 500px;"/><ul class="simple">
 <li><p>Important hyperparameters</p>
 <ul>
 <li><p>Learning rate</p>
@@ -1123,7 +1155,7 @@ $<span class="math notranslate nohighlight">\(w^{*} = (X^{T}X)^{-1} X^T Y\)</spa
             <span class="n">learn_rate_current</span> <span class="o">=</span> <span class="n">learn_rate</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.3</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
         <span class="c1"># Update rule</span>
         <span class="n">w_current</span> <span class="o">=</span> <span class="n">w_current</span> <span class="o">-</span> <span class="n">learn_rate_current</span> <span class="o">*</span> <span class="n">l_dfx0</span><span class="p">(</span><span class="n">w_current</span><span class="p">)</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;loss&#39;</span><span class="p">)</span>
@@ -1136,7 +1168,7 @@ $<span class="math notranslate nohighlight">\(w^{*} = (X^{T}X)^{-1} X^T Y\)</spa
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "a5e3512d39b34c42939808d9e46d905b", "version_major": 2, "version_minor": 0}
+{"model_id": "4394e4621dbe4108b71f471dcea5c7b1", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell docutils container">
@@ -1146,12 +1178,9 @@ $<span class="math notranslate nohighlight">\(w^{*} = (X^{T}X)^{-1} X^T Y\)</spa
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_21_0.png" src="../_images/02 - Linear Models_21_0.png" />
-</div>
 </div>
 <p>In two dimensions:
-<img src="../images/01_gradient_descent_2D.png" alt="ml" style="width: 700px;"/></p>
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/01_gradient_descent_2D.png" alt="ml" style="width: 700px;"/></p>
 <ul class="simple">
 <li><p>You can get stuck in local minima (if the loss is not fully convex)</p>
 <ul>
@@ -1164,8 +1193,9 @@ $<span class="math notranslate nohighlight">\(w^{*} = (X^{T}X)^{-1} X^T Y\)</spa
 <ul class="simple">
 <li><p>Intuition: walking downhill using only the slope you “feel” nearby</p></li>
 </ul>
-<img src="../images/01_gradient_descent_hill.png" alt="ml" style="width: 800px;"/>
-(Image by A. Karpathy)</div>
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/01_gradient_descent_hill.png" alt="ml" style="width: 800px;"/>
+<p>(Image by A. Karpathy)</p>
+</div>
 <div class="section" id="stochastic-gradient-descent-sgd">
 <h4>Stochastic Gradient Descent (SGD)<a class="headerlink" href="#stochastic-gradient-descent-sgd" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -1180,14 +1210,13 @@ $<span class="math notranslate nohighlight">\(w^{*} = (X^{T}X)^{-1} X^T Y\)</spa
 <li><p>Minibatch SGD: compute gradient on batches of data: <span class="math notranslate nohighlight">\(\mathbf{w}^{s+1} = \mathbf{w}^s-\frac{\eta}{B} \sum_{i=0}^{B} \nabla \mathcal{L_i}(\mathbf{w}^s)\)</span></p></li>
 <li><p>Stochastic Average Gradient Descent (SAG, SAGA)</p>
 <ul>
-<li><p>Incremental gradient: <span class="math notranslate nohighlight">\(\mathbf{w}^{s+1} = \mathbf{w}^s-\frac{\eta}{n} \sum_{i=0}^{n} v_i^s\)</span> with <span class="math notranslate nohighlight">\(v_i^s = \begin{cases}\nabla \mathcal{L_i}(\mathbf{w}^s) &amp; \text{random i} \\ v_i^{s-1} &amp; \text{otherwise} \end{cases}\)</span>
-<img src="../images/08_SGD.png" alt="ml" style="float: left; width: 500px;"/></p></li>
+<li><p>Incremental gradient: <span class="math notranslate nohighlight">\(\mathbf{w}^{s+1} = \mathbf{w}^s-\frac{\eta}{n} \sum_{i=0}^{n} v_i^s\)</span> with <span class="math notranslate nohighlight">\(v_i^s = \begin{cases}\nabla \mathcal{L_i}(\mathbf{w}^s) &amp; \text{random i} \\ v_i^{s-1} &amp; \text{otherwise} \end{cases}\)</span></p></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-</div>
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/08_SGD.png" alt="ml" style="float: left; width: 400px;"/></div>
 <div class="section" id="in-practice">
 <h4>In practice<a class="headerlink" href="#in-practice" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -1230,7 +1259,7 @@ $<span class="math notranslate nohighlight">\(w^{*} = (X^{T}X)^{-1} X^T Y\)</spa
   1278.121 -2239.869   222.825    -2.182    42.996   -13.398   -19.389
     -2.575   -81.013     9.66      4.914    -0.812    -7.647    33.784
    -11.446    68.508   -17.375    42.813     1.14 ]
-Bias (intercept): 30.934563673637612
+Bias (intercept): 30.93456367364078
 </pre></div>
 </div>
 </div>
@@ -1308,7 +1337,7 @@ Test set score (R^2): 0.61
  -1.584  1.051 -4.012  0.334  0.004 -0.849  0.745 -1.431 -1.63  -1.405
  -0.045 -1.746 -1.467 -1.332 -1.692 -0.506  2.622 -2.092  0.195 -0.275
   5.113 -1.671 -0.098  0.634 -0.61   0.04  -1.277 -2.913  3.395  0.792]
-Bias (intercept): 21.39052595860998
+Bias (intercept): 21.39052595861006
 Training set score: 0.89
 Test set score: 0.75
 </pre></div>
@@ -1330,7 +1359,7 @@ Test set score: 0.75
 <span class="nd">@interact</span>
 <span class="k">def</span> <span class="nf">plot_ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)):</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_B_train</span><span class="p">,</span> <span class="n">y_B_train</span><span class="p">)</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mf">1.5</span><span class="p">))</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mf">1.5</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;alpha </span><span class="si">{}</span><span class="s2">, score </span><span class="si">{:.2f}</span><span class="s2"> (training score </span><span class="si">{:.2f}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_B_test</span><span class="p">,</span> <span class="n">y_B_test</span><span class="p">),</span> <span class="n">r</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_B_train</span><span class="p">,</span> <span class="n">y_B_train</span><span class="p">)))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Coefficient index&quot;</span><span class="p">)</span>
@@ -1343,7 +1372,7 @@ Test set score: 0.75
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "4e0402d23c354fc2b58049f612ed45a8", "version_major": 2, "version_minor": 0}
+{"model_id": "4e596f3fc21942bc95bbe628ba4f19ac", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell docutils container">
@@ -1353,10 +1382,6 @@ Test set score: 0.75
         <span class="n">plot_ridge</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_35_0.png" src="../_images/02 - Linear Models_35_0.png" />
-<img alt="../_images/02 - Linear Models_35_1.png" src="../_images/02 - Linear Models_35_1.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1377,7 +1402,7 @@ Test set score: 0.75
     <span class="n">r</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_B_train</span><span class="p">,</span> <span class="n">y_B_train</span><span class="p">)</span>
     <span class="n">test_score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_B_test</span><span class="p">,</span> <span class="n">y_B_test</span><span class="p">))</span>
     <span class="n">train_score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_B_train</span><span class="p">,</span> <span class="n">y_B_train</span><span class="p">))</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">4</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">)</span>
@@ -1389,12 +1414,13 @@ Test set score: 0.75
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_37_0.png" src="../_images/02 - Linear Models_37_0.png" />
+<img alt="../_images/02 - Linear Models_36_0.png" src="../_images/02 - Linear Models_36_0.png" />
+</div>
 </div>
 </div>
 </div>
 <div class="section" id="other-ways-to-reduce-overfitting">
-<h4>Other ways to reduce overfitting<a class="headerlink" href="#other-ways-to-reduce-overfitting" title="Permalink to this headline">¶</a></h4>
+<h3>Other ways to reduce overfitting<a class="headerlink" href="#other-ways-to-reduce-overfitting" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Add more training data: with enough training data, regularization becomes less important</p>
 <ul>
@@ -1415,8 +1441,7 @@ Test set score: 0.75
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_39_0.png" src="../_images/02 - Linear Models_39_0.png" />
-</div>
+<img alt="../_images/02 - Linear Models_38_0.png" src="../_images/02 - Linear Models_38_0.png" />
 </div>
 </div>
 </div>
@@ -1455,7 +1480,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}_{Lasso} = \sum_{n=1}^{
 <span class="nd">@interact</span>
 <span class="k">def</span> <span class="nf">plot_lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.005</span><span class="p">)):</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_B_train</span><span class="p">,</span> <span class="n">y_B_train</span><span class="p">)</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mf">1.5</span><span class="p">))</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mf">1.5</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;alpha </span><span class="si">{}</span><span class="s2">, score </span><span class="si">{:.2f}</span><span class="s2"> (training score </span><span class="si">{:.2f}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_B_test</span><span class="p">,</span> <span class="n">y_B_test</span><span class="p">),</span> <span class="n">r</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_B_train</span><span class="p">,</span> <span class="n">y_B_train</span><span class="p">)))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Coefficient index&quot;</span><span class="p">)</span>
@@ -1468,7 +1493,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}_{Lasso} = \sum_{n=1}^{
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "6f38058b6a6e46cd84bcc2118e9c47f8", "version_major": 2, "version_minor": 0}
+{"model_id": "06c4e5bd6aa64f28bb822820f3381442", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell docutils container">
@@ -1479,14 +1504,9 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}_{Lasso} = \sum_{n=1}^{
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_43_0.png" src="../_images/02 - Linear Models_43_0.png" />
-<img alt="../_images/02 - Linear Models_43_1.png" src="../_images/02 - Linear Models_43_1.png" />
-</div>
-</div>
 </div>
 <div class="section" id="coordinate-descent">
-<h3>Coordinate descent<a class="headerlink" href="#coordinate-descent" title="Permalink to this headline">¶</a></h3>
+<h4>Coordinate descent<a class="headerlink" href="#coordinate-descent" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Alternative for gradient descent, supports non-differentiable convex loss functions (e.g. <span class="math notranslate nohighlight">\(\mathcal{L}_{Lasso}\)</span>)</p></li>
 <li><p>In every iteration, optimize a single coordinate <span class="math notranslate nohighlight">\(w_i\)</span> (find minimum in direction of <span class="math notranslate nohighlight">\(x_i\)</span>)</p>
@@ -1497,9 +1517,9 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}_{Lasso} = \sum_{n=1}^{
 <li><p>Faster iterations. No need to choose a step size (learning rate).</p></li>
 <li><p>May converge more slowly. Can’t be parallellized.</p></li>
 </ul>
-<img src="../images/02_cd.png" alt="ml" style="width: 400px;"/></div>
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/02_cd.png" alt="ml" style="width: 400px;"/></div>
 <div class="section" id="coordinate-descent-with-lasso">
-<h3>Coordinate descent with Lasso<a class="headerlink" href="#coordinate-descent-with-lasso" title="Permalink to this headline">¶</a></h3>
+<h4>Coordinate descent with Lasso<a class="headerlink" href="#coordinate-descent-with-lasso" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Remember that <span class="math notranslate nohighlight">\(\mathcal{L}_{Lasso} = \mathcal{L}_{SSE} + \alpha \sum_{i=1}^{p} |w_i|\)</span></p></li>
 <li><p>For one <span class="math notranslate nohighlight">\(w_i\)</span>: <span class="math notranslate nohighlight">\(\mathcal{L}_{Lasso}(w_i) = \mathcal{L}_{SSE}(w_i) + \alpha |w_i|\)</span></p></li>
@@ -1535,7 +1555,7 @@ $<span class="math notranslate nohighlight">\(w_i^* = S(\rho_i,\alpha) = \begin{
     <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">w</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">alpha</span><span class="p">)</span>
     <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="n">alpha</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="n">alpha</span> <span class="k">else</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">alpha</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">alpha</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">w</span><span class="p">]</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\rho$&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$w^{*}$&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ordinary Least Squares (SSE)&#39;</span><span class="p">)</span>
@@ -1548,7 +1568,7 @@ $<span class="math notranslate nohighlight">\(w_i^* = S(\rho_i,\alpha) = \begin{
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "3b9da64e2dc24aa9b929f1fef1b65842", "version_major": 2, "version_minor": 0}
+{"model_id": "328c64490c0b4a7493056ddf2c82b9ce", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell docutils container">
@@ -1558,8 +1578,6 @@ $<span class="math notranslate nohighlight">\(w_i^* = S(\rho_i,\alpha) = \begin{
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_48_0.png" src="../_images/02 - Linear Models_48_0.png" />
 </div>
 </div>
 </div>
@@ -1568,7 +1586,7 @@ $<span class="math notranslate nohighlight">\(w_i^* = S(\rho_i,\alpha) = \begin{
 <ul class="simple">
 <li><p>L1 and L2 in function of the weights</p></li>
 </ul>
-<img src="../images/L12_1.png" alt="ml" style="width: 700px;"/><p>Least Squares Loss + L1 or L2</p>
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/L12_1.png" alt="ml" style="width: 700px;"/><p>Least Squares Loss + L1 or L2</p>
 <ul class="simple">
 <li><p>Lasso is not differentiable at point 0</p></li>
 <li><p>For any minimum of least squares, L2 will be smaller, and L1 is more likely be 0</p></li>
@@ -1576,7 +1594,8 @@ $<span class="math notranslate nohighlight">\(w_i^* = S(\rho_i,\alpha) = \begin{
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">c_fx</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># Some convex function to represent the loss</span>
+    <span class="n">fX</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Some convex function to represent the loss</span>
+    <span class="k">return</span> <span class="n">fX</span><span class="o">/</span><span class="mi">9</span> <span class="c1"># Scaling</span>
 <span class="k">def</span> <span class="nf">c_fl2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">alpha</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">c_fx</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
 <span class="k">def</span> <span class="nf">c_fl1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">alpha</span><span class="p">):</span>
@@ -1587,14 +1606,14 @@ $<span class="math notranslate nohighlight">\(w_i^* = S(\rho_i,\alpha) = \begin{
     <span class="k">return</span> <span class="n">alpha</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="nd">@interact</span>
-<span class="k">def</span> <span class="nf">plot_losses</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)):</span>
+<span class="k">def</span> <span class="nf">plot_losses</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)):</span>
     <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span>
     <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="n">c_fx</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">w</span><span class="p">]</span>
     <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="n">c_fl2</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">alpha</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">w</span><span class="p">]</span>
     <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="n">c_fl1</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">alpha</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">w</span><span class="p">]</span>
     <span class="n">rp</span> <span class="o">=</span> <span class="p">[</span><span class="n">l2</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">alpha</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">w</span><span class="p">]</span>
     <span class="n">lp</span> <span class="o">=</span> <span class="p">[</span><span class="n">l1</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">alpha</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">w</span><span class="p">]</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">4</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;loss&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">rp</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;L2 with alpha=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
@@ -1609,25 +1628,22 @@ $<span class="math notranslate nohighlight">\(w_i^* = S(\rho_i,\alpha) = \begin{
     <span class="n">opt_l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">opt_l</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="n">opt_l</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "c2a73b2567304da3b18e77e62c45ac55", "version_major": 2, "version_minor": 0}
+{"model_id": "24c965aec44a43e0a605c34b8737edb8", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">interactive</span><span class="p">:</span>
-    <span class="n">plot_losses</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">plot_losses</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_52_0.png" src="../_images/02 - Linear Models_52_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1655,7 +1671,7 @@ $<span class="math notranslate nohighlight">\(w_i^* = S(\rho_i,\alpha) = \begin{
     <span class="n">rho</span> <span class="o">=</span> <span class="mf">0.7</span>
     <span class="n">elastic_net</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">l1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho</span><span class="p">)</span> <span class="o">*</span> <span class="n">l2</span>
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
 
     <span class="n">elastic_net_contour</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">elastic_net</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;darkorange&quot;</span><span class="p">)</span>
@@ -1688,7 +1704,7 @@ $<span class="math notranslate nohighlight">\(w_i^* = S(\rho_i,\alpha) = \begin{
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_54_0.png" src="../_images/02 - Linear Models_54_0.png" />
+<img alt="../_images/02 - Linear Models_53_0.png" src="../_images/02 - Linear Models_53_0.png" />
 </div>
 </div>
 </div>
@@ -1736,7 +1752,7 @@ $<span class="math notranslate nohighlight">\(w_i^* = S(\rho_i,\alpha) = \begin{
 </ul>
 </li>
 </ul>
-<img src="../images/huber.png" alt="ml" style="width: 350px;"/></div>
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/huber.png" alt="ml" style="width: 350px;"/></div>
 </div>
 <div class="section" id="linear-models-for-classification">
 <h2>Linear models for Classification<a class="headerlink" href="#linear-models-for-classification" title="Permalink to this headline">¶</a></h2>
@@ -1750,19 +1766,19 @@ For binary classification (2 classes), we aim to fit the following function:</p>
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">LinearSVC</span>
 
 <span class="n">Xf</span><span class="p">,</span> <span class="n">yf</span> <span class="o">=</span> <span class="n">mglearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_forge</span><span class="p">()</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">4</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xf</span><span class="p">,</span> <span class="n">yf</span><span class="p">)</span>
-<span class="n">mglearn</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_2d_separator</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">Xf</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-                                <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.7</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">mglearn</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">plot_2d_separator</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">Xf</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.7</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cm</span><span class="o">=</span><span class="n">mglearn</span><span class="o">.</span><span class="n">cm2</span><span class="p">)</span>
 <span class="n">mglearn</span><span class="o">.</span><span class="n">discrete_scatter</span><span class="p">(</span><span class="n">Xf</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">Xf</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">yf</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Feature 1&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Feature 2&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Class -1&#39;</span><span class="p">,</span><span class="s1">&#39;Class 1&#39;</span><span class="p">]);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="c1">#[&#39;Class -1&#39;,&#39;Class 1&#39;]);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_58_0.png" src="../_images/02 - Linear Models_58_0.png" />
+<img alt="../_images/02 - Linear Models_57_0.png" src="../_images/02 - Linear Models_57_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1813,7 +1829,7 @@ $<span class="math notranslate nohighlight">\( \hat{y} = \textrm{logistic}(f_{\t
 
 <span class="nd">@interact</span>
 <span class="k">def</span> <span class="nf">plot_logreg</span><span class="p">(</span><span class="n">w0</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">15.0</span><span class="p">,</span><span class="mf">5.0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">w1</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)):</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
     <span class="n">red</span> <span class="o">=</span> <span class="p">[</span><span class="n">Xf</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">yf</span><span class="p">))</span> <span class="k">if</span> <span class="n">yf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">blue</span> <span class="o">=</span> <span class="p">[</span><span class="n">Xf</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">yf</span><span class="p">))</span> <span class="k">if</span> <span class="n">yf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">red</span><span class="p">),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
@@ -1831,7 +1847,7 @@ $<span class="math notranslate nohighlight">\( \hat{y} = \textrm{logistic}(f_{\t
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "5202238481954c90aeb904d85195d999", "version_major": 2, "version_minor": 0}
+{"model_id": "9c6d3e55f76e461ab16fd79aeb4044b5", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell docutils container">
@@ -1844,9 +1860,6 @@ $<span class="math notranslate nohighlight">\( \hat{y} = \textrm{logistic}(f_{\t
     <span class="n">plot_logreg</span><span class="p">(</span><span class="n">w0</span><span class="o">=</span><span class="n">w0</span><span class="p">,</span><span class="n">w1</span><span class="o">=</span><span class="n">w1</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_62_0.png" src="../_images/02 - Linear Models_62_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1870,7 +1883,7 @@ $<span class="math notranslate nohighlight">\( \hat{y} = \textrm{logistic}(f_{\t
     <span class="n">w2</span> <span class="o">=</span> <span class="n">lr_clf</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
 
     <span class="c1"># plot surface of f</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
     <span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
@@ -1903,7 +1916,7 @@ $<span class="math notranslate nohighlight">\( \hat{y} = \textrm{logistic}(f_{\t
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "31c32e3a768048868261100583296c0f", "version_major": 2, "version_minor": 0}
+{"model_id": "50b44f4c60f54d619ac1690622761349", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell docutils container">
@@ -1912,9 +1925,6 @@ $<span class="math notranslate nohighlight">\( \hat{y} = \textrm{logistic}(f_{\t
     <span class="n">plot_logistic_fit</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">180</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_65_0.png" src="../_images/02 - Linear Models_65_0.png" />
 </div>
 </div>
 <div class="section" id="loss-function-cross-entropy">
@@ -1942,7 +1952,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L_{log}}(\mathbf{w}) = \s
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">yHat</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;true label = 1&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
@@ -1955,7 +1965,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L_{log}}(\mathbf{w}) = \s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_67_0.png" src="../_images/02 - Linear Models_67_0.png" />
+<img alt="../_images/02 - Linear Models_66_0.png" src="../_images/02 - Linear Models_66_0.png" />
 </div>
 </div>
 </div>
@@ -2020,7 +2030,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L_{log}}(\mathbf{w}) = \s
 <span class="nd">@interact</span>
 <span class="k">def</span> <span class="nf">plot_lr</span><span class="p">(</span><span class="n">C_log</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)):</span>
     <span class="c1"># Still using artificial data</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
     <span class="n">mglearn</span><span class="o">.</span><span class="n">discrete_scatter</span><span class="p">(</span><span class="n">Xf</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">Xf</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">yf</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
     <span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="n">C_log</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xf</span><span class="p">,</span> <span class="n">yf</span><span class="p">)</span>
     <span class="n">w</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -2036,7 +2046,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L_{log}}(\mathbf{w}) = \s
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "217be938d2bb485b875ea433386c2118", "version_major": 2, "version_minor": 0}
+{"model_id": "28e9ae1cf67f4da5b6f8c31d83314ce5", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell docutils container">
@@ -2045,9 +2055,6 @@ $<span class="math notranslate nohighlight">\(\mathcal{L_{log}}(\mathbf{w}) = \s
     <span class="n">plot_lr</span><span class="p">(</span><span class="n">C_log</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_71_0.png" src="../_images/02 - Linear Models_71_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -2073,7 +2080,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L_{log}}(\mathbf{w}) = \s
     <span class="n">scores</span> <span class="o">=</span> <span class="n">cross_validate</span><span class="p">(</span><span class="n">lr</span><span class="p">,</span><span class="n">X_C</span><span class="p">,</span><span class="n">y_C</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">return_train_score</span><span class="o">=</span><span class="s2">&quot;True&quot;</span><span class="p">)</span>
     <span class="n">test_score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="s1">&#39;test_score&#39;</span><span class="p">]))</span>
     <span class="n">train_score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="s1">&#39;train_score&#39;</span><span class="p">]))</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">4</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
@@ -2085,7 +2092,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L_{log}}(\mathbf{w}) = \s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_73_0.png" src="../_images/02 - Linear Models_73_0.png" />
+<img alt="../_images/02 - Linear Models_72_0.png" src="../_images/02 - Linear Models_72_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -2099,7 +2106,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L_{log}}(\mathbf{w}) = \s
 <span class="nd">@interact</span>
 <span class="k">def</span> <span class="nf">plot_logreg</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">100.0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span> <span class="n">penalty</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span><span class="s1">&#39;l2&#39;</span><span class="p">]):</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="n">penalty</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;liblinear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_C_train</span><span class="p">,</span> <span class="n">y_C_train</span><span class="p">)</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mf">1.8</span><span class="p">))</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mf">1.7</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">coef_</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;C: </span><span class="si">{:.3f}</span><span class="s2">, penalty: </span><span class="si">{}</span><span class="s2">, score </span><span class="si">{:.2f}</span><span class="s2"> (training score </span><span class="si">{:.2f}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">penalty</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_C_test</span><span class="p">,</span> <span class="n">y_C_test</span><span class="p">),</span> <span class="n">r</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_C_train</span><span class="p">,</span> <span class="n">y_C_train</span><span class="p">)))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Coefficient index&quot;</span><span class="p">)</span>
@@ -2113,7 +2120,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L_{log}}(\mathbf{w}) = \s
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "4610a57124a1480a8cb622661959e1f8", "version_major": 2, "version_minor": 0}
+{"model_id": "8db046ad23c247d9b3f12b69867005de", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell docutils container">
@@ -2124,11 +2131,6 @@ $<span class="math notranslate nohighlight">\(\mathcal{L_{log}}(\mathbf{w}) = \s
     <span class="n">plot_logreg</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;l1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_76_0.png" src="../_images/02 - Linear Models_76_0.png" />
-<img alt="../_images/02 - Linear Models_76_1.png" src="../_images/02 - Linear Models_76_1.png" />
-<img alt="../_images/02 - Linear Models_76_2.png" src="../_images/02 - Linear Models_76_2.png" />
 </div>
 </div>
 </div>
@@ -2152,9 +2154,8 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}_{Ridge} = \sum_{n=1}^{
 </li>
 </ul>
 </div>
-</div>
 <div class="section" id="support-vector-machines">
-<h2>Support vector machines<a class="headerlink" href="#support-vector-machines" title="Permalink to this headline">¶</a></h2>
+<h3>Support vector machines<a class="headerlink" href="#support-vector-machines" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Decision boundaries close to training points may generalize badly</p>
 <ul>
@@ -2168,7 +2169,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}_{Ridge} = \sum_{n=1}^{
 <img src="../images/05_margin.png" alt="ml" style="width: 750px;"/></p></li>
 </ul>
 <div class="section" id="solving-svms-with-lagrange-multipliers">
-<h3>Solving SVMs with Lagrange Multipliers<a class="headerlink" href="#solving-svms-with-lagrange-multipliers" title="Permalink to this headline">¶</a></h3>
+<h4>Solving SVMs with Lagrange Multipliers<a class="headerlink" href="#solving-svms-with-lagrange-multipliers" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Imagine a hyperplane (green) <span class="math notranslate nohighlight">\(y= \sum_1^p \mathbf{w}_i * \mathbf{x}_i + w_0\)</span> that has slope <span class="math notranslate nohighlight">\(\mathbf{w}\)</span>, value ‘+1’ for the positive (red) support vectors, and ‘-1’ for the negative (blue) ones</p>
 <ul>
@@ -2207,7 +2208,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}_{Ridge} = \sum_{n=1}^{
     <span class="n">yy_up</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">xx</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
     <span class="c1"># plot the line, the points, and the nearest vectors to the plane</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mf">4.5</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot3D</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">xx</span><span class="p">),</span> <span class="s1">&#39;k-&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot3D</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy_down</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">xx</span><span class="p">),</span> <span class="s1">&#39;k--&#39;</span><span class="p">)</span>
@@ -2226,37 +2227,35 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}_{Ridge} = \sum_{n=1}^{
 
     <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="n">rotationX</span><span class="p">,</span> <span class="n">rotationY</span><span class="p">)</span> <span class="c1"># Use this to rotate the figure</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">dist</span> <span class="o">=</span> <span class="mi">6</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "b2071ce5c7a946e8ba72a247c15df35e", "version_major": 2, "version_minor": 0}
+{"model_id": "2d2f86432cbc4d8e8143e42cac040962", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">interactive</span><span class="p">:</span>
-    <span class="n">plot_svc_fit</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">140</span><span class="p">)</span>
+    <span class="n">plot_svc_fit</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">135</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_81_0.png" src="../_images/02 - Linear Models_81_0.png" />
-</div>
 </div>
 <div class="section" id="geometric-interpretation">
-<h4>Geometric interpretation<a class="headerlink" href="#geometric-interpretation" title="Permalink to this headline">¶</a></h4>
+<h5>Geometric interpretation<a class="headerlink" href="#geometric-interpretation" title="Permalink to this headline">¶</a></h5>
 <ul class="simple">
 <li><p>We want to maximize <span class="math notranslate nohighlight">\(f = \frac{1}{||w||^2}\)</span> (blue contours)</p></li>
 <li><p>The hyperplane (red) must be <span class="math notranslate nohighlight">\(&gt; 1\)</span> for all positive examples:<br />
 <span class="math notranslate nohighlight">\(g(\mathbf{w}) = \mathbf{w} \mathbf{x_i} + w_0 &gt; 1 \,\,\, \forall{i}, y(i)=1\)</span></p></li>
 <li><p>Find the weights <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> that satify <span class="math notranslate nohighlight">\(g\)</span> but maximize <span class="math notranslate nohighlight">\(f\)</span></p></li>
 </ul>
-<img src="../images/LagrangeMultipliers3D.png" alt="ml" style="width: 650px;"/></div>
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/LagrangeMultipliers3D.png" alt="ml" style="width: 650px;"/></div>
 <div class="section" id="solution">
-<h4>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h4>
+<h5>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h5>
 <ul class="simple">
 <li><p>A quadratic loss function with linear constraints can be solved with <em>Lagrangian multipliers</em></p></li>
 <li><p>This works by assigning a weight <span class="math notranslate nohighlight">\(a_i\)</span> (called a dual coefficient) to every data point <span class="math notranslate nohighlight">\(x_i\)</span></p>
@@ -2341,19 +2340,19 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}_{Ridge} = \sum_{n=1}^{
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">svm_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
 <span class="n">svm_Y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">20</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">20</span>
-<span class="n">svm_fig</span><span class="p">,</span> <span class="n">svm_ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">svm_fig</span><span class="p">,</span> <span class="n">svm_ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
 <span class="n">plot_linear_svm</span><span class="p">(</span><span class="n">svm_X</span><span class="p">,</span><span class="n">svm_Y</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">svm_ax</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_86_0.png" src="../_images/02 - Linear Models_86_0.png" />
+<img alt="../_images/02 - Linear Models_85_0.png" src="../_images/02 - Linear Models_85_0.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="making-predictions">
-<h3>Making predictions<a class="headerlink" href="#making-predictions" title="Permalink to this headline">¶</a></h3>
+<h4>Making predictions<a class="headerlink" href="#making-predictions" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(a_i\)</span> will be <em>0</em> if the training point lies on the right side of the decision boundary and outside the margin</p></li>
 <li><p>The training samples for which <span class="math notranslate nohighlight">\(a_i\)</span> is not 0 are the <em>support vectors</em></p></li>
@@ -2362,9 +2361,8 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}_{Ridge} = \sum_{n=1}^{
 $<span class="math notranslate nohighlight">\( \mathbf{w} = \sum_{i=1}^{l} a_i y_i \mathbf{x_i} \)</span>$</p></li>
 <li><p>Hence, we can classify a new sample <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> by looking at the sign of <span class="math notranslate nohighlight">\(\mathbf{w}\mathbf{u}+w_0\)</span></p></li>
 </ul>
-</div>
 <div class="section" id="svms-and-knn">
-<h3>SVMs and kNN<a class="headerlink" href="#svms-and-knn" title="Permalink to this headline">¶</a></h3>
+<h5>SVMs and kNN<a class="headerlink" href="#svms-and-knn" title="Permalink to this headline">¶</a></h5>
 <ul class="simple">
 <li><p>Remember, we will classify a new point <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> by looking at the sign of:<br />
 $<span class="math notranslate nohighlight">\(f(x) = \mathbf{w}\mathbf{u}+w_0 = \sum_{i=1}^{l} a_i y_i \mathbf{x_i}\mathbf{u}+w_0\)</span>$</p></li>
@@ -2382,8 +2380,9 @@ $<span class="math notranslate nohighlight">\(f(x) = \sum_{i=1}^{k} a_i y_i dist
 </li>
 </ul>
 </div>
+</div>
 <div class="section" id="regularized-soft-margin-svms">
-<h3>Regularized (soft margin) SVMs<a class="headerlink" href="#regularized-soft-margin-svms" title="Permalink to this headline">¶</a></h3>
+<h4>Regularized (soft margin) SVMs<a class="headerlink" href="#regularized-soft-margin-svms" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>If the data is not linearly separable, (hard) margin maximization becomes meaningless</p></li>
 <li><p>Relax the contraint by allowing an error <span class="math notranslate nohighlight">\(\xi_{i}\)</span>: <span class="math notranslate nohighlight">\(y_i (\mathbf{w}\mathbf{x_i} + w_0) \geq 1 - \xi_{i}\)</span></p></li>
@@ -2402,7 +2401,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}(\mathbf{w}) = ||\mathb
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="n">yHat</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">hinge_loss</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;true label = 1&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
@@ -2415,12 +2414,12 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}(\mathbf{w}) = ||\mathb
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_90_0.png" src="../_images/02 - Linear Models_90_0.png" />
+<img alt="../_images/02 - Linear Models_89_0.png" src="../_images/02 - Linear Models_89_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="least-squares-svms">
-<h3>Least Squares SVMs<a class="headerlink" href="#least-squares-svms" title="Permalink to this headline">¶</a></h3>
+<h4>Least Squares SVMs<a class="headerlink" href="#least-squares-svms" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>We can also use the <em>squares</em> of all the errors, or squared hinge loss: <span class="math notranslate nohighlight">\(\sum_i^n \xi_{i}^2\)</span></p></li>
 <li><p>This yields the Least Squares SVM objective
@@ -2434,7 +2433,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}(\mathbf{w}) = ||\mathb
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">hinge_loss</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span> <span class="mi">2</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;true label = 1&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
@@ -2447,12 +2446,12 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}(\mathbf{w}) = ||\mathb
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_92_0.png" src="../_images/02 - Linear Models_92_0.png" />
+<img alt="../_images/02 - Linear Models_91_0.png" src="../_images/02 - Linear Models_91_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="effect-of-regularization-on-margin-and-support-vectors">
-<h3>Effect of regularization on margin and support vectors<a class="headerlink" href="#effect-of-regularization-on-margin-and-support-vectors" title="Permalink to this headline">¶</a></h3>
+<h4>Effect of regularization on margin and support vectors<a class="headerlink" href="#effect-of-regularization-on-margin-and-support-vectors" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>SVM’s Hinge loss acts like L1 regularization, yields sparse models</p></li>
 <li><p>C is the <em>inverse</em> regularization strength (inverse of <span class="math notranslate nohighlight">\(\alpha\)</span> in Lasso)</p>
@@ -2465,28 +2464,28 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}(\mathbf{w}) = ||\mathb
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">svm_axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">svm_axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
 <span class="n">plot_linear_svm</span><span class="p">(</span><span class="n">svm_X</span><span class="p">,</span><span class="n">svm_Y</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">svm_axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">plot_linear_svm</span><span class="p">(</span><span class="n">svm_X</span><span class="p">,</span><span class="n">svm_Y</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="n">svm_axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_94_0.png" src="../_images/02 - Linear Models_94_0.png" />
+<img alt="../_images/02 - Linear Models_93_0.png" src="../_images/02 - Linear Models_93_0.png" />
 </div>
 </div>
 <p>Same for non-linearly separable data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">svm_axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">svm_axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">5</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
 <span class="n">plot_linear_svm</span><span class="p">(</span><span class="n">svm_X</span><span class="p">,</span><span class="n">svm_Y</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">svm_axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">plot_linear_svm</span><span class="p">(</span><span class="n">svm_X</span><span class="p">,</span><span class="n">svm_Y</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="n">svm_axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_96_0.png" src="../_images/02 - Linear Models_96_0.png" />
+<img alt="../_images/02 - Linear Models_95_0.png" src="../_images/02 - Linear Models_95_0.png" />
 </div>
 </div>
 <p>Large C values can lead to overfitting (e.g. fitting noise), small values can lead to underfitting</p>
@@ -2497,12 +2496,12 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}(\mathbf{w}) = ||\mathb
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_98_0.png" src="../_images/02 - Linear Models_98_0.png" />
+<img alt="../_images/02 - Linear Models_97_0.png" src="../_images/02 - Linear Models_97_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="svms-in-scikit-learn">
-<h3>SVMs in scikit-learn<a class="headerlink" href="#svms-in-scikit-learn" title="Permalink to this headline">¶</a></h3>
+<h4>SVMs in scikit-learn<a class="headerlink" href="#svms-in-scikit-learn" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">svm.LinearSVC</span></code>: faster for large datasets</p>
 <ul>
@@ -2558,7 +2557,7 @@ Coefficients:
 </div>
 </div>
 <div class="section" id="solving-svms-with-gradient-descent">
-<h3>Solving SVMs with Gradient Descent<a class="headerlink" href="#solving-svms-with-gradient-descent" title="Permalink to this headline">¶</a></h3>
+<h4>Solving SVMs with Gradient Descent<a class="headerlink" href="#solving-svms-with-gradient-descent" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Soft-margin SVMs can, alternatively, be solved using gradient decent</p>
 <ul>
@@ -2573,7 +2572,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L_{Hinge}}(\mathbf{w}) = 
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">hinge_loss</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;true label = 1&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
@@ -2586,7 +2585,8 @@ $<span class="math notranslate nohighlight">\(\mathcal{L_{Hinge}}(\mathbf{w}) = 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_102_0.png" src="../_images/02 - Linear Models_102_0.png" />
+<img alt="../_images/02 - Linear Models_101_0.png" src="../_images/02 - Linear Models_101_0.png" />
+</div>
 </div>
 </div>
 <div class="section" id="generalized-svms">
@@ -2617,6 +2617,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L_{Hinge}}(\mathbf{w}) = 
 <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span>
 <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">4</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span>
          <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Zero-one loss&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">xx</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">xx</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span>
@@ -2639,7 +2640,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L_{Hinge}}(\mathbf{w}) = 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_104_0.png" src="../_images/02 - Linear Models_104_0.png" />
+<img alt="../_images/02 - Linear Models_103_0.png" src="../_images/02 - Linear Models_103_0.png" />
 </div>
 </div>
 </div>
@@ -2653,9 +2654,9 @@ $<span class="math notranslate nohighlight">\(\mathcal{L_{Hinge}}(\mathbf{w}) = 
 <li><p>Weights can be learned with (stochastic) gradient descent and Hinge(0) loss</p>
 <ul>
 <li><p>Updated <em>only</em> on misclassification, corrects output by <span class="math notranslate nohighlight">\(\pm1\)</span>
-$<span class="math notranslate nohighlight">\(\mathcal{L}_{Perceptron} = max(0,y_i (\mathbf{w}\mathbf{x_i} + w_0))\)</span><span class="math notranslate nohighlight">\(
+$<span class="math notranslate nohighlight">\(\mathcal{L}_{Perceptron} = max(0,-y_i (\mathbf{w}\mathbf{x_i} + w_0))\)</span><span class="math notranslate nohighlight">\(
 \)</span><span class="math notranslate nohighlight">\(\frac{\partial \mathcal{L_{Perceptron}}}{\partial w_i} =  \begin{cases}-y_i x_i &amp; y_i (\mathbf{w}\mathbf{x_i} + w_0) &lt; 0\\ 0 &amp; \text{otherwise} \\ \end{cases}\)</span>$
-<img src="../images/perceptron.png" alt="ml" style="margin: 0 auto; width: 500px;"/></p></li>
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/perceptron.png" alt="ml" style="margin: 0 auto; width: 500px;"/></p></li>
 </ul>
 </li>
 </ul>
@@ -2676,11 +2677,12 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}_{Perceptron} = max(0,y
 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">linear_svm</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">)</span>
 <span class="n">mglearn</span><span class="o">.</span><span class="n">discrete_scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">coef</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">linear_svm</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">linear_svm</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span>
                                   <span class="n">mglearn</span><span class="o">.</span><span class="n">cm3</span><span class="o">.</span><span class="n">colors</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">line</span> <span class="o">*</span> <span class="n">coef</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">intercept</span><span class="p">)</span> <span class="o">/</span> <span class="n">coef</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">line</span> <span class="o">*</span> <span class="n">coef</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">intercept</span><span class="p">)</span> <span class="o">/</span> <span class="n">coef</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Feature 0&quot;</span><span class="p">)</span>
@@ -2691,7 +2693,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}_{Perceptron} = max(0,y
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_107_0.png" src="../_images/02 - Linear Models_107_0.png" />
+<img alt="../_images/02 - Linear Models_106_0.png" src="../_images/02 - Linear Models_106_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -2704,7 +2706,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}_{Perceptron} = max(0,y
 <span class="n">line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">coef</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">linear_svm</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">linear_svm</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span>
                                   <span class="n">mglearn</span><span class="o">.</span><span class="n">cm3</span><span class="o">.</span><span class="n">colors</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">line</span> <span class="o">*</span> <span class="n">coef</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">intercept</span><span class="p">)</span> <span class="o">/</span> <span class="n">coef</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">line</span> <span class="o">*</span> <span class="n">coef</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">intercept</span><span class="p">)</span> <span class="o">/</span> <span class="n">coef</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Class 0&#39;</span><span class="p">,</span> <span class="s1">&#39;Class 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Class 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Line class 0&#39;</span><span class="p">,</span> <span class="s1">&#39;Line class 1&#39;</span><span class="p">,</span>
             <span class="s1">&#39;Line class 2&#39;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">1.01</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Feature 0&quot;</span><span class="p">)</span>
@@ -2713,7 +2715,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}_{Perceptron} = max(0,y
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02 - Linear Models_109_0.png" src="../_images/02 - Linear Models_109_0.png" />
+<img alt="../_images/02 - Linear Models_108_0.png" src="../_images/02 - Linear Models_108_0.png" />
 </div>
 </div>
 </div>
@@ -2742,10 +2744,10 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}_{Perceptron} = max(0,y
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
 <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="w"></span>
-<span class="nt">td</span><span class="w"> </span><span class="p">{</span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">}</span><span class="w"></span>
-<span class="nt">th</span><span class="w"> </span><span class="p">{</span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">}</span><span class="w"></span>
+<span class="nt">td</span><span class="w"> </span><span class="p">{</span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">}</span><span class="w"></span>
+<span class="nt">th</span><span class="w"> </span><span class="p">{</span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">}</span><span class="w"></span>
 <span class="p">.</span><span class="nc">rendered_html</span><span class="w"> </span><span class="nt">table</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">rendered_html</span><span class="w"> </span><span class="nt">td</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">rendered_html</span><span class="w"> </span><span class="nt">th</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </pre></div>
@@ -2753,10 +2755,10 @@ $<span class="math notranslate nohighlight">\(\mathcal{L}_{Perceptron} = max(0,y
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style>
-td {font-size: 20px}
-th {font-size: 20px}
+td {font-size: 16px}
+th {font-size: 16px}
 .rendered_html table, .rendered_html td, .rendered_html th {
-    font-size: 20px;
+    font-size: 16px;
 }
 </style>
 </div></div>
@@ -2907,7 +2909,21 @@ th {font-size: 20px}
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="01%20-%20Introduction.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 1: Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="03%20-%20Kernelization.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 3: Kernelization</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

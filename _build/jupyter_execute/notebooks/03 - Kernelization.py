@@ -10,16 +10,21 @@
 # In[1]:
 
 
+# Auto-setup when running on Google Colab
+import os
+if 'google.colab' in str(get_ipython()) and not os.path.exists('/content/master'):
+    get_ipython().system('git clone -q https://github.com/ML-course/master.git /content/master')
+    get_ipython().system('pip install -rq master/requirements_colab.txt')
+    get_ipython().run_line_magic('cd', 'master/notebooks')
+
 # Global imports and settings
-from preamble import *
 get_ipython().run_line_magic('matplotlib', 'inline')
-#InteractiveShell.ast_node_interactivity = "all"
-HTML('''<style>html, body{overflow-y: visible !important} .CodeMirror{min-width:105% !important;} .rise-enabled .CodeMirror, .rise-enabled .output_subarea{font-size:140%; line-height:1.2; overflow: visible;} .output_subarea pre{width:110%}</style>''') # For slides
-interactive = False # Set to True for interactive plots 
+from preamble import *
+interactive = False # Set to True for interactive plots
 if interactive:
-    plt.rcParams['figure.dpi'] = 150
+    fig_scale = 1.5
 else:
-    plt.rcParams['figure.dpi'] = 100
+    fig_scale = 1.2
 
 
 # ## Feature Maps
@@ -51,7 +56,7 @@ line = np.linspace(-3, 3, 1000, endpoint=False).reshape(-1, 1)
 
 reg = Ridge().fit(X, y)
 print("Weights:",reg.coef_)
-plt.rcParams['figure.figsize'] = [8, 4]
+plt.rcParams['figure.figsize'] = [8*fig_scale, 4*fig_scale]
 plt.plot(line, reg.predict(line), label="linear regression", lw=2)
 
 plt.plot(X[:, 0], y, 'o', c='k')
@@ -222,7 +227,7 @@ plt.ylabel("Feature 2");
 # * Kernelized SVM, using any existing kernel $k$ we want:
 # $$\mathcal{L}_{Dual} (a_i, k) = \sum_{i=1}^{l} a_i - \frac{1}{2} \sum_{i,j=1}^{l} a_i a_j y_i y_j k(\mathbf{x_i},\mathbf{x_j}) $$
 
-# In[32]:
+# In[9]:
 
 
 from sklearn import svm
@@ -249,7 +254,7 @@ def plot_svm_kernels(kernels, poly_degree=3, gamma=2, C=1, size=4):
     Y = [0] * 8 + [1] * 8
 
     # figure number
-    fig, axes = plt.subplots(1, len(kernels), figsize=(len(kernels)*size*1.1, size), tight_layout=True)
+    fig, axes = plt.subplots(1, len(kernels), figsize=(len(kernels)*size*1.1*fig_scale, size*fig_scale), tight_layout=True)
     if len(kernels) == 1:
         axes = [axes]
     if not isinstance(gamma,list):
@@ -337,7 +342,7 @@ import ipywidgets as widgets
 from ipywidgets import interact, interact_manual
 
 def plot_lin_kernel():
-    fig, ax = plt.subplots(figsize=(5,3))
+    fig, ax = plt.subplots(figsize=(5*fig_scale,3*fig_scale))
     x = np.linspace(-math.pi,math.pi,100)
     # compare point (0,1) with unit vector at certain angle
     # linear_kernel returns the kernel matrix, get first element
@@ -360,7 +365,7 @@ plot_lin_kernel()
 
 @interact
 def plot_poly_kernel(degree=(1,10,1), coef0=(0,2,0.5), gamma=(0,2,0.5)):
-    fig, ax = plt.subplots(figsize=(5,3))
+    fig, ax = plt.subplots(figsize=(5*fig_scale,3*fig_scale))
     x = np.linspace(-math.pi,math.pi,100)
     # compare point (0,1) with unit vector at certain angle
     if isinstance(degree,list):
@@ -399,7 +404,7 @@ from ipywidgets import interact, interact_manual
 
 @interact
 def plot_rbf_kernel(gamma=(0.01,10,0.1)):
-    fig, ax = plt.subplots(figsize=(4,3))
+    fig, ax = plt.subplots(figsize=(4*fig_scale,3*fig_scale))
     x = np.linspace(-6,6,100)
     if isinstance(gamma,list):
         for g in gamma:
@@ -436,7 +441,7 @@ def gaussian(x, mu, gamma):
 
 @interact
 def plot_rbf_kernel_value(gamma=(0.1,1,0.1),x_1=(-6,6,0.1),x_2=(-6,6,0.1)):
-    fig, ax = plt.subplots(figsize=(6,4))
+    fig, ax = plt.subplots(figsize=(6*fig_scale,4*fig_scale))
     x = np.linspace(-6,6,100)
     ax.plot(x,gaussian(x, x_1, gamma),lw=2,label='gaussian at x_1'.format(gamma), linestyle='-')
     ax.plot(x,gaussian(x, x_2, gamma),lw=2,label='gaussian at x_2'.format(gamma), linestyle='-')
@@ -458,7 +463,7 @@ if not interactive:
 # ## Kernelized SVMs in practice
 # * You can use SVMs with any kernel to learn non-linear decision boundaries
 
-# In[33]:
+# In[17]:
 
 
 plot_svm_kernels(['linear', 'poly', 'rbf'],poly_degree=3,gamma=2,size=4)
@@ -469,7 +474,7 @@ plot_svm_kernels(['linear', 'poly', 'rbf'],poly_degree=3,gamma=2,size=4)
 # * The prediction for test point $\mathbf{u}$: sum of the remaining influence of each support vector
 #     * $f(x) = \sum_{i=1}^{l} a_i y_i k(\mathbf{x_i},\mathbf{u})$
 
-# In[34]:
+# In[18]:
 
 
 @interact
@@ -477,7 +482,7 @@ def plot_rbf_data(gamma=(0.1,10,0.5),C=(0.01,5,0.1)):
     plot_svm_kernels(['rbf'],gamma=gamma,C=C,size=4)
 
 
-# In[35]:
+# In[19]:
 
 
 if not interactive:
@@ -498,7 +503,7 @@ if not interactive:
 get_ipython().run_cell_magic('HTML', '', '<style>\n.reveal img {\n    margin-top: 0px;\n}\n</style>')
 
 
-# In[36]:
+# In[21]:
 
 
 plot_svm_kernels(['rbf','rbf','rbf'],gamma=[0.1,1,5],C=0.001,size=2.3)
@@ -508,10 +513,9 @@ plot_svm_kernels(['rbf','rbf','rbf'],gamma=[0.1,1,5],C=100,size=2.3)
 
 # Kernel overview
 
-# In[22]:
+# In[24]:
 
 
-import plot_classifiers
 from sklearn.svm import SVC
 names = ["Linear SVM", "RBF", "Polynomial"]
 
@@ -521,7 +525,7 @@ classifiers = [
     SVC(kernel="poly", degree=3, C=0.1)
     ]
  
-plot_classifiers.plot_classifiers(names, classifiers, figuresize=(20,8)) 
+mglearn.plots.plot_classifiers(names, classifiers, figuresize=(20,8)) 
 
 
 # ### SVMs in practice
@@ -572,7 +576,7 @@ plot_classifiers.plot_classifiers(names, classifiers, figuresize=(20,8))
 # * Prediction (red) is now a linear combination of kernels (blue): $y = \sum_{j=1}^{n} \alpha_j y_j k(\mathbf{x},\mathbf{x_j})$
 # * We learn a dual coefficient for each point
 
-# In[23]:
+# In[25]:
 
 
 import scipy.stats as stats
@@ -594,7 +598,7 @@ def plot_kernel_ridge(gamma=(0.1,2,0.1),a1=(-1,1,0.1),a2=(-1,1,0.1),a3=(-1,1,0.1
     plt.scatter(xs,ys);
 
 
-# In[24]:
+# In[26]:
 
 
 if not interactive:
@@ -603,7 +607,7 @@ if not interactive:
 
 # * Fitting our regression data with `KernelRidge`
 
-# In[25]:
+# In[27]:
 
 
 from sklearn.kernel_ridge import KernelRidge
@@ -614,7 +618,7 @@ def plot_kernel_ridge(gamma=(0.01,10,0.5)):
     line = np.linspace(-3, 3, 1000, endpoint=False).reshape(-1, 1)
 
     reg = KernelRidge(kernel='rbf', gamma=gamma).fit(X, y)
-    plt.rcParams['figure.figsize'] = [8, 4]
+    plt.rcParams['figure.figsize'] = [8*fig_scale, 4*fig_scale]
     plt.plot(line, reg.predict(line), label="Kernel Ridge (RBF)", lw=2, c='r')
 
     plt.plot(X[:, 0], y, 'o', c='k')
@@ -623,7 +627,7 @@ def plot_kernel_ridge(gamma=(0.01,10,0.5)):
     plt.legend(loc="best");
 
 
-# In[26]:
+# In[28]:
 
 
 if not interactive:
@@ -636,7 +640,7 @@ if not interactive:
 # $$\mathcal{L}_{DualPerceptron}(x_i,k) = max(0,y_i \sum_{j=1}^{n} \alpha_j y_j k(\mathbf{x_j},\mathbf{x_i}))$$
 # * Support Vector Regression behaves similarly to Kernel Ridge
 
-# In[27]:
+# In[29]:
 
 
 from sklearn.svm import SVR
@@ -648,7 +652,7 @@ def plot_kernel_ridge_svr(gamma=(0.01,10,0.5)):
 
     reg = KernelRidge(kernel='rbf', gamma=gamma).fit(X, y)
     svr = SVR(kernel='rbf', gamma=gamma).fit(X, y)
-    plt.rcParams['figure.figsize'] = [8, 4]
+    plt.rcParams['figure.figsize'] = [8*fig_scale, 4*fig_scale]
     plt.plot(line, reg.predict(line), label="Kernel Ridge (RBF)", lw=2, c='r')
     plt.plot(line, svr.predict(line), label="Support Vector Regression (RBF)", lw=2, c='r')
 
@@ -658,7 +662,7 @@ def plot_kernel_ridge_svr(gamma=(0.01,10,0.5)):
     plt.legend(loc="best");
 
 
-# In[28]:
+# In[30]:
 
 
 if not interactive:

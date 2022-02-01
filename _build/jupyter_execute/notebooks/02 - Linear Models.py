@@ -1,24 +1,24 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
-
-
-
-
 # In[1]:
 
+
+# Auto-setup when running on Google Colab
+import os
+if 'google.colab' in str(get_ipython()) and not os.path.exists('/content/master'):
+    get_ipython().system('git clone -q https://github.com/ML-course/master.git /content/master')
+    get_ipython().system('pip install -rq master/requirements_colab.txt')
+    get_ipython().run_line_magic('cd', 'master/notebooks')
 
 # Global imports and settings
 get_ipython().run_line_magic('matplotlib', 'inline')
 from preamble import *
-HTML('''<style>html, body{overflow-y: visible !important} .CodeMirror{min-width:105% !important;} .rise-enabled .CodeMirror, .rise-enabled .output_subarea{font-size:140%; line-height:1.2; overflow: visible;} .output_subarea pre{width:110%} .rendered_html table, .rendered_html td, .rendered_html th {font-size: 200%;}</style>''')# For slides
-interactive = False # Set to True for interactive plots 
+interactive = True # Set to True for interactive plots
 if interactive:
-    plt.rcParams['figure.dpi'] = 150
+    fig_scale = 1.5
 else:
-    plt.rcParams['figure.dpi'] = 100
+    fig_scale = 1.2
 
 
 # # Lecture 2: Linear models
@@ -65,7 +65,7 @@ for i in range(3):
 #         * a 4D tensor (sample x height x width x color channel)
 #         * a 2D tensor (sample x flattened vector of pixel values)
 #     
-# <img src="../images/08_images.png" alt="ml" style="width: 40%;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/08_images.png" alt="ml" style="width: 40%;"/>
 
 # ### Basic operations
 # * Sums and products are denoted by capital Sigma and capital Pi:
@@ -118,7 +118,7 @@ def g_dfx1(x1):
 @interact
 def plot_gradient(rotation=(0,240,10)):
     # plot surface of f
-    fig = plt.figure(figsize=(6,4))
+    fig = plt.figure(figsize=(7*fig_scale,4*fig_scale))
     ax = plt.axes(projection="3d")
     x0 = np.linspace(-6, 6, 30)
     x1 = np.linspace(-6, 6, 30)
@@ -164,7 +164,7 @@ if not interactive:
 # * A probability distribution of a discrete variable: _probability mass function_ (pmf)
 #     * The _expectation_ (or mean) $\mu_X = \mathbb{E}[X] = \sum_{i=1}^k[x_i \cdot Pr(X=x_i)]$
 #     
-# <img src="../images/02_pdf.png" alt="ml" style="width: 50%;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/02_pdf.png" alt="ml" style="width: 50%;"/>
 
 # # Linear models
 # Linear models make a prediction using a linear function of the input features $X$ 
@@ -203,7 +203,7 @@ line = np.linspace(-3, 3, 100).reshape(-1, 1)
 lr = LinearRegression().fit(Xw_train, yw_train)
 print("w_1: %f  w_0: %f" % (lr.coef_[0], lr.intercept_))
 
-plt.figure(figsize=(6, 3))
+plt.figure(figsize=(6*fig_scale, 3*fig_scale))
 plt.plot(line, lr.predict(line))
 plt.plot(Xw_train, yw_train, 'o', c='b')
 #plt.plot(X_test, y_test, '.', c='r')
@@ -219,7 +219,7 @@ ax.legend(["model", "training data"], loc="best");
 # * Loss function is the _sum of squared errors_ (SSE) (or residuals) between predictions $\hat{y}_i$ (red) and the true regression targets $y_i$ (blue) on the training set.
 # $$\mathcal{L}_{SSE} = \sum_{n=1}^{N} (y_n-\hat{y}_n)^2 = \sum_{n=1}^{N} (y_n-(\mathbf{w}\mathbf{x_n} + w_0))^2$$ 
 # 
-# <img src="../images/02_least_squares.png" alt="ml" style="margin: 0 auto; width: 550px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/02_least_squares.png" alt="ml" style="margin: 0 auto; width: 550px;"/>
 
 # #### Solving ordinary least squares
 # * Convex optimization problem with unique closed-form solution: 
@@ -244,7 +244,7 @@ ax.legend(["model", "training data"], loc="best");
 # * Update _all_ weights slightly (by _step size_ or _learning rate_ $\eta$) in 'downhill' direction.
 # * Basic _update rule_ (step s): $$\mathbf{w}^{s+1} = \mathbf{w}^s-\eta\nabla \mathcal{L}(\mathbf{w}^s)$$
 # 
-# <img src="../images/01_gradient_descent.jpg" alt="ml" style="width: 500px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/01_gradient_descent.jpg" alt="ml" style="width: 500px;"/>
 
 # * Important hyperparameters
 #     * Learning rate
@@ -283,7 +283,7 @@ def plot_learning_rate(learn_rate=(0.01,0.4,0.01), exp_decay=False):
             learn_rate_current = learn_rate * math.exp(-0.3*i)
         # Update rule
         w_current = w_current - learn_rate_current * l_dfx0(w_current)
-    fig, ax = plt.subplots(figsize=(5,3))
+    fig, ax = plt.subplots(figsize=(5*fig_scale,3*fig_scale))
     ax.set_xlabel('w')
     ax.set_xticks([])
     ax.set_ylabel('loss')
@@ -301,7 +301,7 @@ if not interactive:
 
 
 # In two dimensions:
-# <img src="../images/01_gradient_descent_2D.png" alt="ml" style="width: 700px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/01_gradient_descent_2D.png" alt="ml" style="width: 700px;"/>
 # 
 # * You can get stuck in local minima (if the loss is not fully convex)
 #     * If you have many model parameters, this is less likely
@@ -310,7 +310,8 @@ if not interactive:
 
 # * Intuition: walking downhill using only the slope you "feel" nearby
 # 
-# <img src="../images/01_gradient_descent_hill.png" alt="ml" style="width: 800px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/01_gradient_descent_hill.png" alt="ml" style="width: 800px;"/>
+# 
 # (Image by A. Karpathy)
 
 # #### Stochastic Gradient Descent (SGD)
@@ -321,7 +322,8 @@ if not interactive:
 #     * Minibatch SGD: compute gradient on batches of data: $\mathbf{w}^{s+1} = \mathbf{w}^s-\frac{\eta}{B} \sum_{i=0}^{B} \nabla \mathcal{L_i}(\mathbf{w}^s)$
 #     * Stochastic Average Gradient Descent (SAG, SAGA)
 #         * Incremental gradient: $\mathbf{w}^{s+1} = \mathbf{w}^s-\frac{\eta}{n} \sum_{i=0}^{n} v_i^s$ with $v_i^s = \begin{cases}\nabla \mathcal{L_i}(\mathbf{w}^s) & \text{random i} \\ v_i^{s-1} & \text{otherwise} \end{cases}$
-# <img src="../images/08_SGD.png" alt="ml" style="float: left; width: 500px;"/>
+#         
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/08_SGD.png" alt="ml" style="float: left; width: 400px;"/>
 
 # #### In practice
 # * Linear regression can be found in `sklearn.linear_model`. We'll evaluate it on the Boston Housing dataset.
@@ -411,7 +413,7 @@ from sklearn.linear_model import Ridge
 @interact
 def plot_ridge(alpha=(0,10.0,0.05)):
     r = Ridge(alpha=alpha).fit(X_B_train, y_B_train)
-    fig, ax = plt.subplots(figsize=(8,1.5))
+    fig, ax = plt.subplots(figsize=(8*fig_scale,1.5*fig_scale))
     ax.plot(r.coef_, 'o')
     ax.set_title("alpha {}, score {:.2f} (training score {:.2f})".format(alpha, r.score(X_B_test, y_B_test), r.score(X_B_train, y_B_train)))
     ax.set_xlabel("Coefficient index")
@@ -444,7 +446,7 @@ for a in alpha:
     r = Ridge(alpha=a).fit(X_B_train, y_B_train)
     test_score.append(r.score(X_B_test, y_B_test))
     train_score.append(r.score(X_B_train, y_B_train))
-fig, ax = plt.subplots(figsize=(6,4))
+fig, ax = plt.subplots(figsize=(6*fig_scale,4*fig_scale))
 ax.set_xticks(range(20))
 ax.set_xticklabels(np.round(alpha,3))
 ax.set_xlabel('alpha')
@@ -454,7 +456,7 @@ ax.legend()
 plt.xticks(rotation=45);
 
 
-# #### Other ways to reduce overfitting
+# ### Other ways to reduce overfitting
 # * Add more training data: with enough training data, regularization becomes less important
 #     * Ridge and ordinary least squares will have the same performance
 # * Use fewer features: remove unimportant ones or find a low-dimensional embedding (e.g. PCA)
@@ -491,7 +493,7 @@ from sklearn.linear_model import Lasso
 @interact
 def plot_lasso(alpha=(0,0.5,0.005)):
     r = Lasso(alpha=alpha).fit(X_B_train, y_B_train)
-    fig, ax = plt.subplots(figsize=(8,1.5))
+    fig, ax = plt.subplots(figsize=(8*fig_scale,1.5*fig_scale))
     ax.plot(r.coef_, 'o')
     ax.set_title("alpha {}, score {:.2f} (training score {:.2f})".format(alpha, r.score(X_B_test, y_B_test), r.score(X_B_train, y_B_train)))
     ax.set_xlabel("Coefficient index")
@@ -509,16 +511,16 @@ if not interactive:
         plot_lasso(alpha)
 
 
-# ### Coordinate descent
+# #### Coordinate descent
 # - Alternative for gradient descent, supports non-differentiable convex loss functions (e.g. $\mathcal{L}_{Lasso}$)
 # - In every iteration, optimize a single coordinate $w_i$ (find minimum in direction of $x_i$)
 #     - Continue with another coordinate, using a selection rule (e.g. round robin)
 # - Faster iterations. No need to choose a step size (learning rate).
 # - May converge more slowly. Can't be parallellized.
 # 
-# <img src="../images/02_cd.png" alt="ml" style="width: 400px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/02_cd.png" alt="ml" style="width: 400px;"/>
 
-# ### Coordinate descent with Lasso
+# #### Coordinate descent with Lasso
 # 
 # - Remember that $\mathcal{L}_{Lasso} = \mathcal{L}_{SSE} + \alpha \sum_{i=1}^{p} |w_i|$ 
 # - For one $w_i$: $\mathcal{L}_{Lasso}(w_i) = \mathcal{L}_{SSE}(w_i) + \alpha |w_i|$
@@ -546,7 +548,7 @@ def plot_rho(alpha=(0,2.0,0.05)):
     w = np.linspace(-2,2,101)
     r = w/(1+2*alpha)
     l = [x+alpha if x <= -alpha else (x-alpha if x > alpha else 0) for x in w]
-    fig, ax = plt.subplots(figsize=(6,4))
+    fig, ax = plt.subplots(figsize=(6*fig_scale,3*fig_scale))
     ax.set_xlabel(r'$\rho$')
     ax.set_ylabel(r'$w^{*}$')
     ax.plot(w, w, lw=2, c='g', label='Ordinary Least Squares (SSE)')
@@ -566,7 +568,7 @@ if not interactive:
 # ### Interpreting L1 and L2 loss
 # - L1 and L2 in function of the weights
 # 
-# <img src="../images/L12_1.png" alt="ml" style="width: 700px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/L12_1.png" alt="ml" style="width: 700px;"/>
 
 # Least Squares Loss + L1 or L2
 # - Lasso is not differentiable at point 0
@@ -576,7 +578,8 @@ if not interactive:
 
 
 def c_fx(x):
-    return (x * 2 - 1)**2 # Some convex function to represent the loss
+    fX = ((x * 2 - 1)**2) # Some convex function to represent the loss
+    return fX/9 # Scaling
 def c_fl2(x,alpha):
     return c_fx(x) + alpha * x**2
 def c_fl1(x,alpha):
@@ -587,14 +590,14 @@ def l1(x,alpha):
     return alpha * abs(x)
 
 @interact
-def plot_losses(alpha=(0,10.0,0.5)):
+def plot_losses(alpha=(0,1.0,0.05)):
     w = np.linspace(-1,1,101)
     f = [c_fx(i) for i in w]
     r = [c_fl2(i,alpha) for i in w]
     l = [c_fl1(i,alpha) for i in w]
     rp = [l2(i,alpha) for i in w]
     lp = [l1(i,alpha) for i in w]
-    fig, ax = plt.subplots(figsize=(6,4))
+    fig, ax = plt.subplots(figsize=(6*fig_scale,4*fig_scale))
     ax.set_xlabel('w')
     ax.set_ylabel('loss')
     ax.plot(w, rp, lw=1.5, ls=':', c='b', label='L2 with alpha={}'.format(alpha))
@@ -609,7 +612,7 @@ def plot_losses(alpha=(0,10.0,0.5)):
     opt_l = np.argmin(l)
     ax.scatter(w[opt_l], l[opt_l], c="r", s=50)
     ax.legend()
-    plt.ylim(-1,10)
+    plt.ylim(-0.1,1)
     plt.grid()
 
 
@@ -617,7 +620,7 @@ def plot_losses(alpha=(0,10.0,0.5)):
 
 
 if not interactive:
-    plot_losses(alpha=5)
+    plot_losses(alpha=0.5)
 
 
 # - In 2D (for 2 model weights $w_1$ and $w_2$)
@@ -639,7 +642,7 @@ def plot_loss_interpretation():
     rho = 0.7
     elastic_net = rho * l1 + (1 - rho) * l2
 
-    plt.figure(figsize=(5, 4))
+    plt.figure(figsize=(5*fig_scale, 4*fig_scale))
     ax = plt.gca()
 
     elastic_net_contour = plt.contour(xx, yy, elastic_net, levels=[1], linewidths=2, colors="darkorange")
@@ -694,7 +697,7 @@ plot_loss_interpretation()
 # * These can all be solved with stochastic gradient descent
 #     * `SGDRegressor` in sklearn
 # 
-# <img src="../images/huber.png" alt="ml" style="width: 350px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/huber.png" alt="ml" style="width: 350px;"/>
 
 # ## Linear models for Classification
 # Aims to find a hyperplane that separates the examples of each class.  
@@ -711,14 +714,14 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.svm import LinearSVC
 
 Xf, yf = mglearn.datasets.make_forge()
-fig, ax = plt.subplots(figsize=(6,4))
+fig, ax = plt.subplots(figsize=(6*fig_scale,4*fig_scale))
 clf = LogisticRegression().fit(Xf, yf)
-mglearn.plots.plot_2d_separator(clf, Xf, fill=True, eps=0.5,
-                                ax=ax, alpha=.7, linewidth=2)
+mglearn.tools.plot_2d_separator(clf, Xf, fill=True,
+                                ax=ax, alpha=.7, linewidth=2, cm=mglearn.cm2)
 mglearn.discrete_scatter(Xf[:, 0], Xf[:, 1], yf, ax=ax)
 ax.set_xlabel("Feature 1")
 ax.set_ylabel("Feature 2")
-ax.legend(['Class -1','Class 1']);
+ax.legend(); #['Class -1','Class 1']);
 
 
 # * There are many algorithms for linear classification, differing in loss function, regularization techniques, and optimization method
@@ -750,7 +753,7 @@ def sigmoid(x,w1,w0):
 
 @interact
 def plot_logreg(w0=(-15.0,5.0,1),w1=(-1.0,4.0,0.5)):
-    fig, ax = plt.subplots(figsize=(6,3))
+    fig, ax = plt.subplots(figsize=(6*fig_scale,3*fig_scale))
     red = [Xf[i, 1] for i in range(len(yf)) if yf[i]==1]
     blue = [Xf[i, 1] for i in range(len(yf)) if yf[i]==0]
     ax.scatter(red, [1]*len(red), c='r')
@@ -794,7 +797,7 @@ def plot_logistic_fit(rotation=(0,360,10)):
     w2 = lr_clf.coef_[0][1]
 
     # plot surface of f
-    fig = plt.figure(figsize=(7,5))
+    fig = plt.figure(figsize=(7*fig_scale,5*fig_scale))
     ax = plt.axes(projection="3d")
     x0 = np.linspace(8, 16, 30)
     x1 = np.linspace(-1, 6, 30)
@@ -851,7 +854,7 @@ def cross_entropy(yHat, y):
     else:
         return -np.log(1 - yHat)
 
-fig, ax = plt.subplots(figsize=(6,2))
+fig, ax = plt.subplots(figsize=(6*fig_scale,2*fig_scale))
 x = np.linspace(0,1,100)
 
 ax.plot(x,cross_entropy(x, 1),lw=2,c='b',label='true label = 1', linestyle='-')
@@ -899,7 +902,7 @@ from sklearn.linear_model import LogisticRegression
 @interact
 def plot_lr(C_log=(-3,4,0.1)):
     # Still using artificial data
-    fig, ax = plt.subplots(figsize=(6,3))
+    fig, ax = plt.subplots(figsize=(6*fig_scale,3*fig_scale))
     mglearn.discrete_scatter(Xf[:, 0], Xf[:, 1], yf, ax=ax)
     lr = LogisticRegression(C=10**C_log).fit(Xf, yf)
     w = lr.coef_[0]
@@ -939,7 +942,7 @@ for c in C:
     scores = cross_validate(lr,X_C,y_C,cv=10, return_train_score="True")
     test_score.append(np.mean(scores['test_score']))
     train_score.append(np.mean(scores['train_score']))
-fig, ax = plt.subplots(figsize=(6,4))
+fig, ax = plt.subplots(figsize=(6*fig_scale,4*fig_scale))
 ax.set_xticks(range(20))
 ax.set_xticklabels(np.round(C,3))
 ax.set_xlabel('C')
@@ -960,7 +963,7 @@ X_C_train, X_C_test, y_C_train, y_C_test = train_test_split(X_C, y_C, random_sta
 @interact
 def plot_logreg(C=(0.01,100.0,0.1), penalty=['l1','l2']):
     r = LogisticRegression(C=C, penalty=penalty, solver='liblinear').fit(X_C_train, y_C_train)
-    fig, ax = plt.subplots(figsize=(8,1.8))
+    fig, ax = plt.subplots(figsize=(8*fig_scale,1.7*fig_scale))
     ax.plot(r.coef_.T, 'o')
     ax.set_title("C: {:.3f}, penalty: {}, score {:.2f} (training score {:.2f})".format(C, penalty, r.score(X_C_test, y_C_test), r.score(X_C_train, y_C_train)))
     ax.set_xlabel("Coefficient index")
@@ -991,7 +994,7 @@ if not interactive:
 #     * Use Cholesky for smaller datasets, Gradient descent for larger ones
 # 
 
-# ## Support vector machines
+# ### Support vector machines
 # - Decision boundaries close to training points may generalize badly
 #     - Very similar (nearby) test point are classified as the other class
 # - Choose a boundary that is as far away from training points as possible
@@ -1000,7 +1003,7 @@ if not interactive:
 # - Hence, our objective is to _maximize the margin_
 # <img src="../images/05_margin.png" alt="ml" style="width: 750px;"/>
 
-# ### Solving SVMs with Lagrange Multipliers
+# #### Solving SVMs with Lagrange Multipliers
 # * Imagine a hyperplane (green) $y= \sum_1^p \mathbf{w}_i * \mathbf{x}_i + w_0$ that has slope $\mathbf{w}$, value '+1' for the positive (red) support vectors, and '-1' for the negative (blue) ones
 #     * Margin between the boundary and support vectors is $\frac{y-w_0}{||\mathbf{w}||}$, with $||\mathbf{w}|| = \sum_i^p w_i^2$
 #     * We want to find the weights that maximize $\frac{1}{||\mathbf{w}||}$. We can also do that by maximizing $\frac{1}{||\mathbf{w}||^2}$
@@ -1009,7 +1012,7 @@ if not interactive:
 #     
 #     
 
-# In[34]:
+# In[48]:
 
 
 from sklearn.svm import SVC
@@ -1040,7 +1043,7 @@ def plot_svc_fit(rotationX=(0,20,1),rotationY=(90,180,1)):
     yy_up = a * xx + (b[1] - a * b[0])
 
     # plot the line, the points, and the nearest vectors to the plane
-    fig = plt.figure(figsize=(6,4))
+    fig = plt.figure(figsize=(7*fig_scale,4.5*fig_scale))
     ax = plt.axes(projection="3d")
     ax.plot3D(xx, yy, [0]*len(xx), 'k-')
     ax.plot3D(xx, yy_down, [0]*len(xx), 'k--')
@@ -1059,6 +1062,7 @@ def plot_svc_fit(rotationX=(0,20,1),rotationY=(90,180,1)):
 
     ax.set_axis_off()
     ax.view_init(rotationX, rotationY) # Use this to rotate the figure
+    ax.dist = 6
     plt.tight_layout()
 
 
@@ -1066,18 +1070,18 @@ def plot_svc_fit(rotationX=(0,20,1),rotationY=(90,180,1)):
 
 
 if not interactive:
-    plot_svc_fit(0,140)
+    plot_svc_fit(9,135)
 
 
-# #### Geometric interpretation
+# ##### Geometric interpretation
 # - We want to maximize $f = \frac{1}{||w||^2}$ (blue contours)
 # - The hyperplane (red) must be $> 1$ for all positive examples:  
 # $g(\mathbf{w}) = \mathbf{w} \mathbf{x_i} + w_0 > 1 \,\,\, \forall{i}, y(i)=1$
 # - Find the weights $\mathbf{w}$ that satify $g$ but maximize $f$
 # 
-# <img src="../images/LagrangeMultipliers3D.png" alt="ml" style="width: 650px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/LagrangeMultipliers3D.png" alt="ml" style="width: 650px;"/>
 
-# #### Solution
+# ##### Solution
 # * A quadratic loss function with linear constraints can be solved with *Lagrangian multipliers*
 # * This works by assigning a weight $a_i$ (called a dual coefficient) to every data point $x_i$
 #     * They reflect how much individual points influence the weights $\mathbf{w}$
@@ -1154,11 +1158,11 @@ def plot_linear_svm(X,y,C,ax):
 np.random.seed(0)
 svm_X = np.r_[np.random.randn(20, 2) - [2, 2], np.random.randn(20, 2) + [2, 2]]
 svm_Y = [0] * 20 + [1] * 20
-svm_fig, svm_ax = plt.subplots(figsize=(8,5))
+svm_fig, svm_ax = plt.subplots(figsize=(8*fig_scale,5*fig_scale))
 plot_linear_svm(svm_X,svm_Y,1,svm_ax)
 
 
-# ### Making predictions
+# #### Making predictions
 # - $a_i$ will be *0* if the training point lies on the right side of the decision boundary and outside the margin 
 # - The training samples for which $a_i$ is not 0 are the _support vectors_ 
 # - Hence, the SVM model is completely defined by the support vectors and their dual coefficients (weights)
@@ -1168,7 +1172,7 @@ plot_linear_svm(svm_X,svm_Y,1,svm_ax)
 # - Hence, we can classify a new sample $\mathbf{u}$ by looking at the sign of $\mathbf{w}\mathbf{u}+w_0$
 # 
 
-# ### SVMs and kNN
+# ##### SVMs and kNN
 # * Remember, we will classify a new point $\mathbf{u}$ by looking at the sign of:  
 # $$f(x) = \mathbf{w}\mathbf{u}+w_0 = \sum_{i=1}^{l} a_i y_i \mathbf{x_i}\mathbf{u}+w_0$$
 # 
@@ -1180,7 +1184,7 @@ plot_linear_svm(svm_X,svm_Y,1,svm_ax)
 #         - The number of neighbors is the number of support vectors
 #     - The distance function is an _inner product of the inputs_
 
-# ### Regularized (soft margin) SVMs
+# #### Regularized (soft margin) SVMs
 # 
 # - If the data is not linearly separable, (hard) margin maximization becomes meaningless
 # - Relax the contraint by allowing an error $\xi_{i}$: $y_i (\mathbf{w}\mathbf{x_i} + w_0) \geq 1 - \xi_{i}$
@@ -1200,7 +1204,7 @@ def hinge_loss(yHat, y):
     else:
         return np.maximum(0,1+yHat)
 
-fig, ax = plt.subplots(figsize=(6,2))
+fig, ax = plt.subplots(figsize=(6*fig_scale,2*fig_scale))
 x = np.linspace(-2,2,100)
 
 ax.plot(x,hinge_loss(x, 1),lw=2,c='b',label='true label = 1', linestyle='-')
@@ -1211,7 +1215,7 @@ plt.grid()
 plt.legend();
 
 
-# ### Least Squares SVMs
+# #### Least Squares SVMs
 # 
 # - We can also use the _squares_ of all the errors, or squared hinge loss: $\sum_i^n \xi_{i}^2$
 # - This yields the Least Squares SVM objective
@@ -1223,7 +1227,7 @@ plt.legend();
 # In[38]:
 
 
-fig, ax = plt.subplots(figsize=(6,2))
+fig, ax = plt.subplots(figsize=(6*fig_scale,2*fig_scale))
 x = np.linspace(-2,2,100)
 
 ax.plot(x,hinge_loss(x, 1)** 2,lw=2,c='b',label='true label = 1', linestyle='-')
@@ -1234,7 +1238,7 @@ plt.grid()
 plt.legend();
 
 
-# ### Effect of regularization on margin and support vectors
+# #### Effect of regularization on margin and support vectors
 # - SVM's Hinge loss acts like L1 regularization, yields sparse models
 # - C is the _inverse_ regularization strength (inverse of $\alpha$ in Lasso)
 #     - Larger C: fewer support vectors, smaller margin, more overfitting
@@ -1244,7 +1248,7 @@ plt.legend();
 # In[39]:
 
 
-fig, svm_axes = plt.subplots(nrows=1, ncols=2, figsize=(12, 4))
+fig, svm_axes = plt.subplots(nrows=1, ncols=2, figsize=(12*fig_scale, 4*fig_scale))
 plot_linear_svm(svm_X,svm_Y,1,svm_axes[0])
 plot_linear_svm(svm_X,svm_Y,0.05,svm_axes[1])
 
@@ -1255,7 +1259,7 @@ plot_linear_svm(svm_X,svm_Y,0.05,svm_axes[1])
 
 
 svm_X = np.r_[np.random.randn(20, 2) - [1, 1], np.random.randn(20, 2) + [1, 1]]
-fig, svm_axes = plt.subplots(nrows=1, ncols=2, figsize=(12, 5))
+fig, svm_axes = plt.subplots(nrows=1, ncols=2, figsize=(12*fig_scale, 5*fig_scale))
 plot_linear_svm(svm_X,svm_Y,1,svm_axes[0])
 plot_linear_svm(svm_X,svm_Y,0.05,svm_axes[1])
 
@@ -1268,7 +1272,7 @@ plot_linear_svm(svm_X,svm_Y,0.05,svm_axes[1])
 mglearn.plots.plot_linear_svc_regularization()
 
 
-# ### SVMs in scikit-learn
+# #### SVMs in scikit-learn
 # 
 # - `svm.LinearSVC`: faster for large datasets
 #     - Allows choosing between the primal or dual. Primal recommended when $n$ >> $p$
@@ -1305,7 +1309,7 @@ print("Coefficients:")
 print(clf.dual_coef_[:])
 
 
-# ### Solving SVMs with Gradient Descent
+# #### Solving SVMs with Gradient Descent
 # * Soft-margin SVMs can, alternatively, be solved using gradient decent
 #     * Good for large datasets, but does not yield support vectors or kernelization
 # * Squared Hinge is differentiable
@@ -1317,7 +1321,7 @@ print(clf.dual_coef_[:])
 # In[43]:
 
 
-fig, ax = plt.subplots(figsize=(6,2))
+fig, ax = plt.subplots(figsize=(6*fig_scale,2*fig_scale))
 x = np.linspace(-2,2,100)
 
 ax.plot(x,hinge_loss(x, 1),lw=2,c='b',label='true label = 1', linestyle='-')
@@ -1349,6 +1353,7 @@ def modified_huber_loss(y_true, y_pred):
 xmin, xmax = -4, 4
 xx = np.linspace(xmin, xmax, 100)
 lw = 2
+fig, ax = plt.subplots(figsize=(8*fig_scale,4*fig_scale))
 plt.plot([xmin, 0, 0, xmax], [1, 1, 0, 0], 'k-', lw=lw,
          label="Zero-one loss")
 plt.plot(xx, np.where(xx < 1, 1 - xx, 0), 'b-', lw=lw,
@@ -1375,9 +1380,9 @@ plt.legend();
 # * The _activation function_ predicts 1 if $\mathbf{xw} + w_0 > 0$, -1 otherwise
 # * Weights can be learned with (stochastic) gradient descent and Hinge(0) loss
 #     * Updated _only_ on misclassification, corrects output by $\pm1$
-# $$\mathcal{L}_{Perceptron} = max(0,y_i (\mathbf{w}\mathbf{x_i} + w_0))$$
+# $$\mathcal{L}_{Perceptron} = max(0,-y_i (\mathbf{w}\mathbf{x_i} + w_0))$$
 # $$\frac{\partial \mathcal{L_{Perceptron}}}{\partial w_i} =  \begin{cases}-y_i x_i & y_i (\mathbf{w}\mathbf{x_i} + w_0) < 0\\ 0 & \text{otherwise} \\ \end{cases}$$
-# <img src="../images/perceptron.png" alt="ml" style="margin: 0 auto; width: 500px;"/>
+# <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/perceptron.png" alt="ml" style="margin: 0 auto; width: 500px;"/>
 
 # ## Linear Models for multiclass classification
 # ### one-vs-rest (aka one-vs-all)
@@ -1393,11 +1398,12 @@ from sklearn.datasets import make_blobs
 X, y = make_blobs(random_state=42)
 linear_svm = LinearSVC().fit(X, y)
 
+plt.rcParams["figure.figsize"] = (7*fig_scale,5*fig_scale)
 mglearn.discrete_scatter(X[:, 0], X[:, 1], y)
 line = np.linspace(-15, 15)
 for coef, intercept, color in zip(linear_svm.coef_, linear_svm.intercept_,
                                   mglearn.cm3.colors):
-    plt.plot(line, -(line * coef[0] + intercept) / coef[1], c=color)
+    plt.plot(line, -(line * coef[0] + intercept) / coef[1], c=color, lw=2)
 plt.ylim(-10, 15)
 plt.xlim(-10, 8)
 plt.xlabel("Feature 0")
@@ -1416,7 +1422,7 @@ mglearn.discrete_scatter(X[:, 0], X[:, 1], y)
 line = np.linspace(-15, 15)
 for coef, intercept, color in zip(linear_svm.coef_, linear_svm.intercept_,
                                   mglearn.cm3.colors):
-    plt.plot(line, -(line * coef[0] + intercept) / coef[1], c=color)
+    plt.plot(line, -(line * coef[0] + intercept) / coef[1], c=color, lw=2)
 plt.legend(['Class 0', 'Class 1', 'Class 2', 'Line class 0', 'Line class 1',
             'Line class 2'], loc=(1.01, 0.3))
 plt.xlabel("Feature 0")
@@ -1436,7 +1442,7 @@ plt.ylabel("Feature 1");
 # In[47]:
 
 
-get_ipython().run_cell_magic('HTML', '', '<style>\ntd {font-size: 20px}\nth {font-size: 20px}\n.rendered_html table, .rendered_html td, .rendered_html th {\n    font-size: 20px;\n}\n</style>')
+get_ipython().run_cell_magic('HTML', '', '<style>\ntd {font-size: 16px}\nth {font-size: 16px}\n.rendered_html table, .rendered_html td, .rendered_html th {\n    font-size: 16px;\n}\n</style>')
 
 
 # ## Linear models overview
