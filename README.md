@@ -1,5 +1,6 @@
 [![Jupyter Book Badge](https://raw.githubusercontent.com/executablebooks/jupyter-book/master/docs/images/badge.svg)](https://ml-course.github.io/)
-[![Youtube Badge](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCurDcl-q8dkRF5WFMCW1tSA)
+[![YouTube Channel Views](https://img.shields.io/youtube/channel/views/UCurDcl-q8dkRF5WFMCW1tSA?style=social)](https://www.youtube.com/channel/UCurDcl-q8dkRF5WFMCW1tSA)
+
 
 # An Open Machine Learning Course
 
