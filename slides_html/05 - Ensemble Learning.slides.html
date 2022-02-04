@@ -14719,7 +14719,7 @@ div.jp-OutputPrompt {
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Ensemble-learning">Ensemble learning<a class="anchor-link" href="#Ensemble-learning">&#182;</a></h2><ul>
+<ul>
 <li>Why does this work?<ul>
 <li>Different models may be good at different 'parts' of data (even if they underfit)</li>
 <li>Individual mistakes can be 'averaged out' (especially if models overfit)</li>
@@ -14920,7 +14920,7 @@ div.jp-OutputPrompt {
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="On-under--and-overfitting">On under- and overfitting<a class="anchor-link" href="#On-under--and-overfitting">&#182;</a></h2><ul>
+<h3 id="Under--and-overfitting">Under- and overfitting<a class="anchor-link" href="#Under--and-overfitting">&#182;</a></h3><ul>
 <li>We can easily control the (maximum) depth of the trees as a hyperparameter</li>
 <li>Bias-variance analysis:<ul>
 <li>Shallow trees have high bias but very low variance (underfitting)</li>
@@ -15052,7 +15052,7 @@ div.jp-OutputPrompt {
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Effect-on-bias-and-variance">Effect on bias and variance<a class="anchor-link" href="#Effect-on-bias-and-variance">&#182;</a></h2><ul>
+<h3 id="Effect-on-bias-and-variance">Effect on bias and variance<a class="anchor-link" href="#Effect-on-bias-and-variance">&#182;</a></h3><ul>
 <li>Increasing the number of models (trees) decreases variance (less overfitting)</li>
 <li>Bias is mostly unaffected, but will increase if the forest becomes too large (oversmoothing)</li>
 </ul>
@@ -15539,7 +15539,7 @@ $$r_i = -\frac{\partial \mathcal{L}}{\partial \hat{y}} = -2 * \frac{1}{2}(y_i - 
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="GradientBoosting-Algorithm-(Classification)">GradientBoosting Algorithm (Classification)<a class="anchor-link" href="#GradientBoosting-Algorithm-(Classification)">&#182;</a></h2><ul>
+<h3 id="GradientBoosting-Algorithm-(Classification)">GradientBoosting Algorithm (Classification)<a class="anchor-link" href="#GradientBoosting-Algorithm-(Classification)">&#182;</a></h3><ul>
 <li>Base models are <em>regression</em> trees, predict probability of positive class $p$<ul>
 <li>For multi-class problems, train one tree per class</li>
 </ul>
@@ -15620,7 +15620,7 @@ $$\frac{\partial \mathcal{L}}{\partial \hat{y}} = \frac{\partial \mathcal{L}}{\p
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Examples">Examples<a class="anchor-link" href="#Examples">&#182;</a></h3>
+<h4 id="Examples">Examples<a class="anchor-link" href="#Examples">&#182;</a></h4>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
@@ -15650,7 +15650,7 @@ $$\frac{\partial \mathcal{L}}{\partial \hat{y}} = \frac{\partial \mathcal{L}}{\p
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Bias-variance-analysis">Bias-variance analysis<a class="anchor-link" href="#Bias-variance-analysis">&#182;</a></h3><ul>
+<h4 id="Bias-variance-analysis">Bias-variance analysis<a class="anchor-link" href="#Bias-variance-analysis">&#182;</a></h4><ul>
 <li>Gradient Boosting is very effective at reducing bias error</li>
 <li>Boosting too much will eventually increase variance</li>
 </ul>
@@ -15684,7 +15684,7 @@ $$\frac{\partial \mathcal{L}}{\partial \hat{y}} = \frac{\partial \mathcal{L}}{\p
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Feature-importance">Feature importance<a class="anchor-link" href="#Feature-importance">&#182;</a></h3><ul>
+<h4 id="Feature-importance">Feature importance<a class="anchor-link" href="#Feature-importance">&#182;</a></h4><ul>
 <li>Gradient Boosting also provide feature importances, based on many trees</li>
 <li>Compared to RandomForests, the trees are smaller, hence more features have zero importance</li>
 </ul>
@@ -15718,7 +15718,7 @@ $$\frac{\partial \mathcal{L}}{\partial \hat{y}} = \frac{\partial \mathcal{L}}{\p
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Gradient-Boosting:-strengths-and-weaknesses">Gradient Boosting: strengths and weaknesses<a class="anchor-link" href="#Gradient-Boosting:-strengths-and-weaknesses">&#182;</a></h3><ul>
+<h4 id="Gradient-Boosting:-strengths-and-weaknesses">Gradient Boosting: strengths and weaknesses<a class="anchor-link" href="#Gradient-Boosting:-strengths-and-weaknesses">&#182;</a></h4><ul>
 <li>Among the most powerful and widely used models</li>
 <li>Work well on heterogeneous features and different scales</li>
 <li>Typically better than random forests, but requires more tuning, longer training</li>
@@ -16008,8 +16008,6 @@ th {font-size: 20px}
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput ">
-
 </div></section></section>
 </div>
 </div>

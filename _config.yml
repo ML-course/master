@@ -13,12 +13,7 @@ execute:
   timeout: -1
   execute_notebooks: auto
   exclude_patterns:
-    - 'Lab*'
-    - 'Tutorial*'
-    - 'X*'
     - 'S*'
-    - '06*'
-    - '07*'
     - '08*'
     - '09*'
     - '10*'
