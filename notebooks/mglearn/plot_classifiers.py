@@ -54,9 +54,9 @@ def plot_classifiers(names, classifiers, figuresize):
         if ds_cnt == 0:
             ax.set_title("Input data")
         # Plot the training points
-        ax.scatter(X_train[:, 0], X_train[:, 1], c=y_train, cmap=cm_bright)
+        ax.scatter(X_train[:, 0], X_train[:, 1], c=y_train, cmap=cm_bright, s=3)
         # and testing points
-        ax.scatter(X_test[:, 0], X_test[:, 1], c=y_test, cmap=cm_bright, alpha=0.6)
+        ax.scatter(X_test[:, 0], X_test[:, 1], c=y_test, cmap=cm_bright, alpha=0.6, s=3)
         ax.set_xlim(xx.min(), xx.max())
         ax.set_ylim(yy.min(), yy.max())
         ax.set_xticks(())
@@ -93,7 +93,7 @@ def plot_classifiers(names, classifiers, figuresize):
             if ds_cnt == 0:
                 ax.set_title(name)
             ax.text(xx.max() - .3, yy.min() + .3, ('%.2f' % score).lstrip('0'),
-                    size=15, horizontalalignment='right')
+                    horizontalalignment='right')
             i += 1
         
     plt.tight_layout()

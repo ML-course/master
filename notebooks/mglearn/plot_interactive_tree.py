@@ -35,7 +35,7 @@ def tree_image(tree, fout=None):
     graph = graphviz.Source(data, format="png")
     if fout is None:
         fout = "tmp"
-    graph.render(fout)
+    graph.render(fout, format="png")
     return imread(fout + ".png")
 
 
@@ -79,9 +79,9 @@ def plot_tree_partition(X, y, tree, ax=None):
     faces = faces.reshape(X1.shape)
     border = ndimage.laplace(faces) != 0
     ax.contourf(X1, X2, Z, alpha=.4, cmap=cm2, levels=[0, .5, 1])
-    ax.scatter(X1[border], X2[border], marker='.', s=1)
+    ax.scatter(X1[border], X2[border], marker='.')
 
-    discrete_scatter(X[:, 0], X[:, 1], y, ax=ax)
+    discrete_scatter(X[:, 0], X[:, 1], y, ax=ax, s=3)
     ax.set_xlim(x_min, x_max)
     ax.set_ylim(y_min, y_max)
     ax.set_xticks(())

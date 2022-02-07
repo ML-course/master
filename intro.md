@@ -45,11 +45,11 @@ Download the lab notebooks and solve the questions locally, or launch them in Go
 ### Tutorials
 General introductions into using Python for scientific programming and machine learning, as well as some basic machine learning techniques. Useful for novices to cover any knowledge gaps, while more advanced students can likely skip them.
 
-1. [Python basics](https://ml-course.github.io/master/notebooks/Tutorial%201%20-%20Python
-2. [Python for data analysis](https://ml-course.github.io/master/notebooks/Tutorial%202%20-%20Python%20for%20Data%20Analysis
-3. [Machine learning in Python](https://ml-course.github.io/master/notebooks/Tutorial%203%20-%20Machine%20Learning%20in%20Python
-4. [Recap: Decision trees](https://ml-course.github.io/master/notebooks/Tutorial%204%20-%20Decision%20Trees
-5. [Recap: Nearest Neighbors](https://ml-course.github.io/master/notebooks/Tutorial%205%20-%20Nearest%20Neighbors
+1. [Python basics](https://ml-course.github.io/master/notebooks/Tutorial%201%20-%20Python)
+2. [Python for data analysis](https://ml-course.github.io/master/notebooks/Tutorial%202%20-%20Python%20for%20Data%20Analysis)
+3. [Machine learning in Python](https://ml-course.github.io/master/notebooks/Tutorial%203%20-%20Machine%20Learning%20in%20Python)
+4. [Recap: Decision trees](https://ml-course.github.io/master/notebooks/Tutorial%204%20-%20Decision%20Trees)
+5. [Recap: Nearest Neighbors](https://ml-course.github.io/master/notebooks/Tutorial%205%20-%20Nearest%20Neighbors)
 
 ### Recommended resources
 These resources help to further deepen your skills, and are well aligned with this course.

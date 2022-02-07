@@ -1,11 +1,39 @@
-
 code {
-  max-height: 600px !important;
+    max-height: 600px !important;
 }
 
 .MJXc-processed{
-  display: inline-block;
+    display: inline-block;
 }
 
+.highlight {
+	background: none !important;
+}
+
+.highlight pre {
+	font-size: 1em !important;
+}
+
+.jp-OutputArea-output pre {
+	font-size: 0.35em !important;
+}
+
+.jp-mod-noInput {
+	padding: 0;
+}
+
+.jp-Collapser {
+	display: none;
+}
+
+.MJXc-display {
+	margin-top: 0.3em !important;
+	margin-bottom: 0.3em !important;
+}
+
+.reveal img {
+	margin-top: 0em !important;
+	margin-bottom: 0em !important;
+}
 
 

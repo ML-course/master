@@ -10,7 +10,6 @@ from cycler import cycler
 from pprint import pprint
 
 set_matplotlib_formats('pdf', 'png')
-plt.rcParams['savefig.dpi'] = 300
 plt.rcParams['image.cmap'] = "viridis"
 plt.rcParams['image.interpolation'] = "none"
 plt.rcParams['savefig.bbox'] = "tight"
@@ -54,3 +53,19 @@ warnings.simplefilter(action="ignore", category=DeprecationWarning)
 # Styling
 fig_scale = 1
 HTML('''<style>html, body{overflow-y: visible !important} .CodeMirror{min-width:105% !important;} .rise-enabled .CodeMirror, .rise-enabled .output_subarea{font-size:140%; line-height:1.2; overflow: visible;} .output_subarea pre{width:110%}</style>''')
+
+print_config = {
+    'figure.dpi': 300,
+    'font.size': 4,
+    'lines.markersize': 1,
+    'xtick.labelsize': 3,
+    'ytick.labelsize': 3,
+    'axes.titlesize': 4.5,
+    'axes.linewidth': 0.5,
+    'xtick.major.width': 0.5,
+    'ytick.major.width': 0.5,
+    'xtick.major.size': 2,
+    'ytick.major.size': 2,
+    'lines.markeredgewidth': 0,
+    'grid.linewidth': 0.1
+}

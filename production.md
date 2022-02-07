@@ -44,21 +44,12 @@ You can generate slides from the notebooks using `nbconvert`. First, set `intera
 jupyter nbconvert --to slides --template reveal --SlidesExporter.reveal_theme=simple --no-input --post serve <NotebookName>
 ```
 
-To generate PDF handouts, remove `#/` from the url and add `?print-pdf`, then print as PDF.
+To generate PDF handouts, remove `#/` from the url and add `?print-pdf`, then print as PDF. 
 
-#### Tweaks
-I used a few tweaks to the slide theme by adding these to the css in `custom_reveal.css` in the `nbconvert` reveal template:
-```
-.highlight {
-    background: none !important;
-}
-.highlight pre {
-    font-size: 1em !important;
-}
-.jp-OutputArea-output pre {
-    font-size: 0.35em !important;
-}
-```
+Sidenote: Some PDF readers (e.g. Preview) sometimes show grey boxes around code examples, others (e.g. Acrobat Reader, Chrome) do not. Must be an artifact of some PDF readers.
+
+#### Customization
+I used a few tweaks to the slide theme by adding these to the css in `custom_reveal.css` in the `nbconvert` reveal template. Copy the styles from slides_html/custom.css to this file.
 
 There also seems to be a bug in reveal that outputs text for hidden interactive elements. I added the following to `index.html.j2` of the same template:
 
