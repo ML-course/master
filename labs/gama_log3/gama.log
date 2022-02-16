@@ -1,0 +1,90 @@
+[2022-02-16 12:29:25,044 - gama.gama] Using GAMA version 20.2.1.
+[2022-02-16 12:29:25,044 - gama.gama] INIT:GamaClassifier(scoring=accuracy,regularize_length=True,max_pipeline_length=None,random_state=None,max_total_time=60,max_eval_time=None,n_jobs=2,max_memory_mb=None,verbosity=20,search=AsyncEA(),post_processing=EnsemblePostProcessing(ensemble_size=25,hillclimb_size=10000,max_models=200),output_directory=gama_log3,store=logs)
+[2022-02-16 12:29:25,058 - gama.utilities.generic.timekeeper] START: preprocessing default
+[2022-02-16 12:29:25,144 - gama.gama] Data has too many features to include PolynomialFeatures
+[2022-02-16 12:29:25,145 - gama.utilities.generic.timekeeper] STOP: preprocessing default after 0.0865s.
+[2022-02-16 12:29:25,145 - gama.utilities.generic.timekeeper] START: search AsyncEA
+[2022-02-16 12:29:25,219 - gama.utilities.generic.async_evaluator] Process 59563 starting 2 subprocesses.
+[2022-02-16 12:29:26,800 - gama.search_methods.async_ea] Starting EA with new population.
+[2022-02-16 12:29:27,793 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:27,965 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:28,170 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:29,138 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:29,881 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:33,036 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:34,503 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:34,696 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:35,235 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:36,525 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:37,571 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:38,242 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:38,954 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:39,356 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:39,401 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:39,444 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:40,250 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:40,779 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:41,581 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:42,261 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:42,547 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:44,049 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:44,145 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:45,654 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:45,690 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:45,853 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:46,317 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:46,577 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:46,645 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:47,936 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:48,011 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:48,651 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:49,210 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:49,750 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:49,948 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:50,073 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:50,087 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:50,662 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:50,911 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:52,583 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:52,816 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:53,425 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:53,669 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:54,637 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:54,786 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:54,988 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:55,730 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:56,346 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:56,567 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:58,588 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:58,758 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:58,836 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:29:59,025 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:30:01,409 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:30:02,120 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:30:02,138 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:30:02,298 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:30:02,306 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:30:02,798 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:30:03,375 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:30:03,414 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:30:04,414 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:30:04,963 - gama.genetic_programming.operator_set] 50 iterations of mate_with_log did not yield new ind.
+[2022-02-16 12:30:06,147 - gama.gama] Time exceeded during callback, but exception was swallowed.
+[2022-02-16 12:30:06,147 - gama.utilities.generic.async_evaluator] Terminating 2 subprocesses.
+[2022-02-16 12:30:06,243 - gama.gama] Search phase evaluated 31224 individuals.
+[2022-02-16 12:30:06,243 - gama.utilities.generic.timekeeper] STOP: search AsyncEA after 41.0978s.
+[2022-02-16 12:30:06,244 - gama.utilities.generic.timekeeper] START: postprocess EnsemblePostProcessing
+[2022-02-16 12:30:06,244 - gama.postprocessing.ensemble] Building ensemble.
+[2022-02-16 12:30:06,245 - gama.postprocessing.ensemble] Not downsampling because only 10000 samples were stored.
+[2022-02-16 12:30:06,246 - gama.postprocessing.ensemble] Error during auto ensemble: division by zero
+Traceback (most recent call last):
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/gama/postprocessing/ensemble.py", line 524, in build_fit_ensemble
+    ensemble.build_initial_ensemble(10)
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/gama/postprocessing/ensemble.py", line 265, in build_initial_ensemble
+    self._ensemble_validation_score()
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/gama/postprocessing/ensemble.py", line 444, in _ensemble_validation_score
+    prediction_to_validate = self._averaged_validation_predictions()
+  File "/Users/jvanscho/miniforge3/lib/python3.9/site-packages/gama/postprocessing/ensemble.py", line 240, in _averaged_validation_predictions
+    return weighted_sum_predictions / self._total_model_weights()
+ZeroDivisionError: division by zero
+[2022-02-16 12:30:06,247 - gama.utilities.generic.timekeeper] STOP: postprocess EnsemblePostProcessing after 0.0028s.
