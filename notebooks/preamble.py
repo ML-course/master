@@ -29,7 +29,7 @@ pd.set_option('display.precision', 2)
 np, mglearn
 
 # Prints outputs in cells so that we don't have to write print() every time 
-#InteractiveShell.ast_node_interactivity = "all"
+# InteractiveShell.ast_node_interactivity = "all"
 
 # Matplotlib tweaks for presentations
 plt.rcParams["figure.figsize"] = (5, 3)
