@@ -22,7 +22,6 @@ Upon opening the notebooks, you can <i class="fas fa-rocket"></i> launch them in
 <sup>1</sup> The order of the slides in the video is slightly different.  
 <sup>2</sup> This lecture will be significantly updated. Stay tuned.  
 
-
 ```{admonition} Get your hands dirty
 Retrieve all materials by cloning the <i class="fab fa-github"></i> [GitHub repo](https://ml-course.github.io/master). To run the notebooks locally, see the [prerequisites](https://ml-course.github.io/master/labs/Lab%200%20-%20Prerequisites.html).
 ```
