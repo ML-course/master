@@ -44,7 +44,7 @@ Download the lab notebooks and solve the questions locally, or launch them in Go
 | 5 | [Bayesian learning](https://ml-course.github.io/master/labs/Lab%205%20-%20Bayesian%20learning) | / | [Lab 5](https://ml-course.github.io/master/labs/Lab%205%20-%20Bayesian%20learning%20Solution) (Release date: 15 Mar, 12:00)
 | 6 | [Neural Networks](https://ml-course.github.io/master/labs/Lab%206%20-%20Neural%20Networks) |  [Tutorial](https://ml-course.github.io/master/labs/Lab%206%20-%20Tutorial) | [Lab 6](https://ml-course.github.io/master/labs/Lab%206%20-%20Neural%20Networks%20Solution) (Release date: 22 Mar, 12:00)
 | 7 | [Neural Nets for Images](https://ml-course.github.io/master/labs/Lab%207a%20-%20Convolutional%20Neural%20Networks) <br> [Neural Nets for Text](https://ml-course.github.io/master/labs/Lab%207b%20-%20Neural%20Networks%20for%20text) |  [Tutorial](https://ml-course.github.io/master/labs/Lab%207%20-%20Tutorial) | [Lab 7a](https://ml-course.github.io/master/labs/Lab%207a%20-%20Convolutional%20Neural%20Networks%20Solution) <br> [Lab 7b](https://ml-course.github.io/master/labs/Lab%207b%20-%20Neural%20Networks%20for%20text%20Solution) (Release date: 29 Mar, 12:00)
-| 8 | [AutoML](https://ml-course.github.io/master/labs/Lab%208%20-%20AutoML) | / | [Lab 8](https://ml-course.github.io/master/labs/Lab%208%20-%20AutoML%20Solution) (Release date: 5 Apr, 12:00)
+| 8 | [AutoML](https://ml-course.github.io/master/labs/Lab%208%20-%20AutoML) (may change) | / | [Lab 8](https://ml-course.github.io/master/labs/Lab%208%20-%20AutoML%20Solution) (Release date: 5 Apr, 12:00)
 
 
 ## Background materials
