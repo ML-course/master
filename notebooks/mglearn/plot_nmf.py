@@ -4,7 +4,7 @@ import numpy as np
 
 from joblib import Memory
 
-memory = Memory(cachedir="cache")
+memory = Memory()
 
 
 def plot_nmf_illustration():
