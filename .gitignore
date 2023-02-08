@@ -3,4 +3,4 @@ _build/*
 data/models/*
 **/.DS_Store
 **/*.icloud
-**/.ipynb_checkpoints/
+.ipynb_checkpoints
