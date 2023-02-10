@@ -22,9 +22,9 @@ parts:
   chapters:
   - file: labs/Lab 1a - Linear Models for Regression
   - file: labs/Lab 1b - Linear Models for Classification
-  - file: labs/Lab 2 - Kernelization
-  - file: labs/Lab 3a - Model Selection
-  - file: labs/Lab 3b - Ensembles
+  - file: labs/Lab 2a - Kernelization
+  - file: labs/Lab 2b - Model Selection
+  - file: labs/Lab 3 - Ensembles
   - file: labs/Lab 4 - Pipelines.ipynb
   - file: labs/Lab 5 - Bayesian learning
   - file: labs/Lab 6 - Neural Networks
