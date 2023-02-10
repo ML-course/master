@@ -9,7 +9,7 @@ from .datasets import load_extended_boston
 
 def plot_learning_curve(est, X, y):
     training_set_size, train_scores, test_scores = learning_curve(
-        est, X, y, train_sizes=np.linspace(.1, 1, 20), cv=KFold(20, shuffle=True, random_state=1))
+        est, X, y, train_sizes=np.linspace(.1, 1, 20), cv=KFold(5, shuffle=True, random_state=1))
     estimator_name = est.__class__.__name__
     line = plt.plot(training_set_size, train_scores.mean(axis=1), '--',
                     label="training " + estimator_name)
