@@ -4,14 +4,14 @@
 title: ML Engineering
 author: Joaquin Vanschoren
 logo: notebooks/images/banner.jpeg
-copyright: "2021. CC0 Licensed - Use as you like"  # Copyright year to be placed in the footer
+copyright: "2023. CC0 Licensed - Use as you like"  # Copyright year to be placed in the footer
 
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
+  execute_notebooks: off
   timeout: -1
-  execute_notebooks: auto
   exclude_patterns:
     - 'S*'
     - '09*'
