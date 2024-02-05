@@ -6,3 +6,5 @@ data/models/*
 *.swp
 .ipynb_checkpoints
 .jupyter
+.idea
+.vscode
