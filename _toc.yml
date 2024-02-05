@@ -39,7 +39,7 @@ parts:
   - file: notebooks/Tutorial 4 - Decision Trees.ipynb
   - file: notebooks/Tutorial 5 - Nearest Neighbors.ipynb
   - file: labs/Lab 1 - Tutorial.ipynb
-  - file: labs/Lab 3 - Tutorial.ipynb
+  - file: labs/Lab 2 - Tutorial.ipynb
   - file: labs/Lab 4 - Tutorial.ipynb
   - file: labs/Lab 6 - Tutorial.ipynb
   - file: labs/Lab 7 - Tutorial.ipynb
