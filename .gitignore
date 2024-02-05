@@ -3,5 +3,6 @@ _build/*
 data/models/*
 **/.DS_Store
 **/*.icloud
+*.swp
 .ipynb_checkpoints
 .jupyter
