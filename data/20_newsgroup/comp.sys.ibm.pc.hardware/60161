@@ -1,0 +1,28 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!zaphod.mps.ohio-state.edu!saimiri.primate.wisc.edu!eng.ufl.edu!usenet.ufl.edu!travis.csd.harris.com!hcx1.ssd.csd.harris.com!not-for-mail
+From: marka@hcx1.ssd.csd.harris.com (Mark Ashley)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: tape backup for windows
+Date: 15 Apr 1993 16:21:01 -0400
+Organization: Harris CSD, Ft. Lauderdale, FL
+Lines: 18
+Message-ID: <1qkg3d$1is@hcx1.ssd.csd.harris.com>
+NNTP-Posting-Host: hcx1.ssd.csd.harris.com
+
+I'm looking for a complete hw/sw solution:
+I need an ISA/VLB scsi controller (e.g Ultrastor 34F)
+plus a tape drive (500Mb or less like Archive) plus a Windows
+program that will work on these.
+
+My intended system will have 32Mb RAM so
+plain ISA controllers will no longer do.
+But I also hear that the SCSI world
+is not very organized.
+
+So does anybody have a tape backup setup
+like what I'm looking for ? Please
+describe it.
+
+Thanks. e-mail please.
+
+-- 
+marka@gcx1.ssd.csd.harris.com  

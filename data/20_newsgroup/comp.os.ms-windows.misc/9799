@@ -1,0 +1,30 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.ms-windows.misc:9799 comp.os.ms-windows.programmer.misc:8933
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!saimiri.primate.wisc.edu!ames!olivea!news
+From: manu@oas.olivetti.com (Manu Das)
+Newsgroups: comp.os.ms-windows.misc,comp.os.ms-windows.programmer.misc
+Subject: Wanted sample source for editing controls
+Date: 22 Apr 1993 21:13:46 GMT
+Organization: Olivetti ATC; Cupertino CA, USA
+Lines: 18
+Distribution: usa
+Message-ID: <1r71qa$5bj@olivea.ATC.Olivetti.Com>
+NNTP-Posting-Host: todi.oas.olivetti.com
+
+
+Hi Everyone,
+
+I would like to get an example program(source code) to get started with a simple
+editor (similar to windows dialog editor, but lot simplified) . Can someone
+point me to a source such as a programming windows book, or example program
+comes with Windows SDK (from Microsoft or Borland). I would greatly appreciate
+it.
+
+All I want to do is to be able to place a edit control or combobox or a listbox
+on a window and be able to drag and resize.
+
+If anyone has written similar program and don't mind sharing code or ideas, 
+I would appreciate it very much.
+
+Thnx in advance, Manu Das
+
+Please send me directly at manu@oas.olivetti.com

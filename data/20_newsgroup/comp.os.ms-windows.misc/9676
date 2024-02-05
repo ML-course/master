@@ -1,0 +1,22 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!mcsun!uknet!warwick!nott-cs!lut.ac.uk!huadb
+From: A.D.Bailey@lut.ac.uk
+Subject: Re: Utility for updating Win.ini and system.ini
+Message-ID: <1993Apr20.130933.26571@lut.ac.uk>
+Reply-To: A.D.Bailey@lut.ac.uk (Adrian D.Bailey)
+Organization: Loughborough University, UK.
+References: <1993Apr20.085638.29338@news.uit.no>
+Date: Tue, 20 Apr 93 13:09:33 GMT
+Lines: 11
+
+In article <1993Apr20.085638.29338@news.uit.no> sp@odin.NoSubdomain.NoDomain (Svein Pedersen) writes:
+>I nead a utility for updating (deleting, adding, changing) *.ini files for Windows. 
+>
+>Do I find it on any FTP host?
+>
+>Svein
+>
+
+
+In Windows 3.0 there is a built-in called sysedit.exe that is just what you
+need.   Windows 3.1 I don't know......

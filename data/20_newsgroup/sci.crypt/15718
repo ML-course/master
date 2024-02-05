@@ -1,0 +1,33 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.crypt:15718 alt.security:10077 comp.org.eff.talk:17105 comp.security.misc:3531 comp.org.acm:1692 comp.org.ieee:1620
+Newsgroups: sci.crypt,alt.security,comp.org.eff.talk,comp.security.misc,comp.org.acm,comp.org.ieee
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!agate!doc.ic.ac.uk!uknet!pavo.csi.cam.ac.uk!rja14
+From: rja14@cl.cam.ac.uk (Ross Anderson)
+Subject: Re: Tempest
+Message-ID: <1993Apr22.105915.5584@infodev.cam.ac.uk>
+Sender: news@infodev.cam.ac.uk (USENET news)
+Nntp-Posting-Host: ely.cl.cam.ac.uk
+Organization: U of Cambridge Computer Lab, UK
+References: <Apr18.194927.17048@yuma.ACNS.ColoState.EDU> <pgf.735187697@srl03.cacs.usl.edu> <1993Apr20.034724.3748@colnet.cmhnet.org> <1993Apr21.172614.10185@lehman.com>
+Distribution: na
+Date: Thu, 22 Apr 1993 10:59:15 GMT
+Lines: 19
+
+
+res@colnet.cmhnet.org (Rob Stampfli) writes:
+
+> Wouldn't a a second monitor of similar type scrolling gibberish and adjacent
+> to the one being used provide reasonable resistance to tempest attacks?
+
+We've got a tempest receiver in the lab here, and there's no difficulty in
+picking up individual monitors. Their engineering tolerances are slack enough
+that they tend to radiate on different frequencies. Even where they overlap, you
+can discriminate because they have different line synch frequencies - you can
+lock in on one and average the others out.
+
+The signals are weird in any case, with varying polarisations and all sorts
+of interactions with the building. Just moving a folded dipole around is also
+highly effective as a (randomised) means of switching from one monitor to
+another,
+
+Ross
+

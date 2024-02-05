@@ -1,0 +1,24 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.space:61437 sci.astro:35268 alt.sci.planetary:1249
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!usc!elroy.jpl.nasa.gov!decwrl!waikato.ac.nz!canterbury.ac.nz!news!otago.ac.nz!simon
+Newsgroups: sci.space,sci.astro,alt.sci.planetary
+Subject: Re: Galileo Update - 04/29/93
+Message-ID: <1993Apr30.144653.1@otago.ac.nz>
+From: simon@otago.ac.nz (The Arch-Deviant)
+Date: Fri, 30 Apr 1993 01:46:53 GMT
+Sender: usenet@news.otago.ac.nz (News stuff)
+References: <29APR199321594919@kelvin.jpl.nasa.gov>
+Organization: University of Otago, Dunedin, New Zealand
+Nntp-Posting-Host: thorin.otago.ac.nz
+Lines: 11
+
+In article <29APR199321594919@kelvin.jpl.nasa.gov>, baalke@kelvin.jpl.nasa.gov (Ron Baalke) writes:
+> 2.  On April 23, a cruise science Memory Readout (MRO) was performed for the
+> Magnetometer (MAG) instrument.  Analysis indicates the data was received
+> properly.
+
+Am I correct in assuming that the science instruments buffer their acquired
+data in onboard RAM, which is then downloaded upon receipt of the MRO command?
+
+Simon Brady                 You don't need a lot of fancy hardware for
+University of Otago         Virtual Reality - just a walkman and an
+Dunedin, New Zealand        attitude

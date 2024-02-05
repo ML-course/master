@@ -1,0 +1,39 @@
+Xref: cantaloupe.srv.cs.cmu.edu talk.bizarre:117069 comp.os.ms-windows.misc:9909
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!wupost!cs.utexas.edu!uunet!pipex!ibmpcug!mantis!tony
+From: Tony Lezard <tony@mantis.co.uk>
+Newsgroups: talk.bizarre,comp.os.ms-windows.misc
+Subject: Winword grammer checker saved my liff!
+Message-ID: <P75L3B2w165w@mantis.co.uk>
+Date: Mon, 26 Apr 93 12:14:25 +0100
+Distribution: world
+Organization: Mantis Consultants, Cambridge. UK.
+Lines: 28
+
+1. Fire up Microsoft Word for Windows (version 2.0c)
+
+2. Type the following paragraph:
+
+   If you want to rite really very dead good, you just cant live.
+   Without one of the wonderfully write aids, what you're can get
+   what helps me impress me boss.
+
+3. Under Tools|Options|Grammar select "Use grammar and style rules
+   strictly (all rules) and click OK.
+
+4. Run the grammar checker (this also does a spelling check).
+
+No complaints.
+
+Readability:
+    Passive Sentences:    0%
+    Flesch Reading Ease: 84.5
+    Flesch Grade Level:   6.6
+    Flesch-Kincaid:       5.2
+    Gunning Fog Index:    8.7
+
+
+__
+TL
+(Someone buy Malcolm Bacchus some beer please.)
+
+

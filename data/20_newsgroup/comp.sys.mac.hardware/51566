@@ -1,0 +1,19 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.mac.hardware:51566 comp.sys.mac.system:30201
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!howland.reston.ans.net!bogus.sura.net!darwin.sura.net!mojo.eng.umd.edu!josip
+From: josip@eng.umd.edu (Josip Loncaric)
+Newsgroups: comp.sys.mac.hardware,comp.sys.mac.system
+Subject: Re: Duo 230 crashes aftersleep (looks like Apple bug!)
+Date: 16 Apr 1993 02:21:29 GMT
+Organization: Project GLUE, University of Maryland, College Park
+Lines: 7
+Message-ID: <1ql579INNir3@mojo.eng.umd.edu>
+References: <LREITER.93Apr14034320@jade.tufts.edu> <brucet.734919776@extro.ucc.su.OZ.AU>
+NNTP-Posting-Host: orbit.src.umd.edu
+
+I do not have this type of problem, but at one point an Apple rep
+told me that Duo's "System Enabler" file version 1.0.1 fixes some
+kind of sleep-related problem.  You may want to investigate this...
+
+-Josip Loncaric
+
+

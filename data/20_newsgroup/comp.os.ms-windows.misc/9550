@@ -1,0 +1,39 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!usc!elroy.jpl.nasa.gov!ames!olivea!pagesat!indirect.com!indirect.com!wynapse
+From: wynapse@indirect.com (Dave Campbell - WynApse)
+Newsgroups: comp.os.ms-windows.misc
+Subject: Re: .GIF to .BMP
+Message-ID: <wynapse.735025007@indirect.com>
+Date: 17 Apr 93 05:36:47 GMT
+References: <1993Apr16.214404.11869@schbbs.mot.com>
+Distribution: usa
+Organization: Internet Direct Inc. -- (602) 274-0100
+Lines: 28
+
+saz@hook.corp.mot.com (Scott Zabolotzky) writes:
+
+
+>Does anybody have any idea where I could find a program that can
+>convert a .GIF image into a .BMP image suitable for a Windows 
+>wallpaper (i.e. 256 colors).  Hopefully there's something out there
+>I can get from an ftp site somewhere...
+
+>Thanks in advance...
+
+>Scott
+
+Scott --
+
+look on ftp.cica.indiana.edu for gws.....zip. They embed the release
+number in the name, and I'm not sure what the lates is. It is Graphics
+Workshop. There is a DOS and a Windows version. Both work Great. I even
+had someone bring me some images from the Amiga, and converted them to
+great looking wallpaper as 256-color .BMP files
+
+If you can't find it, repost, or let me know, and I'll dig up the archive.
+
+dave
+-- 
+------------------------------------------------------------------------------
+    Dave Campbell    |                       WynApse
+       WynApse       |
+wynapse@indirect.com |        The Shareware Custom Control Source

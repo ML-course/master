@@ -1,0 +1,42 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!noc.near.net!news.cs.brandeis.edu!chaos.cs.brandeis.edu!berger
+From: berger@chaos.cs.brandeis.edu (David Berger)
+Subject: Need some Graphics Help!
+Message-ID: <berger.735000309@chaos.cs.brandeis.edu>
+Sender: news@news.cs.brandeis.edu (USENET News System)
+Organization: Brandeis University
+Date: Fri, 16 Apr 1993 22:45:09 GMT
+Lines: 32
+
+Help!  I'm trying to program my VGA!  I've got it working
+with in pascal with the following routines for mode $13h
+(320*200*256).  I've got a VESA compatable Trident 8900C w/1meg
+and need to program in 1024*768 mode.  I don't care how many colors.
+ 
+Could someone take this code and help me write 2 new procedures to
+replace them so that it'll work in 1024*768*16 or 1024*768*256?
+ 
+That'd be GREAT!  Thanks...
+ 
+Here is the code I currently have for 320*200*256 mode:
+ 
+  Procedure GraphMode;
+ 
+    Begin { VideoMode }
+      Asm
+        Mov  AH,00
+        Mov  AL,13h
+        Int  10h
+      End;
+    End;  { VideoMode }
+ 
+  Procedure PlotPoint (x, y, c : Integer);
+ 
+    Begin
+      Mem[$A000:x+y*320]:=c;
+    End;
+ 
+
+-- 
+
+					David

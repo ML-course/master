@@ -1,0 +1,15 @@
+Xref: cantaloupe.srv.cs.cmu.edu alt.fan.bill-gates:795 comp.os.ms-windows.advocacy:7637 comp.os.ms-windows.misc:10618
+Newsgroups: alt.fan.bill-gates,comp.os.ms-windows.advocacy,comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!eddie.mit.edu!news.mtholyoke.edu!nic.umass.edu!noc.near.net!howland.reston.ans.net!agate!ames!biersch!mkr
+From: mkr@Comtech.com (Mark K. Reha)
+Subject: 15 bit RGB
+Message-ID: <1993May11.153419.22523@Comtech.com>
+Organization: Comtech Labs Inc, Palo Alto
+References: <C6rq6B.F3v@uceng.uc.edu> <10MAY199309423368@cccs.umn.edu> <C6tMvM.GxH@uceng.uc.edu>
+Distribution: usa
+Date: Tue, 11 May 1993 15:34:19 GMT
+Lines: 3
+
+I am working with 24 bit RGB BMP files and need to
+comvert these to 15 and 16 bit images. How do convert
+24 bit images to 15 and 16 bit RGB images? Thanks! 

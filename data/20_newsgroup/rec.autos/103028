@@ -1,0 +1,29 @@
+Xref: cantaloupe.srv.cs.cmu.edu rec.autos:103028 rec.autos.tech:54126 sci.materials:1694
+Newsgroups: rec.autos,rec.autos.tech,sci.materials
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!newsserver.jvnc.net!newsserver.technet.sg!ntuix!mgqlu
+From: mgqlu@ntuix.ntu.ac.sg (Max Lu)
+Subject: Re: Auto air conditioning without Freon
+Message-ID: <1993Apr23.090023.6620@ntuix.ntu.ac.sg>
+Followup-To: rec.autos,rec.autos.tech,sci.materials
+Organization: Nanyang Technological University - Singapore
+X-Newsreader: TIN [version 1.1 PL9]
+References: <C5u5Fy.Hvx@news.cso.uiuc.edu>
+Distribution: usa
+Date: Fri, 23 Apr 1993 09:00:23 GMT
+Lines: 15
+
+
+It is actually simple in principle. Porous adsorbents like zeolite and
+activated carbon can adsorb gases evaporated from the adsorbate (water
+or methanol, etc.) giving the cooling effect.  Upon being heated, the 
+gas-saturated adsorbent bed will give off the gases which are then to be
+condensed.  This forms the adsorption refrigeration cycle.  The only problem
+is that the COP is very low (0.2 -0.6).  
+
+Max
+
+-- 
+Max G Q Lu, PhD 				|  Internet: mgqlu@ntu.ac.sg
+Division of Thermal Enginerring			|  Bitnet: mgqlu@ntuvax.bitnet
+School of MPE, Nanyang Technological University |  Phone: (65) 7994818
+Nanyang Avenue, Singapore 2263			|  Fax:   (65) 7911859

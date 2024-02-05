@@ -1,0 +1,18 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!agate!headwall.Stanford.EDU!CSD-NewsHost.Stanford.EDU!CS.Stanford.EDU!herrod
+From: herrod@CS.Stanford.EDU (Stephen Herrod)
+Subject: Dos window macros
+Message-ID: <1993Apr27.200651.11520@CSD-NewsHost.Stanford.EDU>
+Sender: news@CSD-NewsHost.Stanford.EDU
+Organization: Computer Science Department, Stanford University.
+References:  <C65GKq.1tB@sunfish.usd.edu>
+Distribution: usa
+Date: Tue, 27 Apr 1993 20:06:51 GMT
+Lines: 6
+
+Does anyone know a program that will record keyboard sequences that I 
+do in a windowed dos box? I would like to have something that starts a
+telnet program and then logs me into my accounts. Windows Recorder doesn't
+seem to be able to record the key sequences.
+
+Thanks, STeve

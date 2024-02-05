@@ -1,0 +1,34 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.msdos.programmer:23298 alt.msdos.programmer:6799 sci.electronics:54051
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!wupost!howland.reston.ans.net!zaphod.mps.ohio-state.edu!caen!batcomputer!munnari.oz.au!uniwa!ascott
+From: ascott@tartarus.uwa.edu.au (Andrew Scott)
+Newsgroups: comp.os.msdos.programmer,alt.msdos.programmer,sci.electronics
+Subject: Re: How to the disks copy protected.
+Date: 23 Apr 1993 01:33:47 GMT
+Organization: The University of Western Australia
+Lines: 21
+Message-ID: <1r7h1r$o7p@uniwa.uwa.edu.au>
+References: <1993Apr21.141137.863@imag.fr> <1993Apr22.163605.24784@csus.edu> <MCHEN.93Apr22131702@terra.cs.psu.edu> <1r6uqq$f8d@st-james.comp.vuw.ac.nz>
+NNTP-Posting-Host: tartarus.uwa.edu.au
+X-Newsreader: NN version 6.4.19 #1
+
+cyborg@kauri.vuw.ac.nz (-xivo-Alex Ivopol) writes:
+
+>I believe that persistence overcomes even the very best copy protection
+>schemes.
+
+I would expect that CD-ROM software would not even need copy protection.
+As the program on a CD-ROM would not fit onto a hard-drive, and it is
+impossible for the average (and even not-so-average) user to write to a
+CD-ROM, copies of the software (that still work) could never be made.
+
+Hmmm.. now that I think about it.. with a creative TSR, maybe
+disk-swapping could be used to simulate files on a single disk. You
+would need a tonne of disks though.
+
+>-- 
+>Alex T. Ivopol                           cyborg@kauri.vuw.ac.nz
+>External User - Victoria University of Wellington - New Zealand
+>************* I speak for myself and no one else. *************
+
+Andrew Scott
+INTERNET:ascott@tartarus.uwa.edu.au

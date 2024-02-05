@@ -1,0 +1,29 @@
+Newsgroups: comp.sys.mac.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!noc.near.net!saturn.caps.maine.edu!dartvax!coos.dartmouth.edu!hades
+From: hades@coos.dartmouth.edu (Brian V. Hughes)
+Subject: Re: QUESTION: 1024 x 768 on Quadra 800
+Message-ID: <C52EAn.5r3@dartvax.dartmouth.edu>
+Sender: news@dartvax.dartmouth.edu (The News Manager)
+Reply-To: hades@Dartmouth.Edu
+Organization: Dartmouth College, Hanover, NH
+Disclaimer: Personally, I really don't care who you think I speak for.
+References: <D2150026.u982nu@bostrauma.trauma.com> <1993Apr5.015844.9491@pcnntp.apple.com> <C50qpB.DJ1@news.udel.edu>
+Date: Tue, 6 Apr 1993 13:47:11 GMT
+Moderator: Rec.Arts.Comics.Info
+Lines: 15
+
+lecates@bach.udel.edu (Roy LeCates) writes:
+
+>In article <1993Apr5.015844.9491@pcnntp.apple.com> Dale_Adams@gateway.qm.apple.com (Dale Adams) writes:
+>>> Does anyone have information on acheiving 1024 x 768 resolution on a Q800
+>>> using interanl video? Is this even possible? 
+>>
+>>It's most certainly possible.
+
+>Is it possible to use this resolution on the Apple 16" monitor?
+>If so, I could probably rig a connector with the proper pins.
+
+    Nope. The Apple 16" monitor does not support multiple resolutions.
+It is not a multi-synching monitor.
+
+-Hades

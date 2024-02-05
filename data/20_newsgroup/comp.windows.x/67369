@@ -1,0 +1,29 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.lang.c:69337 comp.windows.x:67369
+Newsgroups: comp.lang.c,comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!zaphod.mps.ohio-state.edu!usc!elroy.jpl.nasa.gov!decwrl!netcomsv!netcom.com!julia
+From: julia@netcom.com (Julia Miller)
+Subject: Posix Message Catalogs
+Message-ID: <juliaC65IHw.p0@netcom.com>
+Followup-To: chas@blackwhite.com
+Keywords: Posix
+Organization: NETCOM On-line Communication Services (408 241-9760 guest)
+Date: Tue, 27 Apr 1993 16:44:15 GMT
+Lines: 17
+
+Can someone tell me in 25 words or less how to compile posix
+message catalogs so that I can use them with catgets, catopen, etc.
+I know what the format for the catalogs is, but don't know how
+to compile them.
+
+Please reply to chas@blackwhite.com
+
+Thanks in advance,
+
+chas
+
+Black & White Software, Inc.   	| Leaders in Systems & Software Solutions
+2155 S. Bascom Ave. Suite 210   | Contact Black & White for information on
+Campbell, CA 95008   		| X Windows & OSF/Motif Software & Support
+(408) 369-7400   		| OSF/Motif & MS-Windows GUI Builders
+(408) 369-7406   		| Add on Widgets, Editors and Help Systems
+info@blackwhite.com   		| C++ and Ada Motif Bindings

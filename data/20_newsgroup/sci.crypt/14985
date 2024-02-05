@@ -1,0 +1,27 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!emory!sol.ctr.columbia.edu!usc!wupost!uunet!pipex!demon!gtoal.com!gtoal
+Newsgroups: sci.crypt
+From: gtoal@gtoal.com (Graham Toal)
+Subject: Re: Hard drive security for FBI targets
+Date: Sun, 4 Apr 1993 20:21:09 +0000
+Message-ID: <9304042021.AA01578@pizzabox.demon.co.uk>
+Sender: usenet@demon.co.uk
+Lines: 18
+
+	From: res@colnet.cmhnet.org (Rob Stampfli)
+
+	>separate locations to gain credibility. If they are seized and you are
+	>compelled to decrypt it, you simply explain that you are an amateur
+	>cryptologist playing around with one time pads, and that the first
+	>file is the pad for the second. They XOR the two files, and sure
+	>enough, out pops a copy of "War and Peace".
+
+	So, judging from recent history, at this point they drop the original
+	charges, preemptively find you guilty of copyright violations, and seize
+	your computer, your home, and your financial reserves under federal
+	forfeiture laws.
+
+Ah no - what *really* happens is that they turn up at the court with
+*another* file which when exored with your document gives up the famous
+E911 document :-)  [And I tell you, some judges would fall for it...]
+
+G

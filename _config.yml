@@ -4,7 +4,7 @@
 title: ML Engineering
 author: Joaquin Vanschoren
 logo: notebooks/images/banner.jpeg
-copyright: "2023. CC0 Licensed - Use as you like"  # Copyright year to be placed in the footer
+copyright: "2023. CC0 Licensed - Use as you like. Appropriate credit is very welcome"  # Copyright year to be placed in the footer
 
 
 # Force re-execution of notebooks on each build.

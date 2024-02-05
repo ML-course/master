@@ -1,0 +1,28 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!howland.reston.ans.net!bogus.sura.net!darwin.sura.net!cs.utk.edu!nntp.memst.edu!ubsiler
+From: ubsiler@msuvx1.memst.edu
+Newsgroups: sci.electronics
+Subject: Home-made IR remote extender
+Message-ID: <1993Apr6.185033.6610@msuvx1.memst.edu>
+Date: 6 Apr 93 18:50:33 -0600
+Organization: Memphis State University
+Lines: 19
+
+Here's a question for all you electrical engineers out there:
+
+  I bought an 'Infrared detector module' at Radio Shack for $3.95 - it is a 
+little gizmo that senses infrared remotes and produces an output signal. Then
+I hooked the output through a transistor to an infrared LED. The circuit works
+like a minature remote control extender in my car - All remote commands are
+relayed to the CD player hidden in the glove compartment. It works fine with
+my Denon CD player, but when I tried to build the same circuit for a friend's
+VCR, it didn't work.
+  The circuit appears to work for other remotes (you can see infrared with a
+Sony CCD camcorder) but coincidentally it only seems to work for my CD
+player...
+
+	Any advice would be appreciated....
+        Brian
+
+---
+UBSILER @ MSUVX1.MEMST.EDU
+

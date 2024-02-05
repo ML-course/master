@@ -1,0 +1,32 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!pipex!uknet!pavo.csi.cam.ac.uk!ioas09.ast.cam.ac.uk!dcr
+From: dcr@mail.ast.cam.ac.uk (Derek C. Richardson)
+Subject: Allocated colors...
+Message-ID: <1993Apr25.135951.18269@infodev.cam.ac.uk>
+Sender: news@infodev.cam.ac.uk (USENET news)
+Nntp-Posting-Host: ioas09.ast.cam.ac.uk
+Reply-To: dcr@mail.ast.cam.ac.uk
+Organization: Institute of Astronomy, Cambridge
+Date: Sun, 25 Apr 1993 13:59:51 GMT
+Lines: 20
+
+Can anyone out there tell me how to get the total number of color cells
+allocated in the default colormap?
+
+e.g.   colormap = DefaultColormap(mydisplay, myscreen);
+
+The MAXIMUM number of allocated cells is given by DefaultCells(mydisplay,
+myscreen), but in general the number of cells actually allocated will be
+much less than this, depending on the color requirements of the windows
+currently in place. I'd like a way to determine this number. Thanks in
+advance!
+
+Derek
+
+-----------------------------------------------------------
+| Derek C. Richardson    | Tel: (0223) 337548 x 37501     |
+| Institute of Astronomy | Fax: (0223) 337523             |
+| Cambridge, U.K.        |                                |
+| CB3 0HA                | E-mail: dcr@mail.ast.cam.ac.uk |
+-----------------------------------------------------------
+

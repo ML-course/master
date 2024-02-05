@@ -1,0 +1,55 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.ms-windows.programmer.misc:8808 comp.os.ms-windows.misc:9669
+Newsgroups: comp.os.ms-windows.programmer.misc,comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!darwin.sura.net!dtix.dt.navy.mil!relay-wo!nswc-wo.nswc.navy.mil!dpugsle
+From: dpugsle@nswc-wo.nswc.navy.mil (Donald Pugsley)
+Subject: C7 link/segment problem (calling run-time functions)
+Message-ID: <1993Apr20.130036.19789@relay.nswc.navy.mil>
+Followup-To: dpugsle@nswc-wo.nswc.navy.mil
+Summary: Need help with incorrect linking of run-time lib functions
+Keywords: C7 link runtime segment
+Sender: dpugsle@nswc-wo.nswc.navy.mil
+Organization: Naval Surface Warfare Center
+References: <1993Apr20.072905.21404@fel.tno.nl> <1993Apr20.120907.12267@edb.tih.no>
+Date: Tue, 20 Apr 1993 13:00:36 GMT
+Lines: 40
+
+I have a small Windows program which I can not get to work; 
+The program looks vaguely like this:
+
+=============================================
+char f1[80];
+
+int WinMain(...
+{
+  lstrcpy ((LPSTR)f1, "Hello");
+  ...
+}
+
+long far pascal WndProc(...
+{
+  lstrcpy ((LPSTR)f1, "Hello");
+  ...
+}
+
+============================================= 
+I am using large model under Windows 3.1; after linking without
+errors, the RC program said
+
+Sorting preload segments and resources into fast-load section
+Copying segment 1 (53679 bytes)
+RC : fatal error RW1031: Segment 1 and its
+     relocation information is too large for load
+     optimization. Make the segment LOADONCALL or
+     rerun RC using the -K switch if the segment must
+     be preloaded.
+
+Using the -K switch seems to interfere with the proper function of
+the second lstrcpy call... can anybody explain what is going on and/or
+how to fix it?
+
+
+Thanks...
+Pugsley  (dpugsle@nswc-wo.nswc.navy.mil)
+
+
+

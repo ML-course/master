@@ -1,0 +1,59 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!noc.near.net!uunet!pipex!uknet!uknet!liv!lucs!scst83
+From: scst83@csc.liv.ac.uk (Mr. C.D. Smith)
+Newsgroups: sci.electronics
+Subject: Re: Why is telephone audio 300-3000 Hz?
+Message-ID: <C52HvH.8vv@compsci.liverpool.ac.uk>
+Date: 6 Apr 93 15:04:28 GMT
+References: <C4nuIJ.2BJ@ms.uky.edu> <1029388.64920.7169@kcbbs.gen.nz>
+Sender: news@compsci.liverpool.ac.uk (News Eater)
+Organization: Computer Science, Liverpool University
+Lines: 47
+Nntp-Posting-Host: goyt.csc.liv.ac.uk
+
+
+>> telephone systems have the capability of a passband of 30hz to 4Khz.
+>> The reason they do not implement this is: It is not backward compatable
+>> to every telephone system.  In addition, the most effecent mix of 
+>> electrical effecency, and intelegability closly mateches a 300hz-3khz
+>> passband.
+>
+>Close, but no banana (to paraphrase Garfield)...
+>The reason 300-3300 Hz is used is that voice channels used to occupy
+>4kHz bands when multiplexed on a trunk line. Therefore, 300Hz at the
+>bottom, and 700Hz at the top of this band were filtered to minimise
+>interference with the next band.
+>
+>Nowadays, digital trunks have made this less relevant, but the phone
+>companies still see no reason to improve quality (especially for free!).
+>Therefore, digital "chunk of a trunk" segments still have a guaranteed
+>bandwidth of only 4kHz (so they can carry the equivalent of one analog
+>line) at the clock rate of a standard PCM T1 or E1 digital trunk.
+>
+>It's all historical...
+
+
+Here in the UK, the bandwidth restriction apparently only apply to 
+local lines.. ie those used by the average domestic client. Private
+lines which are run from the local exchange to the leasing client are 
+usually capable of a higher bandwidth if the exchange is digital.
+
+Don't quote me on that..... But I think I remember a BT engineer 
+saying something to that effect when I was doing some work
+shadowing a few years ago.
+
+Byeeeee !
+
+
+Chris ;-)
+
+  +====================================================================+
+  |Name : Mr Chris Smith       |     Twang on that 'ole guitar !       |
+  |Addrs: scst83@uk.ac.liv.csc |                                       |
+  |Uni  : Liverpool University |Quest: To build more and more hardware |
+  |Dgree: Computer Science     |                                       |
+  +====================================================================+
+
+ "What ever the sun may be, it is certainly not a ball of flaming gas!"
+  -- D.H. Lawrence.
+
+ * All views expressed are my own, and reflect that of private thought. *

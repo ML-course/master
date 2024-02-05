@@ -1,0 +1,22 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!pitt.edu!uunet!gatekeeper.us.oracle.com!decwrl!elroy.jpl.nasa.gov!euclid.JPL.NASA.GOV!pjs
+From: pjs@euclid.JPL.NASA.GOV (Peter J. Scott)
+Newsgroups: comp.windows.x
+Subject: Re: XV 3.00 has escaped!
+Message-ID: <1rp4siINNrcc@elroy.jpl.nasa.gov>
+Date: 29 Apr 93 17:56:34 GMT
+References: <123645@netnews.upenn.edu> <sherman.736068579@lea> <1rovufINNd4v@denali.cs.purdue.edu>
+Reply-To: pjs@euclid.jpl.nasa.gov
+Organization: Jet Propulsion Laboratory, NASA/Caltech
+Lines: 10
+NNTP-Posting-Host: euclid.jpl.nasa.gov
+
+I've found that I have to add the "-8" option for displaying JPEGs
+with the new version.  For some reason, if I don't, it goes into
+24-bit mode and the resulting image is displayed with 216 colors 
+(from a 6x6x6 array) instead of 256 and looks grainier.  Since I'm
+on the ubiquitous 8-bit pseudo color display I would have thought it
+could tell that.
+
+-- 
+This is news.  This is your       |    Peter Scott, NASA/JPL/Caltech
+brain on news.  Any questions?    |    (pjs@euclid.jpl.nasa.gov)

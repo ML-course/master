@@ -1,0 +1,24 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!darwin.sura.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!math.fu-berlin.de!easix!jester!michael
+From: michael@jester.GUN.de (Michael Gerhards)
+Newsgroups: comp.sys.ibm.pc.hardware
+Distribution: world
+Subject: Re: Help! Ten beeps with 386/40 (AMI BIOS)
+X-Newsreader: TIN [version 1.1 PL8]
+References: <1993Apr19.215018.19303@galileo.cc.rochester.edu>
+Message-ID: <93042011062@jester.GUN.de>
+Organization: private COHERENT system
+Date: Tue, 20 Apr 93 09:59:41 GMT
+Lines: 9
+
+G. Wayne Nichols (gwni@troi.cc.rochester.edu) wrote:
+> I have a 386/40 motherboard with AMI BIOS.
+[..]
+> After multiple reboots, now it only gives 10 beeps and sits there?
+Referring to the manual of my motherboard with AMI-BIOS, 10 beeps are a 
+'CMOS Shutdown Register Read/Write Error', if the system stops after these
+beeps. If the system continues, it is a 'Keyboard error'.
+
+Michael
+--
+*  michael@jester.gun.de  *   Michael Gerhards   *   Preussenstrasse 59  *
+                          *  Germany 4040 Neuss  *  Voice: 49 2131 82238 *

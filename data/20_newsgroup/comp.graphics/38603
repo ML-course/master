@@ -1,0 +1,28 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!agate!doc.ic.ac.uk!uknet!mucs!cs.man.ac.uk!prestonm
+From: prestonm@cs.man.ac.uk (Martin Preston)
+Newsgroups: comp.graphics
+Subject: Re: TIFF: philosophical significance of 42
+Message-ID: <prestonm.735400848@cs.man.ac.uk>
+Date: 21 Apr 93 14:00:48 GMT
+References: <1993Apr14.191415.10553@samba.oit.unc.edu> <C5sCGu.1LL@mentor.cc.purdue.edu>
+Sender: news@cs.man.ac.uk
+Lines: 18
+
+In <C5sCGu.1LL@mentor.cc.purdue.edu> ab@nova.cc.purdue.edu (Allen B) writes:
+
+>I've got the 6.0 spec (obviously since I quoted it in my last posting). 
+>My gripe about TIFF is that it's far too complicated and nearly
+>infinitely easier to write than to read,...
+
+Why not use the PD C library for reading/writing TIFF files? It took me a
+good 20 minutes to start using them in your own app.
+
+Martin
+
+--
+---------------------------------------------------------------------------
+|Martin Preston,      (m.preston@manchester.ac.uk)    | Computer Graphics |
+|Computer Graphics Unit, Manchester Computing Centre, |    is just        |
+|University of Manchester,                            |  a load of balls. |
+|Manchester, U.K., M13 9PL     Phone : 061 275 6095   |                   |
+---------------------------------------------------------------------------

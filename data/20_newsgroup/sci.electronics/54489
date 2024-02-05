@@ -1,0 +1,44 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!moe.ksu.ksu.edu!crcnis1.unl.edu!mpaul
+From: mpaul@unl.edu (marxhausen paul)
+Newsgroups: sci.electronics
+Subject: Re: Passive Mixer
+Date: 29 Apr 1993 12:42:39 GMT
+Organization: University of Nebraska--Lincoln	
+Lines: 32
+Distribution: world
+Message-ID: <1roifvINNd9n@crcnis1.unl.edu>
+References: <C665M4.4u1@acsu.buffalo.edu> <C678o5.ED0@unx.sas.com> <1rmk8t$8l0@cat.cis.Brown.EDU> <1rmsbuINN59f@MINERVA.CIS.YALE.EDU>
+NNTP-Posting-Host: unlinfo.unl.edu
+
+shaffer-wendy@yale.edu (Wendy Shaffer) writes:
+
+>I'm trying to build a mixer for a friend of mine to run several things into
+>a single boom box.  I have a circuit that uses an op-amp powered by either a
+>couple of 9V batteries or using some kind of power supply.  But in a catalog
+>I was looking at recently, a "passive mixer" for guitar was advertised taht
+>doesn't appear to use any power at all.  Does anyone know what the circuit for
+>this would be, because then I could just adapt it for RCA jacks, and save my
+>friend and I alot of messing with batteries and plugs.  Thanks.
+
+Well, the fastest, crudest mixer (aside from just physically connecting
+all your inputs together directly) is to run each signal through a 
+resistor to a common output.  The resistors give some isolation so the
+signal sources aren't driving directly into each other. 
+
+Taking a wild, seat-of-the-pants guess, I'd say that if you are mixing
+high-impedance sources like some dynamic mikes, electric guitar pickups,
+etc., your resistors ought to be maybe 5K - 10K or so.  If you are mixing
+line-level stuff or the outputs of a Walkman, or such, I'd go with 1K.
+
+input 1 --/\/\/\/ -------------+--- output
+                               |
+input 2 --/\/\/\/\-------------+
+                               |
+input 3 --/\/\/\/\-------------+
+
+
+--
+paul marxhausen .... ....... ............. ............ ............ .......... 
+ .. . .  . . . university of nebraska - lincoln .  . . .. . .  .. . . . . . . .
+ .     .    .  .   .     .   .  .    .   .  .   .    .   .  grace .   .    .  . 
+   .         .       .      .        .        .      .        .   happens .     

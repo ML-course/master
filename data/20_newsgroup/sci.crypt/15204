@@ -1,0 +1,25 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!linac!uwm.edu!cs.utexas.edu!sdd.hp.com!saimiri.primate.wisc.edu!eng.ufl.edu!usenet.ufl.edu!gatech!howland.reston.ans.net!agate!apple!kaleida.com!jfenton.kaleida.com!Fenton
+From: Jay Fenton <Fenton@Kaleida.Com>
+Newsgroups: sci.crypt
+Subject: How to detect use of an illegal cipher?
+Date: 16 Apr 1993 21:06:31 GMT
+Organization: Kaleida Labs, Inc.
+Lines: 10
+Distribution: world
+Message-ID: <1qn74nINNi38@golden.kaleida.com>
+References: <C5L17v.GH5@dove.nist.gov> <bontchev.734981805@fbihh> <1qmugcINNpu9@gap.caltech.edu>
+NNTP-Posting-Host: jfenton.kaleida.com
+X-UserAgent: Nuntius v1.1.1d12
+X-XXMessage-ID: <A7F46F47EA010B1C@jfenton.kaleida.com>
+X-XXDate: Fri, 16 Apr 93 14:12:23 GMT
+
+How can the government tell which encryption method one is using without
+being able to decode the traffic? i.e., In order to accuse me of using an
+unauthorized strong encryption technique they would have to take both
+keys out of escrow, run them against my ciphertext and "draw a blank".
+
+I can imagine the ciphertext exhibiting certain statistical
+characteristics that might give a clue as to the encryption technique
+used, but not enough to give a handle for diferential cryptoanalysis.
+However, superencipherment or some other scheme that shapes the percieved
+properties of my ciphertext could thwart this.

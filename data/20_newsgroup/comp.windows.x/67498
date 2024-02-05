@@ -1,0 +1,28 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.lang.postscript:18301 comp.windows.x:67498
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!ira.uka.de!math.fu-berlin.de!news.tu-chemnitz.de!irz401!irzr17.inf.tu-dresden.de!beck
+From: beck@irzr17.inf.tu-dresden.de (Andre Beck)
+Newsgroups: comp.lang.postscript,comp.windows.x
+Subject: x11perfcomp visualization ?
+Date: 30 Apr 1993 13:04:46 GMT
+Organization: Dept. of Computer Science, TU Dresden, Germany.
+Lines: 15
+Distribution: world
+Message-ID: <1rr85e$4fa@irz401.inf.tu-dresden.de>
+Reply-To: Andre_Beck@IRS.Inf.TU-Dresden.DE
+NNTP-Posting-Host: irzr17.inf.tu-dresden.de
+
+
+Hi,
+
+is there any script/program/thelike already existing which could transform
+the output of x11perfcomp (a huge table) into a nice 3d'ish diagram or
+graph by producing postscript output from x11perfcomp input ?
+
+Maybe someone has already written such beast ...
+
+--
++-o-+--------------------------------------------------------------+-o-+
+| o |                \\\-  Brain Inside -///                       | o |
+| o |                    ^^^^^^^^^^^^^^^                           | o |
+| o | Andre' Beck (ABPSoft) mehl: Andre_Beck@IRS.Inf.TU-Dresden.de | o |
++-o-+--------------------------------------------------------------+-o-+

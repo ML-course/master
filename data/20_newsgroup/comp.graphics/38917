@@ -1,0 +1,29 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!bogus.sura.net!darwin.sura.net!howland.reston.ans.net!ux1.cso.uiuc.edu!uchinews!raistlin!uc.msc.edu!uf.msc.edu!wes
+From: wes@uf.msc.edu (Wes Barris)
+Subject: Re: WANTED: 24 bit viewer
+Message-ID: <1993Apr28.150631.13227@uc.msc.edu>
+Sender: netnews@uc.msc.edu (UC Network News)
+Reply-To: wes@msc.edu
+Organization: AHPCRC, Minnesota Supercomputer Center
+References:  <5731@seti.inria.fr>
+Date: Wed, 28 Apr 1993 15:06:31 GMT
+Lines: 17
+
+In article <5731@seti.inria.fr>, deniaud@cartoon.inria.fr (Gilles Deniaud) writes:
+|> Hello,
+|> 
+|> Thanks to the people who helped me with the problem of
+|> displaying 24 bit images. All the viewers like xli,
+|> xloadimage and display are converting the 24 bit images
+|> to 8 bit before display them on the screen.
+|> 
+|> What I really want is a viewer with make use of the 24 bit
+|> frame/screen buffer (in our case, the Parallax one).
+
+Both xli and xloadimage will display in 24 bit color if a 24 bit visual
+is available.  Check the output of xdpyinfo to see if one is.
+
+===============================================================================
+Wes Barris                                                   PH: (612) 626-8090
+Minnesota Supercomputer Center, Inc.                         Email: wes@msc.edu

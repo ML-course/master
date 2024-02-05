@@ -1,0 +1,56 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.ms-windows.misc:9515 comp.graphics:38345
+Newsgroups: comp.os.ms-windows.misc,comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!paladin.american.edu!darwin.sura.net!zaphod.mps.ohio-state.edu!uwm.edu!msuinfo!uchinews!ellis!dgf1
+From: dgf1@ellis.uchicago.edu (david  farley)
+Subject: Re: So what is the fastest Windows video card for graphics and imaging ?
+Message-ID: <1993Apr16.160749.17952@midway.uchicago.edu>
+Keywords: Windows, graphics, imaging
+Sender: news@uchinews.uchicago.edu (News System)
+Reply-To: dgf1@midway.uchicago.edu
+Organization: University of Chicago
+References: <o4fzrApDBh107h@eosvcr.wimsey.bc.ca>
+Date: Fri, 16 Apr 1993 16:07:49 GMT
+Lines: 42
+
+In article <o4fzrApDBh107h@eosvcr.wimsey.bc.ca> aew@eosvcr.wimsey.bc.ca writes:
+>We have heard many bad things about the ATI Ultra Plus card (mainly having
+>to do with its buggy Windows drivers).
+>
+>I would like to replace by ATI Graphics Ultra with a true-colour accelerated
+>card. I was about to buy the ATI Ultra Plus (EISA) but it has had so much
+>bad press that I am reconsidering.
+>
+>
+>I would like an accelerated card
+>             a card that does 24bit true colour at 800x600 at least
+>             a card that does 1024x758 at 256 colours (or more)
+>             a card that has fast polygon fills
+>             a card that has fast bit blits
+>             a card that has a robust windows driver
+>             a card that has high speed non-interlaced refresh
+>
+>Any suggestions?
+>
+>My app requires lots of 3d poly grahics and complexing true colour
+>imaging.  I would sure like a faster solution that what I have now.
+>
+>Thanks,
+>
+>Al
+>
+>-- 
+>Alan Walford     Eos Systems Inc., Vancouver,B.C., Canada  Tel: 604-734-8655
+>aew@eosvcr.wimsey.bc.ca           OR        ...uunet!wimsey.bc.ca!eosvcr!aew  
+
+I had enough problems with my ISA bus Ultra Plus that I finally returned it,
+but many of the people I spoke to through the net were happy with the EISA
+version of the Ultra Pro.  I kind of suspect the MACH32 chip was designed
+with a 32-bit external bus in mind and the ISA version is kind of a hack, but
+that's just a guess. 
+
+
+-- 
+David Farley                           The University of Chicago Library
+312 702-3426                              1100 East 57th Street, JRL-210
+dgf1@midway.uchicago.edu                         Chicago, Illinois 60637
+

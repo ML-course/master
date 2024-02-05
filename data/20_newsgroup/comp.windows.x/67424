@@ -1,0 +1,16 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!ira.uka.de!rz.uni-karlsruhe.de!stepsun.uni-kl.de!serv-200.dfki.uni-kl.de!dfki.uni-kl.de!malik
+From: malik@alvserv-2.dfki.uni-kl.de (Thomas Malik)
+Newsgroups: comp.windows.x
+Subject: Re: Overriding default WM Behaviour
+Date: 28 Apr 1993 13:21:20 GMT
+Organization: DFKI Kaiserslautern
+Lines: 3
+Sender: malik@dfki.uni-kl.de (Thomas Malik)
+Distribution: world
+Message-ID: <1rm0cgINNc51@serv-200.dfki.uni-kl.de>
+References: <3903@nlsun1.oracle.nl>
+NNTP-Posting-Host: ws-406.dfki.uni-kl.de
+
+specify RamdomPlacement (or RandomPlace ? )
+in your .tvtwmrc. This places the windows not-interactively
+in pseudo - random positions on your screens.

@@ -1,0 +1,24 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!usenet.ins.cwru.edu!bme.ri.ccf.org!rim
+From: rim@bme.ri.ccf.org (Robert M. Cothren)
+Subject: widget for displaying images
+Message-ID: <RIM.93Apr16130311@marvin.bme.ri.ccf.org>
+Sender: usenet@bme.ri.ccf.org
+Nntp-Posting-Host: marvin
+Organization: The Cleveland Clinic Foundation, Cleveland, OH
+Distribution: na
+Date: Fri, 16 Apr 1993 18:03:09 GMT
+Lines: 12
+
+Before I try to teach myself how to write a widget and (perhaps)
+re-invent the wheel...
+
+Is there a PD widget that displays (for example) an 8-bit grey-level
+image in the same fashion that the Athena Plotter Widget can be used
+to display a plot?
+
+--
+----Robert M. Cothren, PhD--------------------------rim@bme.ri.ccf.org----
+    Department of Biomedical Engineering
+    The Cleveland Clinic Foundation                voice: 216 445-9305
+----Cleveland, Ohio----------------------------------fax: 216 444-9198----

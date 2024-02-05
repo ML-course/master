@@ -1,0 +1,35 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.open-look:8453 comp.windows.x:67421
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!pitt.edu!gatech!howland.reston.ans.net!zaphod.mps.ohio-state.edu!malgudi.oar.net!chemabs!lwv26
+From: lwv26@cas.org (Larry W. Virden)
+Newsgroups: comp.windows.open-look,comp.windows.x
+Subject: Re: SUMMARY: virtual mouse in ol{v}wm
+Message-ID: <1993Apr29.125832.28858@cas.org>
+Date: 29 Apr 93 12:53:23 GMT
+References: <0frolV200awVI3IV4s@andrew.cmu.edu>
+Sender: usenet@cas.org
+Reply-To: lvirden@cas.org (Larry W. Virden)
+Followup-To: comp.windows.open-look,comp.windows.x
+Organization: Nedriv Software and Shoe Shiners, Uninc.
+Lines: 21
+
+In article <0frolV200awVI3IV4s@andrew.cmu.edu> "Derrick J. Brashear" <db74+@andrew.cmu.edu> writes:
+:
+:I got the following today from Gary Risebrough and it worked fine:
+:
+:Excerpts from mail: 29-Apr-93 Re: ol{v}wm 3 virtual keybo..
+:ITO2@aodc.gov.au (554)
+:
+
+:> I have :
+:> > OpenWindows.KeyboardCommands:   Full
+:> > OpenWindows.VirtualGrabKeys :   False
+:
+:> which seems to work.
+:
+
+Where can I find man pages about VirtualGrabKeys resource - it doesn't
+show up in my OpenWindows 3.0 man pages...
+-- 
+:s 
+:s Larry W. Virden                 INET: lvirden@cas.org
+:s Personal: 674 Falls Place,   Reynoldsburg, OH 43068-1614

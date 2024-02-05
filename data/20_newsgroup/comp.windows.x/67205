@@ -1,0 +1,36 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!wupost!howland.reston.ans.net!zaphod.mps.ohio-state.edu!menudo.uh.edu!nuchat!texhrc!texhrc!pyeatt
+From: pyeatt@Texaco.com (Larry D. Pyeatt)
+Subject: Re: Mix GL with X (Xlib,Xt,mwm)
+Message-ID: <1993Apr22.212820.26860@texhrc.uucp>
+Sender: news@texhrc.uucp
+Nntp-Posting-Host: 211.2.1.65
+Organization: Texaco
+References:  <27808.9304211039@scorpion.dps.co.uk>
+Date: Thu, 22 Apr 1993 21:28:20 GMT
+Lines: 24
+
+In article <27808.9304211039@scorpion.dps.co.uk>, gerard@dps.co.UK (Gerard O'Driscoll) writes:
+|> 
+|> pyeatt@Texaco.com writes:
+|> 
+|> >> There is a widget already defined for GL.  It is the GlxMDraw (motif) or
+|> >> GlxDraw (athena) widget.  It is similar to a XmDrawingArea, except that it
+|> >> allows you to use GL calls to render into the window.  Look at glxlink,
+|> >> glxunlink, glxgetconfig, and glxwinset in the man pages.
+|> 
+|> Where do I get hold of these widgets?
+|> 
+|>  	Gerard O'Driscoll (gerard.odriscoll@dps.co.uk)
+|>  	Du Pont Pixel Systems Ltd.
+
+They come with every Iris now.  Nth also ships it with their latest
+version of Nth Portable GL.  I just got the update a couple of weeks
+ago.  I would assume that Silicon Graphics would license the source
+to you so that you can include it in your company's GL offering.
+
+-- 
+Larry D. Pyeatt                 The views expressed here are not
+Internet : pyeatt@texaco.com    those of my employer or of anyone
+Voice    : (713) 975-4056       that I know of with the possible
+                                exception of myself.

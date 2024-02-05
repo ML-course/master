@@ -1,0 +1,28 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!darwin.sura.net!haven.umd.edu!uunet!uswnvg!nv6.uswnvg.com!tcking
+From: tcking@uswnvg.com (Tim King)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: Gateway 2000 & booting from floppy
+Message-ID: <4313@uswnvg.uswnvg.com>
+Date: 20 Apr 93 17:09:22 GMT
+Sender: news@uswnvg.uswnvg.com
+Organization: Ground Zero
+Lines: 17
+X-Newsreader: Tin 1.1 PL5
+
+
+I have a Gateway 4DX-33V with my 3.5 inch floppy as drive A.  I
+accidentally discovered that if a have a floppy from ONE particular
+box of diskettets in the A drive when I boot up, rather than getting
+the "Non-system diskette" message, the machine hangs and the CMOS
+gets overwritten (luckily, Gateway sends a print of the standard
+CMOS settings with their systems).  This only happens with a box
+of pre-formatted Fuji disks that I have, no other disks cause this
+problem.  If I re-format one of the Fuji disks, the problem goes away.
+I did a virus scan (scan v1.02) of the disks and found nothing.
+
+Anyone have any idea what is going on here?  Hardware problem?  A
+virus that can't be detected?  The system reading in garbage from
+the boot sector?
+
+--
+Tim King, tcking@uswnvg.com

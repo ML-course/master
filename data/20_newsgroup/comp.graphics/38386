@@ -1,0 +1,41 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.graphics:38386 alt.binaries.pictures.utilities:4162 alt.graphics.pixutils:5313
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!ogicse!emory!sol.ctr.columbia.edu!ira.uka.de!news.dfn.de!mailgzrz.TU-Berlin.DE!harti
+From: harti@mikro.ee.tu-berlin.de (Stefan Hartmann (Behse))
+Newsgroups: comp.graphics,alt.binaries.pictures.utilities,alt.graphics.pixutils
+Subject: Genoa graphics board Drivers FTP site!
+Message-ID: <1qpf1r$9ti@mailgzrz.TU-Berlin.DE>
+Date: 17 Apr 93 17:33:47 GMT
+Article-I.D.: mailgzrz.1qpf1r$9ti
+Organization: TUBerlin/ZRZ
+Lines: 29
+NNTP-Posting-Host: mikro.ee.tu-berlin.de
+
+Hi,
+
+well I have opened up a FTP site for getting the latest software drivers
+for Genoa graphics cards.
+
+Here is how to access it:
+
+ftp 192.109.42.11
+login:ftp
+password:ftp
+cd pub/genoa
+ls -l
+binary
+prompt
+hash
+
+(now if you wanna have the latest drivers for the 7900 board)
+
+cd 7000series
+mget *
+
+quit
+
+This is the sequence to get the drivers.
+
+If you have any further question, please email me.
+
+Best regards, Stefan Hartmann
+email to: harti@mikro.ee.tu-berlin.de

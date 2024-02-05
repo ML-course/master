@@ -1,0 +1,22 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!eddie.mit.edu!news.mtholyoke.edu!nic.umass.edu!noc.near.net!howland.reston.ans.net!agate!ucbvax!mtxinu!sybase!eastwood
+From: eastwood@sybase.com (David Eastwood)
+Newsgroups: comp.os.ms-windows.misc
+Subject: WRK Installation Oddity
+Message-ID: <C6vBwL.n51@sybase.com>
+Date: 11 May 93 15:19:32 GMT
+Sender: usenet@sybase.com
+Distribution: usa
+Organization: Sybase, Inc.
+Lines: 11
+
+Last night I tried to reinstall the utilities from the Windows 3.1 Resource
+Kit disk. The setup program appeared to run perfectly normally, but when it
+had finished, there was no Program Group created. Now, I know I've done
+this before successfully, and creating a group myself didn't exactly tax
+me, but I'm curious as to what might be going on. I can only assume that
+something left over from the last time I had it installed is getting in 
+the way, but I can't figure out what. Any clues, anyone? 
+-- 
+
+----------------------------------------------------------------------
+David Eastwood  /  Sybase Inc., Emeryville, CA  /  eastwood@sybase.com

@@ -1,0 +1,34 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!hermes.chpc.utexas.edu!jones
+From: jones@chpc.utexas.edu (William L. Jones)
+Subject: Re: Outline scalable fonts versus bitmap replicated scalable fonts
+Message-ID: <1993May16.232545.26857@chpc.utexas.edu>
+Organization: The University of Texas System - CHPC
+References: <C71CsI.LAw@unx.sas.com> <C73B1s.xp@world.std.com> <1993May15.233325.15764@chpc.utexas.edu>
+Date: Sun, 16 May 93 23:25:45 GMT
+Lines: 24
+
+
+After looking at the scaling code I realized the follwing:
+
+  1) My problem with the resolution 100x100 foints is due to an installation 
+     problem.
+
+  2) That the X server or font server will rescale the best font it can find
+     to meet your requirements.  
+
+     This means that if you server return a response like the following
+
+     -adobe-helvetica-medium-o-normal--0-0-75-75-p-0-iso8859-1
+
+     You can ask for the follwogin:
+
+        -adobe-helvetica-medium-o-normal--14-100-90-90-p-0-iso8859-1
+ 
+     and it will generate it for you.  You should try to always use 
+     known pixel sizes.  
+
+Bill Jones
+
+
+

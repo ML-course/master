@@ -1,0 +1,22 @@
+Newsgroups: comp.sys.ibm.pc.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!sdd.hp.com!nigel.msen.com!yale.edu!yale!gumby!destroyer!cs.ubc.ca!utcsri!newsflash.concordia.ca!nstn.ns.ca!cs.dal.ca!ug.cs.dal.ca!saeid
+From: saeid@ug.cs.dal.ca (Saeid 'the last frontier')
+Subject: Sending a Null character across Ethernet
+Message-ID: <C5sMyz.E76@cs.dal.ca>
+Sender: usenet@cs.dal.ca (USENET News)
+Nntp-Posting-Host: ug.cs.dal.ca
+Organization: Math, Stats & CS, Dalhousie University, Halifax, NS, Canada
+X-Newsreader: TIN [version 1.1 PL6]
+Date: Tue, 20 Apr 1993 17:52:10 GMT
+Lines: 10
+
+I have a question regarding sending a NULL character across ethernet
+connection. The actual problem is that emacs (Unix editior) needs
+the NULL character for setting a mark and unfortunately we don't know
+how to sent that from IBM PCs across ethernet. I am wondering if anyboy
+knows the keyboard combination for sending the NULL character. 
+BTW control,shift 2 which Ctrl @ does not work.
+
+Thanks
+
+Saeid

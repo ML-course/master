@@ -1,0 +1,30 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.crypt:15692 alt.privacy.clipper:56
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!optilink!brad
+From: brad@optilink.COM (Brad Yearwood)
+Newsgroups: sci.crypt,alt.privacy.clipper
+Subject: Re: Would "clipper" make a good cover for other encryption method?
+Message-ID: <15528@optilink.COM>
+Date: 21 Apr 93 21:18:19 GMT
+References: <1993Apr20.032623.3046@eff.org> <strnlghtC5t42t.J9B@netcom.com>
+Organization: Optilink Corporation, Petaluma, CA
+Lines: 19
+
+In article <strnlghtC5t42t.J9B@netcom.com>, strnlght@netcom.com (David Sternlight) writes:
+> 
+> Chances are the government has thought of this, and "just anyone" won't be
+> permitted access to enough of the internals to make a "fake" clipper chip.
+> Chances are that the government has classified some details of the internals
+> at a very high level, and manufacturers are required to observe security
+> safeguards and clearances corresponding to that level.
+
+Assume in this case the usual canard-adversary of narcotraficantes.  They
+probably have more cash than the KGB did, and they're probably more generous
+at handing it out.  It will be easier than ever to find or cultivate Walkers
+and Pollards for the keys, and it will be easy enough to find someone to
+reverse-engineer the chip (unless the tamper proofing is damned clever and
+effective).
+
+Brad Yearwood     brad@optilink.com     {uunet, pyramid}!optilink!brad
+Petaluma, CA
+
+

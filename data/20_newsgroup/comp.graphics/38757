@@ -1,0 +1,35 @@
+Xref: cantaloupe.srv.cs.cmu.edu alt.graphics.pixutils:5361 comp.graphics:38757
+Newsgroups: alt.graphics.pixutils,comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!newsserver.jvnc.net!news.edu.tw!news!ccds3.ntu.edu.tw!cml3!r0506048
+From: r0506048@cml3 (Chun-Hung Lin)
+Subject: Re: JPEG file format?
+Message-ID: <1993Apr26.035910.12221@ccds3.ntu.edu.tw>
+Sender: usenet@ccds3.ntu.edu.tw (USENET PROXY ACCOUNT)
+Nntp-Posting-Host: cml3.csie.ntu.edu.tw
+Reply-To: r0506048@csie.ntu.edu.tw
+Organization: Communication & Multimedia Lab, NTU, Taiwan
+X-Newsreader: Tin 1.1 PL3
+References: <1993Apr22.003031.6467@microsoft.com>
+Date: Mon, 26 Apr 1993 03:59:10 GMT
+Lines: 20
+
+peterbak@microsoft.com (Peter Bako) writes:
+: 
+: Where could I find a description of the JPG file format?  Specifically
+: I need to know where in a JPG file I can find the height and width of 
+: the image, and perhaps even the number of colors being used.
+: 
+: Any suggestions?
+: 
+: Peter
+
+Try ftp.uu.net, in /graphics/jpeg.
+--
+--------------------------------
+=================================================================
+Chun-Hung Lin ( ªL«T§» )                     
+r0506048@csie.ntu.edu.tw    
+Communication & Multimedia Lab.
+Dept. of Comp. Sci. & Info. Eng.
+National Taiwan University, Taipei, Taiwan, R.O.C.
+=================================================================

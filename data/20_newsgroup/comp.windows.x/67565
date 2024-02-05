@@ -1,0 +1,26 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!darwin.sura.net!howland.reston.ans.net!agate!doc.ic.ac.uk!warwick!uknet!pavo.csi.cam.ac.uk!ioas09.ast.cam.ac.uk!dcr
+From: dcr@mail.ast.cam.ac.uk (Derek C. Richardson)
+Subject: XView 3.0 question
+Message-ID: <1993May2.163804.21828@infodev.cam.ac.uk>
+Sender: news@infodev.cam.ac.uk (USENET news)
+Nntp-Posting-Host: ioas09.ast.cam.ac.uk
+Reply-To: dcr@mail.ast.cam.ac.uk
+Organization: Institute of Astronomy, Cambridge
+Date: Sun, 2 May 1993 16:38:04 GMT
+Lines: 14
+
+Yet another XView question: is there an (easy) way of detecting when a user
+has resized a frame _externally_ by way of the window manager (e.g. grabbing
+and letting go of the frame resize corners under olwm)? If so, please let me
+know!
+
+Derek
+
+-----------------------------------------------------------
+| Derek C. Richardson    | Tel: (0223) 337548 x 37501     |
+| Institute of Astronomy | Fax: (0223) 337523             |
+| Cambridge, U.K.        |                                |
+| CB3 0HA                | E-mail: dcr@mail.ast.cam.ac.uk |
+-----------------------------------------------------------
+

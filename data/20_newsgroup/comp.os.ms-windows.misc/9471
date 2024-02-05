@@ -1,0 +1,39 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.ms-windows.apps:11520 comp.os.ms-windows.misc:9471
+Newsgroups: comp.os.ms-windows.apps,comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!gatech!purdue!mentor.cc.purdue.edu!noose.ecn.purdue.edu!author.ecn.purdue.edu!servis
+From: servis@author.ecn.purdue.edu (Brian K Servis)
+Subject: Re: Ghostscript for win fonts????
+Message-ID: <servis.734906103@author.ecn.purdue.edu>
+Keywords: ghostscript,fonts
+Sender: news@noose.ecn.purdue.edu (USENET news)
+Organization: Purdue University Engineering Computer Network
+References: <servis.734884561@author.ecn.purdue.edu>
+Date: Thu, 15 Apr 1993 20:35:03 GMT
+Lines: 26
+
+servis@author.ecn.purdue.edu (Brian K Servis) writes:
+That's me....
+>I just downloaded the Windows Ghostscript package(gswin252.zip,gs252ini.zip) 
+>from ftp.  When I load a PS file it says it cant find font and substitutes a
+>font called Ugly. It is substituting for basic fonts such as Helv, and Cour.
+>I would imagine that these fonts are included in its font library. Is there
+>something I am doing wrong or am missing?  These Ugly fonts are not very clear
+>and well defined, as in sharpness, etc, basically they are ugly!  Any advice
+>is welcome.
+
+
+Ok, I realize I have to get the font files from some ftp site.  I found them
+at cica but I now have another question.....
+
+Are the 24*.zip fonts compatible with gswin252??
+
+>Please email
+
+Brian Servis
+===========================================================================
+||  servis@author.ecn.purdue.edu   ||         "It Happened This Way"     ||
+===================================|| actual quotes from insurance claims||
+||  What I say may not be what I   ||                                    ||
+||  think. What I say may not be   ||  "The pedestrian had no idea which ||
+||  what Purdue thinks.            ||   way to go, so I ran him over."   ||
+===========================================================================

@@ -1,0 +1,23 @@
+Newsgroups: comp.sys.ibm.pc.hardware
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!usc!sdd.hp.com!caen!batcomputer!munnari.oz.au!metro!basser.cs.su.oz.au!mrj
+From: mrj@cs.su.oz.au (Mark James)
+Subject: Re: IDE vs SCSI (Why VLB busmastering slows your system)
+Organization: Basser Dept of Computer Science, University of Sydney, Australia
+Date: Mon, 19 Apr 1993 07:34:52 GMT
+Message-ID: <1993Apr19.073452.28565@cs.su.oz.au>
+References: <1993Apr12.171250.486@julian.uwo.ca> <1993Apr16.205724.26258@mnemosyne.cs.du.edu>
+Sender: news@cs.su.oz.au (News)
+Lines: 12
+
+In article <1993Apr16.205724.26258@mnemosyne.cs.du.edu> smace@nyx.cs.du.edu (Scott Mace) writes:
+>
+>Have you ever seen what happens when you hook a busmaster controller to
+>a vesa local bus.  It actually  slows down your system.....
+>
+>If you don't belive what I said about busmastering and vlbus then pick
+>up a back issue of PC-week in whihc they tested vlbus, eisa and isa
+>busmastering cards.
+
+Is VLB busmastering bad because it stops the processor fetching from
+external cache as well as main memory while the VLB card has the bus?
+How significant is the slowing effect?

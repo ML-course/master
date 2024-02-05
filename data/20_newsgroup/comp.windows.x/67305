@@ -1,0 +1,29 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!wupost!howland.reston.ans.net!newsserver.jvnc.net!news.edu.tw!news!ccds3.ntu.edu.tw!cml3!r0506048
+From: r0506048@cml3 (Chun-Hung Lin)
+Subject: Re: xman source
+Message-ID: <1993Apr26.055528.13405@ccds3.ntu.edu.tw>
+Sender: usenet@ccds3.ntu.edu.tw (USENET PROXY ACCOUNT)
+Nntp-Posting-Host: cml3.csie.ntu.edu.tw
+Reply-To: r0506048@csie.ntu.edu.tw
+Organization: Communication & Multimedia Lab, NTU, Taiwan
+X-Newsreader: Tin 1.1 PL3
+References: <1993Apr20.091556@b4pps40.Berkeley.EDU>
+Date: Mon, 26 Apr 1993 05:55:28 GMT
+Lines: 15
+
+jlong@b4pps40.Berkeley.EDU (John Long) writes:
+:    Where can I get xman source?  I would like to get the binaries for
+: xman for an HP 9000/700, but I would settle for source.  
+: 
+: --
+Try xport.lcs.mit.edu, in direcotry /contrib.
+--
+--------------------------------
+=================================================================
+Chun-Hung Lin ( ªL«T§» )                     
+r0506048@csie.ntu.edu.tw    
+Communication & Multimedia Lab.
+Dept. of Comp. Sci. & Info. Eng.
+National Taiwan University, Taipei, Taiwan, R.O.C.
+=================================================================

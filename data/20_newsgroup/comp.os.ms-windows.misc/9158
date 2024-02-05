@@ -1,0 +1,21 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!ogicse!uwm.edu!cs.utexas.edu!mercury.unt.edu!ponder!htanabe
+From: htanabe@ponder.csci.unt.edu (Tanabe)
+Newsgroups: comp.os.ms-windows.misc
+Subject: terminal software
+Message-ID: <htanabe.734110579@ponder>
+Date: 6 Apr 93 15:36:19 GMT
+Article-I.D.: ponder.htanabe.734110579
+Sender: usenet@mercury.unt.edu (UNT USENet Adminstrator)
+Organization: University of North Texas
+Lines: 10
+
+Please reply via EMail...
+
+When I use the terminal software for Windows such as TERMINAL.EXE or 
+Crossttalk, it doesn't use the whole window.  I mean, when the software's
+window size is max, it still scrolls around the 2/3 of window.  It does not
+use whole window.  I set "stty rows 30", but still the same. Scrolls at 2/3
+from the top of the windows.  Could anyone tell me how to setup these software
+to use whole window?
+
+Thanks in advance.

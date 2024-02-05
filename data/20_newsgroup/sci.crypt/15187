@@ -1,0 +1,23 @@
+Newsgroups: sci.crypt
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!news.ans.net!malgudi.oar.net!zaphod.mps.ohio-state.edu!sdd.hp.com!hpscit.sc.hp.com!nsa.hp.com!jad
+From: jad@nsa.hp.com (John Dilley)
+Subject: compress | crypt foo | des -e -k foo
+Sender: news@nsa.hp.com (News)
+Message-ID: <JAD.93Apr16100318@pimlico.nsa.hp.com>
+Date: Fri, 16 Apr 1993 17:03:18 GMT
+Distribution: sci
+Lines: 12
+Organization: Networked Systems Architecture
+
+
+	I have a bunch of questions about the encryption scheme
+referenced in the Subject of this message.  What is the relative data
+privacy provided by the above sequence as compared with straight DES?
+Does the addition of compression then encrypting make the cyphertext
+significantly harder to crack using current methods than straight DES?
+Would running crypt after DES provide greater data privacy?  Is it
+important to remove the (constant) compress header before encryption?
+Thank you, net, for your wisdom.
+
+			 --       jad       --
+		    John A. Dilley <jad@nsa.hp.com>

@@ -1,0 +1,23 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!darwin.sura.net!haven.umd.edu!uunet!news.tek.com!master!pendragon!tonyo
+From: tonyo@pendragon.CNA.TEK.COM (Tony Ozrelic)
+Newsgroups: comp.graphics
+Subject: Need info on cc:Mail file format
+Message-ID: <4958@master.CNA.TEK.COM>
+Date: 22 Apr 93 20:17:48 GMT
+Sender: news@master.CNA.TEK.COM
+Organization: Tektronix, Inc., Redmond, Oregon
+Lines: 13
+
+I need the file format for cc:Mail file formats - it seems to be PCX-based,
+but with a twist: only the first page of a multi-page fax will come out
+readable. The other pages disappear. The format seems to be 'proprietary'.
+
+Anybody got any clues? I have to give my email FAXes to my secretary in
+order to get 'em unscrambled. I want a filter from cc:Mail to .p[nb]m.
+
+Come to think of it, p[nb]m to cc:Mail would be nice too.
+
+tonyo@master.CNA.TEK.COM
+
+
+

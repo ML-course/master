@@ -1,0 +1,41 @@
+Xref: cantaloupe.srv.cs.cmu.edu alt.3d:2242 comp.graphics.visualization:3400 comp.graphics:38855 sci.med:59405
+Newsgroups: alt.3d,comp.graphics.visualization,comp.graphics,sci.med
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!zaphod.mps.ohio-state.edu!uwm.edu!lll-winken.llnl.gov!taurus.cs.nps.navy.mil!adaptive
+From: adaptive@cs.nps.navy.mil (zyda res acct)
+Subject: Re: Data of skull
+Message-ID: <C65vyL.6Aq@taurus.cs.nps.navy.mil>
+Sender: news@taurus.cs.nps.navy.mil
+Organization: Naval Postgraduate School, Monterey
+References: <1993Apr27.060420.2994@shannon.ee.wits.ac.za>
+Date: Tue, 27 Apr 1993 21:35:09 GMT
+Lines: 29
+
+>Hi, We are trying to develop a image reconstruction simulation for the skull.  The problem we are having is that we cannot obtain 3D data for the skull.  We can just video a rotating skull, but that will only give us 2 dimensions.
+
+>Anyone out there got any suggestions?
+
+Yup, you can get a skull contained in the Cyberware_demo from the
+following location:
+
+In order to get the Cyberware_demo via ftp do the following:
+
+	1) ftp taurus.cs.nps.navy.mil
+	2) login as anonymous, guest as the password
+	3) cd pub/dabro
+	4) binary
+	5) get cyberware_demo.tar.Z
+
+Once you get the demo onto your workstation:
+
+	1) uncompress cyberware_demo.tar.Z
+	2) tar xvof cyberware_demo.tar
+
+The skull data is called 'phred' and resides in the data directory.
+
+george dabro
+dabro@taurus.cs.nps.navy.mil
+-- 
+george dabrowski
+Cyberware Labs
+
+dabro@taurus.cs.nps.navy.mil

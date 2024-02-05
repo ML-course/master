@@ -1,0 +1,21 @@
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!darwin.sura.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!pipex!warwick!qmw-dcs!qmw!demon!sobel.u-strasbg.fr!fred
+Newsgroups: comp.windows.x
+From: fred@sobel.u-strasbg.fr (Frederic PIERRE)
+Subject: [Q] xterm -S
+Date: Thu, 13 May 1993 15:29:05 +0000
+Message-ID: <9305131616.AA22389@sobel>
+Sender: usenet@demon.co.uk
+Lines: 12
+
+
+	Hello *.*,
+I'm looking for a good explanation and example of the usefulness of the -S 
+option for xterm: slave mode on file descriptor xxx. Sure, but xterm -Sp00
+does not seem to grab what arrives on my window. Where is my misunderstan-
+ding ? TIA.
+Fred.
+ ===========================================================================
+ Frederic PIERRE. ENSPS/LSIT 7 rue de l'universite F-67000 Strasbourg FRANCE 
+ Tel: (33) 88 35 80 84 Fax: (33) 88 35 31 76 e-mail: fred@sobel.u-strasbg.fr
+ ==========================HamRadio: FC1HFD=================================
+ 

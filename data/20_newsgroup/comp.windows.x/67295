@@ -1,0 +1,27 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!sdd.hp.com!think.com!enterpoop.mit.edu!INTERNET!news-mail-gateway
+From: mahan@TGV.COM (Patrick L. Mahan)
+Newsgroups: comp.windows.x
+Subject: Re: Tektronix
+Date: 25 Apr 1993 07:24:29 -0400
+Organization: The Internet
+Lines: 15
+Sender: news@athena.mit.edu
+Message-ID: <930424212154.1000227@TGV.COM>
+NNTP-Posting-Host: enterpoop.mit.edu
+To: mike@hopper.virginia.edu, xpert@expo.lcs.mit.edu
+
+#
+# I remember seeing something in the X distribution mentioning support
+# for a Tektronix terminal in an X server.  Is this accurate? 
+#
+
+Xterm supports 401x emulation.
+
+
+Patrick L. Mahan
+
+--- TGV Window Washer ------------------------------- Mahan@TGV.COM ---------
+
+Waking a person unnecessarily should not be considered  - Lazarus Long
+a capital crime.  For a first offense, that is            From the Notebooks of
+							  Lazarus Long

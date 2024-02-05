@@ -1,0 +1,30 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!pitt.edu!gatech!darwin.sura.net!zaphod.mps.ohio-state.edu!magnus.acs.ohio-state.edu!usenet.ins.cwru.edu!agate!doc.ic.ac.uk!uknet!liv!lucs!ian
+From: ian@csc.liv.ac.uk (Ian Finch)
+Newsgroups: comp.windows.x
+Subject: Which X events are generated on application exit?
+Message-ID: <C63vGq.2tJ@compsci.liverpool.ac.uk>
+Date: 26 Apr 93 19:29:14 GMT
+Sender: news@compsci.liverpool.ac.uk (News Eater)
+Organization: Knee Deep in Sky High
+Lines: 18
+Nntp-Posting-Host: rib.csc.liv.ac.uk
+X-Newsreader: TIN [version 1.1 PL9]
+
+I'm writing an application running under X (using Motif), and I need to do
+some stuff when the application quits.  Now, when I shut down my X Windows
+session, it doesn't seem to send a SIGTERM (or whatever) signal to my
+application (I'm trapping various signals like that).  Therefore, I thought
+I could use an X signal to check for my top level window being destroyed.
+
+However I seem to get DestroyNotify events whenever I move windows.  Is
+there any way for me to check that the window is actually being destroyed
+(some field to check or some combination of events?).
+
+Replies by e-mail please and I will summarise.
+
+Thanks for any help,
+                      Ian
+--
+ //                             //
+ // ian@compsci.liverpool.ac.uk //
+ //                             //

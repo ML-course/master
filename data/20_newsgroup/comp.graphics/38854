@@ -1,0 +1,28 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!saimiri.primate.wisc.edu!eng.ufl.edu!usenet.cis.ufl.edu!buoy.cis.ufl.edu!dts
+From: dts@buoy.cis.ufl.edu (Dave Small)
+Newsgroups: comp.graphics
+Subject: WANTED: references on parallel algorithms
+Date: 27 Apr 1993 22:07:16 GMT
+Organization: TiGrrs_R_Us
+Lines: 16
+Distribution: world
+Message-ID: <1rkaqkINNmpa@snoopy.cis.ufl.edu>
+NNTP-Posting-Host: buoy.cis.ufl.edu
+Keywords: parallel algorithms, octrees, adaptive subdivision, meshing, finite
+
+element analysis, radiosity, distributed processing
+
+Hi,
+
+	I'm looking for references to parallel algorithms on:
+
+		octrees
+		adaptive subdivision
+		adaptive meshing
+		finite element meshing/analysis
+		radiosity
+
+	Any help will be greatly appreciated.  E-mail replies to
+
+			Dave Small
+			dts@cis.ufl.edu

@@ -1,0 +1,38 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.ibm.pc.hardware:60301 comp.sys.mac.hardware:51643 comp.sys.mac.wanted:21763
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!usc!news.isi.edu!venera.isi.edu!jas
+From: jas@ISI.EDU (Jeff Sullivan)
+Newsgroups: comp.sys.ibm.pc.hardware,comp.sys.mac.hardware,comp.sys.mac.wanted
+Subject: Re: ** Macs and HP LaserJet 1? **
+Date: 12 Apr 93 15:43:10
+Organization: USC-ISI
+Lines: 25
+Message-ID: <JAS.93Apr12154310@tigger.ISI.EDU>
+References: <X49ZBPNN@cc.swarthmore.edu> <C4v9E2.FG@hpuerca.atl.hp.com>
+NNTP-Posting-Host: tigger.isi.edu
+In-reply-to: mdf@hpuerca.atl.hp.com's message of Fri, 2 Apr 1993 17:18:01 GMT
+
+In article <C4v9E2.FG@hpuerca.atl.hp.com> mdf@hpuerca.atl.hp.com (Mike Fox) writes:
+
+>Marc Rieffel (rieffel@cs.swarthmore.edu) wrote:
+>: Does anyone know anything about using an HP LaserJet Series 1 as a Mac
+>: printer?  What kind of cables and drivers are necessary?  
+>: 
+>
+>I also would like similar information.  I have a LaserJet IIp that I
+>would like to connect to a MAC.  Any help would be appreciated.
+>--
+>Mike Fox - HP Response Center
+> email:     mdf@hpuerca.atl.hp.com
+
+Check out PowerPrint from GDT Softworks.  Their ads are in MacWEEK and
+MacUser and Macworld.  I did a review of PowerPrint/LT in a recent
+issue of MacWEEK.
+
+They are very good products, and GDT's tech support is also excellent.
+
+jas
+--
+--------------------------------------------------------------------------
+Jeffrey A. Sullivan             | Research Scientist et al.
+jas@isi.edu (Internet)          | Information Sciences Institute
+72511,402    (Compuserve)       | University of Southern California

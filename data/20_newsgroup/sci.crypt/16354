@@ -1,0 +1,40 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.org.eff.talk:17464 sci.crypt:16354 alt.security.pgp:2825 alt.privacy:6743 comp.security.misc:3664
+Newsgroups: comp.org.eff.talk,sci.crypt,alt.security.pgp,alt.privacy,comp.security.misc
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!zaphod.mps.ohio-state.edu!swrinde!network.ucsd.edu!munnari.oz.au!news.Hawaii.Edu!mael!msawyer
+From: msawyer@mael (Michael Sawyer)
+Subject: Re: More Clipper stuff
+Message-ID: <C6F0G4.9E4@news.Hawaii.Edu>
+Followup-To: comp.org.eff.talk,sci.crypt,alt.security.pgp,alt.privacy,comp.security.misc
+Sender: news@news.Hawaii.Edu
+Organization: University of Hawaii
+X-Newsreader: TIN [version 1.1 PL8]
+References: <1s01il$5t@genesis.MCS.COM>
+Distribution: inet
+Date: Sun, 2 May 1993 19:50:27 GMT
+Lines: 25
+
+Ben Liberman (ben@genesis.MCS.COM) wrote:
+: What if clipper is fairly secure but leaves a distinct clipper signature...
+: that is, what if it's not too difficult to tell that a msg. was clipper
+: encrypted, even if you can't tell the contents?  In that case, anyone 
+: who is trying to hide behind anther encryption scheme will stand out
+: from all of the other traffic and raise a red flag to the NSA, etc.
+
+I think the obvious answer (which may have been posted, but I haven't
+seen it) is to encrypt your data with some other scheme, then run it
+through clipper.  The only way the police will be able to detect the
+other encryption is through a wiretap, so even if they do notice with
+an illegal wiretap, I have a hard time seeing a judge issuing a
+warrant for a search to "confiscate" the illegal scheme (assuming that
+at one day, it comes to this; a worse case) based on an illegal
+wiretap.  Then again, maybe I am an idealist.  :>
+
+: 	------------    --------    ----------------------
+: 	Ben Liberman    INTERNET    ben@genesis.MCS.COM
+: 	                            ben@tai.chi.il.us
+
+--
+Michael Sawyer - My opinions are mine, not necessarily UH's, NSF's, or NASA's
+University of Hawaii Physical Oceanography/Satellite Remote Sensing
+RIPEM public key available, MD5OfPublicKey: C53C8744A87664168D135C0763DCCC1D
+

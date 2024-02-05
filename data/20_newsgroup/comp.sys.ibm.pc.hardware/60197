@@ -1,0 +1,20 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!howland.reston.ans.net!bogus.sura.net!jhunix.hcf.jhu.edu!darwin.sura.net!news-feed-1.peachnet.edu!umn.edu!lynx.unm.edu!dns1.NMSU.Edu!dante!bgrubb
+From: bgrubb@dante.nmsu.edu (GRUBB)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: Re: IDE vs SCSI
+Date: 16 Apr 1993 04:14:45 GMT
+Organization: New Mexico State University, Las Cruces, NM
+Lines: 9
+Distribution: world
+Message-ID: <1qlbrlINN7rk@dns1.NMSU.Edu>
+NNTP-Posting-Host: dante.nmsu.edu
+
+In PC Magazine April 27, 1993:29 "Although SCSI is twice as fasst as ESDI,
+20% faster than IDE, and support up to 7 devices its acceptance ...has
+long been stalled by incompatability problems and installation headaches."
+note what it does NOT site as a factor: PRICE.
+int eh same article the PC would will get plug and play SCSI {from the
+article it seems you get plug and play SCSI-1 only since SCSI-2 in FULL
+implimentation has TEN NOT 7 devices.}
+SCSI-1 intergration is sited as another part of the MicroSoft Plug and play
+program.

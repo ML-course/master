@@ -1,0 +1,38 @@
+Newsgroups: sci.electronics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!swrinde!emory!athena!aisun3.ai.uga.edu!mcovingt
+From: mcovingt@aisun3.ai.uga.edu (Michael Covington)
+Subject: Re: Telephone On Hook/Off Hok
+Message-ID: <C5M4EA.H0@athena.cs.uga.edu>
+Sender: usenet@athena.cs.uga.edu
+Nntp-Posting-Host: aisun3.ai.uga.edu
+Organization: AI Programs, University of Georgia, Athens
+References: <734953838.AA00506@insane.apana.org.au>
+Date: Sat, 17 Apr 1993 05:25:21 GMT
+Lines: 26
+
+In article <734953838.AA00506@insane.apana.org.au> peter.m@insane.apana.org.au (Peter Tryndoch) writes:
+
+>MC>Aye, there's the rub -- if you draw enough current to light an LED, th
+>MC>equipment at the phone company will think you've gone off hook.
+>MC>In the on-hook state you're not supposed to draw current.  
+>
+>Ok lets have some calculation here: Going by Australian standards, which I 
+>presume might be similar to other countries ( If not, lets have some 
+>input) a phone uses 600ohm to loop a 48V line = 80mA. A standard LED 
+>drains 20mA. So what is the actual loop current required for an "off hook" 
+>indication, do you know?
+
+Up to 60 microamperes  =   on hook
+
+Over something like 10 mA  = off hook
+
+In between = defective line, and the phone company comes looking
+              for leaky insulation.
+
+
+
+-- 
+:-  Michael A. Covington, Associate Research Scientist        :    *****
+:-  Artificial Intelligence Programs      mcovingt@ai.uga.edu :  *********
+:-  The University of Georgia              phone 706 542-0358 :   *  *  *
+:-  Athens, Georgia 30602-7415 U.S.A.     amateur radio N4TMI :  ** *** **  <><

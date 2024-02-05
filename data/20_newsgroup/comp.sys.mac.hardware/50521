@@ -1,0 +1,31 @@
+Newsgroups: comp.sys.mac.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!usc!cs.utexas.edu!geraldo.cc.utexas.edu!portal.austin.ibm.com!awdprime.austin.ibm.com!kelleyb
+From: kelleyb@austin.ibm.com (Kelley Boylan)
+Subject: Re: IIsi at 33MHz success story
+Originator: kelleyb@kelleyb.austin.ibm.com
+Sender: news@austin.ibm.com (News id)
+Message-ID: <C52rCD.2sEI@austin.ibm.com>
+Date: Tue, 6 Apr 1993 18:29:01 GMT
+Distribution: usa
+Reply-To: kelleyb@austin.ibm.com
+References:  <GJOHN.93Apr3000144@ostrich.Stanford.EDU>
+Organization: IBM Austin, PowerPC
+Lines: 17
+
+
+> Howdy folks.  Back in September or October '92 I posted instructions
+> on how to upgrade the IIsi to 25mhz by doin' a little solderin'.
+> People bolder than me have reported that they've done the same
+> procedure, but put in a 66mhz oscillator instead of 50.  (Thus running
+> the cpu at 33mhz instead of 25.)  So I tried it and I'll be darned if
+> it doesn't work.
+
+Has anyone tried or does anyone know if this procedure will work on
+an SE/30?  Mine's old, slow, and in need of either death or power.
+
+-Kelley-
+-- 
+---------------------------------------------------------
+Thomas Kelley Boylan, PowerPC, IBM Austin, (512) 838-1869 
+---------------------------------------------------------
+                kelleyb@austin.ibm.com

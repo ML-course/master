@@ -1,0 +1,34 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.mac.programmer:57981 comp.graphics:38379 comp.graphics.animation:2997
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!sdd.hp.com!think.com!enterpoop.mit.edu!eru.mt.luth.se!kth.se!hemul.nada.kth.se!d88-jwa
+From: d88-jwa@hemul.nada.kth.se (Jon Wtte)
+Newsgroups: comp.sys.mac.programmer,comp.graphics,comp.graphics.animation
+Subject: Re: Please Recommend 3D Graphics Library For Mac.
+Message-ID: <1993Apr17.092051.19814@kth.se>
+Date: 17 Apr 93 09:20:51 GMT
+References: <C5HLoD.2G1@bcstec.ca.boeing.com> <Z2442B4w164w@cellar.org>
+Sender: usenet@kth.se (Usenet)
+Organization: Royal Institute of Technology, Stockholm, Sweden
+Lines: 21
+Nntp-Posting-Host: hemul.nada.kth.se
+
+In <Z2442B4w164w@cellar.org> tsa@cellar.org (The Silent Assassin) writes:
+
+>> I'm building a CAD package and need a 3D graphics library that can handle
+>> some rudimentry tasks, such as hidden line removal, shading, animation, etc.
+>> 
+>> Can you please offer some recommendations?
+
+I think APDA has something called MacWireFrame which is a full
+wire-frame (and supposedly hidden-line removal) library.
+I think it weighs in at $99 (but I've been wrong on an order
+of magnitude before)
+
+>Libertarian, atheist, semi-anarchal Techno-Rat.
+
+I can relate to that
+
+					/h+
+-- 
+ -- Jon W{tte, h+@nada.kth.se, Mac Hacker Deluxe --
+
+  "On a clear disc, you can seek forever."

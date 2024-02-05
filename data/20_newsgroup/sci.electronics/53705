@@ -1,0 +1,39 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.electronics:53705 comp.sys.intel:6426
+Newsgroups: sci.electronics,comp.sys.intel
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!magnus.acs.ohio-state.edu!usenet.ins.cwru.edu!howland.reston.ans.net!spool.mu.edu!uunet!munnari.oz.au!penguin!bryan
+From: bryan@philips.oz.au (Bryan Ryan)
+Message-ID: <1993Apr18.225707.27047@philips.oz.au>
+Date: Sun, 18 Apr 93 22:57:07 GMT
+Organization: Philips Public Telecommunications Systems, Melbourne, Australia
+Subject: Re: RAMs &ROMs with ALE latches (for 8051's)
+References: <1qg98sINNokf@sheoak.ucnv.edu.au> <1qgk3a$2sf@agate.berkeley.edu>
+Lines: 28
+
+spp@zabriskie.berkeley.edu (Steve Pope) writes:
+
+>In article <1qg98sINNokf@sheoak.ucnv.edu.au> jeff@redgum.ucnv.edu.au (j. pethybridge) writes:
+>>	Hello again,
+>> I asked this a year ago, but i am still looking.
+>> I am getting sick of having to use a HC373 
+
+>Jeff, just use the damned 373.   Sure, there are oddball
+>latched memory chips, but do you really want to use them?
+
+>Sorry if I'm pedantic but: design your circuit using
+>reasonably available parts, and move on to more important
+>problems.
+
+We're looking at a series of chips by WSI, the PSD3xx series. They have
+_mega_ address decoding logic on them, various ROM sizes (upto 1Mbit),
+various RAM sizes (upto 16 K), and 19 I/O ports which can be chip select
+lines, I/O or the buffered address lines.
+
+Cute chip, 44 pin PLCC package.
+
+Second sourcing may be a problem though :-(
+
+
+Bryan Ryan, VK3TKX
+Melbourne, Australia
+bryan@philips.oz.au
+

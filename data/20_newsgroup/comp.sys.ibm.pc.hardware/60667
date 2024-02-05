@@ -1,0 +1,25 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!pipex!uknet!mcsun!sun4nl!tuegate.tue.nl!svin09.info.win.tue.nl!wswiop15.win.tue.nl!not-for-mail
+From: perry@wswiop15.win.tue.nl (Perry Egelmeers)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: Re: FUNET.FI
+Date: 20 Apr 1993 21:01:58 +0200
+Organization: Eindhoven University of Technology, The Netherlands
+Lines: 13
+Distribution: world
+Message-ID: <1r1hb6$e1b@wswiop15.win.tue.nl>
+References: <19930420.073508.621@almaden.ibm.com>
+NNTP-Posting-Host: wswiop15.win.tue.nl
+
+artieb@vnet.IBM.COM writes:
+
+>    I saw a posting earlier that refered to FUNET.FI directory /pub/msdos
+>however, when I log on to FUNET.FI I cant even find the "pub" directory
+>let alone the "msdos" directory !!!!  Can someone tell me what I'm doing
+>wrong??
+
+Perhaps you should try nic.funet.fi instead of funet.fi ??!?!?
+nic.funet.fi is THE biggest (?) ftp site from Europe, but
+the stuff available there should (?) also be available at the other site
+of the "big pool".
+
+Perry Egelmeers

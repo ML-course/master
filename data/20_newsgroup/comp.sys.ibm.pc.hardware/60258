@@ -1,0 +1,30 @@
+Newsgroups: comp.sys.ibm.pc.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!purdue!mentor.cc.purdue.edu!noose.ecn.purdue.edu!en.ecn.purdue.edu!picano
+From: picano@en.ecn.purdue.edu (Silvio Picano)
+Subject: Logitech 2-button mouse & BIOS routines availability ?
+Message-ID: <1993Apr16.151956.17453@en.ecn.purdue.edu>
+Organization: Purdue University Engineering Computer Network
+Date: Fri, 16 Apr 93 15:19:56 GMT
+Lines: 21
+
+Newsgroups: comp.ibm.pc.hardware
+Subject: Logitech 2-button mouse pin-out & BIOS routine availability?
+Distribution: world
+Organization: Purdue University Engineering Computer Network
+
+I have a Logitech 2S-2f (or 2f-2S) 2-button mouse that I want to
+interface to a serial port of a different (non-ibm-compatible) system.
+The mouse is XT/AT/PS2 compatible, with a DB25 connector.  I tried
+to reverse engineer the mouse, but it has a micro-controller inside
+it.
+
+If I could get the DB25 pin-out, and perhaps a copy of the BIOS routines
+that support it, I could map all this into my target system?
+
+Anyone know where I might get the pin-out or the BIOS routines?
+Are the routines published someplace convenient?
+
+Thanks!
+Silvio
+
+PS....please send email to me directly!

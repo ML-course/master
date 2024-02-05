@@ -1,0 +1,24 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.ibm.ps2.hardware:4077 comp.os.ms-windows.apps:11598 comp.os.ms-windows.misc:9571 comp.os.ms-windows.programmer.misc:8706 comp.os.ms-windows.programmer.tools:3131 comp.os.ms-windows.programmer.win32:5407 comp.os.ms-windows.setup:4302 comp.windows.ms:36388 comp.windows.ms.programmer:14335 alt.windows.text:13
+Newsgroups: comp.sys.ibm.ps2.hardware,comp.os.ms-windows.apps,comp.os.ms-windows.misc,comp.os.ms-windows.programmer.misc,comp.os.ms-windows.programmer.tools,comp.os.ms-windows.programmer.win32,comp.os.ms-windows.setup,comp.windows.ms,comp.windows.ms.programmer,alt.windows.text
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!gatech!taco!ssa
+From: ssa@unity.ncsu.edu (S. Alavi)
+Subject: ?? DOS font size in windows??
+Message-ID: <1993Apr18.024128.9119@ncsu.edu>
+Sender: news@ncsu.edu (USENET News System)
+Organization: NC State University
+Date: Sun, 18 Apr 1993 02:41:28 GMT
+Lines: 13
+
+
+	I have an 8514/A card, and I am using windows in 1024x768 mode 
+	(normal 8514/A font, not small).  In the 386 enhanced mode
+	the DOS window font is too small for my 14" monitor. Is there a 
+	way to spacify the font size for the DOS window? You'll have to 
+	excuse me if there is a trivial answer, since I am fairly new to
+	MS Windows world.
+
+	Thanks.
+
+	(Please include this message for reference)
+	======  S. Alavi    [ssa@unity.ncsu.edu]  (919)467-7909 (H)  ========
+						  (919)515-8063 (W)

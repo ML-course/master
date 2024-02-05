@@ -1,0 +1,19 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:67218 comp.windows.misc:4705 comp.os.ms-windows.programmer.misc:8948
+Newsgroups: comp.windows.x,comp.windows.misc,comp.os.ms-windows.programmer.misc,comp.unix.msdos
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!nextsrv1!dscheck
+From: dscheck@nextsrv1.andi.org (David Scheck)
+Subject: imake on DOS and Windows
+Message-ID: <C5w3ux.BLL@nextsrv1.andi.org>
+Followup-To: white_billy@po.gis.prc.com
+Summary: porting imake to DOS
+Keywords: imake
+Organization: Association of NeXTSTEP Developers International
+Date: Thu, 22 Apr 1993 14:49:45 GMT
+Lines: 6
+
+
+Has anyone had experience porting imake to DOS using a Microsoft, Watcom, or
+any other DOS compiler? 
+
+Since I do not have easy access to News, a response to
+'white_billy@po.gis.prc.com' would be appreciated.

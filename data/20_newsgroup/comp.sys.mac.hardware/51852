@@ -1,0 +1,29 @@
+Newsgroups: comp.sys.mac.hardware
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!news.acns.nwu.edu!ironman.ms.nwu.edu!user
+From: qman@casbah.acns.nwu.edu (Charlie Kuehmann)
+Subject: Trouble w/ VGA displays
+Message-ID: <qman-190493165707@ironman.ms.nwu.edu>
+Followup-To: comp.sys.mac.hardware
+Sender: usenet@news.acns.nwu.edu (Usenet on news.acns)
+Nntp-Posting-Host: ironman.ms.nwu.edu
+Organization: Northwestern University
+Date: Mon, 19 Apr 1993 21:53:46 GMT
+Lines: 17
+
+I'm currently having trouble connecting my PB to a true blue (IBM Model
+1513) VGA monitor.  The display is bearly readable but all the details are
+seperated into yellow and red colors. ie. a window will have two images one
+in yellow and a ghost image in red.  The background is also a little
+greenish.  I read some time ago, before I ever thought I would hook my mac
+up to a VGA screen, about an incompatability with some VGA monitors due to
+the sync on green signal.  Does this sound like it could be the same demon?
+ I also read that there are both hardware (putting a diode on the green
+signal?) solution and a software solution to this problem.  I don't the
+details does somebody have them the can e-mail to me or post them?  I
+checked all the FAQ's for this and didn't find anything about it.  Did I
+miss it somewhere?  This sure seems that it would be a good thing to have
+in one.  Thanks for any replys.
+
+Charles Kuehmann
+Northwestern University
+Steel Research Group

@@ -1,0 +1,18 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!ira.uka.de!Germany.EU.net!unidus.rz.uni-duesseldorf.de!mueller.rz.uni-duesseldorf.de!dvs
+From: dvs@ze8.rz.uni-duesseldorf.de (Wolfgang R. Mueller)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: [Q] Internal modems without uart ?
+Date: Fri, 23 Apr 1993 09:41:15 GMT
+Organization: Computing Centre, Heinrich-Heine-University, Duesseldorf, Germany
+Lines: 8
+Message-ID: <dvs.119.735558075@ze8.rz.uni-duesseldorf.de>
+NNTP-Posting-Host: mueller.rz.uni-duesseldorf.de
+
+Seeing all these questions about uart types, their availability, and their
+relative merits, wouldn't it be fine, if for internal highspeed modems there
+were a mode of operation bypassing the dull and stupid uart interface and
+instead accessing directly the relatively large send/receive buffers of the  
+modem, thus eliminating all problems with interrupt latencies ?
+Just an idea,
+Wolfgang R. Mueller <dvs@ze8.rz.uni-duesseldorf.de>,
+Computing Centre, Heinrich-Heine-University, Duesseldorf, Germany.

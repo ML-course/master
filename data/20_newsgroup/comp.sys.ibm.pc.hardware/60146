@@ -1,0 +1,31 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!bogus.sura.net!news-feed-1.peachnet.edu!umn.edu!lynx.unm.edu!dns1.NMSU.Edu!dante!bgrubb
+From: bgrubb@dante.nmsu.edu (GRUBB)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: Re: Why VESA Local-Bus ????
+Date: 15 Apr 1993 18:20:48 GMT
+Organization: New Mexico State University, Las Cruces, NM
+Lines: 20
+Distribution: world
+Message-ID: <1qk920INNo1j@dns1.NMSU.Edu>
+NNTP-Posting-Host: dante.nmsu.edu
+
+guyd@austin.ibm.com (Guy Dawson) writes:
+>How about an VLB ethernet card? Move the data into the card at
+>130 odd MB/s and then wait for it to tickle onto the net at
+>just over 1Mb/s.
+How about 250MB/s for 64-bit VLB or 350MB/s for QuickRing {Apple's
+implimentation of VLB (Byte 10/92:132)} QuickRing is interesting in that
+it allows interleaving with other card so that the 350MB/s can be divided 
+among many cards at the same time {NuBus 90 and MCA are about the only card 
+interfaces able to DO anything with that kind of speed and even NuBus 90
+ditzes around at ~30MB/s with a burst mode: 80MB/s.
+"MCA {Also called Micro Channel}
+ IBM's 16 and 32-bit bus; "allows use of more than one CPU in a computer" 
+ (DCT) and anything can talk to anything, >>as fast as the two components 
+ involved can handle it.<< Never took off because it was incompatible with ISA 
+ and EISA.  Planned to be bus interface of IBM PowerPC 601 (Carl Jabido).
+
+IDA can't handle VLB speed never mind QuickRings's speed so it is out.
+EISA pokes along at NuBus Mac II speeds {~15MB/s burst mode: 33MB/s}
+ so VLB and QuickRing are slowed down by it.
+PCI is a competing interface that is still in development.

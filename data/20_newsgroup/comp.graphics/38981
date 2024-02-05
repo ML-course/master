@@ -1,0 +1,18 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!newsgate.watson.ibm.com!hawnews.watson.ibm.com!danebury.hursley.ibm.com!ricky
+From: ricky@vnet.ibm.com (Rick Turner)
+Subject: Re: raw2gif ?
+Message-ID: <C6ABIw.1u8x@hawnews.watson.ibm.com>
+Sender: ricky@danebury.hursley.ibm.com (Rick Turner)
+Date: Fri, 30 Apr 1993 07:01:43 GMT
+Disclaimer: This posting represents the poster's views, not necessarily those of IBM.
+References:  <1993Apr29.214535.7355@tolten.puc.cl>
+Nntp-Posting-Host: danebury.hursley.ibm.com
+Organization: IBM UK Labs
+Lines: 5
+
+You can use PBM's 'rawtopgm' to convert three raw (r, g, b) files to pgm format. Then you can use pgm3toppm to convert the pgm files to a composite ppm file,
+and feed this to cjpeg for compression. Slow, and circuitous, but it will
+work.
+
+Rick

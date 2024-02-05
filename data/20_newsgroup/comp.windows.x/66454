@@ -1,0 +1,16 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!andrew.cmu.edu!re00+
+From: Rob Earhart <earhart+@CMU.EDU>
+Newsgroups: comp.windows.x
+Subject: Re: Q: How to avoid XOpenDisplay hang?
+Date: Tue,  6 Apr 1993 16:24:03 -0400
+Organization: Sophomore, Physics, Carnegie Mellon, Pittsburgh, PA
+Lines: 4
+Message-ID: <kfkSPX200VoxJJrs9P@andrew.cmu.edu>
+References: <C512xr.3oy@skates.gsfc.nasa.gov>
+NNTP-Posting-Host: po4.andrew.cmu.edu
+In-Reply-To: <C512xr.3oy@skates.gsfc.nasa.gov>
+
+  Don't know how to avoid the XOpenDisplay hang... but perhaps you could
+use something else (such as zephyr, perhaps)?
+
+  )Rob

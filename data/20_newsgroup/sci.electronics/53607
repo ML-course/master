@@ -1,0 +1,37 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.robotics:5319 sci.electronics:53607
+Newsgroups: comp.robotics,sci.electronics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!taco!Ziggy.csl.ncsu.edu!aras
+From: aras@Ziggy.csl.ncsu.edu (Caglan M. Aras)
+Subject: Polaroid Range finder interference-Help!
+Message-ID: <1993Apr16.155010.26393@ncsu.edu>
+Sender: news@ncsu.edu (USENET News System)
+Organization: /etc/organization
+Date: Fri, 16 Apr 1993 15:50:10 GMT
+Lines: 26
+
+We have a setup with with 13 polaroid transducers and rangefinders. We
+would like to fire these three at a time with about 5 ms between
+firings. The three that are being fired do not fire in the same
+direction. 
+
+To further explain the situation, assume we are firing sonars A,B,C
+5 ms apart each other. We should normally see an echo on A that
+corresponds to the distance. However, sonar A detects the INIT line
+of sonar B! The detection is actually through the transducer of sonar A;
+we can see a very faint 50Khz signal on the transducer, exactly at the
+time the init line of sonar B is activated. 
+
+We feel that there is some ground coupling that is causing this interference.
+We came to this conclusion since we are using a separate power supply
+for sonars B and C. 
+
+Has anyone else had any problems with these particular units and
+this type of experience? Your suggestions for remedies will be greatly
+appreciated.
+
+
+-- 
+Caglan M. Aras                 [] aras@eceris.ece.ncsu.edu
+ECE Department                 [] ph: 919-515-5405
+North Carolina State University[] fx: 919-515-5523
+Raleigh, NC 27695              []

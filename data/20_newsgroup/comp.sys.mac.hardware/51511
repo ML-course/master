@@ -1,0 +1,34 @@
+Newsgroups: comp.sys.mac.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!world!jbailey
+From: jbailey@world.std.com (jim bailey)
+Subject: Re: What to put in Centris 650 Internal Bay?
+Message-ID: <C5JFnp.FCx@world.std.com>
+Organization: The World Public Access UNIX, Brookline, MA
+References: <C5FEL7.CDL@world.std.com> <1qhdqmINNrk8@shelley.u.washington.edu> <C5HrCn.I6t@dartvax.dartmouth.edu>
+Date: Thu, 15 Apr 1993 18:35:48 GMT
+Lines: 24
+
+hades@coos.dartmouth.edu (Brian V. Hughes) writes:
+
+>tzs@stein2.u.washington.edu (Tim Smith) writes:
+
+>>jbailey@world.std.com (jim bailey) writes:
+>>>Yes, you get internal mixing of the analog CD-Audio outputs with
+>>>the Mac generated audio on the Mac motherboard.  Also you can sample
+>>>the CD-Audio using the sound control panel by clicking on the Options
+>>>button next to the microphone icon.
+
+>>How do you click on the Options button?  I've never seen it undimmed.
+
+>    The latest word on this is you have to disconnect the Microphone
+>cable on the motherboard. Then the button is supposed to un-dim.
+
+
+>-Hades
+
+Sorry, I assumed that the the various new machines with the internal
+CD-ROM bay worked the same as the Quadra 900.  Obviously they don't.
+I can use any of three inputs by changing the radio button under
+the sound cp on my Quadra 900, Microphone, External, and CD-ROM.  I
+always leave the microphone plugged in (even though I never use
+it).

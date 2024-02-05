@@ -1,0 +1,29 @@
+Newsgroups: comp.sys.mac.hardware
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!usenet.ins.cwru.edu!agate!headwall.Stanford.EDU!nntp.Stanford.EDU!news
+From: avery@gestalt.Stanford.EDU (Avery Wang)
+Subject: Re: Can Mac Superdrives read Unix disks?
+Message-ID: <1993Apr25.075020.14619@leland.Stanford.EDU>
+Sender: news@leland.Stanford.EDU (Mr News)
+Organization: DSO, Stanford University
+References: <1993Apr24.153158.13756@news.yale.edu>
+Date: Sun, 25 Apr 93 07:50:20 GMT
+Lines: 18
+
+In article <1993Apr24.153158.13756@news.yale.edu> Warren DeLano  
+<warren@laplace.biology.yale.edu> writes:
+> 
+> Does anyone know of a program or utility that will
+> enable the Mac to read Unix (i.e. NeXT) 3.5 in. disks?
+> 
+> Thanks,
+> Warren
+> warren@laplace.biology.yale.edu
+
+I don't know the answer to your direct question, but if the Mac Superdrive can  
+read MS-DOS disks (can it??) then you can transfer files between the NeXT and  
+a Mac by using MS-DOS formatted disks since the NeXT *can* read/write that  
+format.  And if you're interested in transferring files, you can also do it  
+over the serial port using kermit.
+
+cheers,
+-Avery

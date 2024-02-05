@@ -1,0 +1,28 @@
+Xref: cantaloupe.srv.cs.cmu.edu alt.3d:2145 comp.graphics:37925
+Newsgroups: alt.3d,comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!newsserver.jvnc.net!newsserver.technet.sg!iti.gov.sg!teckjoo
+From: teckjoo@iti.gov.sg (Chua Teck Joo)
+Subject: Visuallib (3D graphics for Windows)
+Message-ID: <1993Apr6.022227.221@iti.gov.sg>
+Sender: news@iti.gov.sg (News Admin)
+Organization: Information Technology Institute, National Computer Board, Singapore.
+Date: Tue, 6 Apr 1993 02:22:27 GMT
+Lines: 17
+
+
+I am currently looking for a 3D graphics library that runs on MS
+Windows 3.1.  Are there any such libraries out there other than
+Visuallib?  (It must run on VGA and should not require any other
+add-on graphics cards).
+
+For Visuallib, will it run with Metaware High C compiler v3.0?  Any
+email contact for the author of Visuallib?
+
+Any help would be much appreciated.  Thanks.
+
+
+-- 
+* Chua, Teck Joo	    | Information Technology Institute *
+* Email: teckjoo@iti.gov.sg | 71 Science Park Drive	       *
+* Phone: (65) 772-0237 	    | Singapore (0511)		       *
+* Fax:   (65) 779-1827      |			   	       *

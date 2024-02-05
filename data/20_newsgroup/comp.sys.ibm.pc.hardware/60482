@@ -1,0 +1,19 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!newsflash.concordia.ca!mizar.cc.umanitoba.ca!bison!draco!gremlin!charles
+From: charles@gremlin.muug.mb.ca (Charles)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: Multiport COM boards--info needed
+Message-ID: <1993Apr19.020916.8358@gremlin.muug.mb.ca>
+Date: Mon, 19 Apr 1993 02:09:16 GMT
+Organization: The Haunted Unix Box
+Lines: 10
+
+
+What 4 or more com port boards are available for PCs?  
+We want standard com ports, so no need to mention the expensive
+coprocessed ones.
+
+They should either be able to share IRQs or be able to use IRQs 8-15.
+
+Thanks for any info...
+
+

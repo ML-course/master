@@ -1,0 +1,40 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.crypt:15339 alt.security:9980 comp.org.eff.talk:16933 comp.security.misc:3417 comp.org.acm:1624 comp.org.ieee:1556
+Newsgroups: sci.crypt,alt.security,comp.org.eff.talk,comp.security.misc,comp.org.acm,comp.org.ieee
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!linac!uwm.edu!cs.utexas.edu!uunet!psinntp!shearson.com!newshost!pmetzger
+From: pmetzger@snark.shearson.com (Perry E. Metzger)
+Subject: Re: Once tapped, your code is no good any more.
+In-Reply-To: louie@sayshell.umd.edu's message of 17 Apr 1993 13:10:00 GMT
+Message-ID: <PMETZGER.93Apr18142223@snark.shearson.com>
+Sender: news@shearson.com (News)
+Reply-To: pmetzger@lehman.com
+Organization: Lehman Brothers
+References: <1993Apr17.032828.14262@clarinet.com> <tcmayC5M2xv.JEx@netcom.com>
+	<1qovj8$74m@ni.umd.edu>
+Distribution: na
+Date: Sun, 18 Apr 1993 19:22:23 GMT
+Lines: 24
+
+
+In article <1qovj8$74m@ni.umd.edu> louie@sayshell.umd.edu (Louis A. Mamakos) writes:
+
+   In article <tcmayC5M2xv.JEx@netcom.com> tcmay@netcom.com (Timothy C. May) writes:
+
+   >But is it any worse than the current unsecure system? It becomes much
+   >worse, of course, if the government then uses this "Clinton Clipper"
+   >to argue for restrictions on unapproved encryption. (This is the main
+   >concern of most of us, I think. The camel's nose in the tent, etc.)
+
+   Excuse me?  This has *already* happened.  There's a couple of humps in
+   the tent already.  Ask the folks at Qualcomm what became of the
+   non-trivial encryption scheme they proposed for use in their CDMA
+   digitial cellular phone standard?  There *already* are restrictions in
+   place.
+
+You have it slightly wrong. They dumped the encryption system because
+they could not export it -- not because they could not produce it for
+U.S. use. There are no legal restraints on citizen use of strong
+cryptography -- yet.
+--
+Perry Metzger		pmetzger@shearson.com
+--
+Laissez faire, laissez passer. Le monde va de lui meme.

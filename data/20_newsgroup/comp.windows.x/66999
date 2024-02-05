@@ -1,0 +1,17 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!wupost!uunet!nih-csl!freud.nia.nih.gov!howardy
+From: howardy@freud.nia.nih.gov (Howard Wai-Chun Yeung)
+Subject: need shading program example in X
+Message-ID: <1993Apr19.152854.24849@alw.nih.gov>
+Sender: postman@alw.nih.gov (AMDS Postmaster)
+Organization: (Natl. Institutes of Health, Bethesda, MD)
+Date: Mon, 19 Apr 1993 15:28:54 GMT
+Lines: 7
+
+Do anyone know about any shading program based on Xlib in the public domain?
+I need an example about how to allocate correct colormaps for the program.
+
+Appreciate the help.
+
+Howard.
+

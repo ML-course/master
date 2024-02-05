@@ -1,0 +1,35 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:68206 comp.graphics:39650
+Newsgroups: comp.windows.x,comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!sangam!iitb!vijay
+From: vijay@iitb.ernet.in (Vijay J. Talati)
+Subject: Problem with displaying multiple color images simultaneously (X)
+Message-ID: <1993May17.113703.22588@iitb.ernet.in>
+Keywords: color, X, images
+Organization: Indian Institute of Technology, Bombay
+Date: Mon, 17 May 1993 11:37:03 GMT
+Lines: 24
+
+Hi all,
+I have this program in which user can display many images one-by-one on the
+display. Now I am trying to get the best poosible color allocation. So
+each time I open a image, I try to allocate the colors reqd for that image
+(approach similar to that used in xv by john bradley). The problem 
+comes when I try to display the next image. Now I have effectively tied
+myself to the colors of the previous image. So the second image doesnot come
+up in original colors.(i.e. the colors it would have shown, had it been
+displayed first). 
+I know that I can display only 256 colors (or whatever depth of the display)
+at a time. But I also dont want the color reproduction dependent on the
+sequence in whihc you display the image. 
+So what is the best way out?
+
+Please rewpond to vijay@iitb.ernet.in.
+
+Thanks,
+
+Vijay 
+-- 
+-----------------------------------------------------------------------
+Vijay Talati                        Email: vijay@iitb.ernet.in
+ERNet Lab.                          (X.400):
+Computer Centre                      s=Talati ou=gateway o=iitb prmd=ernet c=in

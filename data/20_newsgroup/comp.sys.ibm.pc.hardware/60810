@@ -1,0 +1,18 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!linac!mp.cs.niu.edu!fnnews.fnal.gov!fncrdh.fnal.gov!uchima
+From: uchima@fncrdh.fnal.gov (Mike Uchima)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: Re: G2K/Jumbo 250 Backup Problems
+Date: 21 Apr 1993 14:47:08 GMT
+Organization: Fermi National Accelerator Laboratory, Batavia IL
+Lines: 5
+Distribution: usa
+Message-ID: <1r3mpc$fbe@fnnews.fnal.gov>
+References: <1993Apr19.181139.24147@den.mmc.com> <1993Apr20.205303.20164@rtsg.mot.com>
+NNTP-Posting-Host: fncrdh.fnal.gov
+Keywords: tape backup gateway jumbo
+
+I have been told by several people that Sony data cartridges don't quite
+cut it in the Jumbo 250 tape drive (lots of bad blocks).  If you're using Sony
+tape, try switching to something else -- like maybe 3M.
+
+-- Mike

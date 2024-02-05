@@ -1,0 +1,24 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!sun-barr!olivea!decwrl!pa.dec.com!engage.pko.dec.com!cadsys.enet.dec.com!lemons
+From: lemons@cadsys.enet.dec.com
+Newsgroups: comp.windows.x
+Subject: Xremote into X11R6?
+Message-ID: <1993Apr6.165950.15348@engage.pko.dec.com>
+Date: 6 Apr 93 16:59:50 GMT
+Sender: newsdaemon@engage.pko.dec.com (USENET News Daemon)
+Reply-To: lemons@cadsys.enet.dec.com ()
+Organization: Digital Equipment Corporation
+Lines: 12
+X-Newsreader: mxrn 6.18
+
+
+Hi!
+
+I remember reading (or hallucinating) that NCD's PC-Xremote functionality had 
+been given, by NCD, to MIT for inclusion in X11R6.  Is this true?  If so,
+(set mode/cheap) can I just wait for X11R6 to get compressed serial line
+X server support?
+
+Thanks!
+
+Terry Lemons
+Digital Equipment Corporation

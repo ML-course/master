@@ -1,0 +1,30 @@
+Newsgroups: comp.sys.mac.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!usenet.ins.cwru.edu!agate!apple!mumbo.apple.com!gallant.apple.com!apple.com!noah
+From: noah@apple.com (Noah Price)
+Subject: Re: LC III NuBus Capable?
+Sender: news@gallant.apple.com
+Message-ID: <noah-160493101223@noah.apple.com>
+Date: Fri, 16 Apr 1993 17:13:16 GMT
+References: <1qkkq4$5ev@nigel.msen.com>
+Organization: (not the opinions of) Apple Computer, Inc.
+Followup-To: comp.sys.mac.hardware
+Lines: 18
+
+In article <1qkkq4$5ev@nigel.msen.com>, mmiller@garnet.msen.com (Marvin
+Miller) wrote:
+> 
+> My friend recently purchased a LC III and he wants to know if there is
+> such a demon called NuBus adapter for his PDS slot? CompUsa and
+> ComputerCity Supercenter says they don't carry them.
+> 
+> Does this mean LC III is incapable of carrying a NuBus board?
+
+Apple doesn't make such a card, though I suppose a third party could.  One
+big problem is that there isn't room for a standard NuBus card inside the
+LC III.
+
+noah
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+noah@apple.com                                 Macintosh Hardware Design
+...!{sun,decwrl}!apple!noah   (not the opinions of) Apple Computer, Inc.

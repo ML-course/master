@@ -1,0 +1,36 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!pipex!uknet!uknet!gdt!masjhd
+From: masjhd@gdr.bath.ac.uk (James Davenport)
+Newsgroups: sci.crypt
+Subject: Re: Trinomial-Based PRNG
+Message-ID: <1993Apr17.210937.26514@gdr.bath.ac.uk>
+Date: 17 Apr 93 21:09:37 GMT
+Organization: School of Mathematical Sciences, University of Bath, UK
+Lines: 27
+
+I tried to mail Peter Boucher, who posted the question, but my e-mail
+bounced, so, apologies to thsoe who are not interested.
+>trinomials are all of the form X**a + X**b + 1, where a
+Have you read:
+Bremner,A.,
+On Trinomials of Type x$+n$-+Ax$+m$-+1.
+Math. Scand. 49(1981) pp. 145-155.
+Zbl. 458.12012.
+MR 83k:12002.
+
+Ljunggren,W.,
+On the Irreducibility of Certain Trinomials and Quadrinomials.
+Math. Scand. 8(1960) pp. 65-70.
+.
+
+Tverberg,H.,
+On the Irreducibility of the Trinomials
+x$+n$-$mpm$$x$+m$-$mpm$$1.
+Math. Scand. 8(1960) pp. 121-126.
+
+Tverberg,H.,
+On Cubic Factors of Certain Trinomials.
+Math. Scand. 53(1983) pp. 178-184.
+Zbl. 513.12003.
+
+James Davenport
+jhd@maths.bath.ac.uk

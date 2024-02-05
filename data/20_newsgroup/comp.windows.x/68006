@@ -1,0 +1,28 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!sol.ctr.columbia.edu!news.columbia.edu!cunixa.cc.columbia.edu!ls116
+From: ls116@cunixa.cc.columbia.edu (Lei  Shao)
+Subject: Error building X11R5 xdm
+Message-ID: <1993May12.153935.16605@news.columbia.edu>
+Keywords: X11R5 xdm
+Sender: usenet@news.columbia.edu (The Network News)
+Nntp-Posting-Host: cunixa.cc.columbia.edu
+Reply-To: ls116@cunixa.cc.columbia.edu (Lei  Shao)
+Organization: Columbia University
+Date: Wed, 12 May 1993 15:39:35 GMT
+Lines: 15
+
+
+Hi, there,
+    I'm trying to build X11R5 mit core distribution on a SparcStation running
+SunOS 4.1.1. The only thing I change is the ProjectRoot in site.def. When the
+"make World" process goes to "cc -o xdm ...", I get the following error:
+
+ld: Undefined symbol
+   __C0095A2A
+*** Error code 2
+
+And the process continues to finish. Does anybody know what's wrong? Thanx for
+any info.
+
+Lei Shao
+ls116@cunixa.cc.columbia.edu

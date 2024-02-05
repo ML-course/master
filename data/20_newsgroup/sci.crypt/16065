@@ -1,0 +1,23 @@
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!bogus.sura.net!news-feed-1.peachnet.edu!gatech!howland.reston.ans.net!torn!nott!bnrgate!bnr.co.uk!uknet!edcastle!dcs.ed.ac.uk!pdc
+From: pdc@dcs.ed.ac.uk (Paul Crowley)
+Newsgroups: sci.crypt
+Subject: Re: Clipper and conference calls
+Message-ID: <C63wz6.DD9@dcs.ed.ac.uk>
+Date: 26 Apr 93 20:01:54 GMT
+References: <122723@netnews.upenn.edu> <1993Apr25.114820.14022@ulysses.att.com> <WARLORD.93Apr25122501@podge.mit.edu> <1993Apr26.150434.227@lmpsbbs.comm.mot.com>
+Sender: cnews@dcs.ed.ac.uk (UseNet News Admin)
+Reply-To: pdc@dcs.ed.ac.uk (Paul Crowley)
+Organization: Edinburgh University
+Lines: 11
+
+Quoting dougb@ecs.comm.mot.com in article <1993Apr26.150434.227@lmpsbbs.comm.mot.com>:
+>You would have to use something other than the AT&T black box - in other
+>words, I don't think public key would work.  The session key would have 
+>to be agreed upon prior to the conversation and distributed to all 
+>sites beforehand.
+
+Why can't one site decide a session key and send it to the other sites
+by public key encryption?
+  __                                  _____
+\/ o\ Paul Crowley   pdc@dcs.ed.ac.uk \\ //
+/\__/ Trust me. I know what I'm doing. \X/  Fold a fish for Jesus!

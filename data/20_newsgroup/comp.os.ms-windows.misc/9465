@@ -1,0 +1,45 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.ms-windows.setup:4272 comp.os.ms-windows.apps:11516 comp.os.ms-windows.misc:9465
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!ogicse!uwm.edu!zaphod.mps.ohio-state.edu!ub!acsu.buffalo.edu!reczek
+From: reczek@acsu.buffalo.edu (Timothy J. Reczek)
+Newsgroups: comp.os.ms-windows.setup,comp.os.ms-windows.apps,comp.os.ms-windows.misc
+Subject: Wanted - dialog box to select file(s) for DOS apps
+Message-ID: <C5Jq1D.HCp@acsu.buffalo.edu>
+Date: 15 Apr 93 22:20:00 GMT
+Article-I.D.: acsu.C5Jq1D.HCp
+Sender: nntp@acsu.buffalo.edu
+Organization: UB
+Lines: 31
+Originator: reczek@tolstoy.acsu.buffalo.edu
+Nntp-Posting-Host: tolstoy.acsu.buffalo.edu
+
+
+
+	I'm looking for a program that will let me use a windows
+common dialog box to select a file to use when running a DOS app.
+
+	Basically, I have several DOS apps that I use now and then
+with different files.  They all accept a file as a command line 
+parameter, but the only way (at least that I know of) to do this
+easily when running them from windows is to set up the PIF file so
+that it prompts me for additional parameters (at which point I type 
+in the file name).  
+
+Problems are:
+
+	1) Sometimes I can't remember where the file is exactly located and it
+would be nice to browse my directories for it without having to use the
+file manager.
+	
+    and 2) I'm lazy and hate to type long pathnames for files burried 
+several directory levels deep.
+
+	If anyone can point me to such a program or let me know of some
+other way to handle this, I'd appreciate it.
+
+Thanks,
+
+Tim
+-- 
+	The Net isn't organized enough to be considered an anarchy
+
+  reczek@autarch.acsu.buffalo.edu

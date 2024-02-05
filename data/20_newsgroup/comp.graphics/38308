@@ -1,0 +1,34 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.graphics:38308 sci.image.processing:2625 comp.graphics.visualization:3342
+Newsgroups: comp.graphics,sci.image.processing,comp.graphics.visualization
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!cs.utexas.edu!csc.ti.com!tilde.csc.ti.com!fstop.csc.ti.com!osage!talluri
+From: talluri@osage.csc.ti.com (Raj Talluri)
+Subject: Point of intersection of n lines
+Message-ID: <C5JGqM.Az9@csc.ti.com>
+Keywords: robust statistics
+Sender: talluri@osage (Raj Talluri)
+Nntp-Posting-Host: osage
+Organization: Texas Instruments
+Date: Thu, 15 Apr 1993 18:59:09 GMT
+Lines: 21
+
+Hi,
+
+Can anybody suggest robust algorithms/code for computing the point of intersection
+on n, 2-d lines in a plane. The data has outliers and hence a simple least squares
+technique does not seem to provide satifactory results.
+
+Please respond by e-mail and I will post the summary to the newsgroups
+if there is sufficient interest.
+
+Thanks,
+
+Raj Talluri
+Member Technical Staff
+Image Understanding Branch
+Texas Instruments
+Central Research Labs
+Dallas, Texas 75248
+
+talluri@csc.ti.com
+
+

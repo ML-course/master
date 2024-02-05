@@ -1,0 +1,22 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!saimiri.primate.wisc.edu!caen!batcomputer!munnari.oz.au!ariel.ucs.unimelb.EDU.AU!werple.apana.org.au!mcontent!Thomas_n.a._Krebs
+Message-ID: <1993Apr22.210015.75624@mcontent.apana.org.au>
+Newsgroups: comp.sys.mac.hardware
+Distribution: world
+From: Thomas_n.a._Krebs@mcontent.apana.org.au
+Organization: MacContent BBS, Doncaster, Victoria, Australia
+Return-Receipt-To: Thomas_n.a._Krebs@mcontent.apana.org.au
+Date: Thu, 22 Apr 1993 21:00:15 +1000
+Subject: Re: Why the drive speeds differ??
+Lines: 11
+
+The most likely explanation may have something to do with the fact that a
+greater density of information exists on the larger capacity disk drive than
+the smaller one. If your running the drive on a Mac I would recommend a
+shareware utility called Timedrive which tests seek, SCSI throughput and
+rotational speed. This utility should let you know what the differences are
+between the drives.
+***************************************************************************
+ The views expressed in this posting those of the individual author only. 
+[BBS Number:(613) 848-1346      MacContent is Victoria’s first Iconic BBS!]
+***************************************************************************
+

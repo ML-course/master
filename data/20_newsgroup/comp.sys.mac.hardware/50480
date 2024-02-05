@@ -1,0 +1,34 @@
+Newsgroups: comp.sys.mac.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!noc.near.net!uunet!newsflash.concordia.ca!cumin.telecom.uqam.ca!CC.UMontreal.CA!casgrain
+From: casgrain@ERE.UMontreal.CA (Casgrain Philippe)
+Subject: Re: what do y'all think of the IIvx?
+Message-ID: <casgrain.734105219@alize.ERE.UMontreal.CA>
+Sender: news@cc.umontreal.ca (Administration de Cnews)
+Organization: Universite de Montreal
+References: <1p5e0tINNojp@MINERVA.CIS.YALE.EDU> <1prjquINNr0c@darkstar.UCSC.EDU>
+Date: Tue, 6 Apr 1993 14:06:59 GMT
+Lines: 23
+
+jfinete@cats.ucsc.edu (Joseph Manuel Finete) writes:
+>The IIvx...LCIII performance at a Centris 610 price. 
+>And unless
+>you're running FPU-intensive software, the 610 will blow the doors off the
+>LCIII and the IIvx.
+
+From the benchmarks I've seen (was that in MacUser or MacWeek?) the FPU-less
+Centris 610 is _faster_ at floating-point operations (the kind of calculations
+that get routed to an FPU) than a Mac IIfx!
+
+And a Mac IIfx (68030 @ 40MHz + FPU) is _the_ fastest 030-based Mac.
+
+Take note, of course, that benchmarks never tell the whole story... Get your
+favorite program(s) and run them on both machines at the store.  They should
+let you do that before you plunk down a hefty amount...
+
+Virtually,
+Philippe
+--
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Philippe Casgrain              Etudiant-Chercheur      Casgrain@ERE.UMontreal.CA
+Departement des Sciences Biologiques                      Universite de Montreal
+#define disclaimer(caught) (caught ? "I wasn't even there!" : "I didn't do it!")

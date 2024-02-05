@@ -1,0 +1,16 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!ogicse!network.ucsd.edu!usc!howland.reston.ans.net!noc.near.net!uunet!vnet.IBM.COM
+From: jmichael@vnet.IBM.COM
+Newsgroups: sci.electronics
+Subject: Re: A to D hardware for a PC
+Message-ID: <19930406.072523.946@almaden.ibm.com>
+Date: 6 Apr 93 14:24:58 GMT
+Article-I.D.: almaden.19930406.072523.946
+Lines: 7
+
+If you can find a copy of "8088 Assembler Language Programming: The IBM PC"
+by Willen and Krantz, 2nd ed. pub. by Sams, there is a discussion of the
+game control adapter, monostable multivibrators, and conversion to other
+uses, as well as an assembler program. If you need greater accuracy, there
+is no reason you couldn't modify the approach to suit your needs.
+
+Jim

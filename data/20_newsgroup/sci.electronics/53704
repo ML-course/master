@@ -1,0 +1,33 @@
+Newsgroups: sci.electronics
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!destroyer!cs.ubc.ca!unixg.ubc.ca!kakwa.ucs.ualberta.ca!ee.ualberta.ca!ulan
+From: ulan@ee.ualberta.ca (Dale Ulan)
+Subject: Re: Need to find out number to a phone line
+Message-ID: <ulan.735176894@ee.ualberta.ca>
+Sender: news@kakwa.ucs.ualberta.ca
+Nntp-Posting-Host: eigen.ee.ualberta.ca
+Organization: University Of Alberta, Edmonton Canada
+References: <20756.2bd16dea@ecs.umass.edu>
+Date: Sun, 18 Apr 1993 23:48:14 GMT
+Lines: 21
+
+alee@ecs.umass.edu writes:
+
+
+>Greetings!
+>      
+>        Situation:  I have a phone jack mounted on a wall.  I don't
+>                    know the number of the line.  And I don't want
+>                    to call up the operator to place a trace on it.
+
+>        Question:   Is there a certain device out there that I can
+>                    use to find out the number to the line?
+>        Thanks for any response.
+>                                                    Al
+
+There usually is a way, however, often, telephone companies like to
+keep all of their internal numbers private. Depends on your exchange.
+Any modern electronic switching equipment usually have voice synth
+lines that echo the number you called from. The line service guys use this
+to make sure they connect up the right pairs of lines.
+
+

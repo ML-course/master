@@ -1,0 +1,31 @@
+Newsgroups: sci.space
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!usenet.ins.cwru.edu!magnus.acs.ohio-state.edu!zaphod.mps.ohio-state.edu!uwm.edu!cs.utexas.edu!utnut!utzoo!henry
+From: henry@zoo.toronto.edu (Henry Spencer)
+Subject: Re: Orbital RepairStation
+Message-ID: <C5nH7F.6A8@zoo.toronto.edu>
+Date: Sat, 17 Apr 1993 22:59:36 GMT
+References: <1993Apr14.055809.14477@marlin.jcu.edu.au> <C5HCBo.Joy@zoo.toronto.edu> <C5Ho8M.48A.1@cs.cmu.edu> <C5MtyJ.12q@well.sf.ca.us>
+Organization: U of Toronto Zoology
+Lines: 21
+
+In article <C5MtyJ.12q@well.sf.ca.us> collins@well.sf.ca.us (Steve Collins) writes:
+>The difficulties of a high Isp OTV include...
+>If you go solar, you have to replace the arrays every trip, with
+>current technology.
+
+You're assuming that "go solar" = "photovoltaic".  Solar dynamic power
+(turbo-alternators) doesn't have this problem.  It also has rather less
+air drag due to its higher efficiency, which is a non-trivial win for big
+solar plants at low altitude.
+
+Now, you might have to replace the *rest* of the electronics fairly often,
+unless you invest substantial amounts of mass in shielding.
+
+>Nuclear power sources are strongly restricted
+>by international treaty.
+
+References?  Such treaties have been *proposed*, but as far as I know,
+none of them has ever been negotiated or signed.
+-- 
+All work is one man's work.             | Henry Spencer @ U of Toronto Zoology
+                    - Kipling           |  henry@zoo.toronto.edu  utzoo!henry

@@ -1,0 +1,30 @@
+Newsgroups: sci.electronics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!sol.ctr.columbia.edu!jabba.ess.harris.com!mlb.semi.harris.com!controls.ccd.harris.com!usenet
+From: tsp@ccd.harris.com (Timothy S. Pillsbury)
+Subject: need ACS tutorial and/or netlist examples
+Message-ID: <1993Apr14.204558.4726@ccd.harris.com>
+Originator: tsp@sp1
+Keywords: ACS,SPICE,simulation
+Sender: tsp@controls (Timothy S. Pillsbury)
+Organization: Harris Controls
+Date: Wed, 14 Apr 1993 20:45:58 GMT
+Lines: 18
+
+
+I recently ftp'd Al's Circuit Simulator (ACS) and I'm looking for
+the tutorial which is mentioned in the Users Manual (but not found there).
+I don't have any experience constructing a netlist (such as for SPICE)
+and I need a little help.
+
+The examples which come with ACS aren't explanatory about the translation
+between schematic and netlist. Does anyone have the fabled "Tutorial"
+or any other reference which could help me in constructing a netlist from
+a schematic diagram?
+
+(I also emailed Al himself but received no response yet. He's probably
+ busy with his next release.)
+-- 
+-------------------------------------------------------------------------------
+Tim Pillsbury          Internet:  tsp@ccd.harris.com
+                          uunet:  uunet!ccd.harris.com!timothy.pillsbury
+-------------------------------------------------------------------------------

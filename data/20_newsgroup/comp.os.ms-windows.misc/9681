@@ -1,0 +1,29 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!noc.near.net!uunet!mcsun!uknet!keele!seq1!cca20
+From: cca20@keele.ac.uk (J. Atherton)
+Newsgroups: comp.os.ms-windows.misc
+Subject: Serial Printing
+Date: 20 Apr 1993 16:33:41 GMT
+Lines: 16
+Distribution: world
+Message-ID: <1r18l5$94p@gabriel.keele.ac.uk>
+NNTP-Posting-Host: seq1.cc.keele.ac.uk
+Summary: Output to serial printer garbles with Windows app. (e.g. Works)
+Keywords: Works Handshaking serial
+X-Newsreader: TIN [version 1.1 PL6]
+
+Hi,
+	We've been having problems on a few setups when printing to a
+serial printer (dmp or Laser). I have used Works and Windows Write. The
+output is OK from DOS and if I send plain text output, but anything
+fancy garbles or just doesn't output. The exception is outputting to a
+Lserjet 4 which 'appears' to be fast enough receiving data, not to
+bother about handshaking messages. I'm sure I'm not alone in this. I've
+tried most of the Print/Network manager options I can think of. Anyone
+had similar problems they've cured and would like to tell me 'bout it??
+Thanks
+
+John Atherton
+
+
+
+

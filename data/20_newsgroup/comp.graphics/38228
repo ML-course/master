@@ -1,0 +1,24 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!sol.ctr.columbia.edu!destroyer!ncar!vexcel!copper!cudnvr!pvconway
+From: pvconway@cudnvr.denver.colorado.edu
+Newsgroups: comp.graphics
+Subject: TIN files & coutours
+Message-ID: <1993Apr13.180954.1@cudnvr.denver.colorado.edu>
+Date: 13 Apr 93 18:02:54 GMT
+Sender: netnews@copper.denver.colorado.edu
+Lines: 15
+
+
+Hi!
+	I am working on a project that needs to create contour lines
+from random data points.  The work that I have done so far tells me that I
+need to look into Triangulated Irregular Networks (TIN), the Delauney
+criiterion, and the Krige method.  Does anyone have any suggestions for
+references, programs and hopefully source code for creating contours.  Any
+help with this or any surface modeling would be greatly appreciated.
+I can be reached at the addresses below:
+
+
+			-- Paul Conway
+
+PVCONWAY@COPPER.DENVER.COLORADO.EDU
+PVCONWAY@CUDNVR.DENVER.COLORADO.EDU

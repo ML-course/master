@@ -1,0 +1,18 @@
+Newsgroups: comp.sys.ibm.pc.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!wupost!uunet!pipex!ibmpcug!iocgate!dfr
+From: dfr@ioc.co.uk (Doug Rabson)
+Subject: VESA local bus
+Sender: news@ioc.co.uk
+Message-ID: <DFR.93Apr6112053@rhino.ioc.co.uk>
+Date: Tue, 6 Apr 1993 11:20:53 GMT
+Lines: 7
+Nntp-Posting-Host: rhino.ioc.co.uk
+Organization: Intelligent Office Company Ltd.
+
+Is it possible to plug an ordinary ISA card into a VESA localbus slot?
+I am running out of slots and I have one spare localbus slot.
+
+--
+Doug Rabson, IOC Ltd.	| Email:  dfr@ioc.co.uk
+Phone: +44 81 528 9864	|	  drabson@cix.compulink.co.uk
+Fax:   +44 81 528 9878	|	  

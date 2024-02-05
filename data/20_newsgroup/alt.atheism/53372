@@ -1,0 +1,85 @@
+Xref: cantaloupe.srv.cs.cmu.edu talk.abortion:120767 alt.atheism:53372 talk.religion.misc:83782
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!gatekeeper.us.oracle.com!barrnet.net!kyle.eitech.com!kyle.eitech.com!not-for-mail
+From: ekr@kyle.eitech.com (Eric Rescorla)
+Newsgroups: talk.abortion,alt.atheism,talk.religion.misc
+Subject: Re: After 2000 years, can we say that Christian Morality is
+Date: 16 Apr 1993 07:01:13 -0700
+Organization: EIT
+Lines: 73
+Message-ID: <1qme79$c0k@kyle.eitech.com>
+References: <1qkn1t$59l@horus.ap.mchp.sni.de> <1qktj3$bn9@squick.eitech.com> <1qm36b$gn2@horus.ap.mchp.sni.de>
+NNTP-Posting-Host: kyle.eitech.com
+
+In article <1qm36b$gn2@horus.ap.mchp.sni.de> frank@D012S658.uucp (Frank O'Dwyer) writes:
+>In article <1qktj3$bn9@squick.eitech.com> ekr@squick.eitech.com (Eric Rescorla) writes:
+>#In article <1qkn1t$59l@horus.ap.mchp.sni.de> frank@D012S658.uucp (Frank O'Dwyer) writes:
+>#>  If one follows relativism to the letter, then, the theories
+>#>and predictions which are the results of science can only be subjectively
+>#>valued as 'objective', 'correct', or anything else.
+>#Twaddle. You're overloading the meaning of the word "value",
+>#that's all. Whether I care if the results are true is a "value".
+>#I fail to see how whether they are true (correct, whatever) is
+>#a value.
+>The result's actual truth is independent of what you think of it, if you
+>care to look at it that way - however your perception of a result's
+>truth cannot match its actual truth, unless you care to follow the (a?)
+>procedure to obtain truth ("science") correctly.
+Not true. Consider the case of a coin. I flip it and do not look
+at it. It is either heads or tails. It is entirely possible
+for me to simply choose to believe that it is heads or tails and
+be right. Now, there is a procedure for ensuring(more or less)
+that my belief will be correct, but it is quite possible for me
+to be correct without following it.
+
+> You have to pick 
+>the right procedure, and note its importance.  You've got to value it.
+No, I don't. I can do perfectly good science without valuing
+the procedure. But you're just overloading the term "value"
+again. Judgement of the validity of a procedure is not the
+same as judgement of how preferable a certain action is, and
+just because the word "value" can be applied to both doesn't
+make it so. You might as well assert that "number theory is
+based on values."
+
+>Otherwise you don't care about actual truth, and shouldn't object
+>to the statement "objectivism is true".
+Huh? This is a complete non sequiter.
+
+>Now if we're valuing procedures subjectively, and science is a procedure,
+>science cannot be valued non-subjectively.
+You're just overloading the word value, AGAIN, I suspect.
+
+>   If we're picking facts
+>and hypotheses subjectively, then we are using a maybe-not-quite-sure
+>method on maybe-not-quite-sure observations.  That should lead
+>to maybe-not-quite-sure results, no?  The fact that it does not seem
+>to might make one question the premise, which is that our subjective
+>valuations are necessarily unreliable.
+I don't understand your point here. What do you mean by "not quite-sure
+observations?" It gets observed all the time that if you don't
+buy into a whole series of assumptions about how science is
+done, the results become meaningless. 
+
+If you're suggesting that because science is allegedly chosen
+'subjectively' the results have to be inconsistent, that's
+silly.
+
+>#Like I said before, DES works whether I value my privacy or
+>#not.
+>O.K., which DES?  The abstract function DES? that stops working in any 
+>important sense if no-one cares for the importance of truth, mathematics, 
+>meaning, information, etc.  A DES chip or DES s/w?  That stops working in any 
+>important sense if no-one values science, objective reality, etc.   DES
+>does not work in a value vacuum.  Nothing else does, either.
+This is just truth by blatant assertion. Your "in any important sense"
+seem to be just weasel words. Imagine that I have a box which
+accepts 16 bytes and uses the first 8 to ECB the second 8.
+It still does a perfect job of DESing, whether or not any input
+is being made at the time--whether or not anyone values mathematics..
+
+-Ekr
+
+-- 
+Eric Rescorla                                     ekr@eitech.com
+             Would you buy used code from this man?
+        

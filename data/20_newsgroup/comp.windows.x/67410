@@ -1,0 +1,53 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:67410 comp.windows.misc:4720 comp.windows.x.intrinsics:1181 comp.windows.x.motif:16868 gnu.gdb.bug:3046
+To: gnu-gdb-bug@gatech.edu
+Distribution: world
+Approved: info-gnu@prep.ai.mit.edu
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!gatech!enterpoop.mit.edu!ai-lab!prep.ai.mit.edu!gnulists
+Followup-To: poster
+Newsgroups: comp.windows.x,comp.windows.misc,comp.windows.x.intrinsics,comp.windows.x.motif,gnu.gdb.bug
+From: deepak@expert.cc.purdue.edu (Deepak Mulchandani)
+Subject: Help in developing a X-Windows interface for GDB
+Message-ID: <C66BGy.96s@mentor.cc.purdue.edu>
+Organization: Motorola, Semiconductor Products Sector
+Date: Wed, 28 Apr 1993 03:10:07 GMT
+Lines: 39
+
+Hi,
+
+  I am trying to write an X-windows based interface that runs on top of GDB. Could 
+anyone help me in understanding the way we are supposed to "fork" GDB off as a 
+subprocess ?? I currently use pipes but when I try and debug this program, the 
+following happens :
+
+PROGRAM :
+
+	main()
+	{
+           int x;
+ 
+
+	   printf("enter x : ");
+           scanf("%d", &x);
+           printf("x = .%d.\n", x );
+
+        }
+
+OUTPUT :
+
+	The program hangs without returning the output of the printf statement. When I type
+in a value (like 5), then all the printf's output comes out at one time.
+
+
+Is there any other way, besides using PIPES to do this i.e., like ioctl or something else ??
+
+Thanks,
+
+Deepak
+
+--------------------------------------------------------------------------------------------
+Deepak Mulchandani
+Advanced Products Research and Development Laboratory
+Motorola, Semiconductor Products Sector
+Austin, TX
+(512) 928-7642 							     deepak@inxs.sps.mot.com
+

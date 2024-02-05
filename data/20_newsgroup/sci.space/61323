@@ -1,0 +1,30 @@
+Newsgroups: sci.space
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!agate!ames!data.nas.nasa.gov!wilbur.nas.nasa.gov!eugene
+From: eugene@wilbur.nas.nasa.gov (Eugene N. Miya)
+Subject: Re: Level 5?
+References: <19930422.121236.246@almaden.ibm.com> <1993Apr23.124759.1@fnalf.fnal.gov>
+Sender: news@nas.nasa.gov (News Administrator)
+Organization: NAS, NASA Ames Research Center, Moffett Field, California
+Date: Tue, 27 Apr 93 23:48:10 GMT
+Message-ID: <1993Apr27.234810.24502@nas.nasa.gov>
+Lines: 19
+
+In article <1993Apr23.124759.1@fnalf.fnal.gov> higgins@fnalf.fnal.gov
+(Bill Higgins-- Beam Jockey) writes:
+>Will someone tell an ignorant physicist where the term "Level 5" comes
+>from?
+>
+>But who is it that invents this standard, and how come
+>everyone but me seems to be familiar with it?
+
+The SEI. Software Engineering Institute, a DoD funded part of Carnegie Mellon
+University.  You can read about part of it in Ed Yourdon's The Decline and
+Fall of the American Programmer (Yourdon Press).
+
+Just passing thru.....
+
+--eugene miya, NASA Ames Research Center, eugene@orville.nas.nasa.gov
+  Resident Cynic, Rock of Ages Home for Retired Hackers
+  {uunet,mailrus,other gateways}!ames!eugene
+Second Favorite email message: Returned mail: Cannot send message for 3 days
+A Ref: Mathematics and Plausible Reasoning, vol. 1, G. Polya

@@ -1,0 +1,49 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.ms-windows.misc:9499 comp.graphics:38341
+Newsgroups: comp.os.ms-windows.misc,comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!emory!swrinde!zaphod.mps.ohio-state.edu!cs.utexas.edu!utnut!torn!blaze.trentu.ca!trentu.ca!ayounes
+From: ayounes@trentu.ca (Amro Younes, Trent University, C.C. #314, Peterborough, ON, Canada K9J 7B8. (705) 749-0391)
+Subject: Re: So what is the fastest Windows video card for graphics and imaging ?
+Message-ID: <16APR199309101156@trentu.ca>
+News-Software: VAX/VMS VNEWS 1.41    
+Keywords: Windows, graphics, imaging
+Sender: news@trentu.ca (USENET News System)
+Organization: Trent Computing and Telecommunications Department
+References: <o4fzrApDBh107h@eosvcr.wimsey.bc.ca>
+Date: Fri, 16 Apr 1993 14:10:00 GMT
+Lines: 35
+
+In article <o4fzrApDBh107h@eosvcr.wimsey.bc.ca>, aew@eosvcr.wimsey.bc.ca writes...
+>We have heard many bad things about the ATI Ultra Plus card (mainly having
+>to do with its buggy Windows drivers).
+> 
+>I would like to replace by ATI Graphics Ultra with a true-colour accelerated
+>card. I was about to buy the ATI Ultra Plus (EISA) but it has had so much
+>bad press that I am reconsidering.
+
+I have the ATI GRAPHICS ULTRA PRO EISA version.  I must admit it has 
+received bad press but that was due to the faulty drivers it had.  Now the 
+drivers that are available for the EISA version are the same ones as the ISA 
+and Local Bus (v1.5 Build 59).  Some people complained about problems they 
+had with the Build 59 drivers, fortunately I couldn't duplicate them on my 
+machine, but I did have one problem with Harvard Graphics that nobody else 
+seemed to have.
+
+> 
+>I would like an accelerated card
+>             a card that does 24bit true colour at 800x600 at least
+>             a card that does 1024x758 at 256 colours (or more)
+>             a card that has fast polygon fills
+>             a card that has fast bit blits
+>             a card that has a robust windows driver
+>             a card that has high speed non-interlaced refresh
+> 
+>Any suggestions?
+> 
+
+I wouldn't recommed the ATI for 24bit colour at 800x600, at this resolution 
+the display will be interlaced.  But at 16bit it isn't, I thought it was my 
+monitor but it isn't, its the card (that is the only time you will get 
+interlaced).  If I come up with cards more suited for your needs I'll let 
+you know.
+
+Amro

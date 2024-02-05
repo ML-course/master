@@ -1,0 +1,22 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!munnari.oz.au!titan!trlluna!bruce.cs.monash.edu.au!monu6!eng-b7-g15-07.eng.monash.edu.au!10748539
+From: 10748539@eng2.eng.monash.edu.au (CHARLES CHOONG)
+Subject: 486/33 WIN3.1 HANG
+Message-ID: <10748539.7.735200052@eng2.eng.monash.edu.au>
+Lines: 12
+Sender: news@monu6.cc.monash.edu.au (Usenet system)
+Organization: Faculty of Engineering, Monash University 
+Date: Mon, 19 Apr 1993 06:14:12 GMT
+
+HELP, PROBLEM 486/33MHZ HANGS IN EXTENDED MODE TRYING TO
+ACCESS DRIVES A: OR B: , SOMETIMES IT WILL DO DIR , SOMETIMES WILL HANG
+ON ACCESS SOMETIMES WILL WHEN TYING A TEXT FILE.
+
+HARDWARE:
+AMERICAN MEGATREND MOTHERBOARD
+AMI BIOS 91
+CONNER 85MB HARD DRIVE
+TRIDENT 1 MEG SVGA
+
+PLEASE HELP!!!
+ITS OK IN STANDARD MODE!!!

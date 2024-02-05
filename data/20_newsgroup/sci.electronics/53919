@@ -1,0 +1,26 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!sol.ctr.columbia.edu!usenet.ucs.indiana.edu!master.cs.rose-hulman.edu!master.cs.rose-hulman.edu!news
+From: henslelf@nextwork.Rose-Hulman.Edu. (Lige F Hensley)
+Newsgroups: sci.electronics
+Subject: Re: 68HC16 public domain software?
+Date: 21 Apr 1993 14:33:31 GMT
+Organization: Computer Science Department at Rose-Hulman
+Lines: 14
+Message-ID: <1r3lvrINN4o1@master.cs.rose-hulman.edu>
+References: <murashiea.15@mail.beckman.com>
+NNTP-Posting-Host: g222-26.nextwork.rose-hulman.edu
+Keywords: 68hc16
+
+In article <murashiea.15@mail.beckman.com>  writes:
+> Does anyone know of an FTP site where I might find public
+> domain software for the Motorola 68HC16 microprocessor?
+> I am looking for a basic interpreter/compilier or a 'C'
+> compiler.  Thanks in advance.
+> 					Ed Murashie
+Yep, at:
+oak.oakland.edu
+they have a couple different 68HC16 things in
+/pub/msdos/emulators
+and get the file
+00-index.txt
+for a list of what they have.
+lige

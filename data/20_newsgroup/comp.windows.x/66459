@@ -1,0 +1,26 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!sdd.hp.com!nigel.msen.com!math.fu-berlin.de!irz401!irzr17.inf.tu-dresden.de!beck
+From: beck@irzr17.inf.tu-dresden.de (Andre Beck)
+Newsgroups: comp.windows.x
+Subject: Re: lost in (TekHVC color) space
+Date: 6 Apr 1993 20:45:24 GMT
+Organization: Dept. of Computer Science, TU Dresden, Germany.
+Lines: 13
+Distribution: world
+Message-ID: <1psq54$nj8@irz401.inf.tu-dresden.de>
+References: <1993Apr6.160748.3794@westford.ccur.com>
+Reply-To: Andre_Beck@IRS.Inf.TU-Dresden.DE
+NNTP-Posting-Host: irzr17.inf.tu-dresden.de
+
+
+Hi,
+
+xtici worked for my system.
+I'm using X11R5 pl 17 clientside only on a DEC 5000/240 on Ultrix 4.3
+May be you have a serious floatingpoint compilation problem ?
+
+--
++-o-+--------------------------------------------------------------+-o-+
+| o |                \\\-  Brain Inside -///                       | o |
+| o |                    ^^^^^^^^^^^^^^^                           | o |
+| o | Andre' Beck (ABPSoft) mehl: Andre_Beck@IRS.Inf.TU-Dresden.de | o |
++-o-+--------------------------------------------------------------+-o-+

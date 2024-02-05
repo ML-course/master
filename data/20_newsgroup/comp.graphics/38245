@@ -1,0 +1,23 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.math:42976 comp.graphics:38245
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!darwin.sura.net!jhunix.hcf.jhu.edu!jhunix.hcf.jhu.edu!not-for-mail
+From: msc_wdqn@jhunix.hcf.jhu.edu (Daniel Q Naiman)
+Newsgroups: sci.math,comp.graphics
+Subject: Geometry package
+Date: 14 Apr 1993 10:42:54 -0400
+Organization: Homewood Academic Computing, Johns Hopkins University, Baltimore, Md, USA
+Lines: 11
+Distribution: world
+Message-ID: <1qh7teINN7bi@jhunix.hcf.jhu.edu>
+NNTP-Posting-Host: jhunix.hcf.jhu.edu
+
+I am looking for a package which takes as inputs a set
+of geometric objects defined by unions of convex polytopes
+specified in some manner, say by inequalities and equalities,
+and determines in some reasonable form things like
+intersections, unions, etc. etc..
+
+Does anyone know where I can find such a thing?
+
+Dan Naiman
+Department of Mathematical Sciences
+Johns Hopkins University

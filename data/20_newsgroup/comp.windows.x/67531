@@ -1,0 +1,26 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:67531 comp.os.ms-windows.misc:10129
+Newsgroups: comp.windows.x,comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!gatech!news.ans.net!newsgate.watson.ibm.com!yktnews.watson.ibm.com!hawnews.watson.ibm.com!news
+From: kaul@vnet.ibm.com
+Subject: X11 Servers for MS Windows available?
+Sender: news@hawnews.watson.ibm.com (NNTP News Poster)
+Message-ID: <C6BDzu.G6H@hawnews.watson.ibm.com>
+Date: Fri, 30 Apr 1993 20:52:42 GMT
+News-Software: IBM OS/2 PM RN (NR/2) v0.17h by O. Vishnepolsky and R. Rogers
+Lines: 11
+Reply-To: kaul@vnet.ibm.com
+Disclaimer: This posting represents the poster's views, not necessarily those of IBM.
+Nntp-Posting-Host: kaul.bocaraton.ibm.com
+Organization: IBM Boca Raton Visual Subsystems
+
+I have the text on the non-Un*x X11 servers, so I do know that there are
+X11 servers available for use with MSWindows 3.1.  My question is, does
+anybody have any relevant information on the usability of these servers?
+Has anyone tried to use them on a Token Ring network and gotten them to
+work?
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Dick Kaul            | My opinions only, not official IBM positions, etc--
+IBM XGA Development  | they'd make me wear a suit if I were to speak for IBM.
+Boca Raton, FL       | "The use of unnecessary violence in the apprehension
+kaul@vnet.ibm.com    |  of the Blues Brothers has been approved."

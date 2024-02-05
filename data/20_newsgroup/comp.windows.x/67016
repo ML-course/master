@@ -1,0 +1,30 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:67016 comp.windows.x.intrinsics:1150
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!sol.ctr.columbia.edu!ursa!buzz
+From: buzz@bear.com (Buzz Moschetti)
+Newsgroups: comp.windows.x,comp.windows.x.intrinsics
+Subject: Monthly Question about XCopyArea() and Expose Events
+Message-ID: <BUZZ.93Apr19125438@lion.bear.com>
+Date: 19 Apr 93 16:54:38 GMT
+Sender: news@bear.com
+Reply-To: buzz@bear.com (Buzz Moschetti)
+Organization: Bear, Stearns & Co. - FAST
+Lines: 18
+
+(2nd posting of the question that just doesn't seem to get answered)
+
+Suppose you have an idle app with a realized and mapped Window that contains
+Xlib graphics.  A button widget, when pressed, will cause a new item
+to be drawn in the Window.  This action clearly should not call XCopyArea() 
+(or equiv) directly; instead, it should register the existence of the new
+item in a memory structure and let the same expose event handler that handles
+"regular" expose events (e.g. window manager-driven exposures) take care
+of rendering the new image.  Using an expose event handler is a "proper" way
+to do this because at the time the handler is called, the Xlib Window is
+guaranteed to be mapped.
+
+The problem, of course, is that no expose event is generated if the window
+is already visible and mapped.  What we need to do is somehow "tickle" the
+Window so that the expose handler is hit with arguments that will enable
+it to render *just* the part of the window that contains the new item.
+
+What is the best way to tickle a window to produce this behavior?

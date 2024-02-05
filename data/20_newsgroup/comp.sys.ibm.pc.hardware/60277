@@ -1,0 +1,19 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.ibm.pc.hardware:60277 comp.os.386bsd.questions:1831
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!saimiri.primate.wisc.edu!eng.ufl.edu!usenet.cis.ufl.edu!caen!nigel.msen.com!umcc!not-for-mail
+From: jon@umcc.umcc.umich.edu (Jon Zeeff)
+Newsgroups: comp.sys.ibm.pc.hardware,comp.os.386bsd.questions
+Subject: S3 video card at different address
+Date: 16 Apr 1993 13:46:21 -0400
+Organization: UMCC, Ann Arbor, MI
+Lines: 7
+Distribution: usa
+Message-ID: <1qmrdd$70h@umcc.umcc.umich.edu>
+NNTP-Posting-Host: umcc.umcc.umich.edu
+
+I'd like to add a second S3 based video card to my system.  Does anyone
+know of a company that sells a card that can coexist with another one?
+All I really need is color text on one monitor and fast color graphics
+on the other.
+
+Probably just a configurable address would do it.
+

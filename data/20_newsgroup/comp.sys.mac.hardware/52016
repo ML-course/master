@@ -1,0 +1,20 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!ira.uka.de!Germany.EU.net!rztsun!tuhhco!et7jp
+From: et7jp@tuhhco.rz.tu-harburg.de (Joerg Pillath)
+Newsgroups: comp.sys.mac.hardware
+Subject: Ouadra Cache Problems
+Summary: system crash caused by programs if 040Cache is active
+Keywords: Ouadra cache
+Message-ID: <et7jp.735379380@tuhhco>
+Date: 21 Apr 93 08:03:00 GMT
+Sender: usenet@rztsun.rz.tu-harburg.de
+Lines: 9
+
+Hi Mac fans,
+
+I have some problems with my new Quadra 700. Several programs
+(Mathematica 2.1, AfterDark-Mandelbrot module) causes a systemcrash
+if the 040Cache is active. Do anyone have a list of programs which
+are compatible and which are not? Do anyone have some hints for the 
+use of the Quadras perfomence?
+
+Thanks Joerg

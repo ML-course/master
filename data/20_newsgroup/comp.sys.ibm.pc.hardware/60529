@@ -1,0 +1,27 @@
+Newsgroups: comp.sys.ibm.pc.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!spool.mu.edu!torn!watserv2.uwaterloo.ca!watserv1!bcwhite
+From: bcwhite@sunee.uwaterloo.ca (Brian C. White)
+Subject: Re: SCSI on dos
+Message-ID: <C5qMoM.2D4@watserv1.uwaterloo.ca>
+Keywords: SCSI, DOS, streamer
+Sender: news@watserv1.uwaterloo.ca
+Organization: University of Waterloo
+References: <1993Apr19.132748.18044@julian.uwo.ca>
+Date: Mon, 19 Apr 1993 15:50:45 GMT
+Lines: 15
+
+In article <1993Apr19.132748.18044@julian.uwo.ca> wlsmith@valve.heart.rri.uwo.ca (Wayne Smith) writes:
+>It was the Seagate 296N and the ST-02 controller.  I found that the
+>controller couldn't keep up with a 1:1 interleave, so the best I could do
+>with the drive was a 2:1 interleave and a data transfer of about 450 k/sec.
+
+According to what others have told me, the ST-296N is difficult to run at
+the 1:1 interleave even though Seagate claims it.  I have a non-pc system
+(don't ask what it is, you probably haven't heard of it) that is built
+around SCSI and it can't do 1:1, either.
+
+                                        Brian
+                           ( bcwhite@sunee.uwaterloo.ca )
+
+-------------------------------------------------------------------------------
+    In theory, theory and practice are the same.  In practice, they're not.

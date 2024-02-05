@@ -1,0 +1,19 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!rochester!cornell!batcomputer!caen!uunet!mcsun!sun4nl!htsa!remcoha
+From: remcoha@htsa.aha.nl (Remco Hartog)
+Subject: RGB to HVS, and back
+Date: Wed, 28 Apr 1993 09:47:39 GMT
+Organization: Hogeschool van Amsterdam, The Netherlands, E.E. & C.S. Dept.
+Sender: news@htsa.aha.nl (News Manager)
+Message-ID: <1993Apr28.094739.25200@htsa.aha.nl>
+Lines: 9
+
+I have a little question:
+
+I need to convert RGB-coded (Red-Green-Blue) colors into HVS-coded
+(Hue-Value-Saturnation) colors. Does anyone know which formulas to
+use?
+
+Thanks!
+
+R.W.Hartog  remcoha@solist.htsa.aha.nl

@@ -1,0 +1,29 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.mac.comm:22892 comp.windows.x:66960
+Newsgroups: comp.sys.mac.comm,comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!rochester!news.bbn.com!uhog.mit.edu!xn.ll.mit.edu!ll.mit.edu!wolfson
+From: wolfson@ll.mit.edu (Harry Wolfson)
+Subject: Re: MacX 1.2 color problem
+Message-ID: <1993Apr17.172825.5518@ll.mit.edu>
+Keywords: mac x color window macx
+Sender: news@ll.mit.edu
+Organization: MIT Lincoln Laboratory
+References: <C5L4oG.KuL@ux1.cso.uiuc.edu>
+Date: Sat, 17 Apr 93 17:28:25 GMT
+Lines: 16
+
+Stan Kerr writes:
+ >When some types of client windows are displayed, parts of the windows
+ >are in the wrong color; if the window is moved slightly, forcing the server
+ >to repaint it, it is repainted in the correct colors. It doesn't happen
+
+I have the exact same problem when running Hewlett Packard's Microwave Design
+System (MDS) from an HP 380 unix box and running MacX 1.2, Sys 7.0.1*.
+Normally, MDS draws a window with a deep blue backround, but occasionally
+it becomes a light blue and all the text, etc, inside the window become
+"washed out" (nearly invisible). I thought that it was just something
+brain dead that I was doing or a subtle conflict with another app or INIT.
+
+By slightly moving the window, and forcing a re-draw, the colors get corrected.
+
+Harry Wolfson
+wolfson@ll.mit.edu

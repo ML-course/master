@@ -1,0 +1,24 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!pitt.edu!gatech!howland.reston.ans.net!zaphod.mps.ohio-state.edu!saimiri.primate.wisc.edu!usenet.coe.montana.edu!netnews.nwnet.net!news.u.washington.edu!raven.alaska.edu!aurora.alaska.edu!ftqz
+From: ftqz@aurora.alaska.edu
+Newsgroups: sci.electronics
+Subject: Re: CAD Program for Electronics?
+Message-ID: <1993Apr29.031217.1@aurora.alaska.edu>
+Date: 29 Apr 93 11:12:17 GMT
+References: <1993Apr17.211126.23467@norfolk.vak12ed.edu>,<2784@snap> <1r73vqINNftu@zephyr.grace.cri.nz>
+Sender: news@raven.alaska.edu (USENET News System)
+Organization: University of Alaska Fairbanks
+Lines: 12
+Nntp-Posting-Host: acad3.alaska.edu
+
+In article <1r73vqINNftu@zephyr.grace.cri.nz>, srgxnbs@grace.cri.nz writes:
+>>>What I want the CAD program to do is to draw diagrams by
+>>>dragging elements onto the screen, and in this the elements
+>>>needed are as diverse as vacuum tubes to ICs (case with pins).
+> ..
+> try DraftChoice, its not windows but its shareware and object
+> oriented. Use it with PrintGL for high quality output.
+> 
+> Bruce
+> 
+> 
+Look for Spice or PSpice

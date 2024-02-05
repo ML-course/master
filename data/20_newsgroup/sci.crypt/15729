@@ -1,0 +1,34 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.lang.c++:41605 sci.crypt:15729
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!zaphod.mps.ohio-state.edu!sdd.hp.com!network.ucsd.edu!news.service.uci.edu!beckman.com!dsg4.dse.beckman.com!a_rubin
+Newsgroups: comp.lang.c++,sci.crypt
+Subject: Re: freely distributable public key cryptography c++ code: where?
+Message-ID: <a_rubin.735496362@dsg4.dse.beckman.com>
+From: a_rubin@dsg4.dse.beckman.com (Arthur Rubin)
+Date: 22 Apr 93 16:32:42 GMT
+References: <C5uA2J.IKI@gpu.utcc.utoronto.ca> <C5uKt8.CC1@brunel.ac.uk> <15314.735453769@moose.cs.indiana.edu>
+Organization: Beckman Instruments, Inc.
+Nntp-Posting-Host: dsg4.dse.beckman.com
+Lines: 22
+
+In <15314.735453769@moose.cs.indiana.edu> Marc VanHeyningen <mvanheyn@cs.indiana.edu> writes:
+
+>PGP is not available on the archive site rsa.com.  If it were, it
+>would be highly amusing, since rsa.com (actually Public Key Partners,
+>but it's the same entity) is the organization holding the patents
+>which they claim are violated if you actually "make, use or sell" PGP.
+>I believe those patents also apply in Canada, but I'm not a patent
+>lawyer or anything.
+
+(Sorry about double posting, but I forgot something.)
+
+"make, use or sell" in this context have non-standard meanings:
+
+"Make" means making an encrypted message.  "Use" may mean using PGP, or
+using an encrypted message.  "Sell" would probably mean selling an
+encrypted message.  It is the message created by a "patented" process
+incorporated in PGP, which infringes.
+
+--
+Arthur L. Rubin: a_rubin@dsg4.dse.beckman.com (work) Beckman Instruments/Brea
+216-5888@mcimail.com 70707.453@compuserve.com arthur@pnet01.cts.com (personal)
+My opinions are my own, and do not represent those of my employer.

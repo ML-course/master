@@ -1,0 +1,27 @@
+Path: cantaloupe.srv.cs.cmu.edu!rochester!news.bbn.com!bbn.com!koolish
+From: koolish@bbn.com (Dick Koolish)
+Newsgroups: comp.graphics
+Subject: Re: Flat globe
+Date: 20 Apr 1993 12:51:12 GMT
+Lines: 17
+Message-ID: <lt7se0INNt94@news.bbn.com>
+References: <4254@his.UUCP>
+NNTP-Posting-Host: bbn.com
+
+sp1marse@kristin (Marco Seirio) writes:
+
+
+>Does anybody have an algorithm for "flattening" out a globe, or any other
+>parametric surface, that is definied parametrically. 
+>That is, I would like to take a sheet of paper and a knife and to be
+>able to calculate how I must cut in the paper so I can fold it to a
+>globe (or any other object).
+
+
+There is a library of map projections in:
+
+    charon.er.usgs.gov
+
+in
+
+    /pub/PROJ.4.1.3.tar.Z

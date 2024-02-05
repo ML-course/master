@@ -1,0 +1,37 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!ub!toz!cyberman
+From: cyberman@toz.buffalo.ny.us (Cyberman)
+Newsgroups: sci.electronics
+Subject: Re: what to do with old 2
+Message-ID: <gate.w09B3B1w165w@toz.buffalo.ny.us>
+Date: 21 Apr 93 04:06:43 GMT
+Lines: 28
+X-Maildoor: WaflineMail 1.00r
+
+{Dale Ulan} said
+   "Re: what to do with old 2"
+      to <All> on 04-18-93  01:44
+ DU> Actually, if you wanted to use a 68008 IC, you could look at AN897,
+ DU> which has a neat controller built in. There is also the 683xx, I think
+ DU> one of those has the DRAM controller built in. This one is for the 6664
+ DU> DRAM, however, the 41256 has only one more address line, adding only
+ DU> another component or so. The 256k SIMMs are basically 8 or 9 41256
+ DU> DRAM chips (or their equivalent in fewer packages).
+
+    Be careful.  The 41256 is organized as 4 64k sections and
+    needs only 8 bits to refresh.  Whereas the 44256 has 4 256k
+    (IE is a 1M dram) and requires 9 bits to refresh.
+
+ DU> It *can* be done, just takes a bit of logic design. I'm actually
+ DU> about to do it using a 65C02P3 chip... I've got 8 256k simms... that's
+ DU> 2 megabytes on my Apple //e... (used to be in my '386).
+
+    How to you plan to use it?  Did Apple devlope a MMU system
+    for the //e?  I know the Radio Shack Color Computer can work
+    with 2megs (built in MMU with extras) now.
+
+                Stephen Cyberman@Toz.Buffalo.NY.US
+             Mangled on Mon  04-19-1993  at 12:10:04
+
+... Face, fe spinal thontier.  Vese are the thoyages of the enship
+___ Blue Wave/QWK v2.12
+       

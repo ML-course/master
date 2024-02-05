@@ -1,0 +1,29 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!bca
+From: bca@ece.cmu.edu (Brian C. Anderson)
+Subject: Trnasfering binary files from Terminal to UNIX
+Message-ID: <C5w13t.L53@fs7.ece.cmu.edu>
+Originator: bca@packard.ece.cmu.edu
+Keywords: Terminal, Kermit, UNIX
+Lines: 15
+Sender: news@fs7.ece.cmu.edu (USENET News System)
+Reply-To: bca@ece.cmu.edu (Brian C. Anderson)
+Organization: Electrical and Computer Engineering, Carnegie Mellon
+Distribution: cmu
+Date: Thu, 22 Apr 1993 13:50:16 GMT
+
+
+	I'm attempting to transfer files from my home computer running
+Windows 3.1 Terminal to a workstation at school.  The file transfer protocol
+at home is Kermit for binary files.  I'm running Kermit on the workstation at school and
+setting the file transfer protocol to binary.  I am unable to upload files
+to school but can download files from school to home.  During download,
+Terminal displays ther retrying message several times then the message '
+Verify you're using the correct protocol'.  
+	Anyone have any ideas on how to fix?  Either e-mail or post to this
+group. 
+
+Thanks, in advance,
+
+Brian Anderson    ///  Go Pens - make it 14 in a row ///
+

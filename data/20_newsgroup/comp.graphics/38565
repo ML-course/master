@@ -1,0 +1,27 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!bogus.sura.net!news-feed-1.peachnet.edu!gatech!purdue!mentor.cc.purdue.edu!news
+From: ab@nova.cc.purdue.edu (Allen B)
+Subject: Re: Fractals? What good are they ?
+Message-ID: <C5uJq6.81s@mentor.cc.purdue.edu>
+Sender: news@mentor.cc.purdue.edu (USENET News)
+Organization: Purdue University
+References: <mdpyssc.2@fs1.mcc.ac.uk>
+Date: Wed, 21 Apr 1993 18:37:12 GMT
+Lines: 16
+
+In article <mdpyssc.2@fs1.mcc.ac.uk> mdpyssc@fs1.mcc.ac.uk (Sue Cunningham)  
+writes:
+> We have been using Iterated Systems compression board to compress 
+> pathology images and are getting ratios of 40:1 to 70:1 without too
+> much loss in quality. It is taking about 4 mins per image to compress,
+> on a 25Mhz 486 but decompression is almost real time on a 386 in software 
+> alone.
+
+How does that compare with JPEG on the same images and hardware as far
+as size, speed, and image quality are concerned?
+
+Despite my skeptical and sometimes nearly rabid postings
+criticizing Barnsley and company, I am very interested in the
+technique.  If I weren't I probably wouldn't be so critical. :-)
+
+ab

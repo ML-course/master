@@ -1,0 +1,18 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!noc.near.net!uunet!pipex!uknet!brunel!cs89ssg
+From: cs89ssg@brunel.ac.uk (Sunil Gupta)
+Subject: Re: MESSAGE: for cgcad@bart.inescn.pt
+Message-ID: <C6CIvI.D7@brunel.ac.uk>
+Organization: Brunel University, Uxbridge, UK
+X-Newsreader: TIN [version 1.1 PL9]
+References: <C63xE4.1n3@brunel.ac.uk>
+Date: Sat, 1 May 1993 11:35:41 GMT
+Lines: 7
+
+
+Sunil Gupta (cs89ssg@brunel.ac.uk) wrote:
+: I cant get through to the author of rtrace. His site is inaccessible
+: can he upload the new version somewhere else please?
+
+Problem solved, its on wuarchive graphics/graphics/ray/RTrace/...
+Why does it seg fault so often?

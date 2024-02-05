@@ -1,0 +1,21 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.unix.ultrix:20832 comp.windows.x:68088
+Newsgroups: comp.unix.ultrix,comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!darwin.sura.net!haven.umd.edu!uunet!hub.cs.jmu.edu!newsusr
+From: STU_JWSHELBY@VAX1.ACS.JMU.EDU (JOSEPH W SHELBY)
+Subject: Xdec X11R5 server and DECstation 5000/2[0|5] sans DECnet
+Message-ID: <C6zKxq.162@hub.cs.jmu.edu>
+Sender: newsusr@hub.cs.jmu.edu (USENET News System)
+Organization: James Madison University
+Date: Thu, 13 May 1993 22:25:01 GMT
+X-News-Reader: VMS NEWS 1.24
+Lines: 9
+
+Has anybody built an X11R5 server that can run on a Personal Decstation
+5000 line with ultrix 4.3?  The only catch is that being "personal" machines,
+we did not install DECnet onto them, which the Xdec server on gatekeeper
+requires.
+
+any replies welcome...
+joe shelby
+stu_jwshelby@vax1.acs.jmu.edu
+

@@ -1,0 +1,26 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.ms-windows.setup:4532 comp.os.ms-windows.misc:10104
+Newsgroups: comp.os.ms-windows.setup,comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!world!yon
+From: yon@world.std.com (David A Yon)
+Subject: Lockups in 386 enh mode w/floppy?
+Message-ID: <C6AuLE.KJo@world.std.com>
+Organization: The World Public Access UNIX, Brookline, MA
+Distribution: usa
+Date: Fri, 30 Apr 1993 13:53:38 GMT
+Lines: 15
+
+Hi,
+
+	I've got an older 386/25 motherboard (old as in, uses a 1988
+keyboard controller, and uses memory interleaving rather than caching).
+It has developed a problem where trying to copy files from floppy cause
+the machine to lock up (reset button required), but only when in 386
+enhanced mode.  This occurs in Norton Desktop, File Manager, and when
+trying to install software.  Running Win 3.1 in standard mode works fine.
+
+	Has anyone run into this?  Any ideas?  Much thanks appreciated.
+
+David
+yon@world.std.com
+
+

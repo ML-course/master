@@ -1,0 +1,15 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!math.fu-berlin.de!ezzie
+From: ezzie@lucs2.lancs.ac.uk (One of those daze...)
+Subject: Borland turbo C libraries for S3 graphics card
+Message-ID: <3DPCBJOG@math.fu-berlin.de>
+Sender: news@math.fu-berlin.de (Math Department)
+Organization: Lancaster University Computer Society
+Date: Mon, 19 Apr 1993 12:37:50 GMT
+Lines: 5
+
+I've recently got hold of a PC with an S3 card in it, and I'd like to do some
+C programming with it, are there any libraries out there that will let me
+access the high resolution modes available via Borland Turbo C?
+
+	Andy

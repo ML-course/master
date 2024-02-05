@@ -1,0 +1,25 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!darwin.sura.net!sgiblab!news.kpc.com!kpc!balsa!jbulf
+From: jbulf@balsa.Berkeley.EDU (Jeff Bulf)
+Subject: Re: Fractal compression
+Message-ID: <1993Apr26.020857.3079@kpc.com>
+Keywords: fractal
+Sender: usenet@kpc.com
+Reply-To: jbulf@balsa.Berkeley.EDU (Jeff Bulf)
+Organization: Kubota Pacific Computers Inc.
+References:  <inu530n.735550992@lindblat.cc.monash.edu.au>
+Date: Mon, 26 Apr 1993 02:08:57 GMT
+Lines: 12
+
+In article <inu530n.735550992@lindblat.cc.monash.edu.au>, inu530n@lindblat.cc.monash.edu.au (I Rachmat) writes:
+|> Hi... can anybody give me book or reference title to give me a start at 
+|> fractal image compression technique. Helps will be appreciated... thanx
+
+For better worse, the source on this on is Michael Barnsley. His article
+in The Science of Fractal Images (Peitgen et al) is a fair-to-middling
+intro. Barnsley's book Fractals Everywhere is a more thorough treatment.
+The book covers Iterated Function Systems in general, and their application
+to image compression is clear from the text.
+--- 
+	dr memory
+	jbulf@kpc.com

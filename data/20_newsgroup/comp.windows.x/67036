@@ -1,0 +1,24 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!sol.ctr.columbia.edu!eff!enterpoop.mit.edu!INTERNET!news-mail-gateway
+From: adrian@ora.COM (Adrian Nye)
+Newsgroups: comp.windows.x
+Subject: Re:  xwininfo
+Date: 19 Apr 1993 20:24:59 -0400
+Organization: O'Reilly and Associates, Inc.
+Lines: 11
+Sender: news@athena.mit.edu
+Message-ID: <0E010016.vgrio5@spike.ora.com>
+Reply-To: adrian@ora.com
+NNTP-Posting-Host: enterpoop.mit.edu
+To: xpert@expo.lcs.mit.edu
+
+
+
+> I want to do the equivalent of an "xwininfo -name" via a call or set of calls
+> in Xlib.  I need to map a windows name to its id.
+> It's probably easy, but I've only been programming in X for a little while.
+
+Do you have the X source code?  Simply look in mit/clients/xwininfo/xwininfo.c and you
+will find out exactly how to do it.  :-)
+
+Adrian Nye
+O'Reilly and Associates.

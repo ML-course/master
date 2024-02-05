@@ -1,0 +1,36 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!concert!borg.cs.unc.edu!not-for-mail
+From: tell@cs.unc.edu (Stephen Tell)
+Newsgroups: sci.electronics
+Subject: Re: subliminal message flashing on TV
+Date: 25 Apr 1993 20:15:42 -0400
+Organization: The University of North Carolina at Chapel Hill
+Lines: 25
+Message-ID: <1rf9jeINN8e7@rukbat.cs.unc.edu>
+References: <1993Apr15.234259.9557@news.clarkson.edu> <7480237@hpfcso.FC.HP.COM>
+NNTP-Posting-Host: rukbat.cs.unc.edu
+
+In article <7480237@hpfcso.FC.HP.COM> myers@hpfcso.FC.HP.COM (Bob Myers) writes:
+>> Hi.  I was doing research on subliminal suggestion for a psychology
+>> paper, and I read that one researcher flashed hidden messages on the
+>> TV screen at 1/200ths of a second.  Is that possible?
+
+> Might
+>even be a vector ("strokewriter") display, in which case the lower limit
+>on image time is anyone's guess (and is probably phosphor-persistence limited).
+
+Back in high school I worked as a lab assistant for a bunch of experimental
+psychologists at Bell Labs.  When they were doing visual perception and
+memory experiments, they used vector-type displays, with 1-millisecond
+refresh rates common.
+
+So your case of 1/200th sec is quite practical, and the experimenters were
+probably sure that it was 5 milliseconds, not 4 or 6 either.
+
+>Bob Myers  KC0EW >myers@fc.hp.com 
+
+Steve
+-- 
+Steve Tell       tell@cs.unc.edu H: 919 968 1792  | #5L Estes Park apts
+UNC Chapel Hill Computer Science W: 919 962 1845  | Carrboro NC 27510
+Engineering is a _lot_ like art:  Some circuits are like lyric poems, some
+are like army manuals, and some are like The Hitchhiker's Guide to the Galaxy..

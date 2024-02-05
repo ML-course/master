@@ -1,0 +1,28 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!usc!cs.utexas.edu!uunet!mcsun!Germany.EU.net!thoth.mchp.sni.de!wiesel.km-mgnt.ap.mchp.sni.de!obl
+From: obl@gabi.ap.mchp.sni.de (Oliver Blankenheim)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: Subject: Re: 16550 v. 16550A ???
+Date: 23 Apr 1993 15:32:28 GMT
+Organization: Siemens Nixdorf Informationssysteme AG
+Lines: 16
+Distribution: world
+Message-ID: <1993Apr23.172508@gabi.ap.mchp.sni.de>
+Reply-To: obl@gabi.ap.mchp.sni.de ()
+NNTP-Posting-Host: 139.21.18.129
+
+
+In article <1993Apr22.042310.39296@ns1.cc.lehigh.edu> you write:
+
+> What's the difference between a 16550 UART and a 16550A UART? Thanks!
+
+The difference is that the 16550 got bugs while the 16550A can be used
+whithout problems even in fast serial communications. Other sources
+say that only the 16550AFN from Nat Semi (i.e. not: second sources)
+is really OK.
+
+Best wishes
+
+Oliver
+
+
+

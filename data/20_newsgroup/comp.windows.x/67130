@@ -1,0 +1,36 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.open-look:8383 comp.windows.x:67130
+Newsgroups: comp.windows.open-look,comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!noc.near.net!uunet!pipex!sunic!sics.se!eua.ericsson.se!ericom!eos.ericsson.se!etxmesa
+From: etxmesa@eos.ericsson.se (Michael Salmon)
+Subject: Re: Title for XTerm
+Message-ID: <1993Apr21.141350.14594@ericsson.se>
+Keywords: XTerm
+Sender: etxmesa@eos6c02 (Michael Salmon)
+Nntp-Posting-Host: eos6c02.ericsson.se
+Reply-To: etxmesa@eos.ericsson.se (Michael Salmon)
+Organization: Ericsson Telecom AB
+References: <1993Apr17.170907.25718@samba.oit.unc.edu> <C5oL74.3B1@aeon.in-berlin.de> <1quh74$r71@irz401.inf.tu-dresden.de> <1r3fe2INN10d@fbi-news.Informatik.Uni-Dortmund.DE>
+Date: Wed, 21 Apr 1993 14:13:50 GMT
+Lines: 21
+
+In article <1r3fe2INN10d@fbi-news.Informatik.Uni-Dortmund.DE>
+markhof@ls12r.informatik.uni-dortmund.de (Ingolf Markhof) writes:
+[...]
+|> I have an
+|> 
+|> 	alias precmd echo -n '^[]2\;${HOST}:$cwd^G'
+|> 
+|> in my ~/.tcshrc. This is a special alias for tvtwm. 
+
+I presume that you meant to say tcsh here ------^^^^^
+
+-- 
+
+Michael Salmon
+
+#include	<standard.disclaimer>
+#include	<witty.saying>
+#include	<fancy.pseudo.graphics>
+
+Ericsson Telecom AB
+Stockholm

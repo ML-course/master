@@ -1,0 +1,28 @@
+Newsgroups: sci.electronics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!asuvax!ennews!mcdphx!schbbs!mothost!white!rtsg.mot.com!corolla7!segal
+From: segal@rtsg.mot.com (Gary Segal)
+Subject: Pinout needed for TIL311
+Message-ID: <segal.734995860@corolla7>
+Sender: news@rtsg.mot.com
+Nntp-Posting-Host: corolla7
+Organization: Motorola Inc., Cellular Infrastructure Group
+Date: Fri, 16 Apr 1993 21:31:00 GMT
+Lines: 17
+
+I've recently picked up some TIL311 display chips, but I can't find
+any information on them.  It seems they are no longer made by TI, and
+I don't have an old enough data book.  :-(
+
+It appears to have a dot-matrix led display capable of showing one hex
+digit.  It is in a 14 pin DIP package, but pins 6, 9, and 11 are not
+present.
+
+If you have any information on this part (pinout, power requirments,
+functions, ...) please send me e-mail.
+
+Thank You,
+
+-- 
+Gary Segal                             Motorola Inc.            
+segal@oscar.rtsg.mot.com               Cellular Infrastructure Division
+	--- we are standing here only to gaze at the wind ---

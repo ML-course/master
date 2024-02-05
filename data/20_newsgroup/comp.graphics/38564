@@ -1,0 +1,18 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!noc.near.net!uunet!mcsun!sun4nl!utciva!infnews!infnews!borst
+From: borst@cs.utwente.nl (Pim Borst)
+Subject: PBM-PLUS sources, where?
+Message-ID: <1993Apr21.112327@cs.utwente.nl>
+Sender: usenet@cs.utwente.nl
+Nntp-Posting-Host: utis116.cs.utwente.nl
+Organization: University of Twente, Dept. of Computer Science
+Date: Wed, 21 Apr 1993 09:23:27 GMT
+Lines: 7
+
+Hi everybody,
+
+Can anyone name an anonymous ftp-site where I can find the sources
+of the PBM-PLUS package (portable bit/gray/pixel map).
+I would like to compile and run it on a Sun Sparcstation.
+
+Thanks!

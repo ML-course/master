@@ -1,0 +1,32 @@
+Newsgroups: comp.sys.mac.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!wupost!gumby!yale!yale.edu!news.yale.edu!YaleVM.YCC.Yale.Edu!DJCOHEN
+From: DJCOHEN@YaleVM.YCC.Yale.Edu (Daniel Cohen)
+Subject: Re: Interesting ADB behaviour on C650
+Message-ID: <16BB1A4DF.DJCOHEN@YaleVM.YCC.Yale.Edu>
+Sender: news@news.yale.edu (USENET News System)
+Nntp-Posting-Host: yalevm.ycc.yale.edu
+Organization: Yale University
+References:  <1993Apr15.181440.15490@waikato.ac.nz>
+Date: Thu, 15 Apr 93 11:43:15 EDT
+Lines: 20
+
+In article <1993Apr15.181440.15490@waikato.ac.nz>
+ldo@waikato.ac.nz (Lawrence D'Oliveiro, Waikato University) writes:
+ 
+>I've noticed an interesting phenomenon on my Centris 650. If I unplug the
+>keyboard and mouse and plug them in again without turning the power off,
+>the mouse suddenly switches to about half its normal movement speed. I check
+>the "Mouse" control panel, and there's no change in its setting there--it's
+>still on full speed, the way I like it. Restarting the machine restores the
+>normal mouse speed.
+>
+>By the way, it happens with both the newer-style mouse that came with the
+>Centris, and the older-style mouse from my IIfx at work. Thus I don't think
+>it has anything to do with the resolution setting in the mouse--it's
+>definitely a quirk of the ADB interface (either hardware or software) in the
+>Centris itself.
+ 
+I have noticed this exact same phenomenon occurs with my LCIII.  Perhaps it is
+a quirk of the new machines?
+ 
+--Dan

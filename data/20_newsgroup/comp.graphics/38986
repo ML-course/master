@@ -1,0 +1,34 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!ux1.cso.uiuc.edu!rs6000.cmp.ilstu.edu!jliddle
+From: jliddle@rs6000.cmp.ilstu.edu (Jean Liddle)
+Subject: Re: HELP: Need 24 bits viewer
+Message-ID: <1993Apr29.233953.15030@rs6000.cmp.ilstu.edu>
+Date: Thu, 29 Apr 1993 23:39:53 GMT
+References: <5713@seti.inria.fr> <1993Apr29.041601.8884@labtam.labtam.oz.au>
+Organization: Illinois State University
+Keywords: 24 bit
+Lines: 23
+
+In article <1993Apr29.041601.8884@labtam.labtam.oz.au> graeme@labtam.labtam.oz.a
+u (Graeme Gill) writes:
+>In article <5713@seti.inria.fr>, deniaud@cartoon.inria.fr (Gilles Deniaud) writ
+es:
+>> Hi,
+>>
+>> I'm looking for a program which is able to display 24 bits
+>> images. We are using a Sun Sparc equipped with Parallax
+>> graphics board running X11.
+>
+>    xli, xloadimage or ImageMagick - export.lcs.mit.edu [18.24.0.12] /contrib
+>
+
+xv 3.0 (shareware) supports 24-bit displays, and has lots of other
+improvements over earlier versions.  Definitely worth checking out
+(also at export)
+
+Jean.
+-- 
+Jean Liddle                                 
+Computer Science, Illinois State University  
+e-mail:  jliddle@ilstu.edu                  
+--------------------------------------------

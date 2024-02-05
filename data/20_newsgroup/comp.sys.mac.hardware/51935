@@ -1,0 +1,33 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.mac.hardware:51935 comp.sys.mac.wanted:21934
+Newsgroups: comp.sys.mac.hardware,comp.sys.mac.wanted
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!darwin.sura.net!haven.umd.edu!uunet!news.tele.fi!news.funet.fi!funic!nntp.hut.fi!nntp!jartsu
+From: jartsu@hut.fi (Jartsu)
+Subject: Good display card for 14" multisync?
+Message-ID: <JARTSU.93Apr20024948@lk-hp-20.hut.fi>
+Sender: usenet@nntp.hut.fi (Usenet pseudouser id)
+Nntp-Posting-Host: lk-hp-20.hut.fi
+Reply-To: jartsu@vipunen.hut.fi
+Organization: Helsinki University of Technology, Finland
+Date: 20 Apr 93 00:49:48 GMT
+Lines: 20
+
+
+Hi there!
+
+I wonder if anyone knows and can recommend me a good NuBus display
+card for driving a 14" multisync (NEC 3D)?
+The NEC 3D can do horizontal refresh from 15.5 kHz to 38 kHz and
+vertical from 50 Hz to 90 Hz and can do max 1024x768 interlaced,
+though I am looking for something more like 800x600 or 832x624
+noninterlaced.
+It would be very nice to find a card which can be programmed quite
+freely within these limits and is capable to display at least
+8bits/pixel, preferably more.
+
+Is there anything on the market that comes even close?
+
+
+Thanks
+
+--
+Jartsu

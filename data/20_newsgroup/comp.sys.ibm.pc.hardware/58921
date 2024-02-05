@@ -1,0 +1,26 @@
+From: robink@hparc0.aus.hp.com (Robin Kenny)
+Date: Tue, 6 Apr 1993 04:09:33 GMT
+Subject: Re: CMOS memory loss..Any idea why?
+Message-ID: <1993Apr6.040933.29603@hparc0.aus.hp.com>
+Organization: HP Australasian Response Centre (Melbourne)
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!usc!sdd.hp.com!hpscit.sc.hp.com!hplextra!hpcc05!hparc0.aus.hp.com!robink
+Newsgroups: comp.sys.ibm.pc.hardware
+References: <1993Mar30.115329.1@kean.ucs.mun.ca>
+Sender: news@hparc0.aus.hp.com (News Adminstrator)
+X-Newsreader: TIN [version 1.1 PL8.5]
+Lines: 14
+
+How is the CMOS backed-up? Dry cell batteries or ni-cad cell?
+
+Your batteries may be dead.
+
+mwallack@kean.ucs.mun.ca (mwallack@kean.ucs.mun.ca) wrote:
+: A friend's computer recently failed to recognize its hard drive.
+: On examination it was discovered that the CMOS had lost all data.
+: No other problems were discovered.  When the CMOS was restored, 
+: everything appeared to work as before.  This all happened after
+: a long period of stable operation.  The most recent change had 
+: been the addition of a second hard drive as a slave.  Qemm had
+: been installed along with DeskView for quite a while.  Any ideas?
+: The computer is a 386dx with 8megs of ram, an ATI Wonder xl card, and is
+: about a year and a half old.

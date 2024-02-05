@@ -1,0 +1,23 @@
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!gatech!howland.reston.ans.net!ira.uka.de!math.fu-berlin.de!irz401!irzr17.inf.tu-dresden.de!beck
+From: beck@irzr17.inf.tu-dresden.de (Andre Beck)
+Newsgroups: comp.graphics
+Subject: Re: POV problems with tga outputs
+Date: 26 Apr 1993 13:26:56 GMT
+Organization: Dept. of Computer Science, TU Dresden, Germany.
+Lines: 10
+Distribution: world
+Message-ID: <1rgnv0$at9@irz401.inf.tu-dresden.de>
+References: <1rbtc6INN8p4@tamsun.tamu.edu>
+Reply-To: Andre_Beck@IRS.Inf.TU-Dresden.DE
+NNTP-Posting-Host: irzr17.inf.tu-dresden.de
+
+
+Remember that the UNIX versions of PoV don't create TGA but QRT file
+format output by default. +ft is needed to make TGA.
+
+--
++-o-+--------------------------------------------------------------+-o-+
+| o |                \\\-  Brain Inside -///                       | o |
+| o |                    ^^^^^^^^^^^^^^^                           | o |
+| o | Andre' Beck (ABPSoft) mehl: Andre_Beck@IRS.Inf.TU-Dresden.de | o |
++-o-+--------------------------------------------------------------+-o-+

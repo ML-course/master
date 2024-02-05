@@ -1,0 +1,35 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.crypt:15676 alt.security.pgp:2613 alt.privacy.clipper:52
+Newsgroups: sci.crypt,alt.security.pgp,alt.privacy.clipper
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!usenet.ins.cwru.edu!agate!linus!linus.mitre.org!linus!mbunix!eachus
+From: eachus@spectre.mitre.org (Robert I. Eachus)
+Subject: Re: Off the shelf cheap DES keyseach machine (Was: Re: Corporate acceptance of the wiretap chip)
+In-Reply-To: mjr@tis.com's message of 21 Apr 1993 21:28:13 GMT
+Message-ID: <EACHUS.93Apr21194844@spectre.mitre.org>
+Sender: news@linus.mitre.org (News Service)
+Nntp-Posting-Host: spectre.mitre.org
+Organization: The Mitre Corp., Bedford, MA.
+References: <1993Apr20.150531.2059@magnus.acs.ohio-state.edu>
+	<1993Apr20.192105.11751@ulysses.att.com>
+	<1993Apr21.001230.26384@lokkur.dexter.mi.us> <1r4e9d$pdo@sol.TIS.COM>
+Date: Thu, 22 Apr 1993 00:48:44 GMT
+Lines: 19
+
+
+      Don't get fooled by exponents 2^80 (possible keys) is not in the
+same league with 10^80 (particles in the universe).  2^80 < 10^25.
+Remember Avagadro's number?  There are about that many elementary
+particles (not molecules) in one mole.  Pretty small universe!  Or if
+you can put 5 Gigabytes on one tape, you would need about 10 trillion
+tapes (allowing several bytes per entry).  Still more than all of the
+existing magnetic media on the planet, but wait a few years.  (I'm
+including existing audio and video cassettes in the total.  Ten
+trillion is about 2,000 per person worldwide...  Gives new meaning to
+the suspicions of hiden messages.)
+
+--
+
+					Robert I. Eachus
+
+with Standard_Disclaimer;
+use  Standard_Disclaimer;
+function Message (Text: in Clever_Ideas) return Better_Ideas is...

@@ -1,0 +1,29 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:67257 comp.windows.x.motif:16774
+Newsgroups: comp.windows.x,comp.windows.x.motif,comp.windows.x.openlook
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!bogus.sura.net!news-feed-1.peachnet.edu!gatech!howland.reston.ans.net!zaphod.mps.ohio-state.edu!uwm.edu!linac!sunova!dale!jigang
+From: jigang@dale.ssc.gov (Jigang Yang)
+Subject: Re: internationalized menus & icon labels
+Message-ID: <1993Apr23.204409.10500@sunova.ssc.gov>
+Keywords: icon, motif, openlook
+Sender: jigang@dale (Jigang Yang)
+Nntp-Posting-Host: dale.ssc.gov
+Organization: SSC Lab
+References: <1993Mar31.185141.13636@bostech.com> <1993Apr5.035249.19796@cis.vutbr.cs>
+Date: Fri, 23 Apr 1993 20:44:09 GMT
+Lines: 15
+
+
+
+             I have a problem with icon pixmap. My application has to run
+   under openwindow and motif. I wrote my program in Motif with pixmap and
+   icons. It runs fine under motif/motif window manager and X11R5/mwm. But 
+   the icon pixmap does not show up under openwin/olwm and X11R5/olwm.
+
+             Has anybody got into this kind of problem? Need a clue. An 
+   example which works in both X11R5/motif and openwindow will be great.
+
+-- 
+Jigang Yang, jigang@dale.ssc.gov, jyang@sscvx1.bitnet
+2550 Beckleymeade Ave. MS 4011  Tel: 214-708-3498
+Dallas, TX 75237                Fax: 214-708-4898 
+ 

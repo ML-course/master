@@ -1,0 +1,23 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!math.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!noc.near.net!uunet!bcstec!voodoo.ca.boeing.com!bcsfse!bcsfse.ca.boeing.com!pannon
+From: pannon@bcsfse.ca.boeing.com (Joe Pannon)
+Subject: Geometry in font units in place of pixels
+Message-ID: <1993May13.053301.17997@bcsfse.ca.boeing.com>
+Sender: news@bcsfse.ca.boeing.com (News Account)
+Organization: BOECOM Project - Boeing Computer Services, Seattle, Wa
+Date: Thu, 13 May 1993 05:33:01 GMT
+Lines: 13
+
+I am planning to convert my Motif 1.2 app from pixel to font units
+which would all be set in the app's resource file instead of hard coded
+in the program.
+
+However, the word here is from people who tried this already that for
+some unknown reason XmForm offsets placed in the resource file are still
+interpreted in pixel units forcing people to code those offset font units into the program.
+
+Can somebody confirm this?
+
+Thanks,
+Joe Pannon
+pannon@bcsfse.ca.boeing.com

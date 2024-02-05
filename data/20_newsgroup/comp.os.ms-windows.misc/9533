@@ -1,0 +1,39 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.ms-windows.apps:11574 comp.os.ms-windows.misc:9533
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!cs.utexas.edu!tamsun.tamu.edu!kbssun1.tamu.edu!cmenzel
+From: cmenzel@kbssun1.tamu.edu (Chris Menzel)
+Newsgroups: comp.os.ms-windows.apps,comp.os.ms-windows.misc
+Subject: Re: Procomm Plus for windows problems....
+Followup-To: comp.os.ms-windows.apps,comp.os.ms-windows.misc
+Date: 16 Apr 1993 21:16:04 GMT
+Organization: Texas A&M University, College Station, TX
+Lines: 25
+Message-ID: <1qn7mkINNope@tamsun.tamu.edu>
+References: <1qljv3INN6o7@charnel.ecst.csuchico.edu>
+NNTP-Posting-Host: kbssun1.tamu.edu
+X-Newsreader: TIN [version 1.1 PL8]
+
+Jeff Meyers (jmeyers@ecst.csuchico.edu) wrote:
+: In article <1qkqrhINNobc@matt.ksu.ksu.edu> kentiler@matt.ksu.ksu.edu (Kent P. Iler) writes:
+: .
+: .
+: >I have a friend who connects to the mainframe and unix machines here
+: >using [Procomm Plus for Windows], but the screen seems to have a problem 
+: >keeping up with the
+: >modem....he has a 14,400 modem on a 486 50 Mhz machine.
+
+: Tell him he probably needs to upgrade to a faster video card!  My 9600 baud
+: modem was one of the reasons I sought out the Diamond Speedstar 24X. I get
+: about 7 million WinMarks on my 386-25 and it just about keeps up with the
+: modem speed (using procomm plus for windows, too).  He should get over
+: 10 million on his machine with the same card.  Anything 10+ should yield
+: acceptable speed...
+
+I'm using PC Plus at home on my trusty old NEC 386 SX/20 with a 14,400
+baud modem with no problems at all.  I am, however, running only
+straight 16 color VGA.
+
+--
+
+Christopher Menzel		    Internet -> cmenzel@tamu.edu
+Philosophy, Texas A&M University    Phone ---->   (409) 845-8764
+College Station, TX  77843-4237	    Fax ------>   (409) 845-045

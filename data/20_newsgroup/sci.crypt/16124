@@ -1,0 +1,32 @@
+Newsgroups: sci.crypt
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!torn!nott!bnrgate!bnr.co.uk!pipex!uknet!jet!rmal
+From: rmal@jet.uk (Richard Lucock)
+Subject: triple des
+Message-ID: <1993Apr28.080350.3396@jet.uk>
+Keywords: des
+Organization: Joint European Torus
+Date: Wed, 28 Apr 1993 08:03:50 GMT
+Lines: 22
+
+I have seen various references to 'triple des' recently. Could anyone
+tell me what it is ? From context, I would guess that it means
+encrypting each block 3 times, with a different key each time, but
+I'd like to be sure.
+
+Replies by email preferred - our news is unreliable.
+
+Thanks,
+	Richard
+
+-- 
+
+--------------
+PGP Public Key available on request
+--------------
+-- 
+
+--------------
+PGP Public Key available on request
+--------------
+- Disclaimer: Please note that the above is a personal view and should not 
+  be construed as an official comment from the JET project.

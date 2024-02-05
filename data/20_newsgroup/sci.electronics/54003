@@ -1,0 +1,25 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!darwin.sura.net!dtix.dt.navy.mil!oasys!plumpe
+From: plumpe@oasys.dt.navy.mil (David Plumpe)
+Newsgroups: sci.electronics
+Subject: Re: Making up odd resistor values required by filters
+Message-ID: <34738@oasys.dt.navy.mil>
+Date: 22 Apr 93 15:08:11 GMT
+References: <1993Apr22.134348.2663@nessie.mcc.ac.uk>
+Reply-To: plumpe@oasys.dt.navy.mil (David Plumpe)
+Organization: Carderock Division, NSWC, Bethesda, MD
+Lines: 14
+
+In sci.electronics, idh@nessie.mcc.ac.uk (Ian Hawkins) writes:
+>When constructing active filters,  odd values of resistor are often required
+>(i.e. something like a 3.14 K Ohm resistor).(It seems best to choose common
+>capacitor values and cope with the strange resistances then demanded).
+>
+>Is there a PD program out there that will work out how best to make up such
+>a resistance, given fixed resistors of the standard 12 values per decade?.(1,
+>1.2,1.5,1.8,2.2,3.3 etc ).  It is a common enough problem,  yet I cant
+>recall seing a program that tells that Rx+Ry//Rz gives Rq,  starting with
+>q and finding prefered values x,y and z.
+
+    Since you're worrying about the third decimal place, I assume you're
+using 1% tolerance resistors and capacitors?
+

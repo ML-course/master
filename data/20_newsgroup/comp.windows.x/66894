@@ -1,0 +1,25 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!uwm.edu!psuvax1!rutgers!devon!gizmonic!csthomas
+From: bm155@cleveland.freenet.edu (csthomas@gizmonic.UUCP)
+Newsgroups: comp.windows.x
+Subject: xwd->gif conversions
+Message-ID: <N7s32B1w165w@gizmonic.UUCP>
+Date: 16 Apr 93 01:40:46 GMT
+Reply-To: bm155@cleveland.freenet.edu (shane thomas)
+Distribution: na
+Organization: The Gizmonic Institute
+Lines: 14
+
+Hello,
+
+Anyone know of any source code I can get to either create window 
+dumps in GIF format, or convert an XWD (x window dump) file 
+into a GIF? Really could be any format I can manipulate in DOS, 
+i.e. PCX, BMP, etc.
+
+later,
+
+shane
+
+---
+bm155@cleveland.freenet.edu {uucp:rutgers!devon!gizmonic!csthomas}
+"God bless those Pagans..." - H. Simpson

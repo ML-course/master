@@ -1,0 +1,32 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.unix.dos-under-unix:444 comp.sys.ibm.pc.misc:34192 comp.os.ms-windows.apps:11651 comp.os.ms-windows.misc:9608 alt.uu.comp.os.linux.questions:216 comp.apps.spreadsheets:1157 comp.misc:20379 alt.os.linux:2919 comp.os.linux:37309
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!agate!dog.ee.lbl.gov!network.ucsd.edu!munnari.oz.au!metro!sunb.ocs.mq.edu.au!macadam.mpce.mq.edu.au!eugene
+From: eugene@mpce.mq.edu.au
+Newsgroups: comp.unix.dos-under-unix,comp.sys.ibm.pc.misc,comp.sys.ibm.pc.net,comp.os.ms-windows.apps,comp.os.ms-windows.misc,alt.uu.comp.os.linux.questions,comp.apps.spreadsheets,comp.misc,alt.os.linux,comp.os.linux,man.linux
+Subject: Re: WP-PCF, Linux, RISC?
+Date: 19 Apr 1993 13:20:13 GMT
+Organization: Macquarie University, Australia.
+Lines: 18
+Sender: eugene@mpce.mq.edu.au
+Message-ID: <1qu8ud$2hd@sunb.ocs.mq.edu.au>
+References: <C56HEo.KKA@ccu.umanitoba.ca> <C5o1yq.M34@csie.nctu.edu.tw>
+NNTP-Posting-Host: macadam.mpce.mq.edu.au
+Originator: eugene@macadam.mpce.mq.edu.au
+
+In article <C5o1yq.M34@csie.nctu.edu.tw> ghhwang@csie.nctu.edu.tw (ghhwang) writes:
+>
+>Dear friend,
+>  The RISC means "reduced instruction set computer". The RISC usually has 
+>small instruction set so as to reduce the circuit complex and can increase 
+>the clock rate to have a high performance. You can read some books about
+>computer architecture for more information about RISC.
+
+hmm... not that I am an authority on RISC ;-) but I clearly remember
+reading that the instruction set on RISC CPUs is rather large.
+The difference is in addressing modes - RISC instruction sets are not
+as orthogonal is CISC.
+
+-- 
++-----------------------------------------------------------------------------+
+|            Some people say it's fun, but I think it's very serious.         |
+|                         eugene@macadam.mpce.mq.edu.au                       |
++-----------------------------------------------------------------------------+

@@ -1,0 +1,21 @@
+From: craig@hpuplca.nsr.hp.com (Craig Lamparter)
+Date: Mon, 26 Apr 1993 18:37:17 GMT
+Subject: 3DS INV NORMAL ARRAY ???
+Message-ID: <44580001@hpuplca.nsr.hp.com>
+Organization: Hewlett-Packard Neely Golden Gate Area (Northern Calif.)
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!uwm.edu!lll-winken.llnl.gov!hpuplca!craig
+Newsgroups: comp.graphics
+Lines: 12
+
+
+
+Does anyone truely understand the "INVALID NORMAL ARRAY" error 3ds gives
+you while rendering?  It seems to present itself while rendering
+complicated images.  I have circumvented this problem by rendering at
+the command line, however it would be nice to render inside the editor.
+Is this a memory problem???  
+
+Craig....
+
+
+

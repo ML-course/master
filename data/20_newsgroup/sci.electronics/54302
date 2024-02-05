@@ -1,0 +1,25 @@
+Newsgroups: sci.electronics
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!darwin.sura.net!bogus.sura.net!news-feed-1.peachnet.edu!umn.edu!lynx.unm.edu!mimbres.cs.unm.edu!nmt.edu!backbone	%s@ncar.ucar.edu!erickson
+From: erickson@azure.nmt.edu (Alan Erickson)
+Subject: PC parallel I (!= I/O)
+Message-ID: <1993Apr26.110250.5243@nmt.edu>
+Sender: erickson@azure (Alan Erickson)
+Nntp-Posting-Host: azure
+Organization: New Mexico Tech
+Date: Mon, 26 Apr 1993 11:02:50 GMT
+Lines: 14
+
+	I'm trying to bring in 8+ bits to a PC, and would like
+	to use interrupt-driven routines. Without buying an IO
+	board or making a new port, _where_ can I bring in these
+	bits? LPT seems to have only a few inputs, but I've heard
+	rumours that some LPTs have bidirectional lines. Anybody
+	know fer sure? If any bi-d LPTs, which boards have them
+	(I'll be running a new 386DX-33)?
+
+------------------------------------------------------------------
+Alan Erickson   erickson@baltic.nmt.edu		
+
+to all SunRayce '93 competitors: I hope you're getting
+about as much sleep as I am.....
+------------------------------------------------------------------

@@ -1,0 +1,75 @@
+Xref: cantaloupe.srv.cs.cmu.edu soc.culture.arabic:18496 talk.politics.mideast:76038
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!kddlab!jcpltyo!ohayon
+From: ohayon@jcpltyo.JCPL.CO.JP (Tsiel Ohayon)
+Newsgroups: soc.culture.arabic,talk.politics.mideast
+Subject: How many israeli soldiers does it take to kill a 5 yr old child?
+Message-ID: <380@jcpltyo.JCPL.CO.JP>
+Date: 20 Apr 93 23:50:32 GMT
+References: <1993Apr12.220134.15412@thunder.mcrcim.mcgill.edu> <1993Apr12.223337.6211@bnr.ca> <HM.93Apr12204254@dooley.cs.brown.edu> <1993Apr19.204727.13328@midway.uchicago.edu>
+Followup-To: soc.culture.arabic
+Organization: James Capel Pacific Limited, Tokyo Japan
+Lines: 63
+
+JLE the Great writes:
+
+[JLE] Q: How many occupying israeli soldiers (terrorists) does it
+[JLE] take to kill a 5 year old native child?
+[JLE] A: Four
+[JLE] Two fasten his arms, one shoots in the face,
+[JLE] and one writes up a false report.
+
+A couple of months ago JLE wrote a terrible C program (it would never have 
+passed compilation). This is one describes JLE the Great.
+
+---- 8< Cut Here and save to jle.c ----------- >8 ----------
+
+#include <stdio.h>
+#include <signal.h>
+
+#define	LOSER		0x01
+#define	CHILDISH	0x01
+#define	UNHUMORISTIC	0x01
+#define VULGAR		0x01
+#define MOSSAD_AGENT	0x01
+
+#define J_L_E		LOSER | CHILDISH | UNHUMORISTIC | VULGAR | MOSSAD_AGENT
+
+static void
+abort()
+{
+	printf("Even if she wanted, JLE's mother couldn't abort this program");
+	printf("\n\n\n\n");
+}
+
+void
+main()
+{
+	signal(SIGINT,abort);
+	printf("This program does not help Jewish-Arab relations  :-( \n");
+
+	printf("Hit ^C to abort \n");
+
+/* Infinite loop, JLE never comes out of his world 	*/
+
+	while(J_L_E);
+}
+
+---- 8< Cut Here ----------- >8 ----------
+
+
+To compile this "wonderfool" program on a unix machine try.
+cc -o jle jle.c
+or 
+make jle
+
+then type jle at your prompt.
+
+I tried it, it works great ...
+
+
+Tsiel
+-- 
+----8<--------------------------------------------------------------->8------
+Tsiel:ohayon@jcpl.co.jp	   | If you do not receive this E-mail, please let me
+Employer may not have same | know as soon as possible, if possible.
+opinions, if any !         | Two percent of zero is almost nothing.

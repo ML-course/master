@@ -1,0 +1,31 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.x:68172 comp.windows.open-look:8587
+Newsgroups: comp.windows.x,comp.windows.open-look
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!wupost!gumby!yale!mintaka.lcs.mit.edu!kaleb
+From: kaleb@expo.lcs.mit.edu (Kaleb Keithley)
+Subject: Re: Blinking Cursor in Xterm???
+Message-ID: <kaleb.737470643@exhume.lcs.mit.edu>
+Sender: news@mintaka.lcs.mit.edu
+Organization: X Consortium, MIT Laboratory for Computer Science
+References: <1993May10.022806.8186@griffin.itc.gu.edu.au> <1993May10.134631.14364@taylor.uucp> <1993May13.212321.2563@moepi.do.open.de>
+Date: Sat, 15 May 1993 12:57:23 GMT
+Lines: 19
+
+bernward@moepi.do.open.de (Bernward Averwald) writes:
+
+>Yes. Don't confuse the mouse cursor with the text cursor in the xterms.
+>The latter is only controlled by the application.
+>Back in the days of X11.1 I did analyse the xterm code. The cursor 
+>was implemented by drawing a rectangle around the character. I doesn't
+>seem to be changed 'til now.
+>But if you have the sources you could add a blinking cursor via
+>XtAppAddTimeOut or similar :-|.
+
+Xt(App)AddTimeout doesn't work in xterm, because, despite appearances 
+to the contrary, xterm is not really an Xt based application.  "Other
+sources" like timeouts and inputs are never checked in xterm's main
+loop. So don't be surprised when you try this and it doesn't work.
+
+--
+
+Kaleb
+

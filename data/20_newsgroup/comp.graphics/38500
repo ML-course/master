@@ -1,0 +1,28 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!pipex!sunic!aun.uninett.no!nuug!nntp-oslo.uninett.no!kih.no!oved3b
+From: oved3b@kih.no (Ove Petter Tro)
+Newsgroups: comp.graphics
+Subject: Re: need a viewer for gl files
+Date: 20 Apr 1993 11:49:32 GMT
+Organization: Kongsberg College of Engineering
+Lines: 16
+Distribution: world
+Message-ID: <1r0o0c$l5u@ratatosk.uninett.no>
+References: <1qu36i$kh7@dux.dundee.ac.uk>
+NNTP-Posting-Host: knoll.kih.no
+
+In article <1qu36i$kh7@dux.dundee.ac.uk>, dwestner@cardhu.mcs.dundee.ac.uk (Dominik Westner) writes:
+|> the subject says it all. Is there a PD viewer for gl files (for X)?
+
+Try xviewgl.
+(filename xviewgl_v1.1.tar.Z on lots of bases)
+
+- Ove
+-- 
+- ----------==========###########==========-------- -
+    //                     | "What do you think
+  \X/ (Yep, me too...)     |  this is?  Real life?"
+Ove Petter Tro,            |    - Ford Fairlane.
+Kongsberg College          |
+of Engineering, Norway     | email: ovep@kih.no
+- ----------==========###########==========-------- -
+

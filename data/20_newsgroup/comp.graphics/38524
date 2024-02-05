@@ -1,0 +1,26 @@
+Xref: cantaloupe.srv.cs.cmu.edu alt.binaries.pictures.utilities:4224 comp.graphics:38524 alt.binaries.pictures.d:8784 alt.binaries.pictures.erotica.d:14932
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!bogus.sura.net!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!tamsun.tamu.edu!rigel.tamu.edu!lmp8913
+From: lmp8913@rigel.tamu.edu (PRESTON, LISA M)
+Newsgroups: alt.binaries.pictures.utilities,comp.graphics,alt.binaries.pictures.d,alt.binaries.pictures.erotica.d
+Subject: Another CVIEW question (was CView answers)
+Date: 20 Apr 1993 12:26 CST
+Organization: Texas A&M University, Academic Computing Services
+Lines: 12
+Distribution: world
+Message-ID: <20APR199312262902@rigel.tamu.edu>
+References: <1qlobb$p5a@tuegate.tue.nl> <1993Apr16.114158.2246@whiting.mcs.com>
+NNTP-Posting-Host: rigel.tamu.edu
+News-Software: VAX/VMS VNEWS 1.41    
+
+
+	Has anybody gotten CVIEW to work in 32k or 64k color mode on a Trident
+8900c hi-color card? At best the colors come out screwed up, and at worst the 
+program hangs. I loaded the VESA driver, and the same thing happens on 2 
+different machines.
+
+	If it doesn't work on the Trident, does anybody know of a viewer that 
+does?
+
+Thanx!
+LISA 
+

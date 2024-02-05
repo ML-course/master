@@ -1,0 +1,86 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!sol.ctr.columbia.edu!ira.uka.de!uni-heidelberg!embl-heidelberg.de!embl-heidelberg.de!news
+Newsgroups: sci.med
+Subject: HyperKnowledge
+Message-ID: <1993Apr28.200736.83411@embl-heidelberg.de>
+From: tuparev@EMBL-Heidelberg.DE (Georg Tuparev)
+Date: 28 Apr 93 20:07:35 +0100
+Nntp-Posting-Host: monk.nmr.embl-heidelberg.de
+Lines: 77
+
+
+
+ANNOUNCEMENT:	The "HyperKnowledge" PROJECT for NeXTSTEP
+
+Motivation
+
+We are a heterogeneous group of scientists and students who feel that our  
+work is continuously hindered by computer environments dominated by  
+incompatible scientific tools and monstrous software packages (too often  
+claiming to do everything).  Rather than being able to use different tools  
+together in a flexible, interactive system, we find ourselves spending too  
+much time converting between different data formats, writing throw-away  
+tools and I/O parsers, and worrying about how to get to a particular goal  
+rather than what it means to have attained it.
+
+What we need is an object-oriented scientific environment where the tools  
+we choose to use are integrated without being parts of a closed system,  
+highly interactive, and extendable (both by the addition of our own  
+specialized objects and by combining the available tools - graphically).   
+The use of such an environment should be a natural extension of our work,  
+requiring a very short learning phase and practically no  
+user-documentation.  The user should feel encouraged to explore different  
+possibilities, testing his/her own scientific ideas without worrying too  
+much about whether the system is able to cope (within reason, of course).   
+By building an open and object-oriented system, each user should be able  
+to draw upon and combine those tools necessary or conducive to a  
+particular task: we all need to organize and archive our data, display  
+results, and combine information from many different sources.
+
+Currently, the group consists of people from very different fields:  
+Molecular Biology, Computer Science, Physics and Astronomy, and Geography.   
+While many of our needs for such an environment diverge, the underlying  
+motivation is the same: no matter what you want to call it, we need a  
+system which helps rather than hinders the organization of our scientific  
+data and daily work.
+
+
+Why NeXTSTEP?
+
+What else is there?  No other system offers the same power, a totally  
+object-oriented developers environment, UNIX-compatibility,  
+highly-interactive and standardized user-interface.  With the advent of  
+NS486 and the expectation that NeXTSTEP will soon appear on a broad range  
+of hardware platforms, such a system will soon be nearly universally  
+available.  Classical workstation vendors (SUN, IBM, HP, and the rest) now  
+have little to offer, no similar tools exist for the standard X-Windows  
+GUI, if Apple had a system it would only run on their hardware, and the  
+mass-market Windows/DOS world is a developer's nightmare (either despite,  
+or more probably because of, OLE).
+
+In order to progress, we need an open discussion of how best to develop  
+such an environment.  In NeXTSTEP parlance, do we simply have to put  
+together a set of scientific protocols and a common API for our  
+"Hyper-knowledge" servers? Should be use distributed objects?  What  
+minimum set of tools do we need in order to start working with the  
+environment?  What tool-needs do we all have in common and which ones are  
+best developed by specialized sub-groups?  How many already existing tools  
+can/should be integrated into the system (e.g. Mathematica)?  Do we need  
+an "AVS"-like tool for data-flow manipulation?
+
+
+Mailing list and Anonymous ftp
+
+In order to take part to the project or to push the discussion forewords,  
+you are invited to subscribe to: sci-tools@embl-heidelberg.de
+All (interesting) suggestions, projects and sources will be archive and  
+soon available (anonymous ftp).
+For questions send mail to sci-tools-help@embl-heidelberg.de
+
+Acknowledgments
+
+The European Molecular Biology Laboratory (Heidelberg, Germany) has  
+consented to provide the computer resources for a mailing list and  
+anonymous ftp services.
+
+Rick Hessman    <hessman@eden.uni-sw.gwdg.de>
+Georg Tuparev   <tuparev@embl-heidelberg.de>

@@ -1,0 +1,53 @@
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!bogus.sura.net!news-feed-1.peachnet.edu!gatech!howland.reston.ans.net!sol.ctr.columbia.edu!eff!world!mv!jeck!howtek.MV.COM!phunt.howtek.MV.COM!phil
+From: phil@howtek.MV.COM (Phil Hunt)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: Motherboard manufacturer & What is this slot for?
+Date: Thu, 22 Apr 93 16:15:14 EST
+Organization: Howtek, Inc.
+Message-ID: <D2150040.vot8i1@phunt.howtek.MV.COM>
+Reply-To: phil@howtek.MV.COM (Phil Hunt)
+X-Mailer: uAccess - Macintosh Release: 1.6v2
+Lines: 42
+
+Hi,
+
+I bought, on the net here, a mini-tower 386dx25 system.  It works fine, but
+I have no docs on the motherboard.
+
+Does anyone know who a manufacturer named WPI is?  That is the only marking
+on the board that is not related to a chip/connector name.  It says
+(c)1991, WPI
+
+Also, this board has a connector at the other end of the motherboard, it looks
+like this:
+
+
+  +---------------------------------+
+  |  Batt                           |
+  |                        387      |  Socket for 387 math coprocessor
+  |                                 |
+  |                     386         |  386 chip is about here
+  |                                 |
+  | ========= ====                J |  = signs are the ISA slots
+  | ========= ====                M |
+  | =========                     P |  Jumpers for turbo/kb etc are where
+  | ========= ====         ------ E |  marked
+  | ========= ====         ------ R |
+  | ========= ====         ------ S |  - signs are 8 banks of SIMM sockets
+  | ========= ====                  |
+  | =========          ==== ======= |  <<<These connectors are the mystery
+  +---------------------------------+     connectors!!!!
+                       ^^^^ ^^^^^^^
+                       What is this connector?
+
+Is this a place to plug an extra memory board in?  I've seen thatr mentioned
+in some motherboard docs.  Some allow an 8-meg card and 8 meg in simms.  Is
+this what it is for?
+
+Phil
+
+--------------------------------------------------------------------
+Phil Hunt                          "Wherever you go, there you are!"
+Howtek, Inc.		                   
+
+Internet: phil@howtek.MV.COM   uucp: {decvax|harvard}!mv!howtek!phil

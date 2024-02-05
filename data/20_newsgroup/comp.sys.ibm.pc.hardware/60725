@@ -1,0 +1,30 @@
+Newsgroups: comp.sys.ibm.pc.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!usc!cs.utexas.edu!uunet!mnemosyne.cs.du.edu!nyx!mwgordon
+From: mwgordon@nyx.cs.du.edu (Mike Gordon)
+Subject: Gateway ethernet card drivers needed
+Message-ID: <1993Apr21.030441.29717@mnemosyne.cs.du.edu>
+Sender: usenet@mnemosyne.cs.du.edu (netnews admin account)
+Organization: Nyx, Public Access Unix @ U. of Denver Math/CS dept.
+Date: Wed, 21 Apr 93 03:04:41 GMT
+Lines: 20
+
+
+
+
+Hi all,  
+   
+    
+    Could anybody please tell me where I might be able to find device drivers 
+for a couple of older Gateway ethernet cards?  I don't have the model number
+off hand, but they have only a BNC connector, and a header connector for 
+a Novell keycard (one has one installed).
+ 
+    I'm looking at using these with a 2 node copy of 10-net that I picked up
+at a swap meet.  (I'd love to do Lantastic or Netware lite, but I'm a poor
+college student and the price was right.)
+
+    Please reply via email, as I haven't had a lot of time for news because
+of exams and such.  
+
+Mike Gordon   N9LOI  mwgordon@nyx.cs.du.edu
+

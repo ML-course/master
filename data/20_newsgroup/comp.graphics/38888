@@ -1,0 +1,30 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!usc!cs.utexas.edu!not-for-mail
+From: bultman@dgw.rws.nl (G.W.Bultman)
+Newsgroups: comp.graphics
+Subject: RGB/HLS/HSV conversion routines wanted
+Date: 28 Apr 1993 04:23:21 -0500
+Organization: UTexas Mail-to-News Gateway
+Lines: 19
+Sender: daemon@cs.utexas.edu
+Message-ID: <9304280923.AA26702@sun4nl.nluug.nl>
+NNTP-Posting-Host: cs.utexas.edu
+
+Hi,
+
+I'm looking for RGB (cube) --> HLS (double hexcone) --> HSV (cylinder) 
+conversion routines. I have RGB <--> HSV, but miss the HLS <--> RGB/HSV.
+
+PLEASE E-MAIL ME DIRECTLY, AS I DO NOT GET THIS NEWSGROUP AT MY SITE
+--------------------------------------------------------------------
+
+Any and all help wil be greatly appreciated.
+Gert.
+
+--
+
+    o      Gert Bultman <bultman@dgw.rws.nl> Phone (..31) 70 3744956     o
+  / | \    SNAIL   Rijkswaterstaat, Dienst Getijdewateren, Afd. AOCT   / | \  
+ o--o--o   MAIL:   POSTBUS 20907, 2500 EX The Hague, The Netherlands  o--o--o 
+  \ | /                                                                \ | / 
+    o      ( ---  Please mark all personal mail "PERSOONLIJK"  --- )     o    
+

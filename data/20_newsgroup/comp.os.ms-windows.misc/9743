@@ -1,0 +1,28 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!usc!howland.reston.ans.net!agate!headwall.Stanford.EDU!nntp.Stanford.EDU!shiva
+From: shiva@leland.Stanford.EDU (Matt Jacobson)
+Subject: Windows Errors and a bad memory
+Message-ID: <1993Apr21.160346.7134@leland.Stanford.EDU>
+Sender: news@leland.Stanford.EDU (Mr News)
+Organization: DSG, Stanford University, CA 94305, USA
+Date: Wed, 21 Apr 93 16:03:46 GMT
+Lines: 18
+
+Hi.  My last question for the year.  I have a mail-order no-name notebook
+with 4 meg ram.  I never have problems with my huge ramdisk or when
+running desqview, but Win3.1 and W4W2.0 constantly crash on me, most
+commonly citing a "memory parity error."  The only thing I can do is TURN
+OFF and re-boot.  My CMOS ticks off & counts all the memory every startup,
+and there is never a problem with this either.
+
+Could it be a bug in my Windows copy instead of the hardware?  I remember
+having some disk error problems when installing it.
+
+
+Is there any change I could make to lessen the frequency or likelyhood of
+this happening (I think win vs win /s produce different crashes, but both
+crash frequently nonetheless)
+
+I know this is a pain, but PLEASE answer by EMAIL because my home account
+doesn't have rn.  And I will stop asking questions now.  Thank you.
+Chet Pager = chetter@ucthpx.uct.ac.za

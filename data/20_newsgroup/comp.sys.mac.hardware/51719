@@ -1,0 +1,31 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!swrinde!zaphod.mps.ohio-state.edu!uwm.edu!cs.utexas.edu!uunet!portal!cup.portal.com!David_Anthony_Guevara
+From: David_Anthony_Guevara@cup.portal.com
+Newsgroups: comp.sys.mac.hardware
+Subject: Centris 650 Math CoProcessor option
+Message-ID: <79731@cup.portal.com>
+Date: Sat, 17 Apr 93 11:46:31 PDT
+Organization: The Portal System (TM)
+Distribution: usa
+Lines: 21
+
+
+Sorry if this is a FAQ.  I don't normally read comp.sys.mac.hardware.
+I am purchasing a couple of Centris 650's.  I configured the systems
+as follows:
+
+	Eight (8) Mb RAM
+	Ethernet
+	1 Mb VRAM
+	Math CoProcessor option
+
+My purchasing agent told me about the math coprocessor option and sent
+me the Apple summary documentation to prove it.  I ordered the coprocessor
+option, but I'm really not sure that we needed it.  I thought the '040 chip
+had a math coprocessor built into it.  Has Apple had a math coprocessor chip
+architectured to keep up with the speed of the '040 chip in the Centris 650?
+I am concerned that I may have set up a hardware bottleneck.  Please send your
+responses to:  David_Anthony_Guevara@cup.portal.com.  I will summarize if there
+is enough interest.  Thanks!
+
+-- David Guevara,
+   Internet:  David_Anthony_Guevara@cup.portal.com

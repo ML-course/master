@@ -1,0 +1,21 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!utnut!skule.ecf!drill.me!ie.utoronto.ca!garym
+From: garym@ie.utoronto.ca (Gary Murphy)
+Subject: X on Amiga 4000?
+Message-ID: <C5y4E2.8yD@ie.utoronto.ca>
+Organization: University of Toronto, Department of Industrial Engineering
+Date: Fri, 23 Apr 1993 16:56:25 GMT
+Lines: 12
+
+I'm new to the hardware and with a mandate to port some X-based
+stereo-video software --- does anyone know of or have experience with
+X on Amiga machines?  If I can retain the X event handling, it would
+ease my plight considerably, and if I can keep all the Motif bits, so
+much the better!
+
+
+-- 
+Gary Lawrence Murphy ---------------- garym@virtual.rose.utoronto.ca
+University of Toronto, Industrial Eng Dept    fax:    (416) 971-1373
+4 Taddle Creek Rd, Toronto, Ont M5S 1A4       voice:  (416) 978-3776
+The true destination is always just here, now ----------------------

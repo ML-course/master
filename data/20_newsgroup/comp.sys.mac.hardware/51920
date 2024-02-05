@@ -1,0 +1,23 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!usenet.ins.cwru.edu!magnus.acs.ohio-state.edu!zaphod.mps.ohio-state.edu!saimiri.primate.wisc.edu!usenet.coe.montana.edu!news.uoregon.edu!netnews.nwnet.net!news.u.washington.edu!carson.u.washington.edu!guykuo
+From: guykuo@carson.u.washington.edu (Guy Kuo)
+Newsgroups: comp.sys.mac.hardware
+Subject: Quadra Clock Chipping Works
+Date: 20 Apr 1993 11:03:48 GMT
+Organization: University of Washington
+Lines: 11
+Message-ID: <1r0lakINNg3g@shelley.u.washington.edu>
+NNTP-Posting-Host: carson.u.washington.edu
+Summary: Quadra Clock Chip Swap Success
+Keywords: Quadra,clock,accelerate
+
+After reading reports from Germany of success in accelerating a Quadra
+or Centris simply by changing the clock oscillator, I decided to test the
+claim. I pulled out my Variable Speed Overdrive and the motherboard's
+50 mhz clock chip. I put a socket in the clock's place and inserted a
+64 mhz TTL clock oscillator I had left over from working on some SI's.
+I can't believe it. It actually works. I'm not getting SCSI timing errors
+either. This is only after a short run time but I'll keep posting results.
+Did I spend all that money on the VSO for nothing? If this keeps working,
+the lack of a double boot in itself will be worth the effort.
+
+Guy Kuo <guykuo@u.washington.edu>

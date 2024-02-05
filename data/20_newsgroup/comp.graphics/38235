@@ -1,0 +1,22 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!usc!cs.utexas.edu!uunet!munnari.oz.au!mel.dit.csiro.au!its.csiro.au!dmssyd.syd.dms.CSIRO.AU!metro!news.cs.uow.edu.au!news.cs.uow.edu.au!not-for-mail
+From: g9134255@wampyr.cc.uow.edu.au (Coronado Emmanuel Abad)
+Newsgroups: comp.graphics
+Subject: Fonts in POV??
+Date: 14 Apr 1993 16:03:24 +1000
+Organization: University of Wollongong, NSW, Australia.
+Lines: 11
+Message-ID: <1qg9fc$et9@wampyr.cc.uow.edu.au>
+NNTP-Posting-Host: wampyr.cc.uow.edu.au
+Keywords: fonts, raytrace
+
+
+
+	I have seen several ray-traced scenes (from MTV or was it 
+RayShade??) with stroked fonts appearing as objects in the image.
+The fonts/chars had color, depth and even textures associated with
+them.  Now I was wondering, is it possible to do the same in POV??
+
+
+Thanks,
+
+Noel

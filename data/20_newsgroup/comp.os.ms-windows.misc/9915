@@ -1,0 +1,24 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!gatech!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!inmos!fulcrum!srowe
+From: srowe@fulcrum.co.uk (Simon Rowe)
+Subject: Re: exit codes (dos--sorry for wrong group : (
+Message-ID: <C5txnu.2vB@fulcrum.co.uk>
+Sender: news@fulcrum.co.uk
+Organization: Fulcrum Communications
+References: <1993Apr19.170631.17598@seas.gwu.edu>
+Date: Wed, 21 Apr 1993 10:40:41 GMT
+Lines: 13
+
+Internal DOS commands (certainly 3.3 and before) do not set the exit
+code. This is a royal pain if you want to do anything which checks for
+successful deletions etc. The best suggestion is to use 4dos which
+does return you exit codes. It also has move command,
+
+	Simon.
+
+-------------------------------------------------------------------------------
+Simon Rowe,                                   srowe@fulcrum.co.uk
+Fulcrum Communications Ltd,
+Birmingham,			         Condition "BRAIN_OVERLOAD$" raised at
+ENGLAND.				 5412(0)/12234
+------------------------------------------------------------------------------

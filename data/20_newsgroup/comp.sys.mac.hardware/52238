@@ -1,0 +1,15 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!saimiri.primate.wisc.edu!usenet.coe.montana.edu!news.u.washington.edu!carson.u.washington.edu!guykuo
+From: guykuo@carson.u.washington.edu (Guy Kuo)
+Newsgroups: comp.sys.mac.hardware
+Subject: Re: cd300 question
+Date: 23 Apr 1993 19:20:52 GMT
+Organization: University of Washington
+Lines: 4
+Message-ID: <1r9fikINN81o@shelley.u.washington.edu>
+References: <h01sav.dsyibm.desy.de-230493200218@michael.desy.de>
+NNTP-Posting-Host: carson.u.washington.edu
+
+Double speed performance from a CD drive does not require SCSI-2 interfacing.
+The resultant 300 kbps speed is well within the transfer rate of an LC. In
+other words, I believe you have been given incorrect information.
+

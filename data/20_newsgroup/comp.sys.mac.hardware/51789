@@ -1,0 +1,22 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!ivgate!axolotl!macrocosm!Steed.Bell
+From: Steed.Bell@macrocosm.omahug.org (Steed Bell)
+Newsgroups: comp.sys.mac.hardware
+Subject: [ NETWORKING ] How to get 10 Ma
+Message-ID: <92.2bd1cd0c@axolotl>
+Date: 14 Apr 93 22:04:35 CST
+Reply-To: steed.bell@macrocosm.omahug.org
+Organization: The MacRocosm BBS, Lawrence, KS
+Sender: news@axolotl.omahug.org (UUscan 1.10)
+Followup-To: comp.sys.mac.hardware
+Lines: 10
+
+Peter, I'm sure someone out there has a better/easier way to do what you want
+to do, but I'll tell you how we do it where I work. We have about 15 Macs
+networked together using Appletalk and PhoneNet connectors. To chat we use a
+program called 'Broadcast'. With it we can send brief messages to all or
+selected machines within the network.
+
+Hope that helps...
+
+Steed
+

@@ -1,0 +1,27 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.unix.aix:24649 comp.windows.x:67504
+Newsgroups: comp.unix.aix,comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!pacific.mps.ohio-state.edu!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!math.fu-berlin.de!unidui!rrz.uni-koeln.de!news-rhrz!unitas.or.uni-bonn.de!schietke
+From: schietke@unitas.or.uni-bonn.de (Juergen Schietke)
+Subject: extension to damaged chars of big fonts
+Message-ID: <1993Apr30.141752.15976@news.rhrz.uni-bonn.de>
+Sender: news@news.rhrz.uni-bonn.de
+Organization: Research Institute for Discrete Mathematics, Bonn
+Date: Fri, 30 Apr 93 14:17:52 GMT
+Lines: 16
+
+Sorry about the garbage code, the following is used of course:
+
+XSetForeground(Disp, PixGC, BackgroundColor);
+XFillRectangle(Disp, Pixs, PixGC, 0, 0, Scr_width, Scr_height);
+XSetForeground(Disp, PixGC, ForegroundColor);
+XDraw[Line|String|Rectangle](Disp, Pixs, PixGC, ...);
+XCopyArea(Disp, Pixs, Win, PixGC, 0, 0, Win_width, Win_height, 0, 0);
+
+Juergen Schietke
+Research Insitute for Discrete Mathematics
+University of Bonn
+Nassestr. 2
+5300 Bonn 1
+
+Tel: (+49) 0228 738786
+E-Mail: schietke@or.uni-bonn.de

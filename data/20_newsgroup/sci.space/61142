@@ -1,0 +1,27 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.misc:8155 sci.math:43445 sci.space:61142
+Newsgroups: sci.misc,sci.math,sci.space
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!pipex!sunic!celsiustech.se!admin.kth.se!kth.se!cyklop.nada.kth.se!simon
+From: simon@cyklop.nada.kth.se (Simon Tardell)
+Subject: Re: Sunrise/ sunset times
+Message-ID: <1993Apr23.162014.7866@kth.se>
+Sender: usenet@kth.se (Usenet)
+Nntp-Posting-Host: cyklop.nada.kth.se
+Organization: Royal Institute of Technology, Stockholm, Sweden
+References: <1993Apr21.141824.23536@cbis.ece.drexel.edu>
+Date: Fri, 23 Apr 1993 16:20:14 GMT
+Lines: 14
+
+In <1993Apr21.141824.23536@cbis.ece.drexel.edu> jpw@cbis.ece.drexel.edu (Joseph Wetstein) writes:
+
+>Hello. I am looking for a program (or algorithm) that can be used
+>to compute sunrise and sunset times.
+
+>I would appreciate any advice.
+
+I once thought it would be easiest fitting a sine to the times. But not.
+This gave  discrepancy of upto six minutes. If you fit a sine series
+you'll get a very good fit after just three or four terms though. This
+presumably has to do with the eccentricity of the Earths orbit.
+
+-- 
+Simon Tardell, Ff88, simon@nada.kth.se              V}ga v{gra cgs!

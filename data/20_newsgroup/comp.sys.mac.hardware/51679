@@ -1,0 +1,20 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!saimiri.primate.wisc.edu!caen!destroyer!news.itd.umich.edu!livy.ccs.itd.umich.edu!tpeng
+From: tpeng@umich.edu (Timothy Richard Peng)
+Newsgroups: comp.sys.mac.hardware
+Subject: Re: Duo 230 crashes aftersleep (looks like Apple bug!)
+Date: 17 Apr 1993 04:07:58 GMT
+Organization: University of Michigan -- Ann Arbor
+Lines: 7
+Message-ID: <1qnvqu$32o@terminator.rs.itd.umich.edu>
+References: <LREITER.93Apr16030131@jade.tufts.edu>
+Reply-To: tpeng@umich.edu
+NNTP-Posting-Host: livy.ccs.itd.umich.edu
+Originator: tpeng@livy.ccs.itd.umich.edu
+
+if you have a memory card installed that's not one of apple's, this
+may be the problem.  for a couple of months after the release of
+the duo, some memory manufacturers were shipping duo memory cards w/
+improper (non-self-refreshing) chips.  if you have a third party 
+card, pull it and see if the sleep problem recurs.
+  - tim  
+

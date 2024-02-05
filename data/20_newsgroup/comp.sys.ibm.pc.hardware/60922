@@ -1,0 +1,26 @@
+Newsgroups: comp.sys.ibm.pc.hardware
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!mcsun!sun4nl!sci.kun.nl!HNYKUN11.URC.KUN.NL!U001295
+From: U001295@HNYKUN11.URC.KUN.NL (Ronald Schalk)
+Subject: dont have harddisk type 47 ....
+Message-ID: <16BB89D57.U001295@HNYKUN11.URC.KUN.NL>
+Sender: news@sci.kun.nl (News owner)
+Nntp-Posting-Host: hnykun11.urc.kun.nl
+Organization: Universitair Centrum Informatievoorziening
+Date: Thu, 22 Apr 1993 10:11:18 GMT
+Lines: 15
+
+Hello,
+a friend a mine has a commodore 386sx and we've put in that machine
+a second harddisk, he now has 100+200 MB. But the problem is that
+the 200MB harddisk isn't supported in the bios. Alas there's no user type
+47 in the setup. At the moment we use it as a 193MB type but there are
+getting bad blocks on the harddisk :-<. Question: who knows a solution to this?
+I've seen a small program for this once in the BYTE, but I haven't been able
+to find this. Would speedstor or diskmanager work for this, I used these
+programs quite a lot in the XT-days, but I don't have these anymore, Seagate
+used to ship diskmanager with each drive they sold.
+ 
+Help will be greatly appreciated.
+ 
+Ronald Schalk
+r.schalk@uci.kun.nl

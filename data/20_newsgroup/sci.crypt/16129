@@ -1,0 +1,24 @@
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!wupost!uunet!digex.com!digex.com!not-for-mail
+From: steve-b@access.digex.com (Steve Brinich)
+Newsgroups: sci.crypt
+Subject: Re: Dorothy Denning opposes Clipper, Capstone wiretap chips
+Date: 27 Apr 1993 18:54:59 -0400
+Organization: Express Access Online Communications, Greenbelt, MD USA
+Lines: 13
+Message-ID: <1rkdk3$9hm@access.digex.net>
+References: <1993Apr26.063532.10120@eff.org> <C65H4n.784.2@cs.cmu.edu> <1rk3q1INN7hb@gap.caltech.edu>
+NNTP-Posting-Host: access.digex.net
+
+ > I believe there is no technical means of ensuring key escrow without the
+ >government maintaining a secret of some kind.
+
+  Not necessarily.  For instance, in the system outlined in the May 1993
+issue of "Byte", the process of getting one's public key listed for general
+use involves giving pieces of your private key to escrow agencies, which
+do calculations on those pieces and forward the result to the publishers of
+the public key directory, which combines these results into your listed
+public key.  If you try to give the escrow agencies pieces which -don't-
+yield your private key when they are all put together, the result is that
+the public key listed for you is wrong and you can't read messages encrypted
+to you.
+

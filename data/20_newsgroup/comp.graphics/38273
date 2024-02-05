@@ -1,0 +1,20 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!emory!news-feed-1.peachnet.edu!darwin.sura.net!zaphod.mps.ohio-state.edu!saimiri.primate.wisc.edu!usenet.coe.montana.edu!news.u.washington.edu!stein.u.washington.edu!kshin
+From: kshin@stein.u.washington.edu (Kevin Shin)
+Newsgroups: comp.graphics
+Subject: thinning algorithm
+Date: 15 Apr 1993 03:48:20 GMT
+Organization: University of Washington, Seattle
+Lines: 10
+Message-ID: <1qilu4INNqp3@shelley.u.washington.edu>
+NNTP-Posting-Host: stein.u.washington.edu
+
+Hi, netters
+
+I am looking for source code that can reads the ascii file
+or bitmap file and produced the thinned image.
+For example, to preprocess the character image I want to
+apply thinning algorithm.
+
+thanks
+kevin
+.

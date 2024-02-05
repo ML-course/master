@@ -1,0 +1,17 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!agate!dog.ee.lbl.gov!network.ucsd.edu!news.acns.nwu.edu!uicvm.uic.edu!u23590
+Organization: University of Illinois at Chicago, academic Computer Center
+Date: Sun, 18 Apr 1993 23:49:57 CDT
+From: <U23590@uicvm.uic.edu>
+Message-ID: <93108.234957U23590@uicvm.uic.edu>
+Newsgroups: sci.crypt
+Subject: Re: Clipper -- some new thoughts
+References: <1993Apr17.175656.23656@ulysses.att.com>
+Lines: 7
+
+The cryptographic algorythm MUST be kept secret, or
+private individuals could make ClipperClones with
+which they could transmit messages which the feds would not have
+ready access to.  This is clearly unacceptable.
+
+I hope somebody starts doing this soon after the first
+ones are released...

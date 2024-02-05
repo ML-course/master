@@ -1,0 +1,26 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.crypt:15496 alt.privacy.clipper:2
+Newsgroups: sci.crypt,alt.privacy.clipper
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!bogus.sura.net!howland.reston.ans.net!noc.near.net!uunet!pipex!pavo.csi.cam.ac.uk!rja14
+From: rja14@cl.cam.ac.uk (Ross Anderson)
+Subject: Re: Clipper chip -- technical details
+Message-ID: <1993Apr20.170703.19502@infodev.cam.ac.uk>
+Sender: news@infodev.cam.ac.uk (USENET news)
+Nntp-Posting-Host: ely.cl.cam.ac.uk
+Organization: U of Cambridge Computer Lab, UK
+References: <1993Apr18.200737.14815@ulysses.att.com> <1667.Apr1821.58.3593@silverton.berkeley.edu> <1993Apr19.052005.20665@ulysses.att.com> <2225.Apr1907.54.2693@silverton.berkeley.edu>
+Date: Tue, 20 Apr 1993 17:07:03 GMT
+Lines: 13
+
+In article <1993Apr19.052005.20665@ulysses.att.com> smb@research.att.com (Steven 
+Bellovin) writes:
+
+> Nothing was said about where K_P comes from.
+
+If you've got a secure device, you don't need public keys.
+
+If the secret key which all chips share is SK, you can just use KP = 
+E{(myname, yourname, date) ; SK}.
+
+Maybe that's why Jim Bidzos was reported as being cheesed off.
+
+Ross

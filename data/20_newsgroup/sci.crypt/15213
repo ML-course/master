@@ -1,0 +1,42 @@
+Xref: cantaloupe.srv.cs.cmu.edu alt.privacy:6575 sci.crypt:15213 alt.security:9942 comp.security.misc:3375 comp.org.eff.talk:16861
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!emory!sol.ctr.columbia.edu!ira.uka.de!rz.uni-karlsruhe.de!fg70.rz.uni-karlsruhe.de!ig25
+From: ig25@fg70.rz.uni-karlsruhe.de (Thomas Koenig)
+Newsgroups: alt.privacy,sci.crypt,alt.security,comp.security.misc,comp.org.eff.talk
+Subject: Re: White House Public Encryption Management Fact Sheet
+Date: 16 Apr 93 21:49:45 GMT
+Organization: University of Karlsruhe, Germany
+Lines: 26
+Distribution: na
+Message-ID: <ig25.734996985@fg70>
+References: <C5LGAz.250@dove.nist.gov>
+NNTP-Posting-Host: fg70.rz.uni-karlsruhe.de
+Mime-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: 8bit
+
+clipper@csrc.ncsl.nist.gov (Clipper Chip Announcement) writes:
+
+>The President has approved a directive on "Public Encryption
+>Management."  The directive provides for the following:
+
+[...]
+
+>When
+>exported abroad, it can be used to thwart foreign intelligence
+>activities critical to our national interests.
+
+[...]
+
+>The Attorney General of the United States, or her representative,
+>shall request manufacturers of communications hardware which
+>incorporates encryption to install the U.S. government-developed
+>key-escrow microcircuits in their products.
+
+Quite interesting.  How does the US administration intend to persuade
+non - US governments to let the NSA eavesdrop on them?  Or should U.S.
+companies install these chips in communication systems sold abroad
+without the customer's knowedge or consent, or not at all?
+-- 
+Thomas Koenig, ig25@rz.uni-karlsruhe.de, ig25@dkauni2.bitnet
+The joy of engineering is to find a straight line on a double
+logarithmic diagram.

@@ -1,0 +1,39 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.electronics:52746 comp.sys.atari.st.tech:12006
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!ogicse!network.ucsd.edu!usc!nic.csu.net!mars!rkim
+From: rkim@mars.uucp (Richard H.S. Kim)
+Newsgroups: sci.electronics,comp.sys.atari.st.tech
+Subject: Need sources for HV capacitors.
+Message-ID: <1993Apr5.213718.4721@nic.csu.net>
+Date: 6 Apr 93 04:37:17 GMT
+Article-I.D.: nic.1993Apr5.213718.4721
+Distribution: usa
+Organization: Triacus Inc.
+Lines: 26
+Nntp-Posting-Host: mars.calstatela.edu
+
+Recently, my video monitor went dead, no picture, some low distorted sound.
+I didn't hear the tell-tale cracking that indicated HV at work, nor are the
+filaments at the far end of the tube glowing orange, just nothing.
+
+On examining the power board, I noticed the largest capacitor with a very
+bad bulge at the top.  Naturally, I want to replace it, but I can't find
+any sources.
+
+The electrolytic capacitor is 330 mF at 250WV.  It has radial leads, and is
+roughly 1 1/2 inches long, 1 1/8" wide.  The dimensions are important since
+the whole board fits in a metal cage, leaving little room.
+
+Living in the Los Angeles area, I've been to numerous stores (Dow Radio,
+All Electronics, ITC Elect, Sandy's, Yale Elect) with empty hands.
+
+Can anyone suggest sources for high-voltage capacitors?  Mail order is 
+fine, although I'd rather check out a store to compare the can.  I'm going
+to try a video electronics store, hopefully they'll have HV caps.
+
+(By the way, the monitor is a ATARI SC1224, Goldstar circuitry, Masushita
+tube.  Anyone else had problems?)
+
+Thanks in advance,
+Rich K.
+
+email>  rkim@opus.calstatela.edu

@@ -1,0 +1,42 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.lang.postscript:18561 comp.windows.x:68250 comp.windows.x.apps:2752 comp.text:11351 comp.text.interleaf:1483 comp.text.frame:5321
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!zaphod.mps.ohio-state.edu!uwm.edu!daffy!uwvax!astroatc!vidiot!ftms!brown
+From: brown@ftms.UUCP (Vidiot)
+Newsgroups: comp.lang.postscript,comp.windows.x,comp.windows.x.apps,comp.text,comp.text.interleaf,comp.text.frame
+Subject: Re: viewing postscript files under X windows
+Message-ID: <613@ftms.UUCP>
+Date: 17 May 93 18:41:55 GMT
+References: <gordons.737161050@mon> <604@ftms.UUCP> <gordons.737605006@mon.sps.mot.com>
+Reply-To: brown@ftms.UUCP (Vidiot)
+Organization: Vidiot's Other Hangout
+Lines: 30
+
+In article <gordons.737605006@mon.sps.mot.com> gordons@mon.sps.mot.com (Gordon Sasamori) writes:
+<In <604@ftms.UUCP> brown@ftms.UUCP (Vidiot) writes:
+<
+<>OW 3.0 is the same.  But, the definition of broken is relative.  Pageview
+<>requires DSC compliant PostScript files, in order to stop at page breaks.
+<>I don't consider that broken.  I say that any program that puts out a
+<>PostScript file that isn't DSC compliant is broken.
+<
+<Well that may be true.  However, the man page for pageview for OW 2.0
+<does not mention about DSC compliance.  In any event, the point here
+<is that if you try to display some PS files using pageview you will
+<find out that it's not a practical tool.
+
+It is true that the man page for pageview does not say that the files need
+to be DSC compliant.  That is the fault of the left hand not knowing what the
+right hand is doing at Sun.  I was informed by a Sun employee that the pageview
+program does require DSC compliant PostScript.  There was the possibility that
+it was going to be changed so that if the file wasn't DSC compliant that it
+would stop at each showpage.  I believe that this method would preclude being
+able to go backwards and forwards through the file, i.e., you could only go
+forward to the next showpage.  This isn't in OW3.0 pageview, but maybe it is
+in the Solaris 2.x version of OW (OW 3.1?).
+
+In any event, I find pageview extremely useful.  Since all of the PostScript
+that I produce IS DSC compliant, I don't have any problems.
+-- 
+harvard\
+  ucbvax!uwvax!astroatc!ftms!brown  or  uu2.psi.com!ftms!brown
+rutgers/
+INTERNET: brown@wi.extrel.com  or  ftms!brown%astroatc.UUCP@cs.wisc.edu

@@ -1,0 +1,24 @@
+Newsgroups: comp.os.ms-windows.misc
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!gatech!howland.reston.ans.net!usc!sdd.hp.com!portal!claebaur
+From: claebaur@shell.portal.com (Tony S Annese)
+Subject: Re: Need iconized printer utility.
+Message-ID: <C6EvAL.520@unix.portal.com>
+Sender: news@unix.portal.com
+Nntp-Posting-Host: jobe
+Organization: Portal Communications Company -- 408/973-9111 (voice) 408/973-8091 (data)
+References: <93122.134439ZHAO@auvm.american.edu>
+Date: Sun, 2 May 1993 17:59:08 GMT
+Lines: 12
+
+In article <93122.134439ZHAO@auvm.american.edu> <ZHAO@auvm.american.edu> writes:
+>I am looking for a printer utility which stay in Window 3.1 as an icon and
+>let you drag a file to it to issue the printing.
+
+You have one. Minimize the print manager and drag a file to it and it will
+print it. You need to associate file extensions with such things as the
+notepad for it to do this though.
+--
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+Tony Annese                                    claebaur@shell.portal.com
+                                          -or- claebaur@cup.portal.com
+\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/

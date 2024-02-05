@@ -1,0 +1,21 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!darwin.sura.net!haven.umd.edu!uunet!utcsri!relay.cs.toronto.edu!smoke.cs.toronto.edu!cs.toronto.edu!tg
+Newsgroups: sci.electronics
+From: tg@cs.toronto.edu (Tom Glinos)
+Subject: 12V to 3V and 48V at 3A
+Message-ID: <93Apr6.000345edt.107@smoke.cs.toronto.edu>
+Organization: Department of Computer Science, University of Toronto
+Distribution: na
+Date: 6 Apr 93 04:04:16 GMT
+Lines: 11
+
+The subject line says it all. I'm working on a project
+that will use a car battery. I need to pull off 3V and possibly
+48V at 3A.
+
+I have several ideas, but I'd prefer to benefit from all you
+brilliant people :-)
+-- 
+=================
+"Conquest is easy, control is not"	| Tom Glinos @ U of Toronto Statistics
+[Star Trek TOS]   			| tg@utstat.toronto.edu
+USL forgot this simple history lesson

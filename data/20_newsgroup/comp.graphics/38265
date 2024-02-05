@@ -1,0 +1,34 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!emory!wupost!sdd.hp.com!elroy.jpl.nasa.gov!usc!zaphod.mps.ohio-state.edu!uwm.edu!ux1.cso.uiuc.edu!news.iastate.edu!pi.eai.iastate.edu!boylan
+From: boylan@pi.eai.iastate.edu (Terran Boylan)
+Subject: Reaction-Diffusion techniques
+Message-ID: <C5I247.8Ar@news.iastate.edu>
+Sender: news@news.iastate.edu (USENET News System)
+Organization: Engineering Animation, Inc.
+Date: Thu, 15 Apr 1993 00:45:40 GMT
+Lines: 24
+
+This past week I've been playing with some of the R-D (Reaction-
+Diffusion, not to be confused with RDS or R&D) techniques
+from SIGGRAPH '91.
+
+I was wondering what material is available to explain the control
+mechanism a little more.  It seems to me very much like a matter of
+picking random magic numbers and sitting back and waiting.  Although
+both of the papers (Turk and Witkin & Kass) were very well organized
+and extremely helpful, I guess what I need is a more basic description
+of the technique, especially wrt the control mechanisms.  The tests
+that I did had a tendency to either turn into blurry mud or become
+unstable.
+
+Is there any info available online?  Source code would be great but
+not necessary.
+
+Thanks!
+
+
+-- 
+---
+Terran J. Boylan, Sr. Artist/Programmer | "It's better to have loved
+Engineering Animation, Inc.,  Ames, IA  | and lost than just to have
+(515) 296-9908 / (515) 296-7892 (> 5PM) | lost." -- Dorky Dog

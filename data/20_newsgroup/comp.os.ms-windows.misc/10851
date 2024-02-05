@@ -1,0 +1,25 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!digex.com!access!wild
+From: wild@access.digex.net (wildstrom)
+Newsgroups: comp.os.ms-windows.misc
+Subject: Re: MAC DISKS IN WINDOWS?
+Date: 17 May 1993 16:21:42 -0400
+Organization: Express Access Online Communications, Greenbelt, MD USA
+Lines: 14
+Message-ID: <wild.737669966@access>
+References: <3160.180.uupcb@hal9k.com> <1t692p$pkm@Tut.MsState.Edu> <1t6efv$1pj@binkley.cs.mcgill.ca>
+NNTP-Posting-Host: access.digex.net
+
+gel@binkley.cs.mcgill.ca (Gilles KHOUZAM) writes:
+
+>>Macsee.zip on ftp.cica.indiana.edu is supposed to read and write Mac disks.  
+>>I've never tried it, though.  Good luck
+
+>I just tried it, but I can't say that it works, 'cause it doesn't read 800K
+>disks, it only reads 1.44Mb. If there a program that does read 800K disks,
+>please let me know.
+
+
+The easiest way to do this is if you can send the files accross the network. 
+This is much easier going from a Mac to a PC because you don't have to worry
+about losing the resource fork of the file, often a problem when sending binary
+files from a PC to a Mac.

@@ -1,0 +1,23 @@
+Newsgroups: comp.graphics
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!darwin.sura.net!sgiblab!a2i!sigma
+From: sigma@rahul.net (Kevin Martin)
+Subject: Re: XV under MS-DOS ?!?
+Message-ID: <C5sJAy.4Mu@rahul.net>
+Sender: news@rahul.net (Usenet News)
+Nntp-Posting-Host: bolero
+Organization: a2i network
+References: <1993Apr20.083731.260@eicn.etna.ch>
+Date: Tue, 20 Apr 1993 16:32:57 GMT
+Lines: 11
+
+In <1993Apr20.083731.260@eicn.etna.ch> NO E-MAIL ADDRESS@eicn.etna.ch writes:
+>Do somenone know the solution to run XV ??? any help would be apprecied..
+
+I would guess that it requires X, almost certainly DV/X, which commonly
+uses the GO32 (DJGPP) setup for its programs.  If you don't have DV/X
+running, you can't get anything which requires interfacing with X.
+
+-- 
+Kevin Martin
+sigma@rahul.net
+"I gotta get me another hat."

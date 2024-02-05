@@ -1,0 +1,36 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.windows.open-look:8447 comp.windows.x:67394
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!bb3.andrew.cmu.edu!andrew.cmu.edu!db74+
+From: "Derrick J. Brashear" <db74+@andrew.cmu.edu>
+Newsgroups: comp.windows.open-look,comp.windows.x
+Subject: SUMMARY: virtual mouse in ol{v}wm
+Date: Wed, 28 Apr 1993 23:32:49 -0400
+Organization: Sophomore, Civil Engineering, Carnegie Mellon, Pittsburgh, PA
+Lines: 25
+Message-ID: <0frolV200awVI3IV4s@andrew.cmu.edu>
+NNTP-Posting-Host: po5.andrew.cmu.edu
+
+I got the following today from Gary Risebrough and it worked fine:
+
+Excerpts from mail: 29-Apr-93 Re: ol{v}wm 3 virtual keybo..
+ITO2@aodc.gov.au (554)
+
+> hi,
+
+> With regard to :
+> > I have the following lines in my .Xresources:
+> > olwm.KeyboardCommands: Full
+> > olvwm.KeyboardCommands: Full
+> > olwm.GrabVirtualKeys:  true
+> > olvwm.GrabVirtualKeys: true
+
+> I have :
+> > OpenWindows.KeyboardCommands:   Full
+> > OpenWindows.VirtualGrabKeys :   False
+
+> which seems to work.
+
+> Cheers!
+> ----------
+> Gary Riseborough                         Phone :  +61 2 563  gary@AODC.gov.au
+
+

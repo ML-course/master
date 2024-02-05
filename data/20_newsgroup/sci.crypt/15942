@@ -1,0 +1,33 @@
+Xref: cantaloupe.srv.cs.cmu.edu sci.crypt:15942 comp.org.eff.talk:17198
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!cs.utexas.edu!uunet!digex.com!digex.com!not-for-mail
+From: steve-b@access.digex.com (Steve Brinich)
+Newsgroups: sci.crypt,comp.org.eff.talk
+Subject: Re: Clipper considered harmful [Restated and amplified]
+Date: 24 Apr 1993 17:34:10 -0400
+Organization: Express Access Online Communications, Greenbelt, MD USA
+Lines: 20
+Distribution: inet
+Message-ID: <1rcboi$j4a@access.digex.net>
+References: <15469@optilink.COM> <1993Apr22.222016.25628@lehman.com> <15583@optilink.COM> <strnlghtC602KA.IFD@netcom.com>
+NNTP-Posting-Host: access.digex.net
+
+ > If the crooks use an innocent person's clipper phone on the tapped line
+ >there's no problem. The Feds don't care whose phone instrument is used, just
+ >that the conversation is by the suspect on the tapped line. They get the
+ >serial number, get the keys, and they are in business.
+
+  So, you admit that Clipper opens the doors wide for the following scenario:
+
+  FEDS: We need the keys to Joe Blow's phone.
+
+  ESCROW AGENT: Joe Blow?  You have a warrant to tap his line?
+
+  FEDS: Well, no, but we have a warrant to tap Carlos "Slime-Devil" Gonzales'
+     line, and our tap shows that Mr. Gonzales is using Mr. Blow's phone.
+
+  ESCROW AGENT: Well, OK....
+
+
+
+
+

@@ -1,0 +1,36 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.mac.hardware:51883 misc.forsale.computers.mac:5779
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!usenet.ins.cwru.edu!b61506.student.cwru.edu!cox
+From: Charles P. Cox, Jr. <cox@snowhite.eeap.cwru.edu>
+Newsgroups: cwru.general,cwru.ins.general,comp.sys.mac.hardware,misc.forsale.computers.mac
+Subject: Calling all Mac gurus
+Date: 20 Apr 1993 03:56:45 GMT
+Organization: Case Western Reserve University
+Lines: 21
+Distribution: world
+Message-ID: <1qvs9t$q3f@usenet.INS.CWRU.Edu>
+NNTP-Posting-Host: b61506.student.cwru.edu
+X-UserAgent: Nuntius v1.1.1d17
+X-XXMessage-ID: <A7F8ECC4A901F042@b61506.student.cwru.edu>
+X-XXDate: Mon, 19 Apr 93 04:56:52 GMT
+
+Question for those familiar with Quadra VRAM:
+
+I put 2 256K VRAM SIMMs in my Quadra 700 (in the 2 slots closest to the
+RAM SIMM slots) and I got no results whatsoever.  I have been told that
+the built-in video should support at least 16bit and maybe 24bit color on
+a Macintosh Color Display.  However, the Monitors control panel still
+lists 8bit (256 colors) as the highest possible.
+
+Does it make any difference which slots you put the SIMMs in?
+Do you have to do something to activate them?
+Do you have to do something to the Monitors control panel?
+
+BTW, I am running System 7.1 with 8 Megs of RAM.
+
+
+---
+Charles P. Cox, Jr.
+Computer Engineering
+Case Western Reserve University
+cpc3@po.cwru.edu
+cox@snowhite.eeap.cwru.edu

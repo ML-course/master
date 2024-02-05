@@ -1,0 +1,38 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!bogus.sura.net!jhunix.hcf.jhu.edu!aplcen.apl.jhu.edu!anagld!c-cat!david
+From: david@c-cat.UUCP (Dave)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: Re: IDE vs SCSI
+Message-ID: <6gc02B7w165w@c-cat.UUCP>
+Date: 19 Apr 93 14:23:04 GMT
+References: <1qq7i1INNdqc@dns1.NMSU.Edu>
+Organization: Intergalactic Rest Area For Weary Travellers
+Lines: 28
+
+bgrubb@dante.nmsu.edu (GRUBB) writes:
+
+{> 
+{> SCSI-1 {SCSI-2 controller chip; also called SCSI-2 (8-bit)}: 4-6MB/s with 
+{> 10MB/s burst.  This is advertised as SCSI-2 in BYTE 4/93:159 FOR the
+{>  PC and AT THESE SPEEDS.{NOT the Mac, the PC.}
+{> 
+
+I have been following this mess for a while. excuse my need for
+clarification.  Iam thinking seriously IDE vs. SCSI and this thread
+could not have come at a better time.
+
+the above quote SCSI-1 {SCSI-2 controller chip}
+
+are we talking about a SCSI-1 device (e.g. HD) on a SCSI-2 Controller
+or 
+are we talking about a SCSI-1 Controller that had a chip upgrade
+using the same chip that is on a SCSI-2 controller board.
+
+thanks 
+
+                                                       -David
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+China Cat BBS                               c-cat!david@sed.csc.com
+(301)604-5976 1200-14,400 8N1               ...uunet!mimsy!anagld!c-cat!david 
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

@@ -1,0 +1,18 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!gatech!psuvax1!psuvm!ucf1vm!cda90038
+Organization: University of Central Florida - Computer Services
+Date: Wed, 21 Apr 1993 15:49:52 EDT
+From: Mark Woodruff <CDA90038@UCF1VM.BITNET>
+Message-ID: <93111.154952CDA90038@UCF1VM.BITNET>
+Newsgroups: comp.os.ms-windows.misc
+Subject: Many people on one machine
+Lines: 9
+
+I have several people sharing my machine and would like to set up separate
+environments under Windows for each of them.  Is there some way of setting
+things up separate desktops/directories for each of them?  Ideally,
+I'd like totally separate virtual machines.  I'd be willing to settle for
+less, and may end up having batch files that copy .ini files around
+depending on who wants to use the machine.
+
+mark
+Alas, Setup/n doesn't work if you don't have a network.

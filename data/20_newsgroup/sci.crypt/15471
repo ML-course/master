@@ -1,0 +1,29 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!zaphod.mps.ohio-state.edu!darwin.sura.net!haven.umd.edu!uunet!psgrain!ee.und.ac.za!tplinfm
+From: barrett@lucy.ee.und.ac.za (Alan Barrett)
+Newsgroups: sci.crypt
+Subject: Re: Screw the people, crypto is for hard-core hackers & spooks only
+Date: 20 Apr 1993 08:56:56 +0200
+Organization: Elec. Eng., Univ. Natal, Durban, S. Africa
+Lines: 18
+Message-ID: <1r06ro$8lg@lucy.ee.und.ac.za>
+References: <C5qy3M.DE3@agora.rain.com>
+NNTP-Posting-Host: lucy.ee.und.ac.za
+
+In article <C5qy3M.DE3@agora.rain.com>,
+jhart@agora.rain.com (Jim Hart) writes:
+> Since the wiretap chip is being distributed internationally,
+> allowing the U.S. government to spy on foreign governments,
+> companies and people as as well as to wiretap domestic citizens,
+> this is a world-wide issue.  Please put DISTRIBUTION: WORLD on the 
+> Distrubution: line.  Thank you.
+
+No!  Distribution keywords are case sensitive.  What you want
+is
+
+	Distribution: world
+
+or no Distribution line at all.  "WORLD" in capital letters is wrong.
+
+--apb
+Alan Barrett, Dept. of Electronic Eng., Univ. of Natal, Durban, South Africa
+RFC822: barrett@ee.und.ac.za

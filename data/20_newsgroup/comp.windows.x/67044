@@ -1,0 +1,32 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!usenet.ins.cwru.edu!magnus.acs.ohio-state.edu!csn!boulder!ucsu!ucsu.Colorado.EDU!baileyc
+From: baileyc@ucsu.Colorado.EDU (Christopher R. Bailey)
+Subject: How do I cause a timeout?
+Message-ID: <1993Apr20.062041.18586@ucsu.Colorado.EDU>
+Summary: how can I force a strip chart to update
+Sender: news@ucsu.Colorado.EDU (USENET News System)
+Nntp-Posting-Host: ucsu.colorado.edu
+Organization: University of Colorado, Boulder
+Date: Tue, 20 Apr 1993 06:20:41 GMT
+Lines: 20
+
+
+I have a problem where an Athena strip chart widget is not calling it's
+get value function.  I am pretty sure this is happening because I am
+not using XtAppMainLoop, but am dealing with events via sockets.  (ya ya).
+
+Anyway, I want to cause a timeout so that the strip chart widget(s) will
+call their get value callback.  Or if someone knows another FAST way around
+this (or any way for that matter) let me know.  I cannot (or I don't think)
+call the XtNgetValue callback myself because I don't have the value for
+the third parameter of the get value proc (XtPointer call_data).  
+
+In other words, I want to force a strip chart widget to update itself.
+
+Any ideas anyone?  
+
+-- 
+Christopher R. Bailey            |Internet: baileyc@dendrite.cs.colorado.edu
+University of Colorado at Boulder|CompuServe: 70403,1522
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+Ride Fast, Take Chances!

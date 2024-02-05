@@ -1,0 +1,25 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!usc!cs.utexas.edu!loyola!ross.COM!hdr
+From: hdr@ross.COM (Henry D. Reynolds)
+Subject: X11R5 on Sun4/110 cg2 comes up Mono
+Message-ID: <HDR.93Apr24183405@mowog.ross.COM>
+Sender: news@ross.COM
+Nntp-Posting-Host: mowog
+Organization: ROSS Technology, Inc. Austin, Tx.
+Date: 25 Apr 93 00:34:05 GMT
+Lines: 14
+
+
+The 4/100 prints out the following message about it's framebuffer
+
+cgtwo0 at vme24d16 0x400000 vec 0xa8 
+cgtwo0: Sun-3 color board, fast read
+
+Anybody know the story on this?
+--
+
+- Can I have an IMPULSE ITEM instead?
+
+Henry D. Reynolds           hdr@ross.com -OR- hdr@nidhog.cactus.org
+FONE: (512)892-7802 x253    ROSS Technology, Inc.
+FAX:  (512)892-3036         5316 Hwy 290 West Suite 500 Austin, TX 78735

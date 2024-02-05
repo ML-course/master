@@ -1,0 +1,23 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!gatech!udel!wupost!uunet!psinntp!suite.com!usenet
+From: Jim-Miller@suite.com
+Newsgroups: sci.crypt
+Subject: Certifying Authority question answered.
+Date: 5 Apr 1993 18:55:14 GMT
+Organization: Suite Software
+Lines: 12
+Message-ID: <1ppvai$l79@bilbo.suite.com>
+Reply-To: Jim-Miller@suite.com
+NNTP-Posting-Host: nimrod.suite.com
+
+>>If you have access to FTP, try FTPing to rsa.com, login as anonymous.
+>>There are several documents there, including a "frequently asked questions
+>>about today's cryptography" document.  It has FAQ in its name.
+>>I believe this document explains the idea behind the certifying authorities.
+>>
+>>Good luck
+>>
+>>--John Kelsey, c445585@mizzou1.missouri.edu
+
+Thanks.  I've ftp'ed the FAQ file and it is just what I was looking for.
+
+Jim-Miller@suite.com

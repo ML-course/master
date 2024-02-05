@@ -1,0 +1,29 @@
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!gatech!howland.reston.ans.net!zaphod.mps.ohio-state.edu!cs.utexas.edu!sun-barr!west.West.Sun.COM!cronkite.Central.Sun.COM!nostromo!brian
+From: brian@nostromo.NoSubdomain.NoDomain (Brian Colaric  Sun Dallas DSE)
+Newsgroups: comp.windows.x
+Subject: Help: OS2 Presentation Mgr port to X
+Date: 23 Apr 1993 16:59:16 GMT
+Organization: Sun Microsystems
+Lines: 17
+Distribution: world
+Message-ID: <1r9794INNfbm@cronkite.Central.Sun.COM>
+Reply-To: Brian.Colaric@dallas.Central.Sun.COM
+NNTP-Posting-Host: nostromo.central.sun.com
+
+I need to port several OS/2 PM applications to X (OpenWindows or Motif),
+and desperately need any information on how to go about doing this (short
+of a complete rewrite.
+ 
+Are there any tool to make porting easer?
+Any References?
+Any talent out there to hire to do this?
+I will even take an OS/2 Presentation Mgr emulator for sun!
+ 
+Any, and all replies (except flames) welcome!
+ 
+ 
+Brian Colaric
+ 
+Brian.Colaric@dallas.Central.Sun.COM
+
+

@@ -1,0 +1,22 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!gatech!howland.reston.ans.net!noc.near.net!uunet!pipex!uknet!mcsun!ieunet!tcdcs!unix2.tcd.ie!mjcarley
+From: mjcarley@unix2.tcd.ie (Michael Carley)
+Subject: DVI Viewers
+Message-ID: <mjcarley.737649604@unix2.tcd.ie>
+Sender: usenet@cs.tcd.ie (NN required at ashe.cs.tcd.ie)
+Nntp-Posting-Host: unix2.tcd.ie
+Organization: Trinity College, Dublin
+Date: Mon, 17 May 1993 14:40:04 GMT
+Lines: 11
+
+I need some help in tracking down a dvi viewer for X. I have xdvi but we
+have not got the X libraries and includes installed- so 
+		i) is there a way around this, as we are trying to avoid
+		   installing the stuff (space is at a premium).
+		ii)would someone be prepared to make the binaries
+		   available. We have a HP700 and a HP382.
+
+	Thanks for any help
+	Michael Carley, Dept. of Mech Engineering,
+	TCD
+

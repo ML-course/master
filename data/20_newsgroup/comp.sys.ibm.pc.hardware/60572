@@ -1,0 +1,28 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.bbs.waffle:8907 comp.sys.ibm.pc.hardware:60572
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!zaphod.mps.ohio-state.edu!caen!destroyer!cs.ubc.ca!unixg.ubc.ca!kakwa.ucs.ualberta.ca!ersys!alpha3!news
+From: russell@alpha3.ersys.edmonton.ab.ca (Russell Schulz)
+Newsgroups: comp.bbs.waffle,comp.sys.ibm.pc.hardware
+Subject: Re: 16550 UARTs (was: uucico for windows)
+Message-ID: <930419.081310.4u8.rusnews.w164w@alpha3.ersys.edmonton.ab.ca>
+Date: Mon, 19 Apr 1993 08:13:10 MDT
+References: <930412.062217.4M9.rusnews.w165w@sendai.cybrspc.mn.org> <miP62B1w165w@west.darkside.com>
+Reply-To: russell@alpha3.ersys.edmonton.ab.ca (Russell Schulz)
+Followup-To: comp.sys.ibm.pc.hardware
+Organization: Private System, Edmonton, AB, Canada
+X-Newsreader: rusnews v1.03
+Lines: 14
+
+turtle@west.darkside.com (Fred Waller) writes:
+
+>> 16550s are _not_ stupid!  
+> 
+>   Actually, they are, in the sense that hardware solutions to 
+>   a software problem are not proper.  A programmer's function 
+
+[much deleted]
+
+amazing.  I could not find _one_ reference to waffle in all of this.
+
+followups redirected out.
+-- 
+Russell Schulz  russell@alpha3.ersys.edmonton.ab.ca  ersys!rschulz  Shad 86c

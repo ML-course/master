@@ -1,0 +1,38 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.hp:30666 comp.graphics:38710
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!howland.reston.ans.net!agate!doc.ic.ac.uk!warwick!pipex!uknet!mucs!cs.man.ac.uk!prestonm
+From: prestonm@cs.man.ac.uk (Martin Preston)
+Newsgroups: comp.sys.hp,comp.graphics
+Subject: Problems grabbing a block of a Starbase screen.
+Keywords: Starbase, HP
+Message-ID: <prestonm.735568374@cs.man.ac.uk>
+Date: 23 Apr 93 12:32:54 GMT
+Sender: news@cs.man.ac.uk
+Followup-To: comp.sys.hp
+Lines: 26
+
+At the moment i'm trying to grab a portion of a Starbase screen, and store it
+in an area of memory. The data needs to be in a 24-bit format (which
+shouldn't be a problem as the app is running on a 24 bit screen), though
+i'm not too fussy about the exact format.
+
+(I actually intend to write the data out as a TIFF but that bits not the
+problem)
+
+Does anyone out there know how to grab a portion of the screen? The
+block_read call seems to grab the screen, but not in 24 bit colour,
+whatever the screen/window type i get 1 byte per pixel. 
+
+thanks in advance,
+
+Martin
+
+
+
+
+--
+---------------------------------------------------------------------------
+|Martin Preston,      (m.preston@manchester.ac.uk)    | Computer Graphics |
+|Computer Graphics Unit, Manchester Computing Centre, |    is just        |
+|University of Manchester,                            |  a load of balls. |
+|Manchester, U.K., M13 9PL     Phone : 061 275 6095   |                   |
+---------------------------------------------------------------------------

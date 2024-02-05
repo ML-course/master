@@ -1,0 +1,23 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.os.ms-windows.misc:10029 comp.windows.ms:36430
+Newsgroups: comp.os.ms-windows.misc,comp.windows.ms
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!caen!batcomputer!munnari.oz.au!uniwa!cujo!info!ikellyp
+From: ikellyp@info (Paul Kelly)
+Subject: Re: What does the .bmp format mean?
+Message-ID: <1993Apr29.091701.12057@cujo.curtin.edu.au>
+Followup-To: comp.os.ms-windows.misc,comp.windows.ms
+Sender: news@cujo.curtin.edu.au (News Manager)
+Organization: Curtin University of Technology
+X-Newsreader: TIN [version 1.1 PL9]
+References: <robertsa.735922084@unix2.tcd.ie>
+Date: Thu, 29 Apr 1993 09:17:01 GMT
+Lines: 9
+
+Andrew L. Roberts (robertsa@unix2.tcd.ie) wrote:
+: What exactly does the windows bitmap format look like? I mean, how is
+: the data stored: width, height, no. of colours, bitmap data? I couldn't
+: find anything in ths user manual, is there any other reference material
+: which would give me this information?
+
+: Thanks,
+: Andrew
+Try the windows multimedia development kit, it has most of the file formats defined

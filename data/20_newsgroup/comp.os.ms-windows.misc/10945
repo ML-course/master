@@ -1,0 +1,20 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!europa.eng.gtefsd.com!news
+From: hstarke@europa.eng.gtefsd.com (Hal Starke)
+Newsgroups: comp.os.ms-windows.misc
+Subject: 386 Enchaced Mode with SCSI disk
+Date: 19 May 1993 13:09:40 GMT
+Organization: GTE FSD
+Lines: 9
+Message-ID: <1tdbik$l0o@europa.eng.gtefsd.com>
+Reply-To: hstarke@europa.eng.gtefsd.com (Hal Starke)
+NNTP-Posting-Host: hstarke.eng.gtefsd.com
+
+ I just removed an IDE drive and reformated two SCSI disk to use as boot disk 
+in a system that did run Windows fine in 386 Enhanced Mode. Its a DX50 with 8 
+meg RAM, and an Adaptec 1542b with bios enabled. System runs fine and runs 
+Windows in standard mode fine, but it returns to the DOS prompt when trying 
+to run 386 mode. I've tried EMMExclude and SysROMBreakPoint. What gives??????
+
+Thanks in advance, Hal
+
+My Views Are My Own!

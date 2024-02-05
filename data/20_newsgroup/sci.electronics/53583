@@ -1,0 +1,29 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!zaphod.mps.ohio-state.edu!saimiri.primate.wisc.edu!usenet.coe.montana.edu!ogicse!psgrain!ee.und.ac.za!csir.co.za!stellenbos.csir.co.za!mabbot
+From: mabbot@stellenbos.csir.co.za (Mike Abbot)
+Newsgroups: sci.electronics
+Subject: High level language compilers for uControllers ?
+Message-ID: <mabbot.30.0@stellenbos.csir.co.za>
+Date: 16 Apr 93 11:47:57 GMT
+Article-I.D.: stellenb.mabbot.30.0
+Organization: CSIR
+Lines: 15
+NNTP-Posting-Host: 146.64.23.16
+X-Disclaimer: None of the opions expressed herein are the official
+X-Disclaimer: opinions of the CSIR or any of its subsidiaries.
+X-Disclaimer: **  So don't freak out at _us_ about anything  **
+
+Howdy chaps
+
+Has anybody got any pointers to good C, Pascal, etc compilers for 
+microcontrollers, shareware or otherwise ?
+
+My specific need is for 8051 C, but if the responses are many and varied I 
+will post a summary.
+
+Cheers
+Mike
+
+
+Mike Abbott	mabbot@stellenbos.csir.co.za
+Cape Town	mabbot@fred.csir.co.za
+South Africa

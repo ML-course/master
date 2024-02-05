@@ -1,0 +1,23 @@
+Newsgroups: sci.space
+Path: cantaloupe.srv.cs.cmu.edu!rochester!udel!gatech!howland.reston.ans.net!torn!utnut!utzoo!henry
+From: henry@zoo.toronto.edu (Henry Spencer)
+Subject: Re: Moonbase race
+Message-ID: <C5x86o.8p4@zoo.toronto.edu>
+Date: Fri, 23 Apr 1993 05:20:47 GMT
+References: <C5sx3y.3z9.1@cs.cmu.edu> <C5tEIK.7z9@zoo.toronto.edu> <1r46o9INN14j@mojo.eng.umd.edu> <1993Apr21.204941.15055@iti.org> <1r6rn3INNn96@mojo.eng.umd.edu>
+Organization: U of Toronto Zoology
+Lines: 13
+
+In article <1r6rn3INNn96@mojo.eng.umd.edu> sysmgr@king.eng.umd.edu writes:
+>You'd need to launch HLVs to send up large amounts of stuff.  Do you know 
+>of a private Titan pad? 
+
+You'd need to launch HLVs to send up large amounts of stuff *if* you assume
+no new launcher development.  If you assume new launcher development, with
+lower costs as a specific objective, then you probably don't want to
+build something HLV-sized anyway.
+
+Nobody who is interested in launching things cheaply will buy Titans.  It
+doesn't take many Titan pricetags to pay for a laser launcher or a large
+gas gun or a development program for a Big Dumb Booster, all of which
+would have far better cost-effectiveness.

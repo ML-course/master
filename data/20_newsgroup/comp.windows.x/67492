@@ -1,0 +1,16 @@
+Newsgroups: comp.windows.x
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!bb3.andrew.cmu.edu!crabapple.srv.cs.cmu.edu!bnoble
+From: bnoble+@cs.cmu.edu (Brian Noble)
+Subject: Re: X Server scanline padding question
+Message-ID: <C6AJ40.IzL.1@cs.cmu.edu>
+Sender: news@cs.cmu.edu (Usenet News System)
+Nntp-Posting-Host: bach.coda.cs.cmu.edu
+Organization: School of Computer Science, Carnegie Mellon
+References: <C67L6o.AM8.1@cs.cmu.edu>
+Date: Fri, 30 Apr 1993 09:45:34 GMT
+Lines: 4
+
+
+Figured it out.  The answer lies in mit/server/ddx/mfb/mfbcustom.h.
+
+Brian

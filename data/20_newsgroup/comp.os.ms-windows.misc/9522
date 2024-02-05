@@ -1,0 +1,37 @@
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!darwin.sura.net!haven.umd.edu!uunet!math.fu-berlin.de!mailgzrz.TU-Berlin.DE!cs.tu-berlin.de!wong
+From: wong@cs.tu-berlin.de (Wolfgang Jung)
+Newsgroups: comp.os.ms-windows.misc
+Subject: Cirrus Logic 5426 Graph Card
+Date: 16 Apr 1993 17:58:04 GMT
+Organization: Technical University of Berlin, Germany
+Lines: 23
+Message-ID: <1qms3c$37t@news.cs.tu-berlin.de>
+NNTP-Posting-Host: athene.cs.tu-berlin.de
+Mime-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: 8bit
+X-Newsreader: TIN [version 1.1 PL8]
+
+After setting up Windows for using my Cirrus Logic 5426 VLB GraphicsCard
+It moved a normal Window from one place to another. 
+My Parameters where just the following : 486 DX 33 VLB 
+The Card is equipped with 1 MB Dram (not Vram, there are 8 sockets for Vram) 
+And the moving of the window just looked like it looked at a friends
+386DX 25 (387DX) and an normal ISA ET4000
+
+What I was wondering why is it not using the BITBLT  Engine which
+is suuposed to be on the Chip.
+
+How are the experiences here..
+Have I done something wrong ?
+(I installed the MSWIN 3.1 MultiResolution drivers which where supplied 
+with the Card ?!)
+Would be nice if somebody could tell about his experience with this card
+Also if there are new(hopefully faster) drrivers around I would love to 
+how to get hold of them :-) (ftp or whatsoever :-) )
+
+Gruss
+	Wolfgang
+
+
+

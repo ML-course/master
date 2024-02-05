@@ -1,0 +1,36 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.graphics:37930 comp.unix.aix:23730
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!noc.near.net!uunet!mcsun!fuug!tahko.lpr.carel.fi!tahko.lpr.carel.fi!not-for-mail
+From: ari@tahko.lpr.carel.fi (Ari Suutari)
+Newsgroups: comp.graphics,comp.unix.aix
+Subject: Any graphics packages available for AIX ?
+Date: 6 Apr 1993 10:00:38 +0300
+Organization: Carelcomp Oy
+Lines: 24
+Message-ID: <1pr9qnINNiag@tahko.lpr.carel.fi>
+NNTP-Posting-Host: tahko.lpr.carel.fi
+Keywords: gks graphics
+
+
+	Does anybody know if there are any good 2d-graphics packages
+	available for IBM RS/6000 & AIX ? I'm looking for something
+	like DEC's GKS or Hewlett-Packards Starbase, both of which
+	have reasonably good support for different output devices
+	like plotters, terminals, X etc.
+
+	I have tried also xgks from X11 distribution and IBM's implementation
+	of Phigs. Both of them work but we require more output devices
+	than just X-windows.
+
+	Our salesman at IBM was not very familiar with graphics and
+	I am not expecting for any good solutions from there.
+
+
+		Ari
+
+---
+
+	Ari Suutari			ari@carel.fi
+	Carelcomp Oy
+	Lappeenranta
+	FINLAND
+

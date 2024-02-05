@@ -1,0 +1,26 @@
+Path: cantaloupe.srv.cs.cmu.edu!magnesium.club.cc.cmu.edu!news.sei.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!usc!cs.utexas.edu!uwm.edu!msuinfo!msuinfo!dulimart
+From: dulimart@podunk.cps.msu.edu (Hansye S. Dulimarta)
+Newsgroups: comp.windows.x
+Subject: -geometry option.
+Date: 30 Apr 93 11:24:26
+Organization: Dept. of Computer Science, Michigan State University
+Lines: 15
+Distribution: world
+Message-ID: <DULIMART.93Apr30112426@podunk.cps.msu.edu>
+NNTP-Posting-Host: podunk.cps.msu.edu
+
+
+Greetings,
+  I need some help with the detail of geometry specification.  I have a
+program that uses Xlib to create a simple window.  I tried to hard code
+the x,y location in XCreateWindow but it didn't work.  I also tried
+XSetStandardProperties, XSetWMHints with no luck.  Could somebody
+enlighten me on this subject.
+
+Hans.
+--
+ Hans Dulimarta [dulimart@cps.msu.edu]
+ Pattern Recognition & Image Processing Laboratory
+ Department of Computer Science
+ Michigan State University
+

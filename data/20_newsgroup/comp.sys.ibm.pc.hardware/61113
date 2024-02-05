@@ -1,0 +1,20 @@
+Newsgroups: comp.sys.ibm.pc.hardware
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!howland.reston.ans.net!usenet.ins.cwru.edu!agate!headwall.Stanford.EDU!rock!jazz!ken
+From: ken@jazz.concert.net (Ken Whitfield)
+Subject: *** HELP *** Floppy Problem
+Message-ID: <1993Apr23.172900.17224@rock.concert.net>
+Sender: news@rock.concert.net
+Organization: MCNC Center for Communications -- CONCERT Network
+Date: Fri, 23 Apr 1993 17:29:00 GMT
+Lines: 10
+
+My 3.5" floppy drive stopped recognizing low density (720K) floppies.
+
+The controller and drive works fine in another system. I was told it
+could be the DMA chip. The system is a 386DX-25 using Chips & Technology
+chip set. I'm open to all suggestions. Please send your replies to:
+
+		ken@jazz.concert.net
+
+Thanks In Advance!!!
+

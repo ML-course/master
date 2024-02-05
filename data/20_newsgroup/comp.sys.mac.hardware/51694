@@ -1,0 +1,36 @@
+Xref: cantaloupe.srv.cs.cmu.edu comp.sys.mac.hardware:51694 comp.sys.mac.misc:43271
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!bb3.andrew.cmu.edu!news.sei.cmu.edu!cis.ohio-state.edu!zaphod.mps.ohio-state.edu!uwm.edu!caen!uunet!noc.near.net!saturn.caps.maine.edu!maine.maine.edu!io91748
+Organization: University of Maine System
+Date: Fri, 16 Apr 1993 21:35:07 EDT
+From: Jon Carr <IO91748@MAINE.MAINE.EDU>
+Message-ID: <93106.213507IO91748@MAINE.MAINE.EDU>
+Newsgroups: comp.sys.mac.hardware,comp.sys.mac.misc
+Subject: Pin map for 8pin-DIN cable?
+Lines: 26
+
+                           ####   ####
+                         #     ###    #
+                        #   1   2     3 #
+     Facing           #                  #
+Female Plug End        #  4       5   6   #
+                        #               #
+                         #            #
+                         #  7     8  #
+                         #           #
+                         #############
+
+Anyone Recognize this?  It's my little layout of a eight pin female plug
+connector used for many mac peripherals.
+
+#####Problem########Problem#########Problem########
+  Printer (cheap) cables using this configuration switch a couple of
+pins between one end and the other.  I want to use cheap cables for an
+A-B box.  Anyone know which pins get reversed so I can do some
+creative editing on the internals of my box?  Any help would be
+greatly appreciated.
+
+
+    -----> Jon                                     Jon Carr
+    -----> IO91748@MAINE.MAINE.EDU                 UMaine '93
+    1993 NCAA Champions! How about those 42-1-2 Black Bears!!
+    M   -   A   -   I   -   N   -   E   -   GO BLUE!!!!!!!!!!

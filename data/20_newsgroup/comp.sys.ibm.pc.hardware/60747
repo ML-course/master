@@ -1,0 +1,35 @@
+Newsgroups: comp.sys.ibm.pc.hardware
+Path: cantaloupe.srv.cs.cmu.edu!crabapple.srv.cs.cmu.edu!fs7.ece.cmu.edu!europa.eng.gtefsd.com!howland.reston.ans.net!ira.uka.de!sol.ctr.columbia.edu!news.columbia.edu!cunixa.cc.columbia.edu!imj1
+From: imj1@cunixa.cc.columbia.edu (Imad M Jureidini)
+Subject: Re: Problems with Toshiba 3401 CDROM
+Message-ID: <1993Apr21.050909.13854@news.columbia.edu>
+Sender: usenet@news.columbia.edu (The Network News)
+Nntp-Posting-Host: cunixa.cc.columbia.edu
+Reply-To: imj1@cunixa.cc.columbia.edu (Imad M Jureidini)
+Organization: Columbia University
+References: <1993Apr20.191255.10115@news.columbia.edu> <1r25nt$oa5@ratatosk.uninett.no>
+Date: Wed, 21 Apr 1993 05:09:09 GMT
+Lines: 22
+
+In article <1r25nt$oa5@ratatosk.uninett.no> hktth@nho.hydro.com writes:
+>In article <1993Apr20.191255.10115@news.columbia.edu>, imj1@cunixa.cc.columbia.edu (Imad M Jureidini) writes:
+>|> Hi!
+>|> 	I recently purchased the Toshiba 3401 CDROM.  I own an Adaptec 1542B
+>|> SCSI card, and I have so far failed to get the CDROM to work under DOS.  It
+>
+>One of the ASPI-drivers (I think it's the ASPICD) supports a /NORST
+>paramter, which means to not reset the SCSI bus when it loads. This
+>fixed the problem a friend of mine was having with his adaptec+tosh 
+>3401.
+>
+>Regards,
+>
+>  -Terje
+It worked!!!
+Thank you very much!
+
+
+*******************************************************************************
+* imj1@cunixa.cc.columbia.edu			    Imad "Hexabyte" Jureidini *
+*     The Ultimate Knight, Grand Priest of the Secrets of the Undefined.      *
+*******************************************************************************

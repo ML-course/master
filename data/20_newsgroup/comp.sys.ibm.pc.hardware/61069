@@ -1,0 +1,27 @@
+Path: cantaloupe.srv.cs.cmu.edu!das-news.harvard.edu!noc.near.net!uunet!zaphod.mps.ohio-state.edu!uwm.edu!caen!usenet.cis.ufl.edu!usenet.ufl.edu!travis.csd.harris.com!hcx1.ssd.csd.harris.com!not-for-mail
+From: marka@hcx1.ssd.csd.harris.com (Mark Ashley)
+Newsgroups: comp.sys.ibm.pc.hardware
+Subject: Re: 66DX2 ISA,VLB xor 50DX EISA ??  Advice wanted...
+Date: 23 Apr 1993 07:29:42 -0400
+Organization: Harris
+Lines: 16
+Message-ID: <1r8jv6$94h@hcx1.ssd.csd.harris.com>
+References: <C5ust2.1xrC@austin.ibm.com> <1993Apr22.002231.13716@julian.uwo.ca> <C5w6CL.33J@tegra.com>
+NNTP-Posting-Host: hcx1.ssd.csd.harris.com
+
+>In article <1993Apr22.002231.13716@julian.uwo.ca> rmitch@irus.rri.uwo.ca (Ross Mitchell) writes:
+>>I have a choice now between basically the above system but with a
+>>486DX2-66 with ISA and VLB,  or,   a 486DX-50 with EISA and no VLB (and thus
+>>the non-local bus version of the ATI card).  Which is better, keeping in mind
+>>that I'm primarily interested in the last two tasks?  
+
+Micronics & AMI came out with EISA/VLB motherboards.
+Byte Mag tests indicate that VLB is faster for video
+but EISA is faster for disk ops. So I'll wait for
+GW2K to hopefully start using the Micronics board.
+
+-- 
+-------------------------------------------------------------------------
+Mark Ashley                        |DISCLAIMER: My opinions. Not Harris'
+marka@gcx1.ssd.csd.harris.com      |
+The Lost Los Angelino              |
