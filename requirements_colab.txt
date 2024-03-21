@@ -5,4 +5,4 @@ fancyimpute>=0.7.0
 openml>=0.14.0
 pods>=0.1.13
 gdown
-joblib==1.1.0
+joblib==1.2.0
