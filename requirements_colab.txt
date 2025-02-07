@@ -1,0 +1,8 @@
+category-encoders>=2.0.0
+GPy>=1.10.0
+imbalanced_learn>=0.9.0
+fancyimpute>=0.7.0
+openml>=0.14.0
+pods>=0.1.13
+gdown
+joblib==1.1.0

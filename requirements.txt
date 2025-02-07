@@ -1,0 +1,16 @@
+scipy>=1.11.4
+pandas>=2.2.0
+category-encoders>=2.6.3
+gdown>=5.1.0
+GPy>=1.13.1
+imbalanced_learn>=0.12.0
+ipywidgets>=8.1.1
+jupyterlab>=4.1.0
+matplotlib>=3.8.2
+mlxtend>=0.23.1
+openml>=0.14.2
+seaborn>=0.13.2
+tensorflow_addons>=0.23.0
+graphviz>=0.20.1
+tensorflow
+#fancyimpute>=0.7.0
