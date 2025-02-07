@@ -1,0 +1,1027 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 1: Machine Learning with Python &#8212; ML Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'labs/Lab 1 - Tutorial';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab 2: Model Selection in scikit-learn" href="Lab%202%20-%20Tutorial.html" />
+    <link rel="prev" title="Machine Learning in Python" href="../notebooks/Tutorial%203%20-%20Machine%20Learning%20in%20Python.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/banner.jpeg" class="logo__image only-light" alt="ML Engineering - Home"/>
+    <img src="../_static/banner.jpeg" class="logo__image only-dark pst-js-only" alt="ML Engineering - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lab%200%20-%20Prerequisites.html">Prerequisites</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/01%20-%20Introduction.html">Lecture 1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/02%20-%20Linear%20Models.html">Lecture 2: Linear models</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/03%20-%20Kernelization.html">Lecture 3: Kernelization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/04%20-%20Model%20Selection.html">Lecture 4: Model Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/05%20-%20Ensemble%20Learning.html">Lecture 5. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/06%20-%20Data%20Preprocessing.html">Lecture 6. Data preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/07%20-%20Bayesian%20Learning.html">Lecture 7. Bayesian Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/08%20-%20Neural%20Networks.html">Lecture 8. Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/09%20-%20Convolutional%20Neural%20Networks.html">Lecture 9: Convolutional Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/10%20-%20Neural%20Networks%20for%20text.html">Lecture 10. Neural Networks for text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lab%201a%20-%20Linear%20Models%20for%20Regression.html">Lab 1a: Linear regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab%201b%20-%20Linear%20Models%20for%20Classification.html">Lab 1b: Linear classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab%202a%20-%20Kernelization.html">Lab 2a: Kernelization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab%202b%20-%20Model%20Selection.html">Lab 2b: Model selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab%203%20-%20Ensembles.html">Lab 3: Ensembles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab%204%20-%20Pipelines.html">Lab 4:  Data preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab%205%20-%20Bayesian%20learning.html">Lab 5: Bayesian models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab%206%20-%20Neural%20Networks.html">Lab 6: Neural networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab%207a%20-%20Convolutional%20Neural%20Networks.html">Lab 7a: Convolutional neural nets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab%207b%20-%20Neural%20Networks%20for%20text.html">Lab 7b: Neural Networks for text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Tutorial%201%20-%20Python.html">Python for data analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Tutorial%202%20-%20Python%20for%20Data%20Analysis.html">Python for scientific computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Tutorial%203%20-%20Machine%20Learning%20in%20Python.html">Machine Learning in Python</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 1: Machine Learning with Python</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Lab%202%20-%20Tutorial.html">Lab 2: Model Selection in scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab%204%20-%20Tutorial.html">Lab 4: Data engineering pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab%206%20-%20Tutorial.html">Lab 6: Deep Learning with TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab%207%20-%20Tutorial.html">Lab 7: Deep Learning for text</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/ml-course/master/blob/master/labs/Lab 1 - Tutorial.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ml-course/master" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ml-course/master/issues/new?title=Issue%20on%20page%20%2Flabs/Lab 1 - Tutorial.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/labs/Lab 1 - Tutorial.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 1: Machine Learning with Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lab 1: Machine Learning with Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-python">Why Python?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-scipy-matplotlib">Numpy, Scipy, Matplotlib</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-learn">scikit-learn</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms">Algorithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import">Data import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-models">Building models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-and-testing-data">Training and testing data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-at-your-data-with-pandas">Looking at your data (with pandas)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-model">Fitting a model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-predictions">Making predictions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-the-model">Evaluating the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introspecting-the-model">Introspecting the model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-1-machine-learning-with-python">
+<h1>Lab 1: Machine Learning with Python<a class="headerlink" href="#lab-1-machine-learning-with-python" title="Link to this heading">#</a></h1>
+<p>Joaquin Vanschoren, Pieter Gijsbers, Bilge Celik, Prabhant Singh</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Why Python?</p></li>
+<li><p>Intro to scikit-learn</p></li>
+<li><p>Exercises</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="why-python">
+<h1>Why Python?<a class="headerlink" href="#why-python" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Many data-heavy applications are now developed in Python</p></li>
+<li><p>Highly readable, less complexity, fast prototyping</p></li>
+<li><p>Easy to offload number crunching to underlying C/Fortran/…</p></li>
+<li><p>Easy to install and import many rich libraries</p>
+<ul>
+<li><p>numpy: efficient data structures</p></li>
+<li><p>scipy: fast numerical recipes</p></li>
+<li><p>matplotlib: high-quality graphs</p></li>
+<li><p>scikit-learn: machine learning algorithms</p></li>
+<li><p>tensorflow: neural networks</p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+</ul>
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/tut_ecosystem.jpg" alt="ml" style="width: 1000px;"/></section>
+<section class="tex2jax_ignore mathjax_ignore" id="numpy-scipy-matplotlib">
+<h1>Numpy, Scipy, Matplotlib<a class="headerlink" href="#numpy-scipy-matplotlib" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>See the tutorials (in the course GitHub)</p></li>
+<li><p>Many good tutorials online</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/jakevdp/PythonDataScienceHandbook">Jake VanderPlas’ book and notebooks</a></p></li>
+<li><p><a class="reference external" href="https://github.com/jrjohansson/scientific-python-lectures">J.R. Johansson’s notebooks</a></p></li>
+<li><p><a class="reference external" href="https://www.datacamp.com">DataCamp</a></p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="scikit-learn">
+<h1>scikit-learn<a class="headerlink" href="#scikit-learn" title="Link to this heading">#</a></h1>
+<p>One of the most prominent Python libraries for machine learning:</p>
+<ul class="simple">
+<li><p>Contains many state-of-the-art machine learning algorithms</p></li>
+<li><p>Builds on numpy (fast), implements advanced techniques</p></li>
+<li><p>Wide range of evaluation measures and techniques</p></li>
+<li><p>Offers <a class="reference external" href="http://scikit-learn.org/stable/documentation">comprehensive documentation</a> about each algorithm</p></li>
+<li><p>Widely used, and a wealth of <a class="reference external" href="http://scikit-learn.org/stable/user_guide.html">tutorials</a> and code snippets are available</p></li>
+<li><p>Works well with numpy, scipy, pandas, matplotlib,…</p></li>
+</ul>
+<section id="algorithms">
+<h2>Algorithms<a class="headerlink" href="#algorithms" title="Link to this heading">#</a></h2>
+<p>See the <a class="reference external" href="http://scikit-learn.org/dev/modules/classes.html">Reference</a></p>
+<p><strong>Supervised learning:</strong></p>
+<ul class="simple">
+<li><p>Linear models (Ridge, Lasso, Elastic Net, …)</p></li>
+<li><p>Support Vector Machines</p></li>
+<li><p>Tree-based methods (Classification/Regression Trees, Random Forests,…)</p></li>
+<li><p>Nearest neighbors</p></li>
+<li><p>Neural networks</p></li>
+<li><p>Gaussian Processes</p></li>
+<li><p>Feature selection</p></li>
+</ul>
+<p><strong>Unsupervised learning:</strong></p>
+<ul class="simple">
+<li><p>Clustering (KMeans, …)</p></li>
+<li><p>Matrix Decomposition (PCA, …)</p></li>
+<li><p>Manifold Learning (Embeddings)</p></li>
+<li><p>Density estimation</p></li>
+<li><p>Outlier detection</p></li>
+</ul>
+<p><strong>Model selection and evaluation:</strong></p>
+<ul class="simple">
+<li><p>Cross-validation</p></li>
+<li><p>Grid-search</p></li>
+<li><p>Lots of metrics</p></li>
+</ul>
+</section>
+<section id="data-import">
+<h2>Data import<a class="headerlink" href="#data-import" title="Link to this heading">#</a></h2>
+<p>Multiple options:</p>
+<ul class="simple">
+<li><p>A few toy datasets are included in <code class="docutils literal notranslate"><span class="pre">sklearn.datasets</span></code></p></li>
+<li><p>Import <a class="reference external" href="http://www.openml.org">1000s of datasets</a> via <code class="docutils literal notranslate"><span class="pre">sklearn.datasets.fetch_openml</span></code></p></li>
+<li><p>You can import data files (CSV) with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_iris</span><span class="p">,</span> <span class="n">fetch_openml</span>
+<span class="n">iris_data</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">dating_data</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s2">&quot;SpeedDating&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/jvanscho/miniconda3/lib/python3.10/site-packages/sklearn/datasets/_openml.py:932: FutureWarning: The default value of `parser` will change from `&#39;liac-arff&#39;` to `&#39;auto&#39;` in 1.4. You can set `parser=&#39;auto&#39;` to silence this warning. Therefore, an `ImportError` will be raised from 1.4 if the dataset is dense and pandas is not installed. Note that the pandas parser may return different data types. See the Notes Section in fetch_openml&#39;s API doc for details.
+  warn(
+</pre></div>
+</div>
+</div>
+</div>
+<p>These will return a <code class="docutils literal notranslate"><span class="pre">Bunch</span></code> object (similar to a <code class="docutils literal notranslate"><span class="pre">dict</span></code>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Keys of iris_dataset: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iris_data</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iris_data</span><span class="p">[</span><span class="s1">&#39;DESCR&#39;</span><span class="p">][:</span><span class="mi">193</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">...&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Keys of iris_dataset: dict_keys([&#39;data&#39;, &#39;target&#39;, &#39;frame&#39;, &#39;target_names&#39;, &#39;DESCR&#39;, &#39;feature_names&#39;, &#39;filename&#39;, &#39;data_module&#39;])
+.. _iris_dataset:
+
+Iris plants dataset
+--------------------
+
+**Data Set Characteristics:**
+
+    :Number of Instances: 150 (50 in each of three classes)
+    :Number of Attributes: 4 numeric, pre
+...
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Targets (classes) and features are lists of strings</p></li>
+<li><p>Data and target values are always numeric (ndarrays)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Targets: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iris_data</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Features: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iris_data</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape of data: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iris_data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First 5 rows:</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iris_data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][:</span><span class="mi">5</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Targets:</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iris_data</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Targets: [&#39;setosa&#39; &#39;versicolor&#39; &#39;virginica&#39;]
+Features: [&#39;sepal length (cm)&#39;, &#39;sepal width (cm)&#39;, &#39;petal length (cm)&#39;, &#39;petal width (cm)&#39;]
+Shape of data: (150, 4)
+First 5 rows:
+[[5.1 3.5 1.4 0.2]
+ [4.9 3.  1.4 0.2]
+ [4.7 3.2 1.3 0.2]
+ [4.6 3.1 1.5 0.2]
+ [5.  3.6 1.4 0.2]]
+Targets:
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2
+ 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+ 2 2]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-models">
+<h2>Building models<a class="headerlink" href="#building-models" title="Link to this heading">#</a></h2>
+<p>All scikitlearn <em>estimators</em> follow the same interface</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SupervisedEstimator</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyperparam</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>   <span class="c1"># Fit/model the training data</span>
+        <span class="o">...</span>                <span class="c1"># given data X and targets y</span>
+        <span class="k">return</span> <span class="bp">self</span>
+     
+    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>  <span class="c1"># Make predictions</span>
+        <span class="o">...</span>                <span class="c1"># on unseen data X  </span>
+        <span class="k">return</span> <span class="n">y_pred</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="c1"># Predict and compare to true</span>
+        <span class="o">...</span>                <span class="c1"># labels y                </span>
+        <span class="k">return</span> <span class="n">score</span>
+</pre></div>
+</div>
+<section id="training-and-testing-data">
+<h3>Training and testing data<a class="headerlink" href="#training-and-testing-data" title="Link to this heading">#</a></h3>
+<p>To evaluate our classifier, we need to test it on unseen data.<br />
+<code class="docutils literal notranslate"><span class="pre">train_test_split</span></code>: splits data randomly in 75% training and 25% test data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">iris_data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">iris_data</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">],</span> 
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X_train shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y_train shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X_test shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y_test shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X_train shape: (112, 4)
+y_train shape: (112,)
+X_test shape: (38, 4)
+y_test shape: (38,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also choose other ways to split the data. For instance, the following will create a training set of 10% of the data and a test set of 5% of the data. This is useful when dealing with very large datasets. <code class="docutils literal notranslate"><span class="pre">stratify</span></code> defines the target feature to stratify the data (ensure that the class distributions are kept the same).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">iris_data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">iris_data</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
+<span class="n">Xs_train</span><span class="p">,</span> <span class="n">Xs_test</span><span class="p">,</span> <span class="n">ys_train</span><span class="p">,</span> <span class="n">ys_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Xs_train shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Xs_train</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Xs_test shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Xs_test</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Xs_train shape: (15, 4)
+Xs_test shape: (8, 4)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="looking-at-your-data-with-pandas">
+<h3>Looking at your data (with pandas)<a class="headerlink" href="#looking-at-your-data-with-pandas" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pandas.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">scatter_matrix</span>
+
+<span class="c1"># Build a DataFrame with training examples and feature names</span>
+<span class="n">iris_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> 
+                       <span class="n">columns</span><span class="o">=</span><span class="n">iris_data</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+
+<span class="c1"># scatter matrix from the dataframe, color by class</span>
+<span class="n">sm</span> <span class="o">=</span> <span class="n">scatter_matrix</span><span class="p">(</span><span class="n">iris_df</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> 
+                  <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">hist_kwds</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;bins&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">},</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> 
+                  <span class="n">alpha</span><span class="o">=</span><span class="mf">.8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/10d24ce085ada3e2a9e8e3407e1da5b7f82b19fc7f7eb8ea1ffd69e9635faecc.png" src="../_images/10d24ce085ada3e2a9e8e3407e1da5b7f82b19fc7f7eb8ea1ffd69e9635faecc.png" />
+</div>
+</div>
+</section>
+<section id="fitting-a-model">
+<h3>Fitting a model<a class="headerlink" href="#fitting-a-model" title="Link to this heading">#</a></h3>
+<p>The first model we’ll build is a k-Nearest Neighbor classifier.<br />
+kNN is included in <code class="docutils literal notranslate"><span class="pre">sklearn.neighbors</span></code>, so let’s build our first model</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KNeighborsClassifier(n_neighbors=1)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">KNeighborsClassifier</label><div class="sk-toggleable__content"><pre>KNeighborsClassifier(n_neighbors=1)</pre></div></div></div></div></div></div></div>
+</div>
+</section>
+<section id="making-predictions">
+<h3>Making predictions<a class="headerlink" href="#making-predictions" title="Link to this heading">#</a></h3>
+<p>Let’s create a new example and ask the kNN model to classify it</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]])</span>
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_new</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prediction: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prediction</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predicted target name: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+       <span class="n">iris_data</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">][</span><span class="n">prediction</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prediction: [0]
+Predicted target name: [&#39;setosa&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="evaluating-the-model">
+<h3>Evaluating the model<a class="headerlink" href="#evaluating-the-model" title="Link to this heading">#</a></h3>
+<p>Feeding all test examples to the model yields all predictions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test set predictions:</span><span class="se">\n</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set predictions:
+ [2 1 0 2 0 2 0 1 1 1 2 1 1 1 1 0 1 1 0 0 2 1 0 0 2 0 0 1 1 0 2 1 0 2 2 1 0
+ 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">score</span></code> function computes the percentage of correct predictions</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">knn</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Score: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">knn</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Score: 0.97
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instead of a single train-test split, we can use <code class="docutils literal notranslate"><span class="pre">cross_validate</span></code> do run a cross-validation.
+It will return the test scores, as well as the fit and score times, for every fold.
+By default, scikit-learn does a 5-fold cross-validation, hence returning 5 test scores.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>joblib
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: joblib in /Users/jvanscho/miniconda3/lib/python3.10/site-packages (1.2.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">cross_validate</span>
+<span class="n">xval</span> <span class="o">=</span> <span class="n">cross_validate</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">return_train_score</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">xval</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.0004108 , 0.00043321, 0.00047421, 0.00054502, 0.00044918]),
+ &#39;score_time&#39;: array([0.00080895, 0.00081778, 0.00089979, 0.00099206, 0.00093198]),
+ &#39;test_score&#39;: array([0.96666667, 0.96666667, 0.93333333, 0.93333333, 1.        ]),
+ &#39;train_score&#39;: array([1., 1., 1., 1., 1.])}
+</pre></div>
+</div>
+</div>
+</div>
+<p>The mean should give a better performance estimate</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">xval</span><span class="p">[</span><span class="s1">&#39;test_score&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.96
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="introspecting-the-model">
+<h3>Introspecting the model<a class="headerlink" href="#introspecting-the-model" title="Link to this heading">#</a></h3>
+<p>Most models allow you to retrieve the trained model parameters, usually called <code class="docutils literal notranslate"><span class="pre">coef_</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.15330146, -0.02540761,  0.26698013,  0.57386186])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Matching these with the names of the features, we can see which features are primarily used by the model</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">iris_data</span><span class="o">.</span><span class="n">feature_names</span><span class="p">,</span><span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="nb">set</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{(&#39;petal length (cm)&#39;, 0.2669801292888399),
+ (&#39;petal width (cm)&#39;, 0.5738618608875331),
+ (&#39;sepal length (cm)&#39;, -0.15330145645467938),
+ (&#39;sepal width (cm)&#39;, -0.025407610745503684)}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Please see the course notebooks for more examples on how to analyse models.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./labs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../notebooks/Tutorial%203%20-%20Machine%20Learning%20in%20Python.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Machine Learning in Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Lab%202%20-%20Tutorial.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 2: Model Selection in scikit-learn</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lab 1: Machine Learning with Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-python">Why Python?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-scipy-matplotlib">Numpy, Scipy, Matplotlib</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-learn">scikit-learn</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms">Algorithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import">Data import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-models">Building models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-and-testing-data">Training and testing data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-at-your-data-with-pandas">Looking at your data (with pandas)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-model">Fitting a model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-predictions">Making predictions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-the-model">Evaluating the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introspecting-the-model">Introspecting the model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joaquin Vanschoren
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023. CC0 Licensed - Use as you like. Appropriate credit is very welcome.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,938 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Kernels and Extrapolation &#8212; ML Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'xtra/studies/S5 Building Kernels';</script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/banner.jpeg" class="logo__image only-light" alt="ML Engineering - Home"/>
+    <img src="../../_static/banner.jpeg" class="logo__image only-dark pst-js-only" alt="ML Engineering - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../labs/Lab%200%20-%20Prerequisites.html">Prerequisites</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/01%20-%20Introduction.html">Lecture 1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/02%20-%20Linear%20Models.html">Lecture 2: Linear models</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/03%20-%20Kernelization.html">Lecture 3: Kernelization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/04%20-%20Model%20Selection.html">Lecture 4: Model Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/05%20-%20Ensemble%20Learning.html">Lecture 5. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/06%20-%20Data%20Preprocessing.html">Lecture 6. Data preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/07%20-%20Bayesian%20Learning.html">Lecture 7. Bayesian Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/08%20-%20Neural%20Networks.html">Lecture 8. Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/09%20-%20Convolutional%20Neural%20Networks.html">Lecture 9: Convolutional Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/10%20-%20Neural%20Networks%20for%20text.html">Lecture 10. Neural Networks for text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../labs/Lab%201a%20-%20Linear%20Models%20for%20Regression.html">Lab 1a: Linear regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/Lab%201b%20-%20Linear%20Models%20for%20Classification.html">Lab 1b: Linear classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/Lab%202a%20-%20Kernelization.html">Lab 2a: Kernelization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/Lab%202b%20-%20Model%20Selection.html">Lab 2b: Model selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/Lab%203%20-%20Ensembles.html">Lab 3: Ensembles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/Lab%204%20-%20Pipelines.html">Lab 4:  Data preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/Lab%205%20-%20Bayesian%20learning.html">Lab 5: Bayesian models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/Lab%206%20-%20Neural%20Networks.html">Lab 6: Neural networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/Lab%207a%20-%20Convolutional%20Neural%20Networks.html">Lab 7a: Convolutional neural nets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/Lab%207b%20-%20Neural%20Networks%20for%20text.html">Lab 7b: Neural Networks for text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/Tutorial%201%20-%20Python.html">Python for data analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/Tutorial%202%20-%20Python%20for%20Data%20Analysis.html">Python for scientific computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/Tutorial%203%20-%20Machine%20Learning%20in%20Python.html">Machine Learning in Python</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../labs/Lab%201%20-%20Tutorial.html">Lab 1: Machine Learning with Python</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../labs/Lab%202%20-%20Tutorial.html">Lab 2: Model Selection in scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/Lab%204%20-%20Tutorial.html">Lab 4: Data engineering pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/Lab%206%20-%20Tutorial.html">Lab 6: Deep Learning with TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labs/Lab%207%20-%20Tutorial.html">Lab 7: Deep Learning for text</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/ml-course/master/blob/master/xtra/studies/S5 Building Kernels.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ml-course/master" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ml-course/master/issues/new?title=Issue%20on%20page%20%2Fxtra/studies/S5 Building Kernels.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/xtra/studies/S5 Building Kernels.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Kernels and Extrapolation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-wave">A simple wave</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-tuning">Kernel tuning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-more-complex-wave">A more complex wave</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-processes">Gaussian Processes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-kernels">Combining kernels</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="kernels-and-extrapolation">
+<h1>Kernels and Extrapolation<a class="headerlink" href="#kernels-and-extrapolation" title="Link to this heading">#</a></h1>
+<p>Proper kernel design is very important if you want to fit the data well using Support Vector Machines or Gaussian Processes. Here, we are going to build some artificial regression datasets and try to find or build good kernels. We’ll also look at how well these kernels can extrapolate to ‘future’ data.</p>
+<section id="a-simple-wave">
+<h2>A simple wave<a class="headerlink" href="#a-simple-wave" title="Link to this heading">#</a></h2>
+<p>The first artificial dataset is shown below. It is a sine wave with added noise.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># General imports</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span><span class="w"> </span><span class="nn">preamble</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate sample data</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Random seed, for reproducibility </span>
+<span class="n">X</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> 
+<span class="n">y</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># adds noise</span>
+
+<span class="n">X_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="c1"># A larger range to evaluate on</span>
+<span class="n">true_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)</span> <span class="c1"># and the &#39;true&#39; target function</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">true_y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/74862dbdd44012b638490a830bd8dc4719528ad17b6e39eda209381b85e16abb.png" src="../../_images/74862dbdd44012b638490a830bd8dc4719528ad17b6e39eda209381b85e16abb.png" />
+</div>
+</div>
+<p>First, we implement several kernels and then use them to fit the data. Of course, we could use the ones that are included in sklearn, but here we want to implement them ourselves for better understanding.</p>
+<p>Linear kernel: $<span class="math notranslate nohighlight">\(k(\mathbf{x}_i,\,\mathbf{x}_j) = \mathbf{x}_i \cdot \mathbf{x}_j\)</span><span class="math notranslate nohighlight">\(
+Polynomial kernel (degree \)</span>d<span class="math notranslate nohighlight">\(): \)</span><span class="math notranslate nohighlight">\(k(\mathbf{x}_i,\,\mathbf{x}_j) = (\mathbf{x}_i \cdot \mathbf{x}_j)^d\)</span><span class="math notranslate nohighlight">\(
+RBF kernel (width \)</span>\gamma<span class="math notranslate nohighlight">\():   \)</span><span class="math notranslate nohighlight">\(k(\mathbf{x}_i,\,\mathbf{x}_j) = \exp \left( -\gamma\,\left|\left|x_i-x_j\right|\right|\right)\)</span><span class="math notranslate nohighlight">\(
+ExpSine (Exponential Sine Squared) kernel (length scale \)</span>\Gamma<span class="math notranslate nohighlight">\(, periodicity \)</span>P<span class="math notranslate nohighlight">\(): \)</span><span class="math notranslate nohighlight">\(k(\mathbf{x}_i,\,\mathbf{x}_j) = \exp \left( -\Gamma\,\sin^2\left[\frac{\pi}{P}\,\left|\left|x_i-x_j\right|\right|\right]\right)\)</span>$</p>
+<p>ExpSine with different a definition of <span class="math notranslate nohighlight">\(\Gamma\)</span> (easier to tune): $<span class="math notranslate nohighlight">\(k(\mathbf{x}_i,\,\mathbf{x}_j) = \exp \left( -2\,\left[\frac{\sin \left[\frac{\pi}{P}\,\left|\left|x_i-x_j\right|\right|\right]}{\Gamma}\right]^2\right)\)</span>$</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Think about what $\Gamma$ and $P$ represent. Can you improve the fit by manually adjusting them? Explain your findings.
+- Optimize $\Gamma$ and periodicity $P$ (using `true_y` as the ground truth). Use a grid search or random search, $\Gamma \in [0,1]$, $P \in [1,100]$, try at least 5 values for each.
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.svm</span><span class="w"> </span><span class="kn">import</span> <span class="n">SVR</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.gaussian_process.kernels</span><span class="w"> </span><span class="kn">import</span> <span class="n">WhiteKernel</span><span class="p">,</span> <span class="n">ExpSineSquared</span><span class="p">,</span> <span class="n">RBF</span><span class="p">,</span> <span class="n">RationalQuadratic</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial.distance</span><span class="w"> </span><span class="kn">import</span> <span class="n">pdist</span><span class="p">,</span> <span class="n">cdist</span>
+
+<span class="c1"># Kernels</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lin_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">poly_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">9</span><span class="p">):</span> <span class="c1"># Takes a *really* long time</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">**</span><span class="n">degree</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rbf_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">dists</span> <span class="o">=</span> <span class="n">cdist</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">dists</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">expsine_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">length_scale</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">periodicity</span><span class="o">=</span><span class="mi">25</span><span class="p">):</span>
+    <span class="n">dists</span> <span class="o">=</span> <span class="n">cdist</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">periodicity</span> <span class="o">*</span> <span class="n">dists</span><span class="p">)</span> <span class="o">/</span> <span class="n">length_scale</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Linear</span>
+<span class="n">svr_lin</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="n">lin_kernel</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">svr_lin</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_svr_lin</span> <span class="o">=</span> <span class="n">svr_lin</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)</span>
+
+<span class="c1"># Polynomial (skipping because very slow)</span>
+<span class="c1"># svr_poly = SVR(kernel=poly_kernel, C=1)</span>
+<span class="c1"># svr_poly.fit(X, y)</span>
+<span class="c1"># y_svr_poly = svr_poly.predict(X_plot)</span>
+
+<span class="c1"># RBF</span>
+<span class="n">svr_rbf</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="n">rbf_kernel</span><span class="p">)</span>
+<span class="n">svr_rbf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_svr_rbf</span> <span class="o">=</span> <span class="n">svr_rbf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)</span>
+
+<span class="c1"># Periodic</span>
+<span class="n">svr2</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="n">expsine_kernel</span><span class="p">)</span>
+<span class="n">svr2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_svr2</span> <span class="o">=</span> <span class="n">svr2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)</span>
+
+<span class="c1"># Plot results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">true_y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">y_svr_lin</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SVR Linear&#39;</span><span class="p">)</span>
+<span class="c1"># plt.plot(X_plot, y_svr_poly, color=&#39;blue&#39;, lw=lw, label=&#39;SVR Polynomial&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">y_svr_rbf</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SVR RBF&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">y_svr2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SVR ExpSine&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Kernels&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">,</span>  <span class="n">scatterpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4d4d08af0182584da7a0aae7584888c89c0ca18c3990318d2beb488c34aa7cb8.png" src="../../_images/4d4d08af0182584da7a0aae7584888c89c0ca18c3990318d2beb488c34aa7cb8.png" />
+</div>
+</div>
+<p>Observations:</p>
+<ul class="simple">
+<li><p><strong>Linear Kernel</strong>: Obviously not the best fit.</p></li>
+<li><p><strong>Polynomial Kernel</strong>: Very slow to train (high-dimensional optimization space). Also requires careful tuning as it will underfit (degree too low) or overfit (degree to high) easily.</p></li>
+<li><p><strong>RBF Kernel</strong>: Works very nicely, but doesn’t extrapolate well as the data points lose their influence rather quickly.</p></li>
+<li><p><strong>ExpSine Kernel</strong>: Works very nicely, capturing the periodicity perfectly. Indeed, this is exactly what this type of kernel is meant for.</p></li>
+</ul>
+</section>
+<section id="kernel-tuning">
+<h2>Kernel tuning<a class="headerlink" href="#kernel-tuning" title="Link to this heading">#</a></h2>
+<p>For ExpSine, we came up with good kernel parameters: length_scale=0.4, periodicity=25 rather magically (read: trial-and-error). We should tune these instead. We can do this by generating lots of kernels (with a closure) and then doing a grid search over the list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">TimeSeriesSplit</span>
+
+<span class="c1"># Closure to build a set of kernels</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">build_kernel</span><span class="p">(</span><span class="n">length_scale</span><span class="p">,</span> <span class="n">periodicity</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">custom_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">length_scale</span><span class="o">=</span><span class="n">length_scale</span><span class="p">,</span> <span class="n">periodicity</span><span class="o">=</span><span class="n">periodicity</span><span class="p">):</span>
+        <span class="n">dists</span> <span class="o">=</span> <span class="n">cdist</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">periodicity</span> <span class="o">*</span> <span class="n">dists</span><span class="p">)</span> <span class="o">/</span> <span class="n">length_scale</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">custom_kernel</span>
+
+<span class="c1"># Builds list of kernels, using 10 values for length_scale and 10 values for periodicity</span>
+<span class="n">length_scale_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">periodicity_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">build_kernel</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">length_scale_range</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">periodicity_range</span><span class="p">]}</span>
+
+<span class="n">grid_search_expsine</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">SVR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">grid_search_expsine</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">130</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Best configuration:&#39;</span><span class="p">,</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getfullargspec</span><span class="p">(</span><span class="n">grid_search_expsine</span><span class="o">.</span><span class="n">best_params_</span><span class="p">[</span><span class="s1">&#39;kernel&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">defaults</span><span class="p">)</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">grid_search_expsine</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">7</span>
+<span class="n">mglearn</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;length_scale&#39;</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="n">length_scale_range</span><span class="p">,</span>
+                      <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;periodicity&#39;</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">periodicity_range</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best configuration: (0.20000000000000001, 62.875)
+</pre></div>
+</div>
+<img alt="../../_images/20d86951e57856cff4d42613bdefe65a3d1be58fa33f367e4727d8f88ae97a6b.png" src="../../_images/20d86951e57856cff4d42613bdefe65a3d1be58fa33f367e4727d8f88ae97a6b.png" />
+</div>
+</div>
+<p>Even though the grid search used a non-shuffled split of the data for validation, it may still overfit. Let’s try a few of the best solutions, see the results below. While some other configurations got a slightly higher performance, they did not generate well to future examples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svr_opt1</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="n">build_kernel</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)</span>
+<span class="n">svr_opt2</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="n">build_kernel</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">38</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)</span>
+<span class="n">svr_opt3</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="n">build_kernel</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">62</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)</span>
+
+<span class="c1"># Plot results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">true_y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">svr_opt1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SVR ExpSine(0.4,30)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">svr_opt2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SVR ExpSine(0.3,40)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">svr_opt3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SVR ExpSine(0.2,60)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Kernels&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">,</span>  <span class="n">scatterpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/fad79037c702e2f921bfc8eca35a777dd478abcf6765305941829446c4e20c67.png" src="../../_images/fad79037c702e2f921bfc8eca35a777dd478abcf6765305941829446c4e20c67.png" />
+</div>
+</div>
+</section>
+<section id="a-more-complex-wave">
+<h2>A more complex wave<a class="headerlink" href="#a-more-complex-wave" title="Link to this heading">#</a></h2>
+<p>We now make the problem a bit more challenging by adding an upward trend, and seeing whether our ExpSine kernel still works.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate sample data with added trend</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+<span class="n">y</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># add noise</span>
+
+<span class="n">X_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span>
+<span class="n">true_y</span> <span class="o">=</span> <span class="n">X_plot</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">true_y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a6bc30c6199f86fd271164069fd0c7ba6aa42d049a8a79dd0d7dc01ae2f3f372.png" src="../../_images/a6bc30c6199f86fd271164069fd0c7ba6aa42d049a8a79dd0d7dc01ae2f3f372.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.svm</span><span class="w"> </span><span class="kn">import</span> <span class="n">SVR</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.gaussian_process.kernels</span><span class="w"> </span><span class="kn">import</span> <span class="n">WhiteKernel</span><span class="p">,</span> <span class="n">ExpSineSquared</span><span class="p">,</span> <span class="n">RBF</span><span class="p">,</span> <span class="n">RationalQuadratic</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial.distance</span><span class="w"> </span><span class="kn">import</span> <span class="n">pdist</span><span class="p">,</span> <span class="n">cdist</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">expsine_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="n">length_scale</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">periodicity</span><span class="o">=</span><span class="mi">25</span><span class="p">):</span>
+    <span class="n">dists</span> <span class="o">=</span> <span class="n">cdist</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">periodicity</span> <span class="o">*</span> <span class="n">dists</span><span class="p">)</span> <span class="o">/</span> <span class="n">length_scale</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Periodic</span>
+<span class="n">svr2</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="n">expsine_kernel</span><span class="p">)</span>
+<span class="n">svr2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_svr2</span> <span class="o">=</span> <span class="n">svr2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)</span>
+
+<span class="c1"># Plot results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">true_y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">y_svr2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SVR Periodic&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;GPR v.s. SVR&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">,</span>  <span class="n">scatterpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b4d37c3dbbe3dc22f6d5d9083e733a07ce6c5330b65da2e1480ad7401dc0ad7a.png" src="../../_images/b4d37c3dbbe3dc22f6d5d9083e733a07ce6c5330b65da2e1480ad7401dc0ad7a.png" />
+</div>
+</div>
+<p>The SVR with periodic kernel fails now, because it can’t adapt to the upward trend. The oscillation is kept, but it fails to fit the slower upward trend.</p>
+</section>
+<section id="gaussian-processes">
+<h2>Gaussian Processes<a class="headerlink" href="#gaussian-processes" title="Link to this heading">#</a></h2>
+<p>We can also use a Gaussian Process (GP) with the ExpSine kernel. When using a Gaussian Process, the kernel we pass (and its hyperparameters) defines the shape of the <em>prior</em>. The GP will optimize the kernel hyperparameters to fit the data (yielding the <em>posterior</em>), i.e. to optimize the <em>log-marginal likelihood</em> of the GP’s predictions given the data. Still, it is important to give a good starting point for the first iteration. Also, because the optimizer may get stuck in local minima, we can tell the GP to do a number of restarts with randomized initial hyperparameters.</p>
+<p>Let’s compare the SVM with the GP without doing anything fancy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.svm</span><span class="w"> </span><span class="kn">import</span> <span class="n">SVR</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.kernel_ridge</span><span class="w"> </span><span class="kn">import</span> <span class="n">KernelRidge</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.gaussian_process</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianProcessRegressor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.gaussian_process.kernels</span><span class="w"> </span><span class="kn">import</span> <span class="n">WhiteKernel</span><span class="p">,</span> <span class="n">ExpSineSquared</span><span class="p">,</span> <span class="n">RBF</span><span class="p">,</span> <span class="n">RationalQuadratic</span>
+
+<span class="n">gp_expsine</span> <span class="o">=</span> <span class="n">ExpSineSquared</span><span class="p">(</span><span class="n">length_scale</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">periodicity</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span> <span class="c1"># pre-implemented ExpSine</span>
+
+<span class="c1"># alpha is a regularizer. We also need normalize_y=True because or data is not centered around 0</span>
+<span class="n">gpr</span> <span class="o">=</span> <span class="n">GaussianProcessRegressor</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="n">gp_expsine</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_restarts_optimizer</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">normalize_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">gpr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_gpr</span><span class="p">,</span> <span class="n">y_std</span> <span class="o">=</span> <span class="n">gpr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">return_std</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Plot results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">true_y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">)</span>
+<span class="n">svr_kernel</span> <span class="o">=</span> <span class="s1">&#39;ExpSine&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfullargspec</span><span class="p">(</span><span class="n">svr2</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="s1">&#39;kernel&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">defaults</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">y_svr2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SVR (kernel=</span><span class="si">%s</span><span class="s1">, C=</span><span class="si">%s</span><span class="s1">, gamma=</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">svr_kernel</span><span class="p">,</span> <span class="n">svr2</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="n">svr2</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="s1">&#39;gamma&#39;</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">y_gpr</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GPR (</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">gpr</span><span class="o">.</span><span class="n">kernel_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">X_plot</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y_gpr</span> <span class="o">-</span> <span class="n">y_std</span><span class="p">,</span> <span class="n">y_gpr</span> <span class="o">+</span> <span class="n">y_std</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;GPR vs. SVR&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">,</span>  <span class="n">scatterpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e0c305fd68f37cd5efba71b99d3b7cc529b7d0f033a2697f38de9946c857f5e8.png" src="../../_images/e0c305fd68f37cd5efba71b99d3b7cc529b7d0f033a2697f38de9946c857f5e8.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>The GP with the ExpSine kernel does a lot better than the SVR with the same kernel. It especially extrapolates a lot better, yet ultimately reverts to its prior (i.e. the average target value) when too far away from the last training points.</p></li>
+</ul>
+</section>
+<section id="combining-kernels">
+<h2>Combining kernels<a class="headerlink" href="#combining-kernels" title="Link to this heading">#</a></h2>
+<p>It is clear that the ExpSine kernel isn’t sufficient to fit the data. We can, however, combine different kernels which each ‘explain’ part of the data:</p>
+<ul class="simple">
+<li><p>RBF kernel for the long term rising trend</p></li>
+<li><p>ExpSine kernel for the periodic component</p></li>
+<li><p>WhiteKernel to explain the noise component</p></li>
+</ul>
+<p>Interesting summary on combining kernels: <a class="reference external" href="https://www.cs.toronto.edu/~duvenaud/cookbook/">https://www.cs.toronto.edu/~duvenaud/cookbook/</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.gaussian_process.kernels</span><span class="w"> </span><span class="kn">import</span> <span class="n">WhiteKernel</span><span class="p">,</span> <span class="n">ExpSineSquared</span><span class="p">,</span> <span class="n">RBF</span>
+
+<span class="n">k1</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">RBF</span><span class="p">(</span><span class="n">length_scale</span><span class="o">=</span><span class="mf">100.0</span><span class="p">)</span>  <span class="c1"># long term smooth rising trend</span>
+<span class="n">k2</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">RBF</span><span class="p">(</span><span class="n">length_scale</span><span class="o">=</span><span class="mf">100.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">ExpSineSquared</span><span class="p">(</span><span class="n">length_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">periodicity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>  <span class="c1"># periodic component</span>
+<span class="n">k3</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">RBF</span><span class="p">(</span><span class="n">length_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">WhiteKernel</span><span class="p">(</span><span class="n">noise_level</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>  <span class="c1"># noise terms</span>
+<span class="n">k_mix</span> <span class="o">=</span> <span class="n">k1</span><span class="o">+</span><span class="n">k2</span><span class="o">+</span><span class="n">k3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.svm</span><span class="w"> </span><span class="kn">import</span> <span class="n">SVR</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.kernel_ridge</span><span class="w"> </span><span class="kn">import</span> <span class="n">KernelRidge</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.gaussian_process</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianProcessRegressor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.gaussian_process.kernels</span><span class="w"> </span><span class="kn">import</span> <span class="n">WhiteKernel</span><span class="p">,</span> <span class="n">ExpSineSquared</span><span class="p">,</span> <span class="n">RBF</span><span class="p">,</span> <span class="n">RationalQuadratic</span>
+
+<span class="n">kernel_simple</span> <span class="o">=</span> <span class="n">ExpSineSquared</span><span class="p">(</span><span class="n">length_scale</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">periodicity</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span> <span class="c1"># periodic component</span>
+
+<span class="c1"># Optimized parameters, because the k_mix settings above don&#39;t always converge to a good fit</span>
+<span class="n">ko1</span> <span class="o">=</span> <span class="mf">66.0</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">RBF</span><span class="p">(</span><span class="n">length_scale</span><span class="o">=</span><span class="mf">67.0</span><span class="p">)</span>  <span class="c1"># long term smooth rising trend</span>
+<span class="n">ko2</span> <span class="o">=</span> <span class="mf">2.4</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">RBF</span><span class="p">(</span><span class="n">length_scale</span><span class="o">=</span><span class="mf">90.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">ExpSineSquared</span><span class="p">(</span><span class="n">length_scale</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span> <span class="n">periodicity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> <span class="c1"># periodic component</span>
+<span class="n">ko3</span> <span class="o">=</span> <span class="mf">0.18</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">RBF</span><span class="p">(</span><span class="n">length_scale</span><span class="o">=</span><span class="mf">0.134</span><span class="p">)</span> <span class="o">+</span> <span class="n">WhiteKernel</span><span class="p">(</span><span class="n">noise_level</span><span class="o">=</span><span class="mf">0.19</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># noise terms</span>
+<span class="n">kernel_opt</span> <span class="o">=</span> <span class="n">ko1</span> <span class="o">+</span> <span class="n">ko2</span> <span class="o">+</span> <span class="n">ko3</span>
+
+<span class="n">gpr</span> <span class="o">=</span> <span class="n">GaussianProcessRegressor</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="n">kernel_simple</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">normalize_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n_restarts_optimizer</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">gpr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_gpr</span><span class="p">,</span> <span class="n">y_std</span> <span class="o">=</span> <span class="n">gpr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">return_std</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">gpr2</span> <span class="o">=</span> <span class="n">GaussianProcessRegressor</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="n">k_mix</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">normalize_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n_restarts_optimizer</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">gpr2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_gpr2</span><span class="p">,</span> <span class="n">y_std2</span> <span class="o">=</span> <span class="n">gpr2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">return_std</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">gpr3</span> <span class="o">=</span> <span class="n">GaussianProcessRegressor</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="n">kernel_opt</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">normalize_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n_restarts_optimizer</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">gpr3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_gpr3</span><span class="p">,</span> <span class="n">y_std3</span> <span class="o">=</span> <span class="n">gpr3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">return_std</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Plot results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">true_y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">y_gpr</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GPR (</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">gpr</span><span class="o">.</span><span class="n">kernel_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">X_plot</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y_gpr</span> <span class="o">-</span> <span class="n">y_std</span><span class="p">,</span> <span class="n">y_gpr</span> <span class="o">+</span> <span class="n">y_std</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">y_gpr2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GPR_mix (</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">gpr2</span><span class="o">.</span><span class="n">kernel_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">X_plot</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y_gpr2</span> <span class="o">-</span> <span class="n">y_std2</span><span class="p">,</span> <span class="n">y_gpr2</span> <span class="o">+</span> <span class="n">y_std2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">y_gpr3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GPR_opt (</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">gpr3</span><span class="o">.</span><span class="n">kernel_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">X_plot</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y_gpr3</span> <span class="o">-</span> <span class="n">y_std3</span><span class="p">,</span> <span class="n">y_gpr3</span> <span class="o">+</span> <span class="n">y_std3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;GPR complex kernels&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower left&quot;</span><span class="p">,</span>  <span class="n">scatterpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/806bd359f590080c010878667f6c02882c20f3e737740dbe899e1524c452d4e7.png" src="../../_images/806bd359f590080c010878667f6c02882c20f3e737740dbe899e1524c452d4e7.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./xtra/studies"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-wave">A simple wave</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-tuning">Kernel tuning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-more-complex-wave">A more complex wave</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-processes">Gaussian Processes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-kernels">Combining kernels</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joaquin Vanschoren
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023. CC0 Licensed - Use as you like. Appropriate credit is very welcome.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1040 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 2a: Tuning Support Vector Machines &#8212; ML Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lab_solutions/Lab 2a - Kernelization Solution';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/banner.jpeg" class="logo__image only-light" alt="ML Engineering - Home"/>
+    <img src="../_static/banner.jpeg" class="logo__image only-dark pst-js-only" alt="ML Engineering - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%200%20-%20Prerequisites.html">Prerequisites</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/01%20-%20Introduction.html">Lecture 1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/02%20-%20Linear%20Models.html">Lecture 2: Linear models</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/03%20-%20Kernelization.html">Lecture 3: Kernelization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/04%20-%20Model%20Selection.html">Lecture 4: Model Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/05%20-%20Ensemble%20Learning.html">Lecture 5. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/06%20-%20Data%20Preprocessing.html">Lecture 6. Data preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/07%20-%20Bayesian%20Learning.html">Lecture 7. Bayesian Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/08%20-%20Neural%20Networks.html">Lecture 8. Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/09%20-%20Convolutional%20Neural%20Networks.html">Lecture 9: Convolutional Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/10%20-%20Neural%20Networks%20for%20text.html">Lecture 10. Neural Networks for text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%201a%20-%20Linear%20Models%20for%20Regression.html">Lab 1a: Linear regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%201b%20-%20Linear%20Models%20for%20Classification.html">Lab 1b: Linear classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%202a%20-%20Kernelization.html">Lab 2a: Kernelization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%202b%20-%20Model%20Selection.html">Lab 2b: Model selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%203%20-%20Ensembles.html">Lab 3: Ensembles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%204%20-%20Pipelines.html">Lab 4:  Data preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%205%20-%20Bayesian%20learning.html">Lab 5: Bayesian models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%206%20-%20Neural%20Networks.html">Lab 6: Neural networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%207a%20-%20Convolutional%20Neural%20Networks.html">Lab 7a: Convolutional neural nets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%207b%20-%20Neural%20Networks%20for%20text.html">Lab 7b: Neural Networks for text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Tutorial%201%20-%20Python.html">Python for data analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Tutorial%202%20-%20Python%20for%20Data%20Analysis.html">Python for scientific computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Tutorial%203%20-%20Machine%20Learning%20in%20Python.html">Machine Learning in Python</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%201%20-%20Tutorial.html">Lab 1: Machine Learning with Python</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%202%20-%20Tutorial.html">Lab 2: Model Selection in scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%204%20-%20Tutorial.html">Lab 4: Data engineering pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%206%20-%20Tutorial.html">Lab 6: Deep Learning with TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%207%20-%20Tutorial.html">Lab 7: Deep Learning for text</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/ml-course/master/blob/master/lab_solutions/Lab 2a - Kernelization Solution.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ml-course/master" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ml-course/master/issues/new?title=Issue%20on%20page%20%2Flab_solutions/Lab 2a - Kernelization Solution.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lab_solutions/Lab 2a - Kernelization Solution.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 2a: Tuning Support Vector Machines</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-the-data">Getting the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-linear-svms">Exercise 1: Linear SVMs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-1-linear-svms">Exercise 1.1: Linear SVMs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-kernelized-svms">Exercise 2: Kernelized SVMs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-1">Exercise 2.1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-visualizing-the-fit">Exercise 2: Visualizing the fit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercise 2.1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-2">Exercise 2.2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-visualizing-the-rbf-models-and-hyperparameter-space">Exercise 3: Visualizing the RBF models and hyperparameter space</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-1">Exercise 3.1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-2">Exercise 3.2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-2a-tuning-support-vector-machines">
+<h1>Lab 2a: Tuning Support Vector Machines<a class="headerlink" href="#lab-2a-tuning-support-vector-machines" title="Link to this heading">#</a></h1>
+<p>Support Vector Machines are powerful methods, but they also require careful tuning. We’ll explore SVM kernels and hyperparameters on an artificial dataset. We’ll especially look at model underfitting and overfitting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Auto-setup when running on Google Colab</span>
+<span class="k">if</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_ipython</span><span class="p">()):</span>
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>openml
+
+<span class="c1"># General imports</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">openml</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">oml</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">cm</span>
+
+<span class="c1"># Hide convergence warning for now</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConvergenceWarning</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">ConvergenceWarning</span><span class="p">)</span>
+
+<span class="c1"># Hiding all warnings. Not recommended, just for compilation.</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">sys</span><span class="o">.</span><span class="n">warnoptions</span><span class="p">:</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;PYTHONWARNINGS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ignore&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="getting-the-data">
+<h2>Getting the data<a class="headerlink" href="#getting-the-data" title="Link to this heading">#</a></h2>
+<p>We fetch the Banana data from OpenML: <a class="reference external" href="https://www.openml.org/d/1460">https://www.openml.org/d/1460</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bananas</span> <span class="o">=</span> <span class="n">oml</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">(</span><span class="mi">1460</span><span class="p">)</span> <span class="c1"># Banana data has OpenML ID 1460</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">bananas</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">bananas</span><span class="o">.</span><span class="n">default_target_attribute</span><span class="p">,</span> <span class="n">dataset_format</span><span class="o">=</span><span class="s1">&#39;array&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Quick look at the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/694b1c75f3c9d3601c2c41259111616112d476009e17c5ddc523ff74ff7f7057.png" src="../_images/694b1c75f3c9d3601c2c41259111616112d476009e17c5ddc523ff74ff7f7057.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting helpers. Based loosely on https://github.com/amueller/mglearn</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_svm_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">support_vectors</span><span class="p">,</span> <span class="n">decision_function</span><span class="p">,</span> <span class="n">dual_coef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Visualizes the SVM model given the various outputs. It plots:</span>
+<span class="sd">    * All the data point, color coded by class: blue or red</span>
+<span class="sd">    * The support vectors, indicated by circling the points with a black border. </span>
+<span class="sd">      If the dual coefficients are known (only for kernel SVMs) if paints support vectors with high coefficients darker</span>
+<span class="sd">    * The decision function as a blue-to-red gradient. It is white where the decision function is near 0.</span>
+<span class="sd">    * The decision boundary as a full line, and the SVM margins (-1 and +1 values) as a dashed line</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">    X -- The training data</span>
+<span class="sd">    y -- The correct labels</span>
+<span class="sd">    title -- The plot title</span>
+<span class="sd">    support_vectors -- the list of the coordinates of the support vectores</span>
+<span class="sd">    decision_function - The decision function returned by the SVM</span>
+<span class="sd">    dual_coef -- The dual coefficients of all the support vectors (not relevant for LinearSVM)</span>
+<span class="sd">    show -- whether to plot the figure already or not</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># plot the line, the points, and the nearest vectors to the plane</span>
+    <span class="c1">#plt.figure(fignum, figsize=(5, 5))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">dual_coef</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">support_vectors</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">support_vectors</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">dual_coef</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span>
+                    <span class="n">s</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">support_vectors</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">support_vectors</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">facecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+                    <span class="n">s</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+    <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">3.5</span>
+    <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">3.5</span>
+
+    <span class="n">XX</span><span class="p">,</span> <span class="n">YY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="n">x_min</span><span class="p">:</span><span class="n">x_max</span><span class="p">:</span><span class="mi">300</span><span class="n">j</span><span class="p">,</span> <span class="n">y_min</span><span class="p">:</span><span class="n">y_max</span><span class="p">:</span><span class="mi">300</span><span class="n">j</span><span class="p">]</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">decision_function</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">XX</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">YY</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span>
+
+    <span class="c1"># Put the result into a color plot</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">XX</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">YY</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">],</span> <span class="n">linestyles</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">],</span>
+                <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">YY</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(())</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(())</span>
+
+    <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+<span class="k">def</span><span class="w"> </span><span class="nf">heatmap</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">xlabel</span><span class="p">,</span> <span class="n">ylabel</span><span class="p">,</span> <span class="n">xticklabels</span><span class="p">,</span> <span class="n">yticklabels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%0.2f</span><span class="s2">&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Visualizes the results of a grid search with two hyperparameters as a heatmap.</span>
+<span class="sd">    Attributes:</span>
+<span class="sd">    values -- The test scores</span>
+<span class="sd">    xlabel -- The name of hyperparameter 1</span>
+<span class="sd">    ylabel -- The name of hyperparameter 2</span>
+<span class="sd">    xticklabels -- The values of hyperparameter 1</span>
+<span class="sd">    yticklabels -- The values of hyperparameter 2</span>
+<span class="sd">    cmap -- The matplotlib color map</span>
+<span class="sd">    vmin -- the minimum value</span>
+<span class="sd">    vmax -- the maximum value</span>
+<span class="sd">    ax -- The figure axes to plot on</span>
+<span class="sd">    fmt -- formatting of the score values</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="c1"># plot the mean cross-validation scores</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">img</span><span class="o">.</span><span class="n">update_scalarmappable</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xticklabels</span><span class="p">))</span> <span class="o">+</span> <span class="mf">.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">yticklabels</span><span class="p">))</span> <span class="o">+</span> <span class="mf">.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">xticklabels</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">yticklabels</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">labelrotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(),</span> <span class="n">img</span><span class="o">.</span><span class="n">get_facecolors</span><span class="p">(),</span> <span class="n">img</span><span class="o">.</span><span class="n">get_array</span><span class="p">()):</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">color</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;w&#39;</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">%</span> <span class="n">value</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">img</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-1-linear-svms">
+<h2>Exercise 1: Linear SVMs<a class="headerlink" href="#exercise-1-linear-svms" title="Link to this heading">#</a></h2>
+<p>First, we’ll look at linear SVMs and the different outputs they produce. Check the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html#sklearn.svm.LinearSVC">documentation of LinearSVC</a></p>
+<p>The most important inputs are:</p>
+<ul class="simple">
+<li><p>C – The C hyperparameter controls the misclassification cost and therefore the amount of regularization. Lower values correspond to more regularization</p></li>
+<li><p>loss - The loss function, typically ‘hinge’ or ‘squared_hinge’. Squared hinge is the default. Normal hinge is less strict.</p></li>
+<li><p>dual – Whether to solve the primal optimization problem or the dual (default). The primal is recommended if you have many more data points than features (although our datasets is very small, so it won’t matter much).</p></li>
+</ul>
+<p>The most important outputs are:</p>
+<ul class="simple">
+<li><p>decision_function - The function used to classify any point. In this case on linear SVMs, this corresponds to the learned hyperplane, or <span class="math notranslate nohighlight">\(y = \mathbf{wX} + b\)</span>. It can be evaluated at every point, if the result is positive the point is classified as the positive class and vice versa.</p></li>
+<li><p>coef_ - The model coefficients, i.e. the weights <span class="math notranslate nohighlight">\(\mathbf{w}\)</span></p></li>
+<li><p>intercept_ - the bias <span class="math notranslate nohighlight">\(b\)</span></p></li>
+</ul>
+<p>From the decision function we can find which points are support vectors and which are not: the support vectors are all
+the points that fall inside the margin, i.e. have a decision value between -1 and 1, or that are misclassified. Also see the lecture slides.</p>
+<section id="exercise-1-1-linear-svms">
+<h3>Exercise 1.1: Linear SVMs<a class="headerlink" href="#exercise-1-1-linear-svms" title="Link to this heading">#</a></h3>
+<p>Train a LinearSVC with C=0.001 and hinge loss. Then, use the plotting function <code class="docutils literal notranslate"><span class="pre">plot_svm_kernel</span></code> to plot the results. For this you need to extract the support vectors from the decision function. There is a hint below should you get stuck.
+Interpret the plot as detailed as you can. Afterwards you can also try some different settings. You can also try using the primal instead of the dual optimization problem (in that case, use squared hinge loss).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hint: how to compute the support vectors from the decision function (ignore if you want to solve this yourself)</span>
+<span class="c1"># support_vector_indices = np.where((2 * y - 1) * clf.decision_function(X) &lt;= 1)[0]</span>
+<span class="c1"># support_vectors = X[support_vector_indices]</span>
+
+<span class="c1"># Note that we can also calculate the decision function manually with the formula y = w*X</span>
+<span class="c1"># decision_function = np.dot(X, clf.coef_[0]) + clf.intercept_[0]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="solution">
+<h4>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># Make figures a bit bigger</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.svm</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearSVC</span>
+<span class="n">clf1_1</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;hinge&#39;</span><span class="p">)</span>
+<span class="n">clf1_1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">support_vector_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">clf1_1</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">support_vectors</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">support_vector_indices</span><span class="p">]</span>
+
+<span class="n">plot_svm_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;Linear SVM&quot;</span><span class="p">,</span><span class="n">support_vectors</span><span class="p">,</span><span class="n">clf1_1</span><span class="o">.</span><span class="n">decision_function</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/83c1ed94f8db18fe2a76a7ad8ee05e6d57d615bb2311bfd8c135c9962c89d60e.png" src="../_images/83c1ed94f8db18fe2a76a7ad8ee05e6d57d615bb2311bfd8c135c9962c89d60e.png" />
+</div>
+</div>
+<p>Interpretation: As expected, the data cannot be fitted well with a linear SVM. Almost all points fall within the margin. Almost all points are support vectors, except for a few blue points on the top right. The accuracy is only 57%.</p>
+</section>
+</section>
+</section>
+<section id="exercise-2-kernelized-svms">
+<h2>Exercise 2: Kernelized SVMs<a class="headerlink" href="#exercise-2-kernelized-svms" title="Link to this heading">#</a></h2>
+<p>Check the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html">documentation of SVC</a></p>
+<p>It has a few more inputs. The most important:</p>
+<ul class="simple">
+<li><p>kernel - It must be either ‘linear’, ‘poly’, ‘rbf’, ‘sigmoid’, or your custom defined kernel.</p></li>
+<li><p>gamma - The kernel width of the <code class="docutils literal notranslate"><span class="pre">rbf</span></code> (Gaussian) kernel. Smaller values mean wider kernels.
+Only relevant when selecting the rbf kernel.</p></li>
+<li><p>degree - The degree of the polynomial kernel. Only relevant when selecting the poly kernel.</p></li>
+</ul>
+<p>There also also more outputs that make our lifes easier:</p>
+<ul class="simple">
+<li><p>support_vectors_ - The array of support vectors</p></li>
+<li><p>n_support_ - The number of support vectors per class</p></li>
+<li><p>dual_coef_ - The coefficients of the support vectors (the dual coefficients)</p></li>
+</ul>
+<section id="exercise-2-1">
+<h3>Exercise 2.1<a class="headerlink" href="#exercise-2-1" title="Link to this heading">#</a></h3>
+<p>Evaluate different kernels, with their default hyperparameter settings.
+Outputs should be the 5-fold cross validated accuracy scores for the linear kernel (lin_scores), polynomial kernel (poly_scores) and RBF kernel (rbf_scores). Print the mean and variance of the scores and give an initial interpretation of the performance of each kernel.</p>
+<section id="id1">
+<h4>Solution<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Imports</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">svm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">cross_val_score</span>
+
+<span class="c1"># Linear kernel</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">lin_scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Polynomial kernel</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;poly&#39;</span><span class="p">)</span>
+<span class="n">poly_scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># RBF kernel</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>
+<span class="n">rbf_scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AUC Linear Kernel: </span><span class="si">{:.2f}</span><span class="s2"> +- </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lin_scores</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">lin_scores</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AUC Polynomial Kernel: </span><span class="si">{:.2f}</span><span class="s2"> +- </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">poly_scores</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">poly_scores</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AUC RBF Kernel: </span><span class="si">{:.2f}</span><span class="s2"> +- </span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rbf_scores</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">rbf_scores</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AUC Linear Kernel: 0.55 +- 0.0000
+AUC Polynomial Kernel: 0.64 +- 0.0000
+AUC RBF Kernel: 0.90 +- 0.00005
+</pre></div>
+</div>
+</div>
+</div>
+<p>The linear kernel has a very low score, and is likely underfitting severely.
+The polynomial kernel does a lot better. The RBF kernel works particularly well, even without any tuning.
+The models are very stable, there is hardly any variance in the scores.</p>
+</section>
+</section>
+</section>
+<section id="exercise-2-visualizing-the-fit">
+<h2>Exercise 2: Visualizing the fit<a class="headerlink" href="#exercise-2-visualizing-the-fit" title="Link to this heading">#</a></h2>
+<p>To better understand what the different kernels are doing, let’s visualize their predictions.</p>
+<section id="id2">
+<h3>Exercise 2.1<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Call and fit SVM with linear, polynomial and RBF kernels with default parameter values. For RBF kernel, use kernel coefficient value (gamma) of 2.0. Plot the results for each kernel with “plot_svm_kernel” function. The plots show the predictions made for the different kernels. The background color shows the prediction (blue or red). The full line shows the decision boundary, and the dashed line the margin. The encircled points are the support vectors.</p>
+<section id="id3">
+<h4>Solution<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">120</span> <span class="c1"># Make figures a bit bigger</span>
+
+<span class="c1">#Linear</span>
+<span class="n">clf1</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>  <span class="c1">#default values for parameters</span>
+<span class="n">clf1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plot_svm_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s2">&quot;Linear kernel&quot;</span><span class="p">,</span> 
+                <span class="n">clf1</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">,</span> 
+                <span class="n">clf1</span><span class="o">.</span><span class="n">decision_function</span><span class="p">,</span> <span class="n">clf1</span><span class="o">.</span><span class="n">dual_coef_</span><span class="p">)</span>
+
+<span class="c1">#Polynomial</span>
+<span class="n">clf2</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">clf2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plot_svm_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s2">&quot;Polynomial kernel&quot;</span><span class="p">,</span> 
+                <span class="n">clf2</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">,</span> 
+                <span class="n">clf2</span><span class="o">.</span><span class="n">decision_function</span><span class="p">,</span> <span class="n">clf2</span><span class="o">.</span><span class="n">dual_coef_</span><span class="p">)</span>
+
+<span class="c1">#RBF</span>
+<span class="n">clf3</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">clf3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plot_svm_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s2">&quot;RBF kernel&quot;</span><span class="p">,</span> 
+                <span class="n">clf3</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">,</span> 
+                <span class="n">clf3</span><span class="o">.</span><span class="n">decision_function</span><span class="p">,</span> <span class="n">clf3</span><span class="o">.</span><span class="n">dual_coef_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/41d6bbd6e04a3019614e45f24cd874149b2a7007c4d1e00a66636ff25f500a3a.png" src="../_images/41d6bbd6e04a3019614e45f24cd874149b2a7007c4d1e00a66636ff25f500a3a.png" />
+<img alt="../_images/5867ed814d5072a5c6d42be594087988e7512bc8da232f0e9f0949198b4d5266.png" src="../_images/5867ed814d5072a5c6d42be594087988e7512bc8da232f0e9f0949198b4d5266.png" />
+<img alt="../_images/8e5a6f1eb09ba37c60e6c69363f53f73c891efeaa4b2f4b43605cc086140e6e0.png" src="../_images/8e5a6f1eb09ba37c60e6c69363f53f73c891efeaa4b2f4b43605cc086140e6e0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-2-2">
+<h3>Exercise 2.2<a class="headerlink" href="#exercise-2-2" title="Link to this heading">#</a></h3>
+<p>Interpret the plots for each kernel. Think of ways to improve the results.</p>
+<section id="id4">
+<h4>Solution<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<p><strong>Linear</strong>: It’s clear that this data is not linearly separable. The linear SVM is badly underfitting. There also appear to be some optimization issues, as the decision boundary lies way outside of the image, and there is a group of non-support vectors that should be support vectors. Forcing more optimization (by decreasing tolerance of the stopping criterion <code class="docutils literal notranslate"><span class="pre">tol</span></code>) yields slightly better results, but will also slow down the optimization (try it of you like).</p>
+<p><strong>Polynomial</strong>: A slightly better fit, but clearly polynomials aren’t the best fit either. They divide the space in subspaces that don’t capture the banana shapes at all.</p>
+<p><strong>RBF</strong>: Works very nicely, and the default settings seem to actually hit the sweet spot. We should still try to tune C and gamma.</p>
+</section>
+</section>
+</section>
+<section id="exercise-3-visualizing-the-rbf-models-and-hyperparameter-space">
+<h2>Exercise 3: Visualizing the RBF models and hyperparameter space<a class="headerlink" href="#exercise-3-visualizing-the-rbf-models-and-hyperparameter-space" title="Link to this heading">#</a></h2>
+<p>Select the RBF kernel and optimize the two most important hyperparameters (the 𝐶 parameter and the kernel width 𝛾 ).</p>
+<p>Hint: values for C and <span class="math notranslate nohighlight">\(\gamma\)</span> are typically in [<span class="math notranslate nohighlight">\(2^{-15}..2^{15}\)</span>] on a log scale.</p>
+<section id="exercise-3-1">
+<h3>Exercise 3.1<a class="headerlink" href="#exercise-3-1" title="Link to this heading">#</a></h3>
+<p>First try 3 very different values for <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span> (for instance [1e-3,1,1e3]). For each of the 9 combinations, create the same RBF plot as before to understand what the model is doing. Also create a standard train-test split and report the train and test score. Explain the performance results. When are you over/underfitting? Can you see this in the predictions?</p>
+<section id="id5">
+<h4>Solution<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># For convenience we&#39;ll plot the results in a 3x3 grid</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">fig_num</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># build a standard stratified train-test split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">gamma</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]:</span>
+        <span class="n">fig_num</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">fig_num</span><span class="p">)</span> <span class="c1"># plot in a 3x3 grid</span>
+        <span class="n">clf4</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="n">C</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">c</span><span class="p">),</span><span class="n">gamma</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">gamma</span><span class="p">))</span> <span class="c1"># setup and fit the model</span>
+        <span class="n">clf4</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+        <span class="n">plot_svm_kernel</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="s2">&quot;C=</span><span class="si">{}</span><span class="s2">, g=</span><span class="si">{}</span><span class="s2">, trainACC </span><span class="si">{:.2f}</span><span class="s2">, testACC </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">gamma</span><span class="p">,</span><span class="n">clf4</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">),</span> <span class="n">clf4</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)),</span> 
+                <span class="n">clf4</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">,</span> <span class="n">clf4</span><span class="o">.</span><span class="n">decision_function</span><span class="p">,</span> <span class="n">clf4</span><span class="o">.</span><span class="n">dual_coef_</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/75158ca0b5de067bf9f731e23f6b68105d374dd4f0477b1fc88c0a645b56c3f4.png" src="../_images/75158ca0b5de067bf9f731e23f6b68105d374dd4f0477b1fc88c0a645b56c3f4.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>For C = 0.001 (top row), the SVM is always underfitting. The boundaries look very different but all are underfitting because they are over-regularized.</p></li>
+<li><p>For gamma = 1000 (narrow Gaussians, right column), almost all datapoints are support vectors, For higher values of C, they are clearly overfitting: the decision boundaries are islands around each point, the model predicts 0 everywhere else.</p></li>
+<li><p>The best results are found for medium C, medium gamma. This also yields the fewest support vectors. The decision boundaries show that it captures the banana shapes well.</p></li>
+<li><p>Large C values (bottom row) tend to cause more overfitting unless gamma is very small. These two types of regularization clearly interact with each other.</p></li>
+<li><p>For gamma=1, you can also see that the margins for C=1000 are much more narrow than those for C=1. Although not visible in the scores, it is clear that the center model (with the larger margins) will generalize better.</p></li>
+</ul>
+</section>
+</section>
+<section id="exercise-3-2">
+<h3>Exercise 3.2<a class="headerlink" href="#exercise-3-2" title="Link to this heading">#</a></h3>
+<p>Optimize the hyperparameters using a grid search, trying every possible combination of C and gamma. Show a heatmap of the results and report the optimal hyperparameter values. Use at least 10 values for <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span> in [<span class="math notranslate nohighlight">\(2^{-15}..2^{15}\)</span>] on a log scale. Report accuracy under 3-fold CV. We recommend to use sklearn’s <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html">GridSearchCV</a> and the <code class="docutils literal notranslate"><span class="pre">heatmap</span></code> function defined above. Check their documentation.</p>
+<section id="id6">
+<h4>Solution<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSearchCV</span>
+
+<span class="c1"># Define and fit a grid search with 3-fold cross validation for SVM - RBF kernel. </span>
+<span class="c1"># Quite a detailed grid search. May take a while.</span>
+<span class="n">svc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>
+<span class="n">resolution</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="n">resolution</span><span class="p">,</span><span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+              <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="n">resolution</span><span class="p">,</span><span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)}</span>
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">svc</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">);</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Plot with heatmap</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">grid_search</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">mean_test_score</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">resolution</span><span class="p">,</span> <span class="n">resolution</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">})</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">13</span><span class="p">))</span>
+<span class="n">heatmap</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;gamma&#39;</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">param_grid</span><span class="p">[</span><span class="s1">&#39;gamma&#39;</span><span class="p">],</span><span class="mi">4</span><span class="p">),</span>
+                      <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">param_grid</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">],</span><span class="mi">4</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ba3f777d5bd95ab10d87abb5045a76790e1c4c6cd0fab1babc992ae115a33fb8.png" src="../_images/ba3f777d5bd95ab10d87abb5045a76790e1c4c6cd0fab1babc992ae115a33fb8.png" />
+</div>
+</div>
+<p>We can see that there isn’t really an simple optimal peak in the C-gamma space, but rather a ‘ridge’ of optimal performance. For instance, (gamma=0.25, C=4096) has top performance,
+but so does (gamma=2.0, C=0.25).</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lab_solutions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-the-data">Getting the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-linear-svms">Exercise 1: Linear SVMs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-1-linear-svms">Exercise 1.1: Linear SVMs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-kernelized-svms">Exercise 2: Kernelized SVMs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-1">Exercise 2.1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-visualizing-the-fit">Exercise 2: Visualizing the fit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercise 2.1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-2">Exercise 2.2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-visualizing-the-rbf-models-and-hyperparameter-space">Exercise 3: Visualizing the RBF models and hyperparameter space</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-1">Exercise 3.1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-2">Exercise 3.2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joaquin Vanschoren
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023. CC0 Licensed - Use as you like. Appropriate credit is very welcome.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
