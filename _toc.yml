@@ -23,9 +23,9 @@ parts:
   - file: labs/Lab 2 - Model Selection
   - file: labs/Lab 3a - Ensembles
   - file: labs/Lab 3b - Pipelines.ipynb
-  - file: labs/Lab 4 - Neural Networks
-  - file: labs/Lab 5 - Convolutional Neural Networks
-  - file: labs/Lab 6 - Transformers
+# - file: labs/Lab 4 - Neural Networks
+# - file: labs/Lab 5 - Convolutional Neural Networks
+# - file: labs/Lab 6 - Transformers
 - caption: Tutorials
   chapters:
   - file: notebooks/Tutorial 1 - Python.ipynb
@@ -34,5 +34,5 @@ parts:
   - file: labs/Lab 1 - Tutorial.ipynb
   - file: labs/Lab 2 - Tutorial.ipynb
   - file: labs/Lab 3 - Tutorial.ipynb
-  - file: labs/Lab 4 - Tutorial.ipynb
-  - file: labs/Lab 6 - Tutorial.ipynb
+# - file: labs/Lab 4 - Tutorial.ipynb
+# - file: labs/Lab 6 - Tutorial.ipynb
