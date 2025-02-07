@@ -6,7 +6,7 @@ and algorithms to understand them better. At the same time, you'll learn how to 
 Lectures can be viewed online as notebooks, as slides (online or PDF), or as videos (hosted on YouTube). They all have the same content.
 Upon opening the notebooks, you can <i class="fas fa-rocket"></i> launch them in Google Colab (or Binder), or run them locally.
 
-|   | Notebooks          |     Slides     |    Video   |
+|   | Notebooks          |     Slides     |    Video   |   
 |:--|:-------------------|----------------|------------|
 | 1 | [Introduction](https://ml-course.github.io/master/notebooks/01%20-%20Introduction.html)               | [HTML](https://ml-course.github.io/master/01%20-%20Introduction.slides.html)         - [PDF](https://ml-course.github.io/master/01%20-%20Introduction.pdf)         | [Youtube](https://www.youtube.com/watch?v=bgi-q_vrBmQ&list=PLl4kuMJ32K2r2CUKkZSVVxDnjB4NM335-) |
 | 2 | [Linear Models](https://ml-course.github.io/master/notebooks/02%20-%20Linear%20Models.html)           | [HTML](https://ml-course.github.io/master/02%20-%20Linear%20Models.slides.html)      - [PDF](https://ml-course.github.io/master/02%20-%20Linear%20Models.pdf)      | [Youtube](https://www.youtube.com/watch?v=xH2N5wODyMw&list=PLl4kuMJ32K2r2CUKkZSVVxDnjB4NM335-) |[Youtube](https://www.youtube.com/watch?v=LuPh8LYpVL4&list=PLl4kuMJ32K2r2CUKkZSVVxDnjB4NM335-) |
