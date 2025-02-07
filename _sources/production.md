@@ -1,6 +1,15 @@
 # Production
 These are instructions on how to generate the slides and book. As a student, you don't need this. You can simply use the pre-compiled materials.
 
+## Python environment
+Create a virtual environment and install the necessary requirements. Tested for Python 3.10 (newer versions up to 3.12 are probably ok).
+
+```
+conda create -n mlcourse python=3.10
+conda activate mlcourse
+pip install -U -r requirements.txt
+```
+
 ## Generating the online book
 To generate the online books, you'll need `jupyter-book`.
 

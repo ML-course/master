@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lecture 2: Linear models &#8212; ML Engineering</title>
+    <title>Lecture 2. Linear models &#8212; ML Engineering</title>
   
   
   
@@ -66,8 +66,8 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lecture 4: Model Selection" href="03%20-%20Model%20Selection.html" />
-    <link rel="prev" title="Lecture 1: Introduction" href="01%20-%20Introduction.html" />
+    <link rel="next" title="Lecture 3. Model Evaluation" href="03%20-%20Model%20Evaluation.html" />
+    <link rel="prev" title="Lecture 1. Introduction" href="01%20-%20Introduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -176,21 +176,20 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01%20-%20Introduction.html">Lecture 1: Introduction</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 2: Linear models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01%20-%20Introduction.html">Lecture 1. Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 2. Linear models</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="03%20-%20Model%20Selection.html">Lecture 4: Model Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04%20-%20Ensemble%20Learning.html">Lecture 5. Ensemble Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05%20-%20Data%20Preprocessing.html">Lecture 6. Data preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06%20-%20Neural%20Networks.html">Lecture 8. Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07%20-%20Convolutional%20Neural%20Networks.html">Lecture 9: Convolutional Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08%20-%20Transformers.html">Lecture 10. Neural Networks for text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03%20-%20Model%20Evaluation.html">Lecture 3. Model Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04%20-%20Ensemble%20Learning.html">Lecture 4. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05%20-%20Data%20Preprocessing.html">Lecture 5. Data preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06%20-%20Neural%20Networks.html">Lecture 6. Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07%20-%20Convolutional%20Neural%20Networks.html">Lecture 7: Convolutional Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08%20-%20Transformers.html">Lecture 8. Neural Networks for text</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../labs/Lab%201a%20-%20Linear%20Models%20for%20Regression.html">Lab 1a: Linear regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/Lab%201b%20-%20Linear%20Models%20for%20Classification.html">Lab 1b: Linear classification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%202%20-%20Model%20Selection.html">Lab 2b: Model selection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/Lab%203a%20-%20Ensembles.html">Lab 3: Ensembles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/Lab%203b%20-%20Pipelines.html">Lab 4:  Data preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/Lab%204%20-%20Neural%20Networks.html">Lab 6: Neural networks</a></li>
@@ -425,7 +424,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lecture 2: Linear models</h1>
+    <h1>Lecture 2. Linear models</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -435,7 +434,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lecture 2: Linear models</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lecture 2. Linear models</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation-and-definitions">Notation and Definitions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-operations">Basic operations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradients">Gradients</a></li>
@@ -519,7 +518,7 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lecture-2-linear-models">
-<h1>Lecture 2: Linear models<a class="headerlink" href="#lecture-2-linear-models" title="Link to this heading">#</a></h1>
+<h1>Lecture 2. Linear models<a class="headerlink" href="#lecture-2-linear-models" title="Link to this heading">#</a></h1>
 <p><strong>Basics of modeling, optimization, and regularization</strong></p>
 <p>Joaquin Vanschoren</p>
 <div class="cell tag_hide-input tag_hideCode docutils container">
@@ -3280,15 +3279,15 @@ th {font-size: 16px}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lecture 1: Introduction</p>
+        <p class="prev-next-title">Lecture 1. Introduction</p>
       </div>
     </a>
     <a class="right-next"
-       href="03%20-%20Model%20Selection.html"
+       href="03%20-%20Model%20Evaluation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lecture 4: Model Selection</p>
+        <p class="prev-next-title">Lecture 3. Model Evaluation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -3309,7 +3308,7 @@ th {font-size: 16px}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lecture 2: Linear models</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lecture 2. Linear models</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation-and-definitions">Notation and Definitions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-operations">Basic operations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradients">Gradients</a></li>

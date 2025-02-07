@@ -174,21 +174,20 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="notebooks/01%20-%20Introduction.html">Lecture 1: Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/02%20-%20Linear%20Models.html">Lecture 2: Linear models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/01%20-%20Introduction.html">Lecture 1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/02%20-%20Linear%20Models.html">Lecture 2. Linear models</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="notebooks/03%20-%20Model%20Selection.html">Lecture 4: Model Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/04%20-%20Ensemble%20Learning.html">Lecture 5. Ensemble Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/05%20-%20Data%20Preprocessing.html">Lecture 6. Data preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/06%20-%20Neural%20Networks.html">Lecture 8. Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/07%20-%20Convolutional%20Neural%20Networks.html">Lecture 9: Convolutional Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/08%20-%20Transformers.html">Lecture 10. Neural Networks for text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/03%20-%20Model%20Evaluation.html">Lecture 3. Model Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/04%20-%20Ensemble%20Learning.html">Lecture 4. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/05%20-%20Data%20Preprocessing.html">Lecture 5. Data preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/06%20-%20Neural%20Networks.html">Lecture 6. Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/07%20-%20Convolutional%20Neural%20Networks.html">Lecture 7: Convolutional Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/08%20-%20Transformers.html">Lecture 8. Neural Networks for text</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="labs/Lab%201a%20-%20Linear%20Models%20for%20Regression.html">Lab 1a: Linear regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="labs/Lab%201b%20-%20Linear%20Models%20for%20Classification.html">Lab 1b: Linear classification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="labs/Lab%202%20-%20Model%20Selection.html">Lab 2b: Model selection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="labs/Lab%203a%20-%20Ensembles.html">Lab 3: Ensembles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="labs/Lab%203b%20-%20Pipelines.html">Lab 4:  Data preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="labs/Lab%204%20-%20Neural%20Networks.html">Lab 6: Neural networks</a></li>
@@ -402,6 +401,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-environment">Python environment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-online-book">Generating the online book</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-slides">Generating slides</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-slides">Interactive slides</a></li>
@@ -425,6 +425,15 @@
   <section class="tex2jax_ignore mathjax_ignore" id="production">
 <h1>Production<a class="headerlink" href="#production" title="Link to this heading">#</a></h1>
 <p>These are instructions on how to generate the slides and book. As a student, you don’t need this. You can simply use the pre-compiled materials.</p>
+<section id="python-environment">
+<h2>Python environment<a class="headerlink" href="#python-environment" title="Link to this heading">#</a></h2>
+<p>Create a virtual environment and install the necessary requirements. Tested for Python 3.10 (newer versions up to 3.12 are probably ok).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">mlcourse</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.10</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">mlcourse</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</section>
 <section id="generating-the-online-book">
 <h2>Generating the online book<a class="headerlink" href="#generating-the-online-book" title="Link to this heading">#</a></h2>
 <p>To generate the online books, you’ll need <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code>.</p>
@@ -530,6 +539,7 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-environment">Python environment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-online-book">Generating the online book</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-slides">Generating slides</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-slides">Interactive slides</a></li>
