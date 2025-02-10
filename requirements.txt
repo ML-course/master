@@ -12,3 +12,4 @@ openml>=0.14.2
 seaborn>=0.13.2
 graphviz>=0.20.1
 tensorflow==2.18.0
+fancyimpute

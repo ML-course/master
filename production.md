@@ -20,7 +20,12 @@ conda install -c conda-forge jupyter_contrib_nbextensions
 jupyter nbextension enable hide_input_all
 ```
 
-You'll need to launch `jupyter notebook` since rise is not yet supported in jupyterlab. You'll see two new icons when you open a notebook. One will start the slideshow, and the other will hide the code. You'll need to set `interactive = True` in the first cell and then run all cells before starting the slideshow to allow the interactions.
+You'll need to launch `jupyter notebook` since rise is not yet fully supported in jupyterlab. You'll see two new icons when you open a notebook. To run the slides interactively:
+
+- Set `interactive = True` in the first cell (if it isn't already)
+- Run all cells ('Run' > 'Run all cells') so that all interaction widgets are loaded
+- Hide the input code by clicking the 'eye' icon (toggles `hide_all_code`)
+- Start the slideshow by clicking the 'chart' icon (toggles `rise`)
 
 ### Static slides
 You can generate slides from the notebooks using `nbconvert`. First, set `interactive = False` in the first cell of the notebook and rerun the notebooks to generate static versions of the interactive visualizations.
