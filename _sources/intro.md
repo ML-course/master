@@ -17,8 +17,8 @@ Upon opening the notebooks, you can <i class="fas fa-rocket"></i> launch them in
 | 7 | [Convolutional Neural Networks](https://ml-course.github.io/master/notebooks/07%20-%20Convolutional%20Neural%20Networks.html)<sup>1</sup>   | [HTML](https://ml-course.github.io/master/07%20-%20Convolutional%20Neural%20Networks.slides.html)  - [PDF](https://ml-course.github.io/master/07%20-%20Convolutional%20Neural%20Networks.pdf)  | [Youtube](https://www.youtube.com/watch?v=D-7JgAUlxb4&list=PLl4kuMJ32K2r2CUKkZSVVxDnjB4NM335-) |
 | 8 | [Transformers](https://ml-course.github.io/master/notebooks/08%20-%20Transformers.html)<sup>1</sup>   | [HTML](https://ml-course.github.io/master/08%20-%20Transformers.slides.html)  - [PDF](https://ml-course.github.io/master/08%20-%20Transformers.pdf)  | [Youtube](https://www.youtube.com/watch?v=THbqTlVNIPg&list=PLl4kuMJ32K2r2CUKkZSVVxDnjB4NM335-) |
 
-<sup>1</sup> These lectures (slides and video recordings) will be updated by the end of the spring break.<br>
-<sup>2</sup> The order of the slides in the video is slightly different.  
+<sup>1</sup> These lectures (slides and video recordings) will be slightly updated by the end of the spring break.<br>
+<sup>2</sup> The order of the slides in the video is slightly different.
 
 ```{admonition} Get your hands dirty
 Retrieve all materials by cloning the <i class="fab fa-github"></i> [GitHub repo](https://ml-course.github.io/master). To run the notebooks locally, see the [prerequisites](https://ml-course.github.io/master/labs/Lab%200%20-%20Prerequisites.html).
@@ -59,8 +59,9 @@ Lectures on both basic machine learning techniques (useful for novices to cover 
 
 1. [Decision trees](https://ml-course.github.io/master/xtra/Decision%20Trees)
 2. [Nearest Neighbors](https://ml-course.github.io/master/xtra/Nearest%20Neighbors)
-3. [Kernelization](https://ml-course.github.io/master/xtra/Kernelization)
-4. [Bayesian Learning](https://ml-course.github.io/master/xtra/Bayesian%20Learning)
+3. [Data Preprocessing Basics](https://ml-course.github.io/master/xtra/Data%20Preprocessing%20Basics)
+4. [Kernelization](https://ml-course.github.io/master/xtra/Kernelization)
+5. [Bayesian Learning](https://ml-course.github.io/master/xtra/Bayesian%20Learning)
 
 ### Recommended resources
 These resources help to further deepen your skills, and are well aligned with this course.

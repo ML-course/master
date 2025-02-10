@@ -10,6 +10,34 @@ conda activate mlcourse
 pip install -U -r requirements.txt
 ```
 
+## Generating slides
+### Interactive slides
+To generate interactive slides (as shown in the videos and lectures), you'll need to install the notebook extensions `rise` and `hide_input_all`.
+
+```
+conda install -c conda-forge rise
+conda install -c conda-forge jupyter_contrib_nbextensions
+jupyter nbextension enable hide_input_all
+```
+
+You'll need to launch `jupyter notebook` since rise is not yet fully supported in jupyterlab. You'll see two new icons when you open a notebook. To run the slides interactively:
+
+- Set `interactive = True` in the first cell (if it isn't already)
+- Run all cells ('Run' > 'Run all cells') so that all interaction widgets are loaded
+- Hide the input code by clicking the 'eye' icon (toggles `hide_all_code`)
+- Start the slideshow by clicking the 'chart' icon (toggles `rise`)
+
+### Static slides
+You can generate slides from the notebooks using `nbconvert`. First, set `interactive = False` in the first cell of the notebook and rerun the notebooks to generate static versions of the interactive visualizations.
+
+```
+jupyter nbconvert --to slides --template reveal --SlidesExporter.reveal_theme=simple --no-input --post serve <NotebookName>
+```
+
+To generate PDF handouts, remove `#/` from the url and add `?print-pdf`, then print as PDF. 
+
+Sidenote: Some PDF readers (e.g. Preview) sometimes show grey boxes around code examples, others (e.g. Acrobat Reader, Chrome) do not. Must be an artifact of some PDF readers.
+
 ## Generating the online book
 To generate the online books, you'll need `jupyter-book`.
 
@@ -31,31 +59,6 @@ To push the rendered book to GitHub, run:
 pip install ghp-import
 ghp-import -n -p -f _build/html
 ```
-
-
-## Generating slides
-### Interactive slides
-To generate interactive slides (as shown in the videos and lectures), you'll need to install the notebook extensions `rise` and `hide_input_all`.
-
-```
-conda install -c conda-forge rise
-conda install -c conda-forge jupyter_nbextensions_configurator
-jupyter nbextension enable rise
-jupyter nbextension enable hide_input_all
-```
-
-You'll need to launch `jupyter notebook` since rise is not yet supported in jupyterlab. You'll see two new icons when you open a notebook. One will start the slideshow, and the other will hide the code. You'll need to set `interactive = True` in the first cell and then run all cells before starting the slideshow to allow the interactions.
-
-### Static slides
-You can generate slides from the notebooks using `nbconvert`. First, set `interactive = False` in the first cell of the notebook and rerun the notebooks to generate static versions of the interactive visualizations.
-
-```
-jupyter nbconvert --to slides --template reveal --SlidesExporter.reveal_theme=simple --no-input --post serve <NotebookName>
-```
-
-To generate PDF handouts, remove `#/` from the url and add `?print-pdf`, then print as PDF. 
-
-Sidenote: Some PDF readers (e.g. Preview) sometimes show grey boxes around code examples, others (e.g. Acrobat Reader, Chrome) do not. Must be an artifact of some PDF readers.
 
 #### Customization
 I used a few tweaks to the slide theme by adding these to the css in `custom_reveal.css` in the `nbconvert` reveal template. Copy the styles from slides_html/custom.css to this file.

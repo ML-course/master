@@ -1,0 +1,1880 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Recap: Data preprocessing &#8212; ML Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'xtra/Data Preprocessing Basics';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/banner.jpeg" class="logo__image only-light" alt="ML Engineering - Home"/>
+    <img src="../_static/banner.jpeg" class="logo__image only-dark pst-js-only" alt="ML Engineering - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%200%20-%20Prerequisites.html">Prerequisites</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/01%20-%20Introduction.html">Lecture 1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/02%20-%20Linear%20Models.html">Lecture 2. Linear models</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/03%20-%20Model%20Evaluation.html">Lecture 3. Model Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/04%20-%20Ensemble%20Learning.html">Lecture 4. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/05%20-%20Data%20Preprocessing.html">Lecture 5. Data preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/06%20-%20Neural%20Networks.html">Lecture 6. Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/07%20-%20Convolutional%20Neural%20Networks.html">Lecture 7: Convolutional Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/08%20-%20Transformers.html">Lecture 8. Neural Networks for text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%201a%20-%20Linear%20Models%20for%20Regression.html">Lab 1a: Linear regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%201b%20-%20Linear%20Models%20for%20Classification.html">Lab 1b: Linear classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%203a%20-%20Ensembles.html">Lab 3: Ensembles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%203b%20-%20Pipelines.html">Lab 4:  Data preprocessing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Tutorial%201%20-%20Python.html">Python for data analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Tutorial%202%20-%20Python%20for%20Data%20Analysis.html">Python for scientific computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Tutorial%203%20-%20Machine%20Learning%20in%20Python.html">Machine Learning in Python</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%201%20-%20Tutorial.html">Lab 1: Machine Learning with Python</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%202%20-%20Tutorial.html">Lab 2: Model Selection in scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%203%20-%20Tutorial.html">Lab 4: Data engineering pipelines with scikit-learn</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/ml-course/master/blob/master/xtra/Data Preprocessing Basics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ml-course/master" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ml-course/master/issues/new?title=Issue%20on%20page%20%2Fxtra/Data Preprocessing Basics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/xtra/Data Preprocessing Basics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Recap: Data preprocessing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-transformations-covered-here">Data transformations covered here</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling">Scaling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-scaling">Why do we need scaling?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-scaling-standardization">Standard scaling (standardization)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-scaling">Min-max scaling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#robust-scaling">Robust scaling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalization">Normalization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-absolute-scaler">Maximum Absolute scaler</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-feature-selection">Automatic Feature Selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-bike-sharing">Example: bike sharing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-feature-selection">Unsupervised feature selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance-based-feature-selection">Covariance based feature selection</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-statistics-f-test">Univariate statistics (F-test)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-statistic">F-statistic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mutual-information">Mutual information</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-techniques">Further techniques</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-engineering">Feature Engineering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomials">Polynomials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binning">Binning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binning-interaction-features">Binning + interaction features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-feature-interactions">Categorical feature interactions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="recap-data-preprocessing">
+<h1>Recap: Data preprocessing<a class="headerlink" href="#recap-data-preprocessing" title="Link to this heading">#</a></h1>
+<p><strong>Basic data transformation techniques</strong></p>
+<p>Joaquin Vanschoren</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Auto-setup when running on Google Colab</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="k">if</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_ipython</span><span class="p">())</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;/content/master&#39;</span><span class="p">):</span>
+    <span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>-q<span class="w"> </span>https://github.com/ML-course/master.git<span class="w"> </span>/content/master
+    <span class="o">!</span>pip<span class="w"> </span>--quiet<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>/content/master/requirements_colab.txt
+    <span class="o">%</span><span class="k">cd</span> master/notebooks
+
+<span class="c1"># Global imports and settings</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span><span class="w"> </span><span class="nn">preamble</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="n">interactive</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># Set to True for interactive plots</span>
+<span class="k">if</span> <span class="n">interactive</span><span class="p">:</span>
+    <span class="n">fig_scale</span> <span class="o">=</span> <span class="mf">0.9</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">print_config</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> <span class="c1"># For printing</span>
+    <span class="n">fig_scale</span> <span class="o">=</span> <span class="mf">0.35</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">print_config</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="data-transformations-covered-here">
+<h2>Data transformations covered here<a class="headerlink" href="#data-transformations-covered-here" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Scaling and power transformations</p></li>
+<li><p>Unsupervised feature selection ()</p>
+<ul>
+<li><p>Feature engineering (e.g. binning, polynomial features,…)</p></li>
+<li><p>Handling missing data</p></li>
+<li><p>Handling imbalanced data</p></li>
+<li><p>Dimensionality reduction (e.g. PCA)</p></li>
+<li><p>Learned embeddings (e.g. for text)</p></li>
+</ul>
+</li>
+<li><p>Seek the best combinations of transformations and learning methods</p>
+<ul>
+<li><p>Often done empirically, using cross-validation</p></li>
+<li><p>Make sure that there is no data leakage during this process!</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="scaling">
+<h2>Scaling<a class="headerlink" href="#scaling" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Use when different numeric features have different scales (different range of values)</p>
+<ul>
+<li><p>Features with much higher values may overpower the others</p></li>
+</ul>
+</li>
+<li><p>Goal: bring them all within the same range</p></li>
+<li><p>Different methods exist</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_openml</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">RobustScaler</span><span class="p">,</span> <span class="n">Normalizer</span><span class="p">,</span> <span class="n">MaxAbsScaler</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">widgets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interact_manual</span>
+
+<span class="c1"># Iris dataset with some added noise</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">noisy_iris</span><span class="p">():</span>
+    <span class="n">iris</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">iris</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">X</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">noise</span>
+    <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span> <span class="c1"># add more skew </span>
+    <span class="n">label_encoder</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">label_encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+
+<span class="n">scalers</span> <span class="o">=</span> <span class="p">[</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">RobustScaler</span><span class="p">(),</span> <span class="n">MinMaxScaler</span><span class="p">(),</span> <span class="n">Normalizer</span><span class="p">(</span><span class="n">norm</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">),</span> <span class="n">MaxAbsScaler</span><span class="p">()]</span>
+
+<span class="nd">@interact</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_scaling</span><span class="p">(</span><span class="n">scaler</span><span class="o">=</span><span class="n">scalers</span><span class="p">):</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">noisy_iris</span><span class="p">()</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># Use only first 2 features</span>
+    
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;brg&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Original Data&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="s1">&#39;zero&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="s1">&#39;zero&#39;</span><span class="p">)</span>
+    
+    <span class="n">X_</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;brg&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">scaler</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9a017485b5cd4c878976080e20721345", "version_major": 2, "version_minor": 0}</script><img alt="../_images/5d83d4562af7959a5815b6f1586526469f4129fd7a36765f669dda38b4306011.png" src="../_images/5d83d4562af7959a5815b6f1586526469f4129fd7a36765f669dda38b4306011.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">interactive</span><span class="p">:</span>
+    <span class="n">plot_scaling</span><span class="p">(</span><span class="n">scalers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="why-do-we-need-scaling">
+<h3>Why do we need scaling?<a class="headerlink" href="#why-do-we-need-scaling" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>KNN: Distances depend mainly on feature with larger values</p></li>
+<li><p>SVMs: (kernelized) dot products are also based on distances</p></li>
+<li><p>Linear model: Feature scale affects regularization</p>
+<ul>
+<li><p>Weights have similar scales, more interpretable</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.svm</span><span class="w"> </span><span class="kn">import</span> <span class="n">SVC</span><span class="p">,</span> <span class="n">LinearSVC</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">clone</span>
+
+<span class="c1"># Example by Andreas Mueller, with some tweaks</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_2d_classification</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># multiclass                                                                  </span>
+    <span class="k">if</span> <span class="n">eps</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>                                                               
+        <span class="n">eps</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">eps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">eps</span><span class="p">,</span> <span class="n">eps</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>                                                                
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>                                                            
+
+    <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="n">eps</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="n">eps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="n">eps</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="n">eps</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># these should be 1000 but knn predict is unnecessarily slow</span>
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>                                          
+    <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>                                          
+
+    <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">)</span>                                                  
+    <span class="n">X_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">X1</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">X2</span><span class="o">.</span><span class="n">ravel</span><span class="p">()]</span>                                        
+    <span class="n">decision_values</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_grid</span><span class="p">)</span>                                  
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">decision_values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span>            
+                                                       <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">),</span>             
+            <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span><span class="p">)</span>     
+
+<span class="n">clfs</span> <span class="o">=</span> <span class="p">[</span><span class="n">KNeighborsClassifier</span><span class="p">(),</span> <span class="n">SVC</span><span class="p">(),</span> <span class="n">LinearSVC</span><span class="p">(),</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">10</span><span class="p">)]</span>
+
+<span class="nd">@interact</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_scaling_effect</span><span class="p">(</span><span class="n">classifier</span><span class="o">=</span><span class="n">clfs</span><span class="p">,</span> <span class="n">show_test</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span><span class="kc">True</span><span class="p">]):</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">centers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">y</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">27</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> 
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">clf2</span> <span class="o">=</span> <span class="n">clone</span><span class="p">(</span><span class="n">classifier</span><span class="p">)</span>
+    <span class="n">clf_unscaled</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_train</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Without scaling. Accuracy:</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clf_unscaled</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)))</span>
+    <span class="k">if</span> <span class="n">show_test</span><span class="p">:</span> <span class="c1"># Hide test data for simplicity</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_test</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">)</span> 
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    
+    <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+    <span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+    <span class="n">X_test_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">clf_scaled</span> <span class="o">=</span> <span class="n">clf2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_train_scaled</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;With scaling. Accuracy:</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clf_scaled</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">,</span><span class="n">y_test</span><span class="p">)))</span>   
+    <span class="k">if</span> <span class="n">show_test</span><span class="p">:</span> <span class="c1"># Hide test data for simplicity</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_test_scaled</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+    <span class="n">plot_2d_classification</span><span class="p">(</span><span class="n">clf_unscaled</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
+    <span class="n">plot_2d_classification</span><span class="p">(</span><span class="n">clf_scaled</span><span class="p">,</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1a86adc5eb5449eca4ae8d9e797a1171", "version_major": 2, "version_minor": 0}</script><img alt="../_images/503374d9c151f54d23cfff574515eddc7bb94640c2b994704136ac3bc273e02a.png" src="../_images/503374d9c151f54d23cfff574515eddc7bb94640c2b994704136ac3bc273e02a.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">interactive</span><span class="p">:</span>
+    <span class="n">plot_scaling_effect</span><span class="p">(</span><span class="n">classifier</span><span class="o">=</span><span class="n">clfs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">show_test</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="standard-scaling-standardization">
+<h3>Standard scaling (standardization)<a class="headerlink" href="#standard-scaling-standardization" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Generally most useful, assumes data is more or less normally distributed</p></li>
+<li><p>Per feature, subtract the mean value <span class="math notranslate nohighlight">\(\mu\)</span>, scale by standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span></p></li>
+<li><p>New feature has <span class="math notranslate nohighlight">\(\mu=0\)</span> and <span class="math notranslate nohighlight">\(\sigma=1\)</span>, values can still be arbitrarily large
+$<span class="math notranslate nohighlight">\(\mathbf{x}_{new} = \frac{\mathbf{x} - \mu}{\sigma}\)</span>$</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_scaling</span><span class="p">(</span><span class="n">scaler</span><span class="o">=</span><span class="n">StandardScaler</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/5d83d4562af7959a5815b6f1586526469f4129fd7a36765f669dda38b4306011.png" src="../_images/5d83d4562af7959a5815b6f1586526469f4129fd7a36765f669dda38b4306011.png" />
+</div>
+</div>
+</section>
+<section id="min-max-scaling">
+<h3>Min-max scaling<a class="headerlink" href="#min-max-scaling" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Scales all features between a given <span class="math notranslate nohighlight">\(min\)</span> and <span class="math notranslate nohighlight">\(max\)</span> value (e.g. 0 and 1)</p></li>
+<li><p>Makes sense if min/max values have meaning in your data</p></li>
+<li><p>Sensitive to outliers</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\mathbf{x}_{new} = \frac{\mathbf{x} - x_{min}}{x_{max} - x_{min}} \cdot (max - min) + min \]</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_scaling</span><span class="p">(</span><span class="n">scaler</span><span class="o">=</span><span class="n">MinMaxScaler</span><span class="p">(</span><span class="n">feature_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/f86889606574399b60477f9a2ecac135752f51359cea5f61b449c5cd28ff205a.png" src="../_images/f86889606574399b60477f9a2ecac135752f51359cea5f61b449c5cd28ff205a.png" />
+</div>
+</div>
+</section>
+<section id="robust-scaling">
+<h3>Robust scaling<a class="headerlink" href="#robust-scaling" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Subtracts the median, scales between quantiles <span class="math notranslate nohighlight">\(q_{25}\)</span> and <span class="math notranslate nohighlight">\(q_{75}\)</span></p></li>
+<li><p>New feature has median 0, <span class="math notranslate nohighlight">\(q_{25}=-1\)</span> and <span class="math notranslate nohighlight">\(q_{75}=1\)</span></p></li>
+<li><p>Similar to standard scaler, but ignores outliers</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_scaling</span><span class="p">(</span><span class="n">scaler</span><span class="o">=</span><span class="n">RobustScaler</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/467b56d3f59dc4f90471ba335c71b2b4799070aa5efde229319ab259bedc596e.png" src="../_images/467b56d3f59dc4f90471ba335c71b2b4799070aa5efde229319ab259bedc596e.png" />
+</div>
+</div>
+</section>
+<section id="normalization">
+<h3>Normalization<a class="headerlink" href="#normalization" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Makes sure that feature values of each point (each row) sum up to 1 (L1 norm)</p>
+<ul>
+<li><p>Useful for count data (e.g. word counts in documents)</p></li>
+</ul>
+</li>
+<li><p>Can also be used with L2 norm (sum of squares is 1)</p>
+<ul>
+<li><p>Useful when computing distances in high dimensions</p></li>
+<li><p>Normalized Euclidean distance is equivalent to cosine similarity</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_scaling</span><span class="p">(</span><span class="n">scaler</span><span class="o">=</span><span class="n">Normalizer</span><span class="p">(</span><span class="n">norm</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/970be4008720534aa6d57d82dca2c845ae359b8c6c367f86e99c2404abf67b5c.png" src="../_images/970be4008720534aa6d57d82dca2c845ae359b8c6c367f86e99c2404abf67b5c.png" />
+</div>
+</div>
+</section>
+<section id="maximum-absolute-scaler">
+<h3>Maximum Absolute scaler<a class="headerlink" href="#maximum-absolute-scaler" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>For sparse data (many features, but few are non-zero)</p>
+<ul>
+<li><p>Maintain sparseness (efficient storage)</p></li>
+</ul>
+</li>
+<li><p>Scales all values so that maximum absolute value is 1</p></li>
+<li><p>Similar to Min-Max scaling without changing 0 values</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_scaling</span><span class="p">(</span><span class="n">scaler</span><span class="o">=</span><span class="n">MaxAbsScaler</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/7bd03995ac1a103bc553eb79870a0a73c018534246700066a78ff7d5a013acf2.png" src="../_images/7bd03995ac1a103bc553eb79870a0a73c018534246700066a78ff7d5a013acf2.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="automatic-feature-selection">
+<h2>Automatic Feature Selection<a class="headerlink" href="#automatic-feature-selection" title="Link to this heading">#</a></h2>
+<p>It can be a good idea to reduce the number of features to only the most useful ones</p>
+<ul class="simple">
+<li><p>Simpler models that generalize better (less overfitting)</p>
+<ul>
+<li><p>Curse of dimensionality (e.g. kNN)</p></li>
+<li><p>Even models such as RandomForest can benefit from this</p></li>
+<li><p>Sometimes it is one of the main methods to improve models (e.g. gene expression data)</p></li>
+</ul>
+</li>
+<li><p>Faster prediction and training</p>
+<ul>
+<li><p>Training time can be quadratic (or cubic) in number of features</p></li>
+</ul>
+</li>
+<li><p>Easier data collection, smaller models (less storage)</p></li>
+<li><p>More interpretable models: fewer features to look at</p></li>
+</ul>
+<section id="example-bike-sharing">
+<h3>Example: bike sharing<a class="headerlink" href="#example-bike-sharing" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The Bike Sharing Demand dataset shows the amount of bikes rented in Washington DC</p></li>
+<li><p>Some features are clearly more informative than others (e.g. temp, hour)</p></li>
+<li><p>Some are correlated (e.g. temp and feel_temp)</p></li>
+<li><p>We add two random features at the end</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_openml</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">OneHotEncoder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.compose</span><span class="w"> </span><span class="kn">import</span> <span class="n">ColumnTransformer</span>
+
+<span class="c1"># Get bike sharing data from OpenML</span>
+<span class="n">bikes</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="n">data_id</span><span class="o">=</span><span class="mi">42713</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">X_bike_cat</span><span class="p">,</span> <span class="n">y_bike</span> <span class="o">=</span> <span class="n">bikes</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">bikes</span><span class="o">.</span><span class="n">target</span>
+
+<span class="c1"># Optional: take half of the data to speed up processing</span>
+<span class="n">X_bike_cat</span> <span class="o">=</span> <span class="n">X_bike_cat</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y_bike</span> <span class="o">=</span> <span class="n">y_bike</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># One-hot encode the categorical features</span>
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">preprocessor</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span><span class="n">transformers</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="n">encoder</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">])],</span> <span class="n">remainder</span><span class="o">=</span><span class="s1">&#39;passthrough&#39;</span><span class="p">)</span>
+<span class="n">X_bike</span> <span class="o">=</span> <span class="n">preprocessor</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_bike_cat</span><span class="p">,</span><span class="n">y_bike</span><span class="p">)</span>
+
+<span class="c1"># Add 2 random features at the end</span>
+<span class="n">random_features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_bike</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">X_bike</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X_bike</span><span class="p">,</span><span class="n">random_features</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Create feature names</span>
+<span class="n">bike_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;summer&#39;</span><span class="p">,</span><span class="s1">&#39;winter&#39;</span><span class="p">,</span> <span class="s1">&#39;spring&#39;</span><span class="p">,</span> <span class="s1">&#39;fall&#39;</span><span class="p">,</span> <span class="s1">&#39;clear&#39;</span><span class="p">,</span> <span class="s1">&#39;misty&#39;</span><span class="p">,</span> <span class="s1">&#39;rain&#39;</span><span class="p">,</span> <span class="s1">&#39;heavy_rain&#39;</span><span class="p">]</span>
+<span class="n">bike_names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">X_bike_cat</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">])</span>
+<span class="n">bike_names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">X_bike_cat</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">8</span><span class="p">:])</span>
+<span class="n">bike_names</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;random_1&#39;</span><span class="p">,</span><span class="s1">&#39;random_2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pd.set_option(&#39;display.max_columns&#39;, 20)</span>
+<span class="c1">#pd.DataFrame(data=X_bike, columns=bike_names).head()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_bike</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">y_bike</span><span class="p">[:],</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bike_names</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/4ce8c4c57025a9cb70b10bc4be200683e1f2b80c786f5413d30e4b4f4e0639cc.png" src="../_images/4ce8c4c57025a9cb70b10bc4be200683e1f2b80c786f5413d30e4b4f4e0639cc.png" />
+</div>
+</div>
+</section>
+<section id="unsupervised-feature-selection">
+<h3>Unsupervised feature selection<a class="headerlink" href="#unsupervised-feature-selection" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Variance-based</p>
+<ul>
+<li><p>Remove (near) constant feature: choose a small variance threshold</p></li>
+<li><p>Scale features before computing variance!</p></li>
+<li><p>Infrequent values may still be important</p></li>
+</ul>
+</li>
+<li><p>Covariance-based</p>
+<ul>
+<li><p>Remove correlated features</p></li>
+<li><p>The small differences may actually be important</p>
+<ul>
+<li><p>You don’t know because you don’t consider the target</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">f_regression</span><span class="p">,</span> <span class="n">SelectPercentile</span><span class="p">,</span> <span class="n">mutual_info_regression</span><span class="p">,</span> <span class="n">SelectFromModel</span><span class="p">,</span> <span class="n">RFE</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.notebook</span><span class="w"> </span><span class="kn">import</span> <span class="n">trange</span><span class="p">,</span> <span class="n">tqdm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">scale</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">GridSearchCV</span>
+
+
+
+<span class="c1"># Pre-compute all importances on bike sharing dataset</span>
+<span class="c1"># Scaled feature selection thresholds</span>
+<span class="n">thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="c1"># Dict to store all data</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;FTest&#39;</span><span class="p">,</span><span class="s1">&#39;MutualInformation&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">methods</span><span class="p">:</span>
+    <span class="n">fs</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">fs</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="s1">&#39;select&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">fs</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="s1">&#39;cv_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cv_score</span><span class="p">(</span><span class="n">selector</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">()</span>
+    <span class="n">select_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">selector</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">select_pipe</span><span class="p">,</span> <span class="n">X_bike</span><span class="p">,</span> <span class="n">y_bike</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># F test</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computing F test&quot;</span><span class="p">)</span>
+<span class="n">fs</span><span class="p">[</span><span class="s1">&#39;FTest&#39;</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;F test&quot;</span>
+<span class="n">fs</span><span class="p">[</span><span class="s1">&#39;FTest&#39;</span><span class="p">][</span><span class="s1">&#39;score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f_regression</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">X_bike</span><span class="p">),</span><span class="n">y_bike</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">fs</span><span class="p">[</span><span class="s1">&#39;FTest&#39;</span><span class="p">][</span><span class="s1">&#39;scaled_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fs</span><span class="p">[</span><span class="s1">&#39;FTest&#39;</span><span class="p">][</span><span class="s1">&#39;score&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">fs</span><span class="p">[</span><span class="s1">&#39;FTest&#39;</span><span class="p">][</span><span class="s1">&#39;score&#39;</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">thresholds</span><span class="p">):</span>
+    <span class="n">selector</span> <span class="o">=</span> <span class="n">SelectPercentile</span><span class="p">(</span><span class="n">score_func</span><span class="o">=</span><span class="n">f_regression</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="n">t</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">X_bike</span><span class="p">),</span> <span class="n">y_bike</span><span class="p">)</span>
+    <span class="n">fs</span><span class="p">[</span><span class="s1">&#39;FTest&#39;</span><span class="p">][</span><span class="s1">&#39;select&#39;</span><span class="p">][</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">get_support</span><span class="p">()</span>
+    <span class="n">fs</span><span class="p">[</span><span class="s1">&#39;FTest&#39;</span><span class="p">][</span><span class="s1">&#39;cv_score&#39;</span><span class="p">][</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">cv_score</span><span class="p">(</span><span class="n">selector</span><span class="p">)</span>
+
+<span class="c1"># Mutual information</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computing Mutual information&quot;</span><span class="p">)</span>
+<span class="n">fs</span><span class="p">[</span><span class="s1">&#39;MutualInformation&#39;</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Mutual Information&quot;</span>
+<span class="n">fs</span><span class="p">[</span><span class="s1">&#39;MutualInformation&#39;</span><span class="p">][</span><span class="s1">&#39;score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mutual_info_regression</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">X_bike</span><span class="p">),</span><span class="n">y_bike</span><span class="p">,</span><span class="n">discrete_features</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">13</span><span class="p">))</span> <span class="c1"># first 13 features are discrete</span>
+<span class="n">fs</span><span class="p">[</span><span class="s1">&#39;MutualInformation&#39;</span><span class="p">][</span><span class="s1">&#39;scaled_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fs</span><span class="p">[</span><span class="s1">&#39;MutualInformation&#39;</span><span class="p">][</span><span class="s1">&#39;score&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">fs</span><span class="p">[</span><span class="s1">&#39;MutualInformation&#39;</span><span class="p">][</span><span class="s1">&#39;score&#39;</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">thresholds</span><span class="p">):</span>
+    <span class="n">selector</span> <span class="o">=</span> <span class="n">SelectPercentile</span><span class="p">(</span><span class="n">score_func</span><span class="o">=</span><span class="n">mutual_info_regression</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="n">t</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">X_bike</span><span class="p">),</span> <span class="n">y_bike</span><span class="p">)</span>
+    <span class="n">fs</span><span class="p">[</span><span class="s1">&#39;MutualInformation&#39;</span><span class="p">][</span><span class="s1">&#39;select&#39;</span><span class="p">][</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">get_support</span><span class="p">()</span>
+    <span class="n">fs</span><span class="p">[</span><span class="s1">&#39;MutualInformation&#39;</span><span class="p">][</span><span class="s1">&#39;cv_score&#39;</span><span class="p">][</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">cv_score</span><span class="p">(</span><span class="n">selector</span><span class="p">)</span>
+    
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_feature_importances</span><span class="p">(</span><span class="n">method1</span><span class="o">=</span><span class="s1">&#39;f_test&#39;</span><span class="p">,</span> <span class="n">method2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+    
+    <span class="c1"># Plot scores</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">1</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="mf">0.3</span>
+    <span class="n">imp</span> <span class="o">=</span> <span class="n">fs</span><span class="p">[</span><span class="n">method1</span><span class="p">]</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">imp</span><span class="p">[</span><span class="s1">&#39;select&#39;</span><span class="p">][</span><span class="n">threshold</span><span class="p">]</span>
+    <span class="n">m1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">imp</span><span class="p">[</span><span class="s1">&#39;scaled_score&#39;</span><span class="p">][</span><span class="n">mask</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="n">w</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">],</span> <span class="n">imp</span><span class="p">[</span><span class="s1">&#39;scaled_score&#39;</span><span class="p">][</span><span class="o">~</span><span class="n">mask</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="n">w</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">method2</span><span class="p">:</span>
+        <span class="n">imp2</span> <span class="o">=</span> <span class="n">fs</span><span class="p">[</span><span class="n">method2</span><span class="p">]</span>
+        <span class="n">mask2</span> <span class="o">=</span> <span class="n">imp2</span><span class="p">[</span><span class="s1">&#39;select&#39;</span><span class="p">][</span><span class="n">threshold</span><span class="p">]</span>
+        <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+        <span class="n">m2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">mask2</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">,</span> <span class="n">imp2</span><span class="p">[</span><span class="s1">&#39;scaled_score&#39;</span><span class="p">][</span><span class="n">mask2</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="n">w</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">~</span><span class="n">mask2</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">,</span> <span class="n">imp2</span><span class="p">[</span><span class="s1">&#39;scaled_score&#39;</span><span class="p">][</span><span class="o">~</span><span class="n">mask2</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="n">w</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">],[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> (Ridge R2:</span><span class="si">{:.2f}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">imp</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span><span class="n">imp</span><span class="p">[</span><span class="s1">&#39;cv_score&#39;</span><span class="p">][</span><span class="n">threshold</span><span class="p">]),</span>
+                             <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> (Ridge R2:</span><span class="si">{:.2f}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">imp2</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span><span class="n">imp2</span><span class="p">[</span><span class="s1">&#39;cv_score&#39;</span><span class="p">][</span><span class="n">threshold</span><span class="p">])],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="n">m1</span><span class="p">],[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> (Ridge R2:</span><span class="si">{:.2f}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">imp</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span><span class="n">imp</span><span class="p">[</span><span class="s1">&#39;cv_score&#39;</span><span class="p">][</span><span class="n">threshold</span><span class="p">])],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bike_names</span><span class="p">)))</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">bike_names</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Feature importance (selection threshold </span><span class="si">{:.2f}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">threshold</span><span class="p">))</span>
+                        
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing F test
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9be52e93f95b422b908ba99fdee78765", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing Mutual information
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b3e7e2e32d784088869729c8242563a2", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">VarianceThreshold</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="n">VarianceThreshold</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">MinMaxScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_bike</span><span class="p">))</span>
+<span class="n">variances</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">variances_</span>
+<span class="n">var_sort</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">variances</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
+<span class="n">ypos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">ypos</span><span class="p">,</span> <span class="n">variances</span><span class="p">[</span><span class="n">var_sort</span><span class="p">][:</span><span class="mi">6</span><span class="p">],</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">ypos</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">bike_names</span><span class="p">)[</span><span class="n">var_sort</span><span class="p">][:</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Variance&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/ca5fe0aa1f4c062d46c8154dc8c85db4a8ede50f786b472e2e55c08bcd24cc3d.png" src="../_images/ca5fe0aa1f4c062d46c8154dc8c85db4a8ede50f786b472e2e55c08bcd24cc3d.png" />
+</div>
+</div>
+<section id="covariance-based-feature-selection">
+<h4>Covariance based feature selection<a class="headerlink" href="#covariance-based-feature-selection" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Remove features <span class="math notranslate nohighlight">\(X_i\)</span> (= <span class="math notranslate nohighlight">\(\mathbf{X_{:,i}}\)</span>) that are highly correlated (have high correlation coefficient <span class="math notranslate nohighlight">\(\rho\)</span>)
+$<span class="math notranslate nohighlight">\(\rho (X_1,X_2)={\frac  {{\mathrm  {cov}}(X_1,X_2)}{\sigma (X_1)\sigma (X_2)}} = {\frac { \frac{1}{N-1} \sum_i (X_{i,1} - \overline{X_1})(X_{i,2} - \overline{X_2}) }{\sigma (X_1)\sigma (X_2)}}\)</span>$</p></li>
+<li><p>Should we remove <code class="docutils literal notranslate"><span class="pre">feel_temp</span></code>? Or <code class="docutils literal notranslate"><span class="pre">temp</span></code>? Maybe one correlates more with the target?</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">scale</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">hierarchy</span>
+
+<span class="n">X_bike_scaled</span> <span class="o">=</span> <span class="n">scale</span><span class="p">(</span><span class="n">X_bike</span><span class="p">)</span>
+<span class="n">cov</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">X_bike_scaled</span><span class="p">,</span> <span class="n">rowvar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">dendrogram</span><span class="p">(</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">ward</span><span class="p">(</span><span class="n">cov</span><span class="p">),</span> <span class="n">no_plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;ivl&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+<span class="n">bike_names_ordered</span> <span class="o">=</span> <span class="p">[</span><span class="n">bike_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">order</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cov</span><span class="p">[</span><span class="n">order</span><span class="p">,</span> <span class="p">:][:,</span> <span class="n">order</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">X_bike</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">bike_names_ordered</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">X_bike</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">bike_names_ordered</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">fraction</span><span class="o">=</span><span class="mf">0.046</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/86dc8098df6577705c8558e4cd5379f3d11b195026ec5a2a48bd04d5613abdfc.png" src="../_images/86dc8098df6577705c8558e4cd5379f3d11b195026ec5a2a48bd04d5613abdfc.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="univariate-statistics-f-test">
+<h3>Univariate statistics (F-test)<a class="headerlink" href="#univariate-statistics-f-test" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Consider each feature individually (univariate), independent of the model that you aim to apply</p></li>
+<li><p>Use a statistical test: is there a <em>linear</em> <strong>statistically significant relationship</strong> with the target?</p></li>
+<li><p>Use F-statistic (or corresponding p value) to rank all features, then select features using a threshold</p>
+<ul>
+<li><p>Best <span class="math notranslate nohighlight">\(k\)</span>, best <span class="math notranslate nohighlight">\(k\)</span> %, probability of removing useful features (FPR),…</p></li>
+</ul>
+</li>
+<li><p>Cannot detect correlations (e.g. temp and feel_temp) or interactions (e.g. binary features)</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_feature_importances</span><span class="p">(</span><span class="s1">&#39;FTest&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/c6ecf74f9d4e51ae85a54336d22162583d1d6480d34c27f21bda7815e842b923.png" src="../_images/c6ecf74f9d4e51ae85a54336d22162583d1d6480d34c27f21bda7815e842b923.png" />
+</div>
+</div>
+<section id="f-statistic">
+<h4>F-statistic<a class="headerlink" href="#f-statistic" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>For regression: does feature <span class="math notranslate nohighlight">\(X_i\)</span> correlate (positively or negatively) with the target <span class="math notranslate nohighlight">\(y\)</span>?
+$<span class="math notranslate nohighlight">\(\text{F-statistic} = \frac{\rho(X_i,y)^2}{1-\rho(X_i,y)^2} \cdot (N-1)\)</span>$</p></li>
+<li><p>For classification: uses ANOVA: does <span class="math notranslate nohighlight">\(X_i\)</span> explain the between-class variance?</p>
+<ul>
+<li><p>Alternatively, use the <span class="math notranslate nohighlight">\(\chi^2\)</span> test (only for categorical features)
+$<span class="math notranslate nohighlight">\(\text{F-statistic} = \frac{\text{within-class variance}}{\text{between-class variance}} =\frac{var(\overline{X_i})}{\overline{var(X_i)}}\)</span>$
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/03_fstatistic2.png" alt="ml" style="width: 50%;"/></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="mutual-information">
+<h4>Mutual information<a class="headerlink" href="#mutual-information" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Measures how much information <span class="math notranslate nohighlight">\(X_i\)</span> gives about the target <span class="math notranslate nohighlight">\(Y\)</span>. In terms of entropy <span class="math notranslate nohighlight">\(H\)</span>:
+$<span class="math notranslate nohighlight">\(MI(X,Y) = H(X) + H(Y) - H(X,Y)\)</span>$</p></li>
+<li><p>Idea: estimate H(X) as the average distance between a data point and its <span class="math notranslate nohighlight">\(k\)</span> Nearest Neighbors</p>
+<ul>
+<li><p>You need to choose <span class="math notranslate nohighlight">\(k\)</span> and say which features are categorical</p></li>
+</ul>
+</li>
+<li><p>Captures complex dependencies (e.g. hour, month), but requires more samples to be accurate</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_feature_importances</span><span class="p">(</span><span class="s1">&#39;MutualInformation&#39;</span><span class="p">,</span> <span class="s1">&#39;FTest&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/1e161bd430500d01832367dd877ce0f2c8aa3867151289ec34f444ddb6520a66.png" src="../_images/1e161bd430500d01832367dd877ce0f2c8aa3867151289ec34f444ddb6520a66.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="further-techniques">
+<h3>Further techniques<a class="headerlink" href="#further-techniques" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Many more powerful techniques exist</p>
+<ul>
+<li><p>Model-based: Random Forests, Linear models, kNN</p></li>
+<li><p>Wrapping techniques (black-box search)</p></li>
+<li><p>Permutation importance</p></li>
+</ul>
+</li>
+<li><p>See the Data Preprocessing lecture.</p></li>
+</ul>
+</section>
+</section>
+<section id="feature-engineering">
+<h2>Feature Engineering<a class="headerlink" href="#feature-engineering" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Create new features based on existing ones</p>
+<ul>
+<li><p>Polynomial features</p></li>
+<li><p>Interaction features</p></li>
+<li><p>Binning</p></li>
+</ul>
+</li>
+<li><p>Mainly useful for simple models (e.g. linear models)</p>
+<ul>
+<li><p>Other models can learn interations themselves</p></li>
+<li><p>But may be slower, less robust than linear models</p></li>
+</ul>
+</li>
+</ul>
+<section id="polynomials">
+<h3>Polynomials<a class="headerlink" href="#polynomials" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Add all polynomials up to degree <span class="math notranslate nohighlight">\(d\)</span> and all products</p>
+<ul>
+<li><p>Equivalent to polynomial basis expansions
+$<span class="math notranslate nohighlight">\([1, x_1, ..., x_p] \xrightarrow{} [1, x_1, ..., x_p, x_1^2, ..., x_p^2, ..., x_p^d, x_1 x_2, ..., x_{p-1} x_p]\)</span>$</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span><span class="p">,</span> <span class="n">Ridge</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">PolynomialFeatures</span>
+
+<span class="c1"># Wavy data</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mglearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_wave</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Normal ridge</span>
+<span class="n">lreg</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">lreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ridge&quot;</span><span class="p">)</span>
+
+<span class="c1"># include polynomials up to x ** 10</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">X_poly</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">preg</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_poly</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">line_poly</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">preg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line_poly</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ridge (polynomial)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Regression output&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Input feature&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/4980b5dc40605c06e122593d0a35104d0f084758e198a191734b4891620b8468.png" src="../_images/4980b5dc40605c06e122593d0a35104d0f084758e198a191734b4891620b8468.png" />
+</div>
+</div>
+</section>
+<section id="binning">
+<h3>Binning<a class="headerlink" href="#binning" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Partition numeric feature values into <span class="math notranslate nohighlight">\(n\)</span> intervals (bins)</p></li>
+<li><p>Create <span class="math notranslate nohighlight">\(n\)</span> new one-hot features, 1 if original value falls in corresponding bin</p></li>
+<li><p>Models different intervals differently (e.g. different age groups)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_font_size</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">heading_properties</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;font-size&#39;</span><span class="p">,</span> <span class="n">table_font_size</span><span class="p">)]</span>
+<span class="n">cell_properties</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;font-size&#39;</span><span class="p">,</span> <span class="n">table_font_size</span><span class="p">)]</span>
+<span class="n">dfstyle</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">selector</span><span class="o">=</span><span class="s2">&quot;th&quot;</span><span class="p">,</span> <span class="n">props</span><span class="o">=</span><span class="n">heading_properties</span><span class="p">),</span>\
+ <span class="nb">dict</span><span class="p">(</span><span class="n">selector</span><span class="o">=</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="n">props</span><span class="o">=</span><span class="n">cell_properties</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">OneHotEncoder</span>
+
+<span class="c1"># create 11 equal bins</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="c1"># assign to bins</span>
+<span class="n">which_bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+<span class="c1"># transform using the OneHotEncoder.</span>
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">sparse_output</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># encoder.fit finds the unique values that appear in which_bin</span>
+<span class="n">encoder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">which_bin</span><span class="p">)</span>
+<span class="c1"># transform creates the one-hot encoding</span>
+<span class="n">X_binned</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">which_bin</span><span class="p">)</span>
+<span class="c1"># Plot transformed data</span>
+<span class="n">bin_names</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;[</span><span class="si">%.1f</span><span class="s1">,</span><span class="si">%.1f</span><span class="s1">]&#39;</span><span class="p">)</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:])]</span>
+<span class="n">df_orig</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;orig&quot;</span><span class="p">])</span>
+<span class="n">df_nr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">which_bin</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;which_bin&quot;</span><span class="p">])</span>
+<span class="c1"># add the original features</span>
+<span class="n">X_combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">X</span><span class="p">,</span> <span class="n">X_binned</span><span class="p">])</span>
+<span class="n">ohedf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_combined</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;orig&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">bin_names</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ohedf</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span><span class="n">dfstyle</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_56a8f th {
+  font-size: 20;
+}
+#T_56a8f td {
+  font-size: 20;
+}
+</style>
+<table id="T_56a8f">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_56a8f_level0_col0" class="col_heading level0 col0" >orig</th>
+      <th id="T_56a8f_level0_col1" class="col_heading level0 col1" >[-3.0,-1.5]</th>
+      <th id="T_56a8f_level0_col2" class="col_heading level0 col2" >[-1.5,0.0]</th>
+      <th id="T_56a8f_level0_col3" class="col_heading level0 col3" >[0.0,1.5]</th>
+      <th id="T_56a8f_level0_col4" class="col_heading level0 col4" >[1.5,3.0]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_56a8f_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_56a8f_row0_col0" class="data row0 col0" >-0.752759</td>
+      <td id="T_56a8f_row0_col1" class="data row0 col1" >0.000000</td>
+      <td id="T_56a8f_row0_col2" class="data row0 col2" >1.000000</td>
+      <td id="T_56a8f_row0_col3" class="data row0 col3" >0.000000</td>
+      <td id="T_56a8f_row0_col4" class="data row0 col4" >0.000000</td>
+    </tr>
+    <tr>
+      <th id="T_56a8f_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_56a8f_row1_col0" class="data row1 col0" >2.704286</td>
+      <td id="T_56a8f_row1_col1" class="data row1 col1" >0.000000</td>
+      <td id="T_56a8f_row1_col2" class="data row1 col2" >0.000000</td>
+      <td id="T_56a8f_row1_col3" class="data row1 col3" >0.000000</td>
+      <td id="T_56a8f_row1_col4" class="data row1 col4" >1.000000</td>
+    </tr>
+    <tr>
+      <th id="T_56a8f_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_56a8f_row2_col0" class="data row2 col0" >1.391964</td>
+      <td id="T_56a8f_row2_col1" class="data row2 col1" >0.000000</td>
+      <td id="T_56a8f_row2_col2" class="data row2 col2" >0.000000</td>
+      <td id="T_56a8f_row2_col3" class="data row2 col3" >1.000000</td>
+      <td id="T_56a8f_row2_col4" class="data row2 col4" >0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line_binned</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">))</span>
+<span class="n">reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_combined</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">line_combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">line</span><span class="p">,</span> <span class="n">line_binned</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">lreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ridge&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line_combined</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ridge (binned)&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="nb">bin</span> <span class="ow">in</span> <span class="n">bins</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="nb">bin</span><span class="p">,</span> <span class="nb">bin</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Regression output&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Input feature&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/83c417b4c05b8f628a94022d6ca134f06373da7dc1cf61e0affbc902ac5b78f2.png" src="../_images/83c417b4c05b8f628a94022d6ca134f06373da7dc1cf61e0affbc902ac5b78f2.png" />
+</div>
+</div>
+</section>
+<section id="binning-interaction-features">
+<h3>Binning + interaction features<a class="headerlink" href="#binning-interaction-features" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Add <em>interaction features</em> (or <em>product features</em> )</p>
+<ul>
+<li><p>Product of the bin encoding and the original feature value</p></li>
+<li><p>Learn different weights per bin</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_product</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">X_binned</span><span class="p">,</span> <span class="n">X</span> <span class="o">*</span> <span class="n">X_binned</span><span class="p">])</span>
+<span class="n">bin_sname</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span> 
+<span class="n">X_combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">X</span><span class="p">,</span> <span class="n">X_product</span><span class="p">])</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">bindf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_combined</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;orig&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">bin_sname</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;X*&quot;</span> <span class="o">+</span> <span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">bin_sname</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">bindf</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span><span class="n">dfstyle</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_a0260 th {
+  font-size: 20;
+}
+#T_a0260 td {
+  font-size: 20;
+}
+</style>
+<table id="T_a0260">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_a0260_level0_col0" class="col_heading level0 col0" >orig</th>
+      <th id="T_a0260_level0_col1" class="col_heading level0 col1" >b0</th>
+      <th id="T_a0260_level0_col2" class="col_heading level0 col2" >b1</th>
+      <th id="T_a0260_level0_col3" class="col_heading level0 col3" >b2</th>
+      <th id="T_a0260_level0_col4" class="col_heading level0 col4" >b3</th>
+      <th id="T_a0260_level0_col5" class="col_heading level0 col5" >X*b0</th>
+      <th id="T_a0260_level0_col6" class="col_heading level0 col6" >X*b1</th>
+      <th id="T_a0260_level0_col7" class="col_heading level0 col7" >X*b2</th>
+      <th id="T_a0260_level0_col8" class="col_heading level0 col8" >X*b3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_a0260_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_a0260_row0_col0" class="data row0 col0" >-0.752759</td>
+      <td id="T_a0260_row0_col1" class="data row0 col1" >0.000000</td>
+      <td id="T_a0260_row0_col2" class="data row0 col2" >1.000000</td>
+      <td id="T_a0260_row0_col3" class="data row0 col3" >0.000000</td>
+      <td id="T_a0260_row0_col4" class="data row0 col4" >0.000000</td>
+      <td id="T_a0260_row0_col5" class="data row0 col5" >-0.000000</td>
+      <td id="T_a0260_row0_col6" class="data row0 col6" >-0.752759</td>
+      <td id="T_a0260_row0_col7" class="data row0 col7" >-0.000000</td>
+      <td id="T_a0260_row0_col8" class="data row0 col8" >-0.000000</td>
+    </tr>
+    <tr>
+      <th id="T_a0260_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_a0260_row1_col0" class="data row1 col0" >2.704286</td>
+      <td id="T_a0260_row1_col1" class="data row1 col1" >0.000000</td>
+      <td id="T_a0260_row1_col2" class="data row1 col2" >0.000000</td>
+      <td id="T_a0260_row1_col3" class="data row1 col3" >0.000000</td>
+      <td id="T_a0260_row1_col4" class="data row1 col4" >1.000000</td>
+      <td id="T_a0260_row1_col5" class="data row1 col5" >0.000000</td>
+      <td id="T_a0260_row1_col6" class="data row1 col6" >0.000000</td>
+      <td id="T_a0260_row1_col7" class="data row1 col7" >0.000000</td>
+      <td id="T_a0260_row1_col8" class="data row1 col8" >2.704286</td>
+    </tr>
+    <tr>
+      <th id="T_a0260_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_a0260_row2_col0" class="data row2 col0" >1.391964</td>
+      <td id="T_a0260_row2_col1" class="data row2 col1" >0.000000</td>
+      <td id="T_a0260_row2_col2" class="data row2 col2" >0.000000</td>
+      <td id="T_a0260_row2_col3" class="data row2 col3" >1.000000</td>
+      <td id="T_a0260_row2_col4" class="data row2 col4" >0.000000</td>
+      <td id="T_a0260_row2_col5" class="data row2 col5" >0.000000</td>
+      <td id="T_a0260_row2_col6" class="data row2 col6" >0.000000</td>
+      <td id="T_a0260_row2_col7" class="data row2 col7" >1.391964</td>
+      <td id="T_a0260_row2_col8" class="data row2 col8" >0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_product</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">line_product</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">line_binned</span><span class="p">,</span> <span class="n">line</span> <span class="o">*</span> <span class="n">line_binned</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">lreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ridge&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line_product</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ridge (binned+interactions)&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="nb">bin</span> <span class="ow">in</span> <span class="n">bins</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="nb">bin</span><span class="p">,</span> <span class="nb">bin</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Regression output&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Input feature&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/71389e536dcedbc7a1bdc24f7eb4e4ff0b59168752f6b22beb7d0f0b3b9d8f54.png" src="../_images/71389e536dcedbc7a1bdc24f7eb4e4ff0b59168752f6b22beb7d0f0b3b9d8f54.png" />
+</div>
+</div>
+</section>
+<section id="categorical-feature-interactions">
+<h3>Categorical feature interactions<a class="headerlink" href="#categorical-feature-interactions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>One-hot-encode categorical feature</p></li>
+<li><p>Multiply every one-hot-encoded column with every numeric feature</p></li>
+<li><p>Allows to built different submodels for different categories</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;gender&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">],</span>
+                   <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">22</span><span class="p">],</span>
+                   <span class="s1">&#39;pageviews&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">93</span><span class="p">],</span>
+                   <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">269</span><span class="p">,</span> <span class="mi">1522</span><span class="p">,</span> <span class="mi">235</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
+                  <span class="p">})</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span><span class="n">dfstyle</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_82a2a th {
+  font-size: 20;
+}
+#T_82a2a td {
+  font-size: 20;
+}
+</style>
+<table id="T_82a2a">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_82a2a_level0_col0" class="col_heading level0 col0" >gender</th>
+      <th id="T_82a2a_level0_col1" class="col_heading level0 col1" >age</th>
+      <th id="T_82a2a_level0_col2" class="col_heading level0 col2" >pageviews</th>
+      <th id="T_82a2a_level0_col3" class="col_heading level0 col3" >time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_82a2a_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_82a2a_row0_col0" class="data row0 col0" >M</td>
+      <td id="T_82a2a_row0_col1" class="data row0 col1" >14</td>
+      <td id="T_82a2a_row0_col2" class="data row0 col2" >70</td>
+      <td id="T_82a2a_row0_col3" class="data row0 col3" >269</td>
+    </tr>
+    <tr>
+      <th id="T_82a2a_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_82a2a_row1_col0" class="data row1 col0" >F</td>
+      <td id="T_82a2a_row1_col1" class="data row1 col1" >16</td>
+      <td id="T_82a2a_row1_col2" class="data row1 col2" >12</td>
+      <td id="T_82a2a_row1_col3" class="data row1 col3" >1522</td>
+    </tr>
+    <tr>
+      <th id="T_82a2a_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_82a2a_row2_col0" class="data row2 col0" >M</td>
+      <td id="T_82a2a_row2_col1" class="data row2 col1" >12</td>
+      <td id="T_82a2a_row2_col2" class="data row2 col2" >42</td>
+      <td id="T_82a2a_row2_col3" class="data row2 col3" >235</td>
+    </tr>
+    <tr>
+      <th id="T_82a2a_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_82a2a_row3_col0" class="data row3 col0" >F</td>
+      <td id="T_82a2a_row3_col1" class="data row3 col1" >25</td>
+      <td id="T_82a2a_row3_col2" class="data row3 col2" >64</td>
+      <td id="T_82a2a_row3_col3" class="data row3 col3" >63</td>
+    </tr>
+    <tr>
+      <th id="T_82a2a_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_82a2a_row4_col0" class="data row4 col0" >F</td>
+      <td id="T_82a2a_row4_col1" class="data row4 col1" >22</td>
+      <td id="T_82a2a_row4_col2" class="data row4 col2" >93</td>
+      <td id="T_82a2a_row4_col3" class="data row4 col3" >21</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df_f</span> <span class="o">=</span> <span class="n">dummies</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">dummies</span><span class="o">.</span><span class="n">gender_F</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;rows&#39;</span><span class="p">)</span>
+<span class="n">df_f</span> <span class="o">=</span> <span class="n">df_f</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">&quot;_F&quot;</span><span class="p">)</span>
+<span class="n">df_m</span> <span class="o">=</span> <span class="n">dummies</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">dummies</span><span class="o">.</span><span class="n">gender_M</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;rows&#39;</span><span class="p">)</span>
+<span class="n">df_m</span> <span class="o">=</span> <span class="n">df_m</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">&quot;_M&quot;</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_m</span><span class="p">,</span> <span class="n">df_f</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;gender_F_M&quot;</span><span class="p">,</span> <span class="s2">&quot;gender_M_F&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">res</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span><span class="n">dfstyle</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_f375e th {
+  font-size: 20;
+}
+#T_f375e td {
+  font-size: 20;
+}
+</style>
+<table id="T_f375e">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_f375e_level0_col0" class="col_heading level0 col0" >age_M</th>
+      <th id="T_f375e_level0_col1" class="col_heading level0 col1" >pageviews_M</th>
+      <th id="T_f375e_level0_col2" class="col_heading level0 col2" >time_M</th>
+      <th id="T_f375e_level0_col3" class="col_heading level0 col3" >gender_M_M</th>
+      <th id="T_f375e_level0_col4" class="col_heading level0 col4" >age_F</th>
+      <th id="T_f375e_level0_col5" class="col_heading level0 col5" >pageviews_F</th>
+      <th id="T_f375e_level0_col6" class="col_heading level0 col6" >time_F</th>
+      <th id="T_f375e_level0_col7" class="col_heading level0 col7" >gender_F_F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_f375e_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_f375e_row0_col0" class="data row0 col0" >14</td>
+      <td id="T_f375e_row0_col1" class="data row0 col1" >70</td>
+      <td id="T_f375e_row0_col2" class="data row0 col2" >269</td>
+      <td id="T_f375e_row0_col3" class="data row0 col3" >True</td>
+      <td id="T_f375e_row0_col4" class="data row0 col4" >0</td>
+      <td id="T_f375e_row0_col5" class="data row0 col5" >0</td>
+      <td id="T_f375e_row0_col6" class="data row0 col6" >0</td>
+      <td id="T_f375e_row0_col7" class="data row0 col7" >False</td>
+    </tr>
+    <tr>
+      <th id="T_f375e_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_f375e_row1_col0" class="data row1 col0" >0</td>
+      <td id="T_f375e_row1_col1" class="data row1 col1" >0</td>
+      <td id="T_f375e_row1_col2" class="data row1 col2" >0</td>
+      <td id="T_f375e_row1_col3" class="data row1 col3" >False</td>
+      <td id="T_f375e_row1_col4" class="data row1 col4" >16</td>
+      <td id="T_f375e_row1_col5" class="data row1 col5" >12</td>
+      <td id="T_f375e_row1_col6" class="data row1 col6" >1522</td>
+      <td id="T_f375e_row1_col7" class="data row1 col7" >True</td>
+    </tr>
+    <tr>
+      <th id="T_f375e_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_f375e_row2_col0" class="data row2 col0" >12</td>
+      <td id="T_f375e_row2_col1" class="data row2 col1" >42</td>
+      <td id="T_f375e_row2_col2" class="data row2 col2" >235</td>
+      <td id="T_f375e_row2_col3" class="data row2 col3" >True</td>
+      <td id="T_f375e_row2_col4" class="data row2 col4" >0</td>
+      <td id="T_f375e_row2_col5" class="data row2 col5" >0</td>
+      <td id="T_f375e_row2_col6" class="data row2 col6" >0</td>
+      <td id="T_f375e_row2_col7" class="data row2 col7" >False</td>
+    </tr>
+    <tr>
+      <th id="T_f375e_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_f375e_row3_col0" class="data row3 col0" >0</td>
+      <td id="T_f375e_row3_col1" class="data row3 col1" >0</td>
+      <td id="T_f375e_row3_col2" class="data row3 col2" >0</td>
+      <td id="T_f375e_row3_col3" class="data row3 col3" >False</td>
+      <td id="T_f375e_row3_col4" class="data row3 col4" >25</td>
+      <td id="T_f375e_row3_col5" class="data row3 col5" >64</td>
+      <td id="T_f375e_row3_col6" class="data row3 col6" >63</td>
+      <td id="T_f375e_row3_col7" class="data row3 col7" >True</td>
+    </tr>
+    <tr>
+      <th id="T_f375e_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_f375e_row4_col0" class="data row4 col0" >0</td>
+      <td id="T_f375e_row4_col1" class="data row4 col1" >0</td>
+      <td id="T_f375e_row4_col2" class="data row4 col2" >0</td>
+      <td id="T_f375e_row4_col3" class="data row4 col3" >False</td>
+      <td id="T_f375e_row4_col4" class="data row4 col4" >22</td>
+      <td id="T_f375e_row4_col5" class="data row4 col5" >93</td>
+      <td id="T_f375e_row4_col6" class="data row4 col6" >21</td>
+      <td id="T_f375e_row4_col7" class="data row4 col7" >True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Data preprocessing is a crucial part of machine learning</p>
+<ul>
+<li><p>Scaling is important for many distance-based methods (e.g. kNN, SVM, Neural Nets)</p></li>
+<li><p>Selecting features can speed up models and reduce overfitting</p></li>
+<li><p>Feature engineering is often useful for linear models</p></li>
+<li><p>Many more techniques (e.g. missing value imputation, handling data imbalance,…) will be discussed in the data preprocessing lecture</p></li>
+</ul>
+</li>
+<li><p>Pipelines allow us to encapsulate multiple steps in a convenient way</p>
+<ul>
+<li><p>Avoids data leakage, crucial for proper evaluation</p></li>
+</ul>
+</li>
+<li><p>Choose the right preprocessing steps and models in your pipeline</p>
+<ul>
+<li><p>Cross-validation helps, but the search space is huge</p></li>
+<li><p>Smarter techniques exist to automate this process (i.e. AutoML)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./xtra"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-transformations-covered-here">Data transformations covered here</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling">Scaling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-scaling">Why do we need scaling?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-scaling-standardization">Standard scaling (standardization)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-scaling">Min-max scaling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#robust-scaling">Robust scaling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalization">Normalization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-absolute-scaler">Maximum Absolute scaler</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-feature-selection">Automatic Feature Selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-bike-sharing">Example: bike sharing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-feature-selection">Unsupervised feature selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance-based-feature-selection">Covariance based feature selection</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-statistics-f-test">Univariate statistics (F-test)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-statistic">F-statistic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mutual-information">Mutual information</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-techniques">Further techniques</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-engineering">Feature Engineering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomials">Polynomials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binning">Binning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binning-interaction-features">Binning + interaction features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-feature-interactions">Categorical feature interactions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joaquin Vanschoren
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025. CC0 Licensed - Use as you like. Appropriate credit is very welcome.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

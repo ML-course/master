@@ -192,9 +192,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../labs/Lab%201b%20-%20Linear%20Models%20for%20Classification.html">Lab 1b: Linear classification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/Lab%203a%20-%20Ensembles.html">Lab 3: Ensembles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/Lab%203b%20-%20Pipelines.html">Lab 4:  Data preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%204%20-%20Neural%20Networks.html">Lab 6: Neural networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%205%20-%20Convolutional%20Neural%20Networks.html">Lab 7a: Convolutional neural nets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%206%20-%20Transformers.html">Lab 7b: Neural Networks for text</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="nav bd-sidenav">
@@ -208,9 +205,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../labs/Lab%202%20-%20Tutorial.html">Lab 2: Model Selection in scikit-learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%203%20-%20Tutorial.html">Lab 4: Data engineering pipelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%204%20-%20Tutorial.html">Lab 6: Deep Learning with TensorFlow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%206%20-%20Tutorial.html">Lab 7: Deep Learning for text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%203%20-%20Tutorial.html">Lab 4: Data engineering pipelines with scikit-learn</a></li>
 </ul>
 
     </div>
@@ -436,12 +431,6 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-transformations">Data transformations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling">Scaling</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-scaling">Why do we need scaling?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-scaling-standardization">Standard scaling (standardization)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-scaling">Min-max scaling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#robust-scaling">Robust scaling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalization">Normalization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-absolute-scaler">Maximum Absolute scaler</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-transformations">Power transformations</a></li>
 </ul>
 </li>
@@ -456,29 +445,17 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-data-transformations">Applying data transformations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">In practice (scikit-learn)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-set-distortion">Test set distortion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-leakage">Data leakage</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipelines">Pipelines</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">In practice (scikit-learn)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-selection">Pipeline selection</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-tune-multiple-steps-at-once">Example: Tune multiple steps at once</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing-pipelines">Data processing pipelines</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">In practice (scikit-learn)</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-feature-selection">Automatic Feature Selection</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-bike-sharing">Example: bike sharing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-feature-selection">Unsupervised feature selection</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance-based-feature-selection">Covariance based feature selection</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-feature-selection-overview">Supervised feature selection: overview</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-statistics-f-test">Univariate statistics (F-test)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-statistic">F-statistic</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mutual-information">Mutual information</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection-overview">Feature selection: overview</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-based-feature-selection">Model-based Feature Selection</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relief-model-based-selection-with-knn">Relief: Model-based selection with kNN</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-model-based-feature-selection">Iterative Model-based Feature Selection</a></li>
@@ -487,14 +464,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-feature-selection-wrapping">Sequential feature selection (Wrapping)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permutation-feature-importance">Permutation feature importance</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">In practice (scikit-learn)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-engineering">Feature Engineering</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomials">Polynomials</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binning">Binning</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binning-interaction-features">Binning + interaction features</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-feature-interactions">Categorical feature interactions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">In practice (scikit-learn)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value-imputation">Missing value imputation</a><ul class="nav section-nav flex-column">
@@ -504,8 +474,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-model-based-imputation">Iterative (model-based) Imputation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-factorization">Matrix Factorization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#soft-thresholded-singular-value-decomposition-svd">Soft-thresholded Singular Value Decomposition (SVD)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Comparison</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">In practice (scikit-learn)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">In practice (scikit-learn)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-practice-fancyimpute">In practice (fancyimpute)</a></li>
 </ul>
 </li>
@@ -516,7 +486,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-minority-oversampling-technique-smote">Synthetic Minority Oversampling Technique (SMOTE)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combined-techniques">Combined techniques</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-resampling">Ensemble Resampling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Comparison</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-practice-imblearn">In practice (imblearn)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-data">Real-world data</a></li>
 </ul>
@@ -599,8 +569,10 @@
 <li><p>Features with much higher values may overpower the others</p></li>
 </ul>
 </li>
+<li><p>Method based on distances (e.g. kNN, SVMs) will over-emphasize those features</p></li>
+<li><p>Parametric models (e.g. linear models, neural nets) become hard to train (sensitive weights)</p></li>
 <li><p>Goal: bring them all within the same range</p></li>
-<li><p>Different methods exist</p></li>
+<li><p>Different methods exist (see the recap for details)</p></li>
 </ul>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -657,12 +629,13 @@
         <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2a3f74459a504d19a14188536ea75856", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "95746fa35b3b4a469de4913ce3992849", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -678,250 +651,13 @@
 </div>
 </details>
 </div>
-<section id="why-do-we-need-scaling">
-<h3>Why do we need scaling?<a class="headerlink" href="#why-do-we-need-scaling" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>KNN: Distances depend mainly on feature with larger values</p></li>
-<li><p>SVMs: (kernelized) dot products are also based on distances</p></li>
-<li><p>Linear model: Feature scale affects regularization</p>
-<ul>
-<li><p>Weights have similar scales, more interpretable</p></li>
-</ul>
-</li>
-</ul>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.svm</span><span class="w"> </span><span class="kn">import</span> <span class="n">SVC</span><span class="p">,</span> <span class="n">LinearSVC</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blobs</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">clone</span>
-
-<span class="c1"># Example by Andreas Mueller, with some tweaks</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">plot_2d_classification</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="c1"># multiclass                                                                  </span>
-    <span class="k">if</span> <span class="n">eps</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>                                                               
-        <span class="n">eps</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">eps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">eps</span><span class="p">,</span> <span class="n">eps</span><span class="p">])</span>
-
-    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>                                                                
-        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>                                                            
-
-    <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="n">eps</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="n">eps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="n">eps</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="n">eps</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="c1"># these should be 1000 but knn predict is unnecessarily slow</span>
-    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>                                          
-    <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>                                          
-
-    <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">)</span>                                                  
-    <span class="n">X_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">X1</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">X2</span><span class="o">.</span><span class="n">ravel</span><span class="p">()]</span>                                        
-    <span class="n">decision_values</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_grid</span><span class="p">)</span>                                  
-    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">decision_values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span>            
-                                                       <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">),</span>             
-            <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span><span class="p">)</span>     
-
-<span class="n">clfs</span> <span class="o">=</span> <span class="p">[</span><span class="n">KNeighborsClassifier</span><span class="p">(),</span> <span class="n">SVC</span><span class="p">(),</span> <span class="n">LinearSVC</span><span class="p">(),</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">10</span><span class="p">)]</span>
-
-<span class="nd">@interact</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">plot_scaling_effect</span><span class="p">(</span><span class="n">classifier</span><span class="o">=</span><span class="n">clfs</span><span class="p">,</span> <span class="n">show_test</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span><span class="kc">True</span><span class="p">]):</span>
-    <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">centers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="n">y</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">27</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> 
-    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    
-    <span class="n">clf2</span> <span class="o">=</span> <span class="n">clone</span><span class="p">(</span><span class="n">classifier</span><span class="p">)</span>
-    <span class="n">clf_unscaled</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_train</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Without scaling. Accuracy:</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clf_unscaled</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)))</span>
-    <span class="k">if</span> <span class="n">show_test</span><span class="p">:</span> <span class="c1"># Hide test data for simplicity</span>
-        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_test</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">)</span> 
-        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-    
-    <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-    <span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-    <span class="n">X_test_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-    <span class="n">clf_scaled</span> <span class="o">=</span> <span class="n">clf2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_train_scaled</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;With scaling. Accuracy:</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clf_scaled</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">,</span><span class="n">y_test</span><span class="p">)))</span>   
-    <span class="k">if</span> <span class="n">show_test</span><span class="p">:</span> <span class="c1"># Hide test data for simplicity</span>
-        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_test_scaled</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
-        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-
-    <span class="n">plot_2d_classification</span><span class="p">(</span><span class="n">clf_unscaled</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
-    <span class="n">plot_2d_classification</span><span class="p">(</span><span class="n">clf_scaled</span><span class="p">,</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e518fe21521e441e982cd9bf4e4b2e0b", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">interactive</span><span class="p">:</span>
-    <span class="n">plot_scaling_effect</span><span class="p">(</span><span class="n">classifier</span><span class="o">=</span><span class="n">clfs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">show_test</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-</section>
-<section id="standard-scaling-standardization">
-<h3>Standard scaling (standardization)<a class="headerlink" href="#standard-scaling-standardization" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Generally most useful, assumes data is more or less normally distributed</p></li>
-<li><p>Per feature, subtract the mean value <span class="math notranslate nohighlight">\(\mu\)</span>, scale by standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span></p></li>
-<li><p>New feature has <span class="math notranslate nohighlight">\(\mu=0\)</span> and <span class="math notranslate nohighlight">\(\sigma=1\)</span>, values can still be arbitrarily large
-$<span class="math notranslate nohighlight">\(\mathbf{x}_{new} = \frac{\mathbf{x} - \mu}{\sigma}\)</span>$</p></li>
-</ul>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_scaling</span><span class="p">(</span><span class="n">scaler</span><span class="o">=</span><span class="n">StandardScaler</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../_images/5f138427c48dc1ef9103104fb03e2f9d97a5ad94b5c0cfb17baf491d176e5295.png" src="../_images/5f138427c48dc1ef9103104fb03e2f9d97a5ad94b5c0cfb17baf491d176e5295.png" />
-</div>
-</div>
-</section>
-<section id="min-max-scaling">
-<h3>Min-max scaling<a class="headerlink" href="#min-max-scaling" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Scales all features between a given <span class="math notranslate nohighlight">\(min\)</span> and <span class="math notranslate nohighlight">\(max\)</span> value (e.g. 0 and 1)</p></li>
-<li><p>Makes sense if min/max values have meaning in your data</p></li>
-<li><p>Sensitive to outliers</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\mathbf{x}_{new} = \frac{\mathbf{x} - x_{min}}{x_{max} - x_{min}} \cdot (max - min) + min \]</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_scaling</span><span class="p">(</span><span class="n">scaler</span><span class="o">=</span><span class="n">MinMaxScaler</span><span class="p">(</span><span class="n">feature_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../_images/573082ffe9063058150ba1fd56d0fbd07841d12265a29377be4e5a7f6fd3de84.png" src="../_images/573082ffe9063058150ba1fd56d0fbd07841d12265a29377be4e5a7f6fd3de84.png" />
-</div>
-</div>
-</section>
-<section id="robust-scaling">
-<h3>Robust scaling<a class="headerlink" href="#robust-scaling" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Subtracts the median, scales between quantiles <span class="math notranslate nohighlight">\(q_{25}\)</span> and <span class="math notranslate nohighlight">\(q_{75}\)</span></p></li>
-<li><p>New feature has median 0, <span class="math notranslate nohighlight">\(q_{25}=-1\)</span> and <span class="math notranslate nohighlight">\(q_{75}=1\)</span></p></li>
-<li><p>Similar to standard scaler, but ignores outliers</p></li>
-</ul>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_scaling</span><span class="p">(</span><span class="n">scaler</span><span class="o">=</span><span class="n">RobustScaler</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../_images/021d299aa39042da01614d280e55b719480cba28d045e65333618d3a9df1a5c3.png" src="../_images/021d299aa39042da01614d280e55b719480cba28d045e65333618d3a9df1a5c3.png" />
-</div>
-</div>
-</section>
-<section id="normalization">
-<h3>Normalization<a class="headerlink" href="#normalization" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Makes sure that feature values of each point (each row) sum up to 1 (L1 norm)</p>
-<ul>
-<li><p>Useful for count data (e.g. word counts in documents)</p></li>
-</ul>
-</li>
-<li><p>Can also be used with L2 norm (sum of squares is 1)</p>
-<ul>
-<li><p>Useful when computing distances in high dimensions</p></li>
-<li><p>Normalized Euclidean distance is equivalent to cosine similarity</p></li>
-</ul>
-</li>
-</ul>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_scaling</span><span class="p">(</span><span class="n">scaler</span><span class="o">=</span><span class="n">Normalizer</span><span class="p">(</span><span class="n">norm</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../_images/3a430a57cbc219c01ff31af97440c07a4e1a3be2ee1983965840b4a9df071caf.png" src="../_images/3a430a57cbc219c01ff31af97440c07a4e1a3be2ee1983965840b4a9df071caf.png" />
-</div>
-</div>
-</section>
-<section id="maximum-absolute-scaler">
-<h3>Maximum Absolute scaler<a class="headerlink" href="#maximum-absolute-scaler" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>For sparse data (many features, but few are non-zero)</p>
-<ul>
-<li><p>Maintain sparseness (efficient storage)</p></li>
-</ul>
-</li>
-<li><p>Scales all values so that maximum absolute value is 1</p></li>
-<li><p>Similar to Min-Max scaling without changing 0 values</p></li>
-</ul>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_scaling</span><span class="p">(</span><span class="n">scaler</span><span class="o">=</span><span class="n">MaxAbsScaler</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../_images/fb55a51b0918f6d8e20a4a391226deda30c01fd366fcfa8ad25591e9ab5f4242.png" src="../_images/fb55a51b0918f6d8e20a4a391226deda30c01fd366fcfa8ad25591e9ab5f4242.png" />
-</div>
-</div>
-</section>
 <section id="power-transformations">
 <h3>Power transformations<a class="headerlink" href="#power-transformations" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Some features follow certain distributions</p>
 <ul>
-<li><p>E.g. number of twitter followers is log-normal distributed</p></li>
+<li><p>E.g. number of Instagram followers is log-normal distributed</p></li>
+<li><p>Yet most ML methods assume normally-distributed data</p></li>
 </ul>
 </li>
 <li><p>Box-Cox transformations transform these to normal distributions (<span class="math notranslate nohighlight">\(\lambda\)</span> is fitted)</p>
@@ -940,6 +676,7 @@ $<span class="math notranslate nohighlight">\(bc_{\lambda}(x) = \begin{cases} lo
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Adapted from an example by Eric Chang and Nicolas Hug </span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">PowerTransformer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 
 <span class="c1"># Power transformer with Box-Cox</span>
 <span class="n">bc</span> <span class="o">=</span> <span class="n">PowerTransformer</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;box-cox&#39;</span><span class="p">)</span>
@@ -993,7 +730,7 @@ $<span class="math notranslate nohighlight">\(bc_{\lambda}(x) = \begin{cases} lo
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/289aba50929a606c23c181479bb1c9a43aba03fff320983f7b61cfd86cb43a59.png" src="../_images/289aba50929a606c23c181479bb1c9a43aba03fff320983f7b61cfd86cb43a59.png" />
+<img alt="../_images/66e08b11a88c8ff24779e155a219cd0f052a913d439c1469c5ebb30e5b3fc201.png" src="../_images/66e08b11a88c8ff24779e155a219cd0f052a913d439c1469c5ebb30e5b3fc201.png" />
 </div>
 </div>
 </section>
@@ -1064,58 +801,58 @@ th {font-size: 10px}
 </details>
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_77668 th {
+#T_08bc4 th {
   font-size: 20;
 }
-#T_77668 td {
+#T_08bc4 td {
   font-size: 20;
 }
 </style>
-<table id="T_77668">
+<table id="T_08bc4">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_77668_level0_col0" class="col_heading level0 col0" >boro</th>
-      <th id="T_77668_level0_col1" class="col_heading level0 col1" >salary</th>
-      <th id="T_77668_level0_col2" class="col_heading level0 col2" >vegan</th>
+      <th id="T_08bc4_level0_col0" class="col_heading level0 col0" >boro</th>
+      <th id="T_08bc4_level0_col1" class="col_heading level0 col1" >salary</th>
+      <th id="T_08bc4_level0_col2" class="col_heading level0 col2" >vegan</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_77668_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_77668_row0_col0" class="data row0 col0" >Manhattan</td>
-      <td id="T_77668_row0_col1" class="data row0 col1" >103</td>
-      <td id="T_77668_row0_col2" class="data row0 col2" >0</td>
+      <th id="T_08bc4_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_08bc4_row0_col0" class="data row0 col0" >Manhattan</td>
+      <td id="T_08bc4_row0_col1" class="data row0 col1" >103</td>
+      <td id="T_08bc4_row0_col2" class="data row0 col2" >0</td>
     </tr>
     <tr>
-      <th id="T_77668_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_77668_row1_col0" class="data row1 col0" >Queens</td>
-      <td id="T_77668_row1_col1" class="data row1 col1" >89</td>
-      <td id="T_77668_row1_col2" class="data row1 col2" >0</td>
+      <th id="T_08bc4_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_08bc4_row1_col0" class="data row1 col0" >Queens</td>
+      <td id="T_08bc4_row1_col1" class="data row1 col1" >89</td>
+      <td id="T_08bc4_row1_col2" class="data row1 col2" >0</td>
     </tr>
     <tr>
-      <th id="T_77668_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_77668_row2_col0" class="data row2 col0" >Manhattan</td>
-      <td id="T_77668_row2_col1" class="data row2 col1" >142</td>
-      <td id="T_77668_row2_col2" class="data row2 col2" >0</td>
+      <th id="T_08bc4_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_08bc4_row2_col0" class="data row2 col0" >Manhattan</td>
+      <td id="T_08bc4_row2_col1" class="data row2 col1" >142</td>
+      <td id="T_08bc4_row2_col2" class="data row2 col2" >0</td>
     </tr>
     <tr>
-      <th id="T_77668_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_77668_row3_col0" class="data row3 col0" >Brooklyn</td>
-      <td id="T_77668_row3_col1" class="data row3 col1" >54</td>
-      <td id="T_77668_row3_col2" class="data row3 col2" >1</td>
+      <th id="T_08bc4_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_08bc4_row3_col0" class="data row3 col0" >Brooklyn</td>
+      <td id="T_08bc4_row3_col1" class="data row3 col1" >54</td>
+      <td id="T_08bc4_row3_col2" class="data row3 col2" >1</td>
     </tr>
     <tr>
-      <th id="T_77668_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_77668_row4_col0" class="data row4 col0" >Brooklyn</td>
-      <td id="T_77668_row4_col1" class="data row4 col1" >63</td>
-      <td id="T_77668_row4_col2" class="data row4 col2" >1</td>
+      <th id="T_08bc4_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_08bc4_row4_col0" class="data row4 col0" >Brooklyn</td>
+      <td id="T_08bc4_row4_col1" class="data row4 col1" >63</td>
+      <td id="T_08bc4_row4_col2" class="data row4 col2" >1</td>
     </tr>
     <tr>
-      <th id="T_77668_level0_row5" class="row_heading level0 row5" >5</th>
-      <td id="T_77668_row5_col0" class="data row5 col0" >Bronx</td>
-      <td id="T_77668_row5_col1" class="data row5 col1" >219</td>
-      <td id="T_77668_row5_col2" class="data row5 col2" >0</td>
+      <th id="T_08bc4_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_08bc4_row5_col0" class="data row5 col0" >Bronx</td>
+      <td id="T_08bc4_row5_col1" class="data row5 col1" >219</td>
+      <td id="T_08bc4_row5_col2" class="data row5 col2" >0</td>
     </tr>
   </tbody>
 </table>
@@ -1157,58 +894,58 @@ th {font-size: 10px}
 </details>
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_a4b93 th {
+#T_d169a th {
   font-size: 20;
 }
-#T_a4b93 td {
+#T_d169a td {
   font-size: 20;
 }
 </style>
-<table id="T_a4b93">
+<table id="T_d169a">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_a4b93_level0_col0" class="col_heading level0 col0" >boro</th>
-      <th id="T_a4b93_level0_col1" class="col_heading level0 col1" >boro_ordinal</th>
-      <th id="T_a4b93_level0_col2" class="col_heading level0 col2" >salary</th>
+      <th id="T_d169a_level0_col0" class="col_heading level0 col0" >boro</th>
+      <th id="T_d169a_level0_col1" class="col_heading level0 col1" >boro_ordinal</th>
+      <th id="T_d169a_level0_col2" class="col_heading level0 col2" >salary</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_a4b93_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_a4b93_row0_col0" class="data row0 col0" >Manhattan</td>
-      <td id="T_a4b93_row0_col1" class="data row0 col1" >2</td>
-      <td id="T_a4b93_row0_col2" class="data row0 col2" >103</td>
+      <th id="T_d169a_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_d169a_row0_col0" class="data row0 col0" >Manhattan</td>
+      <td id="T_d169a_row0_col1" class="data row0 col1" >2</td>
+      <td id="T_d169a_row0_col2" class="data row0 col2" >103</td>
     </tr>
     <tr>
-      <th id="T_a4b93_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_a4b93_row1_col0" class="data row1 col0" >Queens</td>
-      <td id="T_a4b93_row1_col1" class="data row1 col1" >3</td>
-      <td id="T_a4b93_row1_col2" class="data row1 col2" >89</td>
+      <th id="T_d169a_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_d169a_row1_col0" class="data row1 col0" >Queens</td>
+      <td id="T_d169a_row1_col1" class="data row1 col1" >3</td>
+      <td id="T_d169a_row1_col2" class="data row1 col2" >89</td>
     </tr>
     <tr>
-      <th id="T_a4b93_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_a4b93_row2_col0" class="data row2 col0" >Manhattan</td>
-      <td id="T_a4b93_row2_col1" class="data row2 col1" >2</td>
-      <td id="T_a4b93_row2_col2" class="data row2 col2" >142</td>
+      <th id="T_d169a_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_d169a_row2_col0" class="data row2 col0" >Manhattan</td>
+      <td id="T_d169a_row2_col1" class="data row2 col1" >2</td>
+      <td id="T_d169a_row2_col2" class="data row2 col2" >142</td>
     </tr>
     <tr>
-      <th id="T_a4b93_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_a4b93_row3_col0" class="data row3 col0" >Brooklyn</td>
-      <td id="T_a4b93_row3_col1" class="data row3 col1" >1</td>
-      <td id="T_a4b93_row3_col2" class="data row3 col2" >54</td>
+      <th id="T_d169a_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_d169a_row3_col0" class="data row3 col0" >Brooklyn</td>
+      <td id="T_d169a_row3_col1" class="data row3 col1" >1</td>
+      <td id="T_d169a_row3_col2" class="data row3 col2" >54</td>
     </tr>
     <tr>
-      <th id="T_a4b93_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_a4b93_row4_col0" class="data row4 col0" >Brooklyn</td>
-      <td id="T_a4b93_row4_col1" class="data row4 col1" >1</td>
-      <td id="T_a4b93_row4_col2" class="data row4 col2" >63</td>
+      <th id="T_d169a_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_d169a_row4_col0" class="data row4 col0" >Brooklyn</td>
+      <td id="T_d169a_row4_col1" class="data row4 col1" >1</td>
+      <td id="T_d169a_row4_col2" class="data row4 col2" >63</td>
     </tr>
     <tr>
-      <th id="T_a4b93_level0_row5" class="row_heading level0 row5" >5</th>
-      <td id="T_a4b93_row5_col0" class="data row5 col0" >Bronx</td>
-      <td id="T_a4b93_row5_col1" class="data row5 col1" >0</td>
-      <td id="T_a4b93_row5_col2" class="data row5 col2" >219</td>
+      <th id="T_d169a_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_d169a_row5_col0" class="data row5 col0" >Bronx</td>
+      <td id="T_d169a_row5_col1" class="data row5 col1" >0</td>
+      <td id="T_d169a_row5_col2" class="data row5 col2" >219</td>
     </tr>
   </tbody>
 </table>
@@ -1251,79 +988,79 @@ th {font-size: 10px}
 </details>
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_152f8 th {
+#T_2a15b th {
   font-size: 20;
 }
-#T_152f8 td {
+#T_2a15b td {
   font-size: 20;
 }
 </style>
-<table id="T_152f8">
+<table id="T_2a15b">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_152f8_level0_col0" class="col_heading level0 col0" >boro</th>
-      <th id="T_152f8_level0_col1" class="col_heading level0 col1" >boro_Bronx</th>
-      <th id="T_152f8_level0_col2" class="col_heading level0 col2" >boro_Brooklyn</th>
-      <th id="T_152f8_level0_col3" class="col_heading level0 col3" >boro_Manhattan</th>
-      <th id="T_152f8_level0_col4" class="col_heading level0 col4" >boro_Queens</th>
-      <th id="T_152f8_level0_col5" class="col_heading level0 col5" >salary</th>
+      <th id="T_2a15b_level0_col0" class="col_heading level0 col0" >boro</th>
+      <th id="T_2a15b_level0_col1" class="col_heading level0 col1" >boro_Bronx</th>
+      <th id="T_2a15b_level0_col2" class="col_heading level0 col2" >boro_Brooklyn</th>
+      <th id="T_2a15b_level0_col3" class="col_heading level0 col3" >boro_Manhattan</th>
+      <th id="T_2a15b_level0_col4" class="col_heading level0 col4" >boro_Queens</th>
+      <th id="T_2a15b_level0_col5" class="col_heading level0 col5" >salary</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_152f8_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_152f8_row0_col0" class="data row0 col0" >Manhattan</td>
-      <td id="T_152f8_row0_col1" class="data row0 col1" >0</td>
-      <td id="T_152f8_row0_col2" class="data row0 col2" >0</td>
-      <td id="T_152f8_row0_col3" class="data row0 col3" >1</td>
-      <td id="T_152f8_row0_col4" class="data row0 col4" >0</td>
-      <td id="T_152f8_row0_col5" class="data row0 col5" >103</td>
+      <th id="T_2a15b_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_2a15b_row0_col0" class="data row0 col0" >Manhattan</td>
+      <td id="T_2a15b_row0_col1" class="data row0 col1" >0</td>
+      <td id="T_2a15b_row0_col2" class="data row0 col2" >0</td>
+      <td id="T_2a15b_row0_col3" class="data row0 col3" >1</td>
+      <td id="T_2a15b_row0_col4" class="data row0 col4" >0</td>
+      <td id="T_2a15b_row0_col5" class="data row0 col5" >103</td>
     </tr>
     <tr>
-      <th id="T_152f8_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_152f8_row1_col0" class="data row1 col0" >Queens</td>
-      <td id="T_152f8_row1_col1" class="data row1 col1" >0</td>
-      <td id="T_152f8_row1_col2" class="data row1 col2" >0</td>
-      <td id="T_152f8_row1_col3" class="data row1 col3" >0</td>
-      <td id="T_152f8_row1_col4" class="data row1 col4" >1</td>
-      <td id="T_152f8_row1_col5" class="data row1 col5" >89</td>
+      <th id="T_2a15b_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_2a15b_row1_col0" class="data row1 col0" >Queens</td>
+      <td id="T_2a15b_row1_col1" class="data row1 col1" >0</td>
+      <td id="T_2a15b_row1_col2" class="data row1 col2" >0</td>
+      <td id="T_2a15b_row1_col3" class="data row1 col3" >0</td>
+      <td id="T_2a15b_row1_col4" class="data row1 col4" >1</td>
+      <td id="T_2a15b_row1_col5" class="data row1 col5" >89</td>
     </tr>
     <tr>
-      <th id="T_152f8_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_152f8_row2_col0" class="data row2 col0" >Manhattan</td>
-      <td id="T_152f8_row2_col1" class="data row2 col1" >0</td>
-      <td id="T_152f8_row2_col2" class="data row2 col2" >0</td>
-      <td id="T_152f8_row2_col3" class="data row2 col3" >1</td>
-      <td id="T_152f8_row2_col4" class="data row2 col4" >0</td>
-      <td id="T_152f8_row2_col5" class="data row2 col5" >142</td>
+      <th id="T_2a15b_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_2a15b_row2_col0" class="data row2 col0" >Manhattan</td>
+      <td id="T_2a15b_row2_col1" class="data row2 col1" >0</td>
+      <td id="T_2a15b_row2_col2" class="data row2 col2" >0</td>
+      <td id="T_2a15b_row2_col3" class="data row2 col3" >1</td>
+      <td id="T_2a15b_row2_col4" class="data row2 col4" >0</td>
+      <td id="T_2a15b_row2_col5" class="data row2 col5" >142</td>
     </tr>
     <tr>
-      <th id="T_152f8_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_152f8_row3_col0" class="data row3 col0" >Brooklyn</td>
-      <td id="T_152f8_row3_col1" class="data row3 col1" >0</td>
-      <td id="T_152f8_row3_col2" class="data row3 col2" >1</td>
-      <td id="T_152f8_row3_col3" class="data row3 col3" >0</td>
-      <td id="T_152f8_row3_col4" class="data row3 col4" >0</td>
-      <td id="T_152f8_row3_col5" class="data row3 col5" >54</td>
+      <th id="T_2a15b_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_2a15b_row3_col0" class="data row3 col0" >Brooklyn</td>
+      <td id="T_2a15b_row3_col1" class="data row3 col1" >0</td>
+      <td id="T_2a15b_row3_col2" class="data row3 col2" >1</td>
+      <td id="T_2a15b_row3_col3" class="data row3 col3" >0</td>
+      <td id="T_2a15b_row3_col4" class="data row3 col4" >0</td>
+      <td id="T_2a15b_row3_col5" class="data row3 col5" >54</td>
     </tr>
     <tr>
-      <th id="T_152f8_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_152f8_row4_col0" class="data row4 col0" >Brooklyn</td>
-      <td id="T_152f8_row4_col1" class="data row4 col1" >0</td>
-      <td id="T_152f8_row4_col2" class="data row4 col2" >1</td>
-      <td id="T_152f8_row4_col3" class="data row4 col3" >0</td>
-      <td id="T_152f8_row4_col4" class="data row4 col4" >0</td>
-      <td id="T_152f8_row4_col5" class="data row4 col5" >63</td>
+      <th id="T_2a15b_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_2a15b_row4_col0" class="data row4 col0" >Brooklyn</td>
+      <td id="T_2a15b_row4_col1" class="data row4 col1" >0</td>
+      <td id="T_2a15b_row4_col2" class="data row4 col2" >1</td>
+      <td id="T_2a15b_row4_col3" class="data row4 col3" >0</td>
+      <td id="T_2a15b_row4_col4" class="data row4 col4" >0</td>
+      <td id="T_2a15b_row4_col5" class="data row4 col5" >63</td>
     </tr>
     <tr>
-      <th id="T_152f8_level0_row5" class="row_heading level0 row5" >5</th>
-      <td id="T_152f8_row5_col0" class="data row5 col0" >Bronx</td>
-      <td id="T_152f8_row5_col1" class="data row5 col1" >1</td>
-      <td id="T_152f8_row5_col2" class="data row5 col2" >0</td>
-      <td id="T_152f8_row5_col3" class="data row5 col3" >0</td>
-      <td id="T_152f8_row5_col4" class="data row5 col4" >0</td>
-      <td id="T_152f8_row5_col5" class="data row5 col5" >219</td>
+      <th id="T_2a15b_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_2a15b_row5_col0" class="data row5 col0" >Bronx</td>
+      <td id="T_2a15b_row5_col1" class="data row5 col1" >1</td>
+      <td id="T_2a15b_row5_col2" class="data row5 col2" >0</td>
+      <td id="T_2a15b_row5_col3" class="data row5 col3" >0</td>
+      <td id="T_2a15b_row5_col4" class="data row5 col4" >0</td>
+      <td id="T_2a15b_row5_col5" class="data row5 col5" >219</td>
     </tr>
   </tbody>
 </table>
@@ -1377,7 +1114,7 @@ $<span class="math notranslate nohighlight">\(Enc(i) = \color{blue}{\frac{1}{1+e
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/7fdd62ced373dc9af17de4549058fddfdfcdeb9a5bcdab606bba8a971abd67b8.png" src="../_images/7fdd62ced373dc9af17de4549058fddfdfcdeb9a5bcdab606bba8a971abd67b8.png" />
+<img alt="../_images/a7475e6a6e2206048d7f91ff926a58ccc5f407441dd7030ace2dedf38b6daa79.png" src="../_images/a7475e6a6e2206048d7f91ff926a58ccc5f407441dd7030ace2dedf38b6daa79.png" />
 </div>
 </div>
 <section id="example-category-encoders">
@@ -1412,65 +1149,65 @@ $<span class="math notranslate nohighlight">\(Enc(Brooklyn) = \frac{1}{1+e^{-1}}
 </details>
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_c916b th {
+#T_1c3b7 th {
   font-size: 20;
 }
-#T_c916b td {
+#T_1c3b7 td {
   font-size: 20;
 }
 </style>
-<table id="T_c916b">
+<table id="T_1c3b7">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_c916b_level0_col0" class="col_heading level0 col0" >boro</th>
-      <th id="T_c916b_level0_col1" class="col_heading level0 col1" >boro_encoded</th>
-      <th id="T_c916b_level0_col2" class="col_heading level0 col2" >salary</th>
-      <th id="T_c916b_level0_col3" class="col_heading level0 col3" >vegan</th>
+      <th id="T_1c3b7_level0_col0" class="col_heading level0 col0" >boro</th>
+      <th id="T_1c3b7_level0_col1" class="col_heading level0 col1" >boro_encoded</th>
+      <th id="T_1c3b7_level0_col2" class="col_heading level0 col2" >salary</th>
+      <th id="T_1c3b7_level0_col3" class="col_heading level0 col3" >vegan</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_c916b_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_c916b_row0_col0" class="data row0 col0" >Manhattan</td>
-      <td id="T_c916b_row0_col1" class="data row0 col1" >0.089647</td>
-      <td id="T_c916b_row0_col2" class="data row0 col2" >103</td>
-      <td id="T_c916b_row0_col3" class="data row0 col3" >0</td>
+      <th id="T_1c3b7_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_1c3b7_row0_col0" class="data row0 col0" >Manhattan</td>
+      <td id="T_1c3b7_row0_col1" class="data row0 col1" >0.089647</td>
+      <td id="T_1c3b7_row0_col2" class="data row0 col2" >103</td>
+      <td id="T_1c3b7_row0_col3" class="data row0 col3" >0</td>
     </tr>
     <tr>
-      <th id="T_c916b_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_c916b_row1_col0" class="data row1 col0" >Queens</td>
-      <td id="T_c916b_row1_col1" class="data row1 col1" >0.166667</td>
-      <td id="T_c916b_row1_col2" class="data row1 col2" >89</td>
-      <td id="T_c916b_row1_col3" class="data row1 col3" >0</td>
+      <th id="T_1c3b7_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_1c3b7_row1_col0" class="data row1 col0" >Queens</td>
+      <td id="T_1c3b7_row1_col1" class="data row1 col1" >0.166667</td>
+      <td id="T_1c3b7_row1_col2" class="data row1 col2" >89</td>
+      <td id="T_1c3b7_row1_col3" class="data row1 col3" >0</td>
     </tr>
     <tr>
-      <th id="T_c916b_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_c916b_row2_col0" class="data row2 col0" >Manhattan</td>
-      <td id="T_c916b_row2_col1" class="data row2 col1" >0.089647</td>
-      <td id="T_c916b_row2_col2" class="data row2 col2" >142</td>
-      <td id="T_c916b_row2_col3" class="data row2 col3" >0</td>
+      <th id="T_1c3b7_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_1c3b7_row2_col0" class="data row2 col0" >Manhattan</td>
+      <td id="T_1c3b7_row2_col1" class="data row2 col1" >0.089647</td>
+      <td id="T_1c3b7_row2_col2" class="data row2 col2" >142</td>
+      <td id="T_1c3b7_row2_col3" class="data row2 col3" >0</td>
     </tr>
     <tr>
-      <th id="T_c916b_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_c916b_row3_col0" class="data row3 col0" >Brooklyn</td>
-      <td id="T_c916b_row3_col1" class="data row3 col1" >0.820706</td>
-      <td id="T_c916b_row3_col2" class="data row3 col2" >54</td>
-      <td id="T_c916b_row3_col3" class="data row3 col3" >1</td>
+      <th id="T_1c3b7_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_1c3b7_row3_col0" class="data row3 col0" >Brooklyn</td>
+      <td id="T_1c3b7_row3_col1" class="data row3 col1" >0.820706</td>
+      <td id="T_1c3b7_row3_col2" class="data row3 col2" >54</td>
+      <td id="T_1c3b7_row3_col3" class="data row3 col3" >1</td>
     </tr>
     <tr>
-      <th id="T_c916b_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_c916b_row4_col0" class="data row4 col0" >Brooklyn</td>
-      <td id="T_c916b_row4_col1" class="data row4 col1" >0.820706</td>
-      <td id="T_c916b_row4_col2" class="data row4 col2" >63</td>
-      <td id="T_c916b_row4_col3" class="data row4 col3" >1</td>
+      <th id="T_1c3b7_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_1c3b7_row4_col0" class="data row4 col0" >Brooklyn</td>
+      <td id="T_1c3b7_row4_col1" class="data row4 col1" >0.820706</td>
+      <td id="T_1c3b7_row4_col2" class="data row4 col2" >63</td>
+      <td id="T_1c3b7_row4_col3" class="data row4 col3" >1</td>
     </tr>
     <tr>
-      <th id="T_c916b_level0_row5" class="row_heading level0 row5" >5</th>
-      <td id="T_c916b_row5_col0" class="data row5 col0" >Bronx</td>
-      <td id="T_c916b_row5_col1" class="data row5 col1" >0.166667</td>
-      <td id="T_c916b_row5_col2" class="data row5 col2" >219</td>
-      <td id="T_c916b_row5_col3" class="data row5 col3" >0</td>
+      <th id="T_1c3b7_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_1c3b7_row5_col0" class="data row5 col0" >Bronx</td>
+      <td id="T_1c3b7_row5_col1" class="data row5 col1" >0.166667</td>
+      <td id="T_1c3b7_row5_col2" class="data row5 col2" >219</td>
+      <td id="T_1c3b7_row5_col3" class="data row5 col3" >0</td>
     </tr>
   </tbody>
 </table>
@@ -1520,48 +1257,30 @@ $<span class="math notranslate nohighlight">\(Enc(Brooklyn) = \frac{1}{1+e^{-1}}
 <section id="applying-data-transformations">
 <h2>Applying data transformations<a class="headerlink" href="#applying-data-transformations" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Data transformations should always follow a fit-predict paradigm</p>
+<li><p>Data transformations should always follow a <code class="docutils literal notranslate"><span class="pre">fit-predict</span></code> paradigm</p>
 <ul>
-<li><p>Fit the transformer on the training data only</p>
+<li><p>‘Fit’ (train) the transformer on the <strong>training data</strong> only</p>
 <ul>
 <li><p>E.g. for a standard scaler: record the mean and standard deviation</p></li>
 </ul>
 </li>
-<li><p>Transform (e.g. scale) the training data, then train the learning model</p></li>
-<li><p>Transform (e.g. scale) the test data, then evaluate the model</p></li>
+<li><p>Transform (e.g. scale) the <strong>training data</strong>, then train the learning model</p></li>
+<li><p>Transform (e.g. scale) the <strong>test data</strong>, then evaluate the model</p></li>
 </ul>
 </li>
-<li><p>Only scale the input features (X), not the targets (y)</p></li>
-<li><p>If you fit and transform the whole dataset before splitting, you get data leakage</p>
+<li><p>Only scale the input features (X), not the targets (y)!</p></li>
+<li><p>If you fit and transform the whole dataset before splitting, you get <strong>data leakage</strong></p>
 <ul>
 <li><p>You have looked at the test data before training the model</p></li>
-<li><p>Model evaluations will be misleading</p></li>
 </ul>
 </li>
-<li><p>If you fit and transform the training and test data separately, you distort the data</p>
+<li><p>If you fit and transform the training and test data separately, you <strong>distort the test set</strong></p>
 <ul>
 <li><p>E.g. training and test points are scaled differently</p></li>
 </ul>
 </li>
+<li><p>In both cases, model evaluations will be misleading or meaningless</p></li>
 </ul>
-<section id="id1">
-<h3>In practice (scikit-learn)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># choose scaling method and fit on training data</span>
-<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-
-<span class="c1"># transform training and test data</span>
-<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="n">X_test_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># calling fit and transform in sequence</span>
-<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="c1"># same result, but more efficient computation</span>
-<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
 <section id="test-set-distortion">
 <h3>Test set distortion<a class="headerlink" href="#test-set-distortion" title="Link to this heading">#</a></h3>
 <ul class="simple">
@@ -1633,7 +1352,7 @@ $<span class="math notranslate nohighlight">\(Enc(Brooklyn) = \frac{1}{1+e^{-1}}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/d6da9b656f6e7ecc698d51fd1f46029c4de2943a4342f5f26a9e7a96046d5387.png" src="../_images/d6da9b656f6e7ecc698d51fd1f46029c4de2943a4342f5f26a9e7a96046d5387.png" />
+<img alt="../_images/2c117418cb0e3da73c68b2bcb85285f775304ec06eafadde547e5e9840a3d04a.png" src="../_images/2c117418cb0e3da73c68b2bcb85285f775304ec06eafadde547e5e9840a3d04a.png" />
 </div>
 </div>
 </section>
@@ -1649,138 +1368,46 @@ $<span class="math notranslate nohighlight">\(Enc(Brooklyn) = \frac{1}{1+e^{-1}}
 <li><p>Right: Scaler is fit on training folds only</p></li>
 </ul>
 <img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/infoleak.png" alt="ml" style="width: 1500px;"/></section>
-<section id="pipelines">
-<h3>Pipelines<a class="headerlink" href="#pipelines" title="Link to this heading">#</a></h3>
+<section id="data-processing-pipelines">
+<h3>Data processing pipelines<a class="headerlink" href="#data-processing-pipelines" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>A pipeline is a combination of data transformation and learning algorithms</p></li>
-<li><p>It has a <code class="docutils literal notranslate"><span class="pre">fit</span></code>, <code class="docutils literal notranslate"><span class="pre">predict</span></code>, and <code class="docutils literal notranslate"><span class="pre">score</span></code> method, just like any other learning algorithm</p>
+<li><p>Many ML libraries have ways to build ‘pipelines’ of data transformations and learners</p>
 <ul>
 <li><p>Ensures that data transformations are applied correctly</p></li>
 </ul>
 </li>
+<li><p>E.g. scikit-learn pipelines have a <code class="docutils literal notranslate"><span class="pre">fit</span></code>, <code class="docutils literal notranslate"><span class="pre">predict</span></code>, and <code class="docutils literal notranslate"><span class="pre">score</span></code> method</p>
+<ul>
+<li><p>Internally applies transformations correctly</p></li>
 </ul>
-<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/07_pipelines.png" alt="ml" style="width: 600px;"/><section id="id2">
-<h4>In practice (scikit-learn)<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+</li>
+<li><p>If not, ensure that no data leakage happens!</p>
+<ul>
+<li><p>Data transformations should be independent from the test set</p></li>
+</ul>
+</li>
+</ul>
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/07_pipelines.png" alt="ml" style="width: 600px;"/><section id="id1">
+<h4>In practice (scikit-learn)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>A <code class="docutils literal notranslate"><span class="pre">pipeline</span></code> combines multiple processing <em>steps</em> in a single estimator</p></li>
-<li><p>All but the last step should be data transformer (have a <code class="docutils literal notranslate"><span class="pre">transform</span></code> method)</p></li>
+<li><p>Can also be split, combined, tuned,…</p></li>
+<li><p>See the lab tutorial for more in-depth examples</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make pipeline, step names will be &#39;minmaxscaler&#39; and &#39;linearsvc&#39;</span>
-<span class="n">pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">MinMaxScaler</span><span class="p">(),</span> <span class="n">LinearSVC</span><span class="p">())</span>
-<span class="c1"># Build pipeline with named steps </span>
-<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s2">&quot;scaler&quot;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s2">&quot;svm&quot;</span><span class="p">,</span> <span class="n">LinearSVC</span><span class="p">())])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make pipeline</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">MinMaxScaler</span><span class="p">(),</span> <span class="n">Ridge</span><span class="p">())</span>
 
 <span class="c1"># Correct fit and score</span>
 <span class="n">score</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="c1"># Retrieve trained model by name</span>
-<span class="n">svm</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s2">&quot;svm&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Correct cross-validation</span>
+
+<span class="c1"># Correct cross-validation</span>
 <span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>If you want to apply different preprocessors to different columns, use <code class="docutils literal notranslate"><span class="pre">ColumnTransformer</span></code></p></li>
-<li><p>If you want to merge pipelines, you can use <code class="docutils literal notranslate"><span class="pre">FeatureUnion</span></code> to concatenate columns</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2 sub-pipelines, one for numeric features, other for categorical ones</span>
-<span class="n">numeric_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="p">(),</span><span class="n">StandardScaler</span><span class="p">())</span>
-<span class="n">categorical_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="p">(),</span><span class="n">OneHotEncoder</span><span class="p">())</span>
 
-<span class="c1"># Using categorical pipe for features A,B,C, numeric pipe otherwise</span>
-<span class="n">preprocessor</span> <span class="o">=</span> <span class="n">make_column_transformer</span><span class="p">((</span><span class="n">categorical_pipe</span><span class="p">,</span>
-                                        <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">]),</span> 
-                                        <span class="n">remainder</span><span class="o">=</span><span class="n">numeric_pipe</span><span class="p">)</span>
-
-<span class="c1"># Combine with learning algorithm in another pipeline</span>
-
-<span class="err">```</span> <span class="n">python</span>
-<span class="n">pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">preprocessor</span><span class="p">,</span> <span class="n">LinearSVC</span><span class="p">())</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Feature union of PCA features and selected features</span>
-<span class="n">union</span> <span class="o">=</span> <span class="n">FeatureUnion</span><span class="p">([(</span><span class="s2">&quot;pca&quot;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">()),</span> <span class="p">(</span><span class="s2">&quot;selected&quot;</span><span class="p">,</span> <span class="n">SelectKBest</span><span class="p">())])</span>
-<span class="n">pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">union</span><span class="p">,</span> <span class="n">LinearSVC</span><span class="p">())</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ColumnTransformer</span></code> concatenates features in order</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pipe</span> <span class="o">=</span> <span class="n">make_column_transformer</span><span class="p">((</span><span class="n">StandardScaler</span><span class="p">(),</span><span class="n">numeric_features</span><span class="p">),</span> 
-                               <span class="p">(</span><span class="n">PCA</span><span class="p">(),</span><span class="n">numeric_features</span><span class="p">),</span>
-                               <span class="p">(</span><span class="n">OneHotEncoder</span><span class="p">(),</span><span class="n">categorical_features</span><span class="p">))</span>
-</pre></div>
-</div>
-<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/columntransformer.png" alt="ml" style="width: 900px;"/></section>
-<section id="pipeline-selection">
-<h4>Pipeline selection<a class="headerlink" href="#pipeline-selection" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p>We can safely use pipelines in model selection (e.g. grid search)</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">'__'</span></code> to refer to the hyperparameters of a step, e.g. <code class="docutils literal notranslate"><span class="pre">svm__C</span></code></p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Correct grid search (can have hyperparameters of any step)</span>
-<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;svm__C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span>
-              <span class="s1">&#39;svm__gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="c1"># Best estimator is now the best pipeline</span>
-<span class="n">best_pipe</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">best_estimator_</span>
-
-<span class="c1"># Tune pipeline and evaluate on held-out test set</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
-<span class="n">grid</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
-
-</pre></div>
-</div>
-</section>
-<section id="example-tune-multiple-steps-at-once">
-<h4>Example: Tune multiple steps at once<a class="headerlink" href="#example-tune-multiple-steps-at-once" title="Link to this heading">#</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span><span class="n">PolynomialFeatures</span><span class="p">(),</span> <span class="n">Ridge</span><span class="p">())</span>
-<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;polynomialfeatures__degree&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-              <span class="s1">&#39;ridge__alpha&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_pipeline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ridge</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSearchCV</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_openml</span>
-
-<span class="n">boston</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;boston&quot;</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">boston</span><span class="o">.</span><span class="n">target</span><span class="p">,</span>
-                                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">PolynomialFeatures</span>
-<span class="n">pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span><span class="n">PolynomialFeatures</span><span class="p">(),</span><span class="n">Ridge</span><span class="p">())</span>
-<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;polynomialfeatures__degree&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-              <span class="s1">&#39;ridge__alpha&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
+<span class="c1"># Correct tuning</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ridge__alpha&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
 <span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">);</span>
-
-<span class="c1">#plot</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
-            <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;ridge__alpha&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;polynomialfeatures__degree&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">param_grid</span><span class="p">[</span><span class="s1">&#39;ridge__alpha&#39;</span><span class="p">])))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">param_grid</span><span class="p">[</span><span class="s1">&#39;ridge__alpha&#39;</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">param_grid</span><span class="p">[</span><span class="s1">&#39;polynomialfeatures__degree&#39;</span><span class="p">])))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">param_grid</span><span class="p">[</span><span class="s1">&#39;polynomialfeatures__degree&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">);</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">best_params_</span>
 </pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../_images/8b38ab0fca16afd575157efc42abb094fa7857f5107965ca5b7185978a9ac568.png" src="../_images/8b38ab0fca16afd575157efc42abb094fa7857f5107965ca5b7185978a9ac568.png" />
-</div>
 </div>
 </section>
 </section>
@@ -1884,108 +1511,27 @@ $<span class="math notranslate nohighlight">\(Enc(Brooklyn) = \frac{1}{1+e^{-1}}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/b558b6dd040e221a4aab0d60f4b24e666015da2b5f86bdd6b3644c2dcc6ff4f9.png" src="../_images/b558b6dd040e221a4aab0d60f4b24e666015da2b5f86bdd6b3644c2dcc6ff4f9.png" />
+<img alt="../_images/8260cd300e1a626bd911d51aeba61a289e45a39fd9db4912e467761fe5ab1bd1.png" src="../_images/8260cd300e1a626bd911d51aeba61a289e45a39fd9db4912e467761fe5ab1bd1.png" />
 </div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#fig, ax = plt.subplots(figsize=(6*fig_scale, 2*fig_scale))</span>
-<span class="c1">#ax.plot(X_bike[:, 2])</span>
-<span class="c1">#ax.plot(X_bike[:, 14])</span>
-</pre></div>
-</div>
-</div>
-</details>
 </div>
 </section>
-<section id="unsupervised-feature-selection">
-<h3>Unsupervised feature selection<a class="headerlink" href="#unsupervised-feature-selection" title="Link to this heading">#</a></h3>
+<section id="feature-selection-overview">
+<h3>Feature selection: overview<a class="headerlink" href="#feature-selection-overview" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Variance-based</p>
+<li><p>Basic techniques (see the data processing recap)</p>
 <ul>
-<li><p>Remove (near) constant feature: choose a small variance threshold</p></li>
-<li><p>Scale features before computing variance!</p></li>
-<li><p>Infrequent values may still be important</p></li>
+<li><p>Unsupervised selection (e.g., variance and covariance-based techniques)</p></li>
+<li><p>Univariate statistics (e.g., F-test and Mutual Information)</p></li>
 </ul>
 </li>
-<li><p>Covariance-based</p>
+<li><p>We’ll focus on the most powerful techniques:</p>
 <ul>
-<li><p>Remove correlated features</p></li>
-<li><p>The small differences may actually be important</p>
-<ul>
-<li><p>You don’t know because you don’t consider the target</p></li>
+<li><p>Model-based: Random Forests, Linear models, kNN</p></li>
+<li><p>Wrapping techniques (black-box search)</p></li>
+<li><p>Permutation importance</p></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">VarianceThreshold</span>
-<span class="n">selector</span> <span class="o">=</span> <span class="n">VarianceThreshold</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">MinMaxScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_bike</span><span class="p">))</span>
-<span class="n">variances</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">variances_</span>
-<span class="n">var_sort</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">variances</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
-<span class="n">ypos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">ypos</span><span class="p">,</span> <span class="n">variances</span><span class="p">[</span><span class="n">var_sort</span><span class="p">][:</span><span class="mi">6</span><span class="p">],</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">ypos</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">bike_names</span><span class="p">)[</span><span class="n">var_sort</span><span class="p">][:</span><span class="mi">6</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Variance&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../_images/8237b329b5fc014575e4c93c5338f155d28e6e2c6c20f487e1a72a81968fe7fc.png" src="../_images/8237b329b5fc014575e4c93c5338f155d28e6e2c6c20f487e1a72a81968fe7fc.png" />
-</div>
-</div>
-<section id="covariance-based-feature-selection">
-<h4>Covariance based feature selection<a class="headerlink" href="#covariance-based-feature-selection" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p>Remove features <span class="math notranslate nohighlight">\(X_i\)</span> (= <span class="math notranslate nohighlight">\(\mathbf{X_{:,i}}\)</span>) that are highly correlated (have high correlation coefficient <span class="math notranslate nohighlight">\(\rho\)</span>)
-$<span class="math notranslate nohighlight">\(\rho (X_1,X_2)={\frac  {{\mathrm  {cov}}(X_1,X_2)}{\sigma (X_1)\sigma (X_2)}} = {\frac { \frac{1}{N-1} \sum_i (X_{i,1} - \overline{X_1})(X_{i,2} - \overline{X_2}) }{\sigma (X_1)\sigma (X_2)}}\)</span>$</p></li>
-<li><p>Should we remove <code class="docutils literal notranslate"><span class="pre">feel_temp</span></code>? Or <code class="docutils literal notranslate"><span class="pre">temp</span></code>? Maybe one correlates more with the target?</p></li>
-</ul>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">scale</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">hierarchy</span>
-
-<span class="n">X_bike_scaled</span> <span class="o">=</span> <span class="n">scale</span><span class="p">(</span><span class="n">X_bike</span><span class="p">)</span>
-<span class="n">cov</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">X_bike_scaled</span><span class="p">,</span> <span class="n">rowvar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">dendrogram</span><span class="p">(</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">ward</span><span class="p">(</span><span class="n">cov</span><span class="p">),</span> <span class="n">no_plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;ivl&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
-<span class="n">bike_names_ordered</span> <span class="o">=</span> <span class="p">[</span><span class="n">bike_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">order</span><span class="p">]</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cov</span><span class="p">[</span><span class="n">order</span><span class="p">,</span> <span class="p">:][:,</span> <span class="n">order</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">X_bike</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">bike_names_ordered</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">X_bike</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">bike_names_ordered</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">fraction</span><span class="o">=</span><span class="mf">0.046</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../_images/a20f77075cd9dcd8e85387adb7ea35d94d7d700682d0726371bb913deb60d88a.png" src="../_images/a20f77075cd9dcd8e85387adb7ea35d94d7d700682d0726371bb913deb60d88a.png" />
-</div>
-</div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1994,6 +1540,8 @@ $<span class="math notranslate nohighlight">\(\rho (X_1,X_2)={\frac  {{\mathrm  
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">f_regression</span><span class="p">,</span> <span class="n">SelectPercentile</span><span class="p">,</span> <span class="n">mutual_info_regression</span><span class="p">,</span> <span class="n">SelectFromModel</span><span class="p">,</span> <span class="n">RFE</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">scale</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_pipeline</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">RidgeCV</span><span class="p">,</span> <span class="n">LassoCV</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">GridSearchCV</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestRegressor</span>
@@ -2107,28 +1655,28 @@ $<span class="math notranslate nohighlight">\(\rho (X_1,X_2)={\frac  {{\mathrm  
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing F test
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4e79c3e047bd46ba8558b8ba5ffcef77", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing Mutual information
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a340f343c9a746679630212407b0acd8", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing Mutual information
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c217c1b8d849428c9676d201981d4d8c", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing Random Forest
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "53cfc1824f124743a999f474d1f6d430", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing Random Forest
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "72ef58f5d57a465781e2951ade3f3b63", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing Ridge
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "132a320fc2ee43cfb1d57bbc020bfec0", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing Ridge
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "22fd2394195144759457a347eedf530e", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing Lasso
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ade531f6192b4427b546dae6f3dde8d4", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing Lasso
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "dc6f349e99234dca91996ab5b7050159", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing RFE
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f611609ec89b4ffe9c796d19a8e291c5", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing RFE
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "36644af9a20a4b2496d891a3419c12c8", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing Forward selection
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7160e854548c4bb5a0ddf974850f6c37", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing Forward selection
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d48a87aa36c643c0b11c12cf2f9c1e58", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing Permutation importance
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a4f5c5fde3754ada987377ebd3d9ad99", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing Permutation importance
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e0022b62f3e04da1856b56e94f8d9892", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "dbc1feb3d936459886fcc47b920d5115", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -2167,16 +1715,6 @@ $<span class="math notranslate nohighlight">\(\rho (X_1,X_2)={\frac  {{\mathrm  
 </div>
 </details>
 </div>
-</section>
-</section>
-<section id="supervised-feature-selection-overview">
-<h3>Supervised feature selection: overview<a class="headerlink" href="#supervised-feature-selection-overview" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Univariate: F-test and Mutual Information</p></li>
-<li><p>Model-based: Random Forests, Linear models, kNN</p></li>
-<li><p>Wrapping techniques (black-box search)</p></li>
-<li><p>Permutation importance</p></li>
-</ul>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -2187,85 +1725,14 @@ $<span class="math notranslate nohighlight">\(\rho (X_1,X_2)={\frac  {{\mathrm  
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@interact</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">compare_feature_importances</span><span class="p">(</span><span class="n">method1</span><span class="o">=</span><span class="n">methods</span><span class="p">,</span> <span class="n">method2</span><span class="o">=</span><span class="n">methods</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.25</span><span class="p">)):</span>
     <span class="n">plot_feature_importances</span><span class="p">(</span><span class="n">method1</span><span class="p">,</span><span class="n">method2</span><span class="p">,</span><span class="n">threshold</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9e285ccb432345388f3ddcc3418eeae6", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cf4991b2cabf4a0aba7d05efc3502393", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-</section>
-<section id="univariate-statistics-f-test">
-<h3>Univariate statistics (F-test)<a class="headerlink" href="#univariate-statistics-f-test" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Consider each feature individually (univariate), independent of the model that you aim to apply</p></li>
-<li><p>Use a statistical test: is there a <em>linear</em> <strong>statistically significant relationship</strong> with the target?</p></li>
-<li><p>Use F-statistic (or corresponding p value) to rank all features, then select features using a threshold</p>
-<ul>
-<li><p>Best <span class="math notranslate nohighlight">\(k\)</span>, best <span class="math notranslate nohighlight">\(k\)</span> %, probability of removing useful features (FPR),…</p></li>
-</ul>
-</li>
-<li><p>Cannot detect correlations (e.g. temp and feel_temp) or interactions (e.g. binary features)</p></li>
-</ul>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_feature_importances</span><span class="p">(</span><span class="s1">&#39;FTest&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../_images/60e157d72319239d19614e4216c6f31346af7b6100b82d75307476cdee3762a4.png" src="../_images/60e157d72319239d19614e4216c6f31346af7b6100b82d75307476cdee3762a4.png" />
-</div>
-</div>
-<section id="f-statistic">
-<h4>F-statistic<a class="headerlink" href="#f-statistic" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p>For regression: does feature <span class="math notranslate nohighlight">\(X_i\)</span> correlate (positively or negatively) with the target <span class="math notranslate nohighlight">\(y\)</span>?
-$<span class="math notranslate nohighlight">\(\text{F-statistic} = \frac{\rho(X_i,y)^2}{1-\rho(X_i,y)^2} \cdot (N-1)\)</span>$</p></li>
-<li><p>For classification: uses ANOVA: does <span class="math notranslate nohighlight">\(X_i\)</span> explain the between-class variance?</p>
-<ul>
-<li><p>Alternatively, use the <span class="math notranslate nohighlight">\(\chi^2\)</span> test (only for categorical features)
-$<span class="math notranslate nohighlight">\(\text{F-statistic} = \frac{\text{within-class variance}}{\text{between-class variance}} =\frac{var(\overline{X_i})}{\overline{var(X_i)}}\)</span>$
-<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/03_fstatistic2.png" alt="ml" style="width: 50%;"/></p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section id="mutual-information">
-<h4>Mutual information<a class="headerlink" href="#mutual-information" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p>Measures how much information <span class="math notranslate nohighlight">\(X_i\)</span> gives about the target <span class="math notranslate nohighlight">\(Y\)</span>. In terms of entropy <span class="math notranslate nohighlight">\(H\)</span>:
-$<span class="math notranslate nohighlight">\(MI(X,Y) = H(X) + H(Y) - H(X,Y)\)</span>$</p></li>
-<li><p>Idea: estimate H(X) as the average distance between a data point and its <span class="math notranslate nohighlight">\(k\)</span> Nearest Neighbors</p>
-<ul>
-<li><p>You need to choose <span class="math notranslate nohighlight">\(k\)</span> and say which features are categorical</p></li>
-</ul>
-</li>
-<li><p>Captures complex dependencies (e.g. hour, month), but requires more samples to be accurate</p></li>
-</ul>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_feature_importances</span><span class="p">(</span><span class="s1">&#39;MutualInformation&#39;</span><span class="p">,</span> <span class="s1">&#39;FTest&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../_images/095592c05a2dc1eb6cf0fef989554fcbc171c15ed68cda10a37dce3be31c137f.png" src="../_images/095592c05a2dc1eb6cf0fef989554fcbc171c15ed68cda10a37dce3be31c137f.png" />
-</div>
-</div>
-</section>
 </section>
 <section id="model-based-feature-selection">
 <h3>Model-based Feature Selection<a class="headerlink" href="#model-based-feature-selection" title="Link to this heading">#</a></h3>
@@ -2293,7 +1760,7 @@ $<span class="math notranslate nohighlight">\(MI(X,Y) = H(X) + H(Y) - H(X,Y)\)</
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/a27a5d1d0f5764729409a6d48d22928f6bc44b1b540eb6fd5b81da96f8988f25.png" src="../_images/a27a5d1d0f5764729409a6d48d22928f6bc44b1b540eb6fd5b81da96f8988f25.png" />
+<img alt="../_images/e1d35d493cb6c9ff9c55fe7719b9713c9d79be5a71b33cba4f089ef9c41e9d3b.png" src="../_images/e1d35d493cb6c9ff9c55fe7719b9713c9d79be5a71b33cba4f089ef9c41e9d3b.png" />
 </div>
 </div>
 <section id="relief-model-based-selection-with-knn">
@@ -2332,7 +1799,7 @@ $<span class="math notranslate nohighlight">\(MI(X,Y) = H(X) + H(Y) - H(X,Y)\)</
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/0f2f04f19d56057afc56bbba411a27dd2b5fcf33891abd6e03f4adc4e385b297.png" src="../_images/0f2f04f19d56057afc56bbba411a27dd2b5fcf33891abd6e03f4adc4e385b297.png" />
+<img alt="../_images/696e492abc030a132e3a4db06d1bf478196d92de97ae40cb4e3a0fd3278a01f4.png" src="../_images/696e492abc030a132e3a4db06d1bf478196d92de97ae40cb4e3a0fd3278a01f4.png" />
 </div>
 </div>
 </section>
@@ -2363,7 +1830,7 @@ $<span class="math notranslate nohighlight">\(MI(X,Y) = H(X) + H(Y) - H(X,Y)\)</
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/7105341c49762567e518884a6344b43dad9c3b3a486a52e700835ebcf8a74817.png" src="../_images/7105341c49762567e518884a6344b43dad9c3b3a486a52e700835ebcf8a74817.png" />
+<img alt="../_images/59fa5b223696cd3b0802d996dc86a956e04ff69964b8181b780742b72208701e.png" src="../_images/59fa5b223696cd3b0802d996dc86a956e04ff69964b8181b780742b72208701e.png" />
 </div>
 </div>
 </section>
@@ -2392,7 +1859,7 @@ $<span class="math notranslate nohighlight">\(MI(X,Y) = H(X) + H(Y) - H(X,Y)\)</
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/f75a5b6e37b378ff68317e7b181abe3ca3758bfe0b6f07f1f4db67d567f21887.png" src="../_images/f75a5b6e37b378ff68317e7b181abe3ca3758bfe0b6f07f1f4db67d567f21887.png" />
+<img alt="../_images/b8634eb7c76dc92491c75fe39c9b72cada934c3704aae158002da90a8b3b3f32.png" src="../_images/b8634eb7c76dc92491c75fe39c9b72cada934c3704aae158002da90a8b3b3f32.png" />
 </div>
 </div>
 </section>
@@ -2417,12 +1884,13 @@ $<span class="math notranslate nohighlight">\(MI(X,Y) = H(X) + H(Y) - H(X,Y)\)</
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@interact</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">compare_feature_importances</span><span class="p">(</span><span class="n">method1</span><span class="o">=</span><span class="n">methods</span><span class="p">,</span> <span class="n">method2</span><span class="o">=</span><span class="n">methods</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.25</span><span class="p">)):</span>
     <span class="n">plot_feature_importances</span><span class="p">(</span><span class="n">method1</span><span class="p">,</span><span class="n">method2</span><span class="p">,</span><span class="n">threshold</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d256533a2f6043fe845b7473c6c53a88", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "df324600010347d996e2e70b1292ffa6", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -2439,8 +1907,8 @@ $<span class="math notranslate nohighlight">\(MI(X,Y) = H(X) + H(Y) - H(X,Y)\)</
 </details>
 </div>
 </section>
-<section id="id3">
-<h3>In practice (scikit-learn)<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>In practice (scikit-learn)<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Unsupervised: <code class="docutils literal notranslate"><span class="pre">VarianceTreshold</span></code></p></li>
 </ul>
@@ -2494,500 +1962,6 @@ $<span class="math notranslate nohighlight">\(MI(X,Y) = H(X) + H(Y) - H(X,Y)\)</
                                      <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n_repeats</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">importances_mean</span>
 <span class="n">feature_ids</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">importances</span><span class="p">)</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[:</span><span class="n">n</span><span class="p">]</span>
 </pre></div>
-</div>
-</section>
-</section>
-<section id="feature-engineering">
-<h2>Feature Engineering<a class="headerlink" href="#feature-engineering" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Create new features based on existing ones</p>
-<ul>
-<li><p>Polynomial features</p></li>
-<li><p>Interaction features</p></li>
-<li><p>Binning</p></li>
-</ul>
-</li>
-<li><p>Mainly useful for simple models (e.g. linear models)</p>
-<ul>
-<li><p>Other models can learn interations themselves</p></li>
-<li><p>But may be slower, less robust than linear models</p></li>
-</ul>
-</li>
-</ul>
-<section id="polynomials">
-<h3>Polynomials<a class="headerlink" href="#polynomials" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Add all polynomials up to degree <span class="math notranslate nohighlight">\(d\)</span> and all products</p>
-<ul>
-<li><p>Equivalent to polynomial basis expansions
-$<span class="math notranslate nohighlight">\([1, x_1, ..., x_p] \xrightarrow{} [1, x_1, ..., x_p, x_1^2, ..., x_p^2, ..., x_p^d, x_1 x_2, ..., x_{p-1} x_p]\)</span>$</p></li>
-</ul>
-</li>
-</ul>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">PolynomialFeatures</span>
-
-<span class="c1"># Wavy data</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mglearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_wave</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># Normal ridge</span>
-<span class="n">lreg</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">lreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ridge&quot;</span><span class="p">)</span>
-
-<span class="c1"># include polynomials up to x ** 10</span>
-<span class="n">poly</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">X_poly</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="n">preg</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_poly</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">line_poly</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">preg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line_poly</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ridge (polynomial)&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Regression output&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Input feature&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../_images/931590931c6b64cd80ac3bae27d9e8b3c7bd6f4d5ad76343f7f81ad8e0fce116.png" src="../_images/931590931c6b64cd80ac3bae27d9e8b3c7bd6f4d5ad76343f7f81ad8e0fce116.png" />
-</div>
-</div>
-</section>
-<section id="binning">
-<h3>Binning<a class="headerlink" href="#binning" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Partition numeric feature values into <span class="math notranslate nohighlight">\(n\)</span> intervals (bins)</p></li>
-<li><p>Create <span class="math notranslate nohighlight">\(n\)</span> new one-hot features, 1 if original value falls in corresponding bin</p></li>
-<li><p>Models different intervals differently (e.g. different age groups)</p></li>
-</ul>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">OneHotEncoder</span>
-
-<span class="c1"># create 11 equal bins</span>
-<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="c1"># assign to bins</span>
-<span class="n">which_bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
-<span class="c1"># transform using the OneHotEncoder.</span>
-<span class="n">encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">sparse_output</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="c1"># encoder.fit finds the unique values that appear in which_bin</span>
-<span class="n">encoder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">which_bin</span><span class="p">)</span>
-<span class="c1"># transform creates the one-hot encoding</span>
-<span class="n">X_binned</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">which_bin</span><span class="p">)</span>
-<span class="c1"># Plot transformed data</span>
-<span class="n">bin_names</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;[</span><span class="si">%.1f</span><span class="s1">,</span><span class="si">%.1f</span><span class="s1">]&#39;</span><span class="p">)</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:])]</span>
-<span class="n">df_orig</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;orig&quot;</span><span class="p">])</span>
-<span class="n">df_nr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">which_bin</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;which_bin&quot;</span><span class="p">])</span>
-<span class="c1"># add the original features</span>
-<span class="n">X_combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">X</span><span class="p">,</span> <span class="n">X_binned</span><span class="p">])</span>
-<span class="n">ohedf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_combined</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;orig&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">bin_names</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">ohedf</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span><span class="n">dfstyle</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<div class="output text_html"><style type="text/css">
-#T_4fd9d th {
-  font-size: 20;
-}
-#T_4fd9d td {
-  font-size: 20;
-}
-</style>
-<table id="T_4fd9d">
-  <thead>
-    <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_4fd9d_level0_col0" class="col_heading level0 col0" >orig</th>
-      <th id="T_4fd9d_level0_col1" class="col_heading level0 col1" >[-3.0,-1.5]</th>
-      <th id="T_4fd9d_level0_col2" class="col_heading level0 col2" >[-1.5,0.0]</th>
-      <th id="T_4fd9d_level0_col3" class="col_heading level0 col3" >[0.0,1.5]</th>
-      <th id="T_4fd9d_level0_col4" class="col_heading level0 col4" >[1.5,3.0]</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th id="T_4fd9d_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_4fd9d_row0_col0" class="data row0 col0" >-0.752759</td>
-      <td id="T_4fd9d_row0_col1" class="data row0 col1" >0.000000</td>
-      <td id="T_4fd9d_row0_col2" class="data row0 col2" >1.000000</td>
-      <td id="T_4fd9d_row0_col3" class="data row0 col3" >0.000000</td>
-      <td id="T_4fd9d_row0_col4" class="data row0 col4" >0.000000</td>
-    </tr>
-    <tr>
-      <th id="T_4fd9d_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_4fd9d_row1_col0" class="data row1 col0" >2.704286</td>
-      <td id="T_4fd9d_row1_col1" class="data row1 col1" >0.000000</td>
-      <td id="T_4fd9d_row1_col2" class="data row1 col2" >0.000000</td>
-      <td id="T_4fd9d_row1_col3" class="data row1 col3" >0.000000</td>
-      <td id="T_4fd9d_row1_col4" class="data row1 col4" >1.000000</td>
-    </tr>
-    <tr>
-      <th id="T_4fd9d_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_4fd9d_row2_col0" class="data row2 col0" >1.391964</td>
-      <td id="T_4fd9d_row2_col1" class="data row2 col1" >0.000000</td>
-      <td id="T_4fd9d_row2_col2" class="data row2 col2" >0.000000</td>
-      <td id="T_4fd9d_row2_col3" class="data row2 col3" >1.000000</td>
-      <td id="T_4fd9d_row2_col4" class="data row2 col4" >0.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line_binned</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">))</span>
-<span class="n">reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_combined</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
-<span class="n">line_combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">line</span><span class="p">,</span> <span class="n">line_binned</span><span class="p">])</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">fig_scale</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">lreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ridge&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line_combined</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ridge (binned)&#39;</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="nb">bin</span> <span class="ow">in</span> <span class="n">bins</span><span class="p">:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="nb">bin</span><span class="p">,</span> <span class="nb">bin</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Regression output&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Input feature&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../_images/cedf04c6a7d0ab6bde4b251ed9141b2a985c1923974cd71ca390cd2a80c6aeab.png" src="../_images/cedf04c6a7d0ab6bde4b251ed9141b2a985c1923974cd71ca390cd2a80c6aeab.png" />
-</div>
-</div>
-</section>
-<section id="binning-interaction-features">
-<h3>Binning + interaction features<a class="headerlink" href="#binning-interaction-features" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Add <em>interaction features</em> (or <em>product features</em> )</p>
-<ul>
-<li><p>Product of the bin encoding and the original feature value</p></li>
-<li><p>Learn different weights per bin</p></li>
-</ul>
-</li>
-</ul>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_product</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">X_binned</span><span class="p">,</span> <span class="n">X</span> <span class="o">*</span> <span class="n">X_binned</span><span class="p">])</span>
-<span class="n">bin_sname</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span> 
-<span class="n">X_combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">X</span><span class="p">,</span> <span class="n">X_product</span><span class="p">])</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">bindf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_combined</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;orig&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">bin_sname</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;X*&quot;</span> <span class="o">+</span> <span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">bin_sname</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">bindf</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span><span class="n">dfstyle</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<div class="output text_html"><style type="text/css">
-#T_cd3d7 th {
-  font-size: 20;
-}
-#T_cd3d7 td {
-  font-size: 20;
-}
-</style>
-<table id="T_cd3d7">
-  <thead>
-    <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_cd3d7_level0_col0" class="col_heading level0 col0" >orig</th>
-      <th id="T_cd3d7_level0_col1" class="col_heading level0 col1" >b0</th>
-      <th id="T_cd3d7_level0_col2" class="col_heading level0 col2" >b1</th>
-      <th id="T_cd3d7_level0_col3" class="col_heading level0 col3" >b2</th>
-      <th id="T_cd3d7_level0_col4" class="col_heading level0 col4" >b3</th>
-      <th id="T_cd3d7_level0_col5" class="col_heading level0 col5" >X*b0</th>
-      <th id="T_cd3d7_level0_col6" class="col_heading level0 col6" >X*b1</th>
-      <th id="T_cd3d7_level0_col7" class="col_heading level0 col7" >X*b2</th>
-      <th id="T_cd3d7_level0_col8" class="col_heading level0 col8" >X*b3</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th id="T_cd3d7_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_cd3d7_row0_col0" class="data row0 col0" >-0.752759</td>
-      <td id="T_cd3d7_row0_col1" class="data row0 col1" >0.000000</td>
-      <td id="T_cd3d7_row0_col2" class="data row0 col2" >1.000000</td>
-      <td id="T_cd3d7_row0_col3" class="data row0 col3" >0.000000</td>
-      <td id="T_cd3d7_row0_col4" class="data row0 col4" >0.000000</td>
-      <td id="T_cd3d7_row0_col5" class="data row0 col5" >-0.000000</td>
-      <td id="T_cd3d7_row0_col6" class="data row0 col6" >-0.752759</td>
-      <td id="T_cd3d7_row0_col7" class="data row0 col7" >-0.000000</td>
-      <td id="T_cd3d7_row0_col8" class="data row0 col8" >-0.000000</td>
-    </tr>
-    <tr>
-      <th id="T_cd3d7_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_cd3d7_row1_col0" class="data row1 col0" >2.704286</td>
-      <td id="T_cd3d7_row1_col1" class="data row1 col1" >0.000000</td>
-      <td id="T_cd3d7_row1_col2" class="data row1 col2" >0.000000</td>
-      <td id="T_cd3d7_row1_col3" class="data row1 col3" >0.000000</td>
-      <td id="T_cd3d7_row1_col4" class="data row1 col4" >1.000000</td>
-      <td id="T_cd3d7_row1_col5" class="data row1 col5" >0.000000</td>
-      <td id="T_cd3d7_row1_col6" class="data row1 col6" >0.000000</td>
-      <td id="T_cd3d7_row1_col7" class="data row1 col7" >0.000000</td>
-      <td id="T_cd3d7_row1_col8" class="data row1 col8" >2.704286</td>
-    </tr>
-    <tr>
-      <th id="T_cd3d7_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_cd3d7_row2_col0" class="data row2 col0" >1.391964</td>
-      <td id="T_cd3d7_row2_col1" class="data row2 col1" >0.000000</td>
-      <td id="T_cd3d7_row2_col2" class="data row2 col2" >0.000000</td>
-      <td id="T_cd3d7_row2_col3" class="data row2 col3" >1.000000</td>
-      <td id="T_cd3d7_row2_col4" class="data row2 col4" >0.000000</td>
-      <td id="T_cd3d7_row2_col5" class="data row2 col5" >0.000000</td>
-      <td id="T_cd3d7_row2_col6" class="data row2 col6" >0.000000</td>
-      <td id="T_cd3d7_row2_col7" class="data row2 col7" >1.391964</td>
-      <td id="T_cd3d7_row2_col8" class="data row2 col8" >0.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_product</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
-<span class="n">line_product</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">line_binned</span><span class="p">,</span> <span class="n">line</span> <span class="o">*</span> <span class="n">line_binned</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">lreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ridge&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line_product</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ridge (binned+interactions)&#39;</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="nb">bin</span> <span class="ow">in</span> <span class="n">bins</span><span class="p">:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="nb">bin</span><span class="p">,</span> <span class="nb">bin</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Regression output&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Input feature&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../_images/c7fc4742c3c0192f9c486ca86654ef55b3c51e9403021d3d5d1ddb192c394c55.png" src="../_images/c7fc4742c3c0192f9c486ca86654ef55b3c51e9403021d3d5d1ddb192c394c55.png" />
-</div>
-</div>
-</section>
-<section id="categorical-feature-interactions">
-<h3>Categorical feature interactions<a class="headerlink" href="#categorical-feature-interactions" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>One-hot-encode categorical feature</p></li>
-<li><p>Multiply every one-hot-encoded column with every numeric feature</p></li>
-<li><p>Allows to built different submodels for different categories</p></li>
-</ul>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;gender&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">],</span>
-                   <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">22</span><span class="p">],</span>
-                   <span class="s1">&#39;pageviews&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">93</span><span class="p">],</span>
-                   <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">269</span><span class="p">,</span> <span class="mi">1522</span><span class="p">,</span> <span class="mi">235</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
-                  <span class="p">})</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span><span class="n">dfstyle</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<div class="output text_html"><style type="text/css">
-#T_4d6f3 th {
-  font-size: 20;
-}
-#T_4d6f3 td {
-  font-size: 20;
-}
-</style>
-<table id="T_4d6f3">
-  <thead>
-    <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_4d6f3_level0_col0" class="col_heading level0 col0" >gender</th>
-      <th id="T_4d6f3_level0_col1" class="col_heading level0 col1" >age</th>
-      <th id="T_4d6f3_level0_col2" class="col_heading level0 col2" >pageviews</th>
-      <th id="T_4d6f3_level0_col3" class="col_heading level0 col3" >time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th id="T_4d6f3_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_4d6f3_row0_col0" class="data row0 col0" >M</td>
-      <td id="T_4d6f3_row0_col1" class="data row0 col1" >14</td>
-      <td id="T_4d6f3_row0_col2" class="data row0 col2" >70</td>
-      <td id="T_4d6f3_row0_col3" class="data row0 col3" >269</td>
-    </tr>
-    <tr>
-      <th id="T_4d6f3_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_4d6f3_row1_col0" class="data row1 col0" >F</td>
-      <td id="T_4d6f3_row1_col1" class="data row1 col1" >16</td>
-      <td id="T_4d6f3_row1_col2" class="data row1 col2" >12</td>
-      <td id="T_4d6f3_row1_col3" class="data row1 col3" >1522</td>
-    </tr>
-    <tr>
-      <th id="T_4d6f3_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_4d6f3_row2_col0" class="data row2 col0" >M</td>
-      <td id="T_4d6f3_row2_col1" class="data row2 col1" >12</td>
-      <td id="T_4d6f3_row2_col2" class="data row2 col2" >42</td>
-      <td id="T_4d6f3_row2_col3" class="data row2 col3" >235</td>
-    </tr>
-    <tr>
-      <th id="T_4d6f3_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_4d6f3_row3_col0" class="data row3 col0" >F</td>
-      <td id="T_4d6f3_row3_col1" class="data row3 col1" >25</td>
-      <td id="T_4d6f3_row3_col2" class="data row3 col2" >64</td>
-      <td id="T_4d6f3_row3_col3" class="data row3 col3" >63</td>
-    </tr>
-    <tr>
-      <th id="T_4d6f3_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_4d6f3_row4_col0" class="data row4 col0" >F</td>
-      <td id="T_4d6f3_row4_col1" class="data row4 col1" >22</td>
-      <td id="T_4d6f3_row4_col2" class="data row4 col2" >93</td>
-      <td id="T_4d6f3_row4_col3" class="data row4 col3" >21</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="n">df_f</span> <span class="o">=</span> <span class="n">dummies</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">dummies</span><span class="o">.</span><span class="n">gender_F</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;rows&#39;</span><span class="p">)</span>
-<span class="n">df_f</span> <span class="o">=</span> <span class="n">df_f</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">&quot;_F&quot;</span><span class="p">)</span>
-<span class="n">df_m</span> <span class="o">=</span> <span class="n">dummies</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">dummies</span><span class="o">.</span><span class="n">gender_M</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;rows&#39;</span><span class="p">)</span>
-<span class="n">df_m</span> <span class="o">=</span> <span class="n">df_m</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">&quot;_M&quot;</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_m</span><span class="p">,</span> <span class="n">df_f</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;gender_F_M&quot;</span><span class="p">,</span> <span class="s2">&quot;gender_M_F&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">res</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span><span class="n">dfstyle</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<div class="output text_html"><style type="text/css">
-#T_d81f7 th {
-  font-size: 20;
-}
-#T_d81f7 td {
-  font-size: 20;
-}
-</style>
-<table id="T_d81f7">
-  <thead>
-    <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_d81f7_level0_col0" class="col_heading level0 col0" >age_M</th>
-      <th id="T_d81f7_level0_col1" class="col_heading level0 col1" >pageviews_M</th>
-      <th id="T_d81f7_level0_col2" class="col_heading level0 col2" >time_M</th>
-      <th id="T_d81f7_level0_col3" class="col_heading level0 col3" >gender_M_M</th>
-      <th id="T_d81f7_level0_col4" class="col_heading level0 col4" >age_F</th>
-      <th id="T_d81f7_level0_col5" class="col_heading level0 col5" >pageviews_F</th>
-      <th id="T_d81f7_level0_col6" class="col_heading level0 col6" >time_F</th>
-      <th id="T_d81f7_level0_col7" class="col_heading level0 col7" >gender_F_F</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th id="T_d81f7_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_d81f7_row0_col0" class="data row0 col0" >14</td>
-      <td id="T_d81f7_row0_col1" class="data row0 col1" >70</td>
-      <td id="T_d81f7_row0_col2" class="data row0 col2" >269</td>
-      <td id="T_d81f7_row0_col3" class="data row0 col3" >True</td>
-      <td id="T_d81f7_row0_col4" class="data row0 col4" >0</td>
-      <td id="T_d81f7_row0_col5" class="data row0 col5" >0</td>
-      <td id="T_d81f7_row0_col6" class="data row0 col6" >0</td>
-      <td id="T_d81f7_row0_col7" class="data row0 col7" >False</td>
-    </tr>
-    <tr>
-      <th id="T_d81f7_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_d81f7_row1_col0" class="data row1 col0" >0</td>
-      <td id="T_d81f7_row1_col1" class="data row1 col1" >0</td>
-      <td id="T_d81f7_row1_col2" class="data row1 col2" >0</td>
-      <td id="T_d81f7_row1_col3" class="data row1 col3" >False</td>
-      <td id="T_d81f7_row1_col4" class="data row1 col4" >16</td>
-      <td id="T_d81f7_row1_col5" class="data row1 col5" >12</td>
-      <td id="T_d81f7_row1_col6" class="data row1 col6" >1522</td>
-      <td id="T_d81f7_row1_col7" class="data row1 col7" >True</td>
-    </tr>
-    <tr>
-      <th id="T_d81f7_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_d81f7_row2_col0" class="data row2 col0" >12</td>
-      <td id="T_d81f7_row2_col1" class="data row2 col1" >42</td>
-      <td id="T_d81f7_row2_col2" class="data row2 col2" >235</td>
-      <td id="T_d81f7_row2_col3" class="data row2 col3" >True</td>
-      <td id="T_d81f7_row2_col4" class="data row2 col4" >0</td>
-      <td id="T_d81f7_row2_col5" class="data row2 col5" >0</td>
-      <td id="T_d81f7_row2_col6" class="data row2 col6" >0</td>
-      <td id="T_d81f7_row2_col7" class="data row2 col7" >False</td>
-    </tr>
-    <tr>
-      <th id="T_d81f7_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_d81f7_row3_col0" class="data row3 col0" >0</td>
-      <td id="T_d81f7_row3_col1" class="data row3 col1" >0</td>
-      <td id="T_d81f7_row3_col2" class="data row3 col2" >0</td>
-      <td id="T_d81f7_row3_col3" class="data row3 col3" >False</td>
-      <td id="T_d81f7_row3_col4" class="data row3 col4" >25</td>
-      <td id="T_d81f7_row3_col5" class="data row3 col5" >64</td>
-      <td id="T_d81f7_row3_col6" class="data row3 col6" >63</td>
-      <td id="T_d81f7_row3_col7" class="data row3 col7" >True</td>
-    </tr>
-    <tr>
-      <th id="T_d81f7_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_d81f7_row4_col0" class="data row4 col0" >0</td>
-      <td id="T_d81f7_row4_col1" class="data row4 col1" >0</td>
-      <td id="T_d81f7_row4_col2" class="data row4 col2" >0</td>
-      <td id="T_d81f7_row4_col3" class="data row4 col3" >False</td>
-      <td id="T_d81f7_row4_col4" class="data row4 col4" >22</td>
-      <td id="T_d81f7_row4_col5" class="data row4 col5" >93</td>
-      <td id="T_d81f7_row4_col6" class="data row4 col6" >21</td>
-      <td id="T_d81f7_row4_col7" class="data row4 col7" >True</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
 </div>
 </section>
 </section>
@@ -3090,20 +2064,11 @@ $<span class="math notranslate nohighlight">\([1, x_1, ..., x_p] \xrightarrow{} 
     <span class="n">square</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">((</span><span class="mi">0</span><span class="p">,),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Imputed data&#39;</span><span class="p">)</span>
     <span class="n">circle</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">((</span><span class="mi">0</span><span class="p">,),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Real data&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">square</span><span class="p">,</span> <span class="n">circle</span><span class="p">],</span> <span class="n">numpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(CVXPY) Mar 06 01:10:33 AM: Encountered unexpected exception importing solver CVXOPT:
-ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages/cvxopt/base.cpython-310-darwin.so, 0x0002): tried: &#39;/Users/jvanscho/miniconda3/lib/python3.10/site-packages/cvxopt/base.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;)), &#39;/System/Volumes/Preboot/Cryptexes/OS/Users/jvanscho/miniconda3/lib/python3.10/site-packages/cvxopt/base.cpython-310-darwin.so&#39; (no such file), &#39;/Users/jvanscho/miniconda3/lib/python3.10/site-packages/cvxopt/base.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;))&quot;)
-(CVXPY) Mar 06 01:10:33 AM: Encountered unexpected exception importing solver GLPK:
-ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages/cvxopt/base.cpython-310-darwin.so, 0x0002): tried: &#39;/Users/jvanscho/miniconda3/lib/python3.10/site-packages/cvxopt/base.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;)), &#39;/System/Volumes/Preboot/Cryptexes/OS/Users/jvanscho/miniconda3/lib/python3.10/site-packages/cvxopt/base.cpython-310-darwin.so&#39; (no such file), &#39;/Users/jvanscho/miniconda3/lib/python3.10/site-packages/cvxopt/base.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;))&quot;)
-(CVXPY) Mar 06 01:10:33 AM: Encountered unexpected exception importing solver GLPK_MI:
-ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages/cvxopt/base.cpython-310-darwin.so, 0x0002): tried: &#39;/Users/jvanscho/miniconda3/lib/python3.10/site-packages/cvxopt/base.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;)), &#39;/System/Volumes/Preboot/Cryptexes/OS/Users/jvanscho/miniconda3/lib/python3.10/site-packages/cvxopt/base.cpython-310-darwin.so&#39; (no such file), &#39;/Users/jvanscho/miniconda3/lib/python3.10/site-packages/cvxopt/base.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;))&quot;)
-</pre></div>
-</div>
-</div>
 </div>
 <section id="overview">
 <h3>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h3>
@@ -3130,12 +2095,13 @@ ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages
 <span class="nd">@interact</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">compare_imputers</span><span class="p">(</span><span class="n">imputer</span><span class="o">=</span><span class="n">imputers</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
     <span class="n">plot_imputation</span><span class="p">(</span><span class="n">imputer</span><span class="o">=</span><span class="n">imputer</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "70d176fac5e34d26827e49e640a7aeca", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cc495256b51e4b8999d95746551cac3c", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -3178,7 +2144,7 @@ ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/0e4ef1f945a24afdea5d1d599317a6e226753b4a41d8502fc6a7176a4cd96e08.png" src="../_images/0e4ef1f945a24afdea5d1d599317a6e226753b4a41d8502fc6a7176a4cd96e08.png" />
+<img alt="../_images/86795d1d0bb6d754db79777d74ec522a4a09f5461883cdd74183d7996cfb3674.png" src="../_images/86795d1d0bb6d754db79777d74ec522a4a09f5461883cdd74183d7996cfb3674.png" />
 </div>
 </div>
 </section>
@@ -3201,7 +2167,7 @@ ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/1f0be695e295d731ab13d3ee466e8081caf3ae947e66f4859bd1c6d79df5b883.png" src="../_images/1f0be695e295d731ab13d3ee466e8081caf3ae947e66f4859bd1c6d79df5b883.png" />
+<img alt="../_images/70b5bbfc1f361e1ed6ed9ddb4c2d63d84e88f38d37119718fad3a8a84358c8cc.png" src="../_images/70b5bbfc1f361e1ed6ed9ddb4c2d63d84e88f38d37119718fad3a8a84358c8cc.png" />
 </div>
 </div>
 </section>
@@ -3234,7 +2200,7 @@ ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/e67de056a0fb1b12cebf032b74de81d005a3ef119aa44a4c76f7f3b739f0e9b8.png" src="../_images/e67de056a0fb1b12cebf032b74de81d005a3ef119aa44a4c76f7f3b739f0e9b8.png" />
+<img alt="../_images/e8dda1a37413d4bccbf3e9658dcb6a5c978dfd4e23c354362916e08aaeddc7d0.png" src="../_images/e8dda1a37413d4bccbf3e9658dcb6a5c978dfd4e23c354362916e08aaeddc7d0.png" />
 </div>
 </div>
 </section>
@@ -3267,7 +2233,7 @@ ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/cfae14de7eaceb8ebd8c8dedfe103fc4f1c638648eb2e8cfe66e8b57b88c228e.png" src="../_images/cfae14de7eaceb8ebd8c8dedfe103fc4f1c638648eb2e8cfe66e8b57b88c228e.png" />
+<img alt="../_images/77965b1f7b12f3c0d02c8d5604f10140cff0c16e57485b27143c8dc1040dee48.png" src="../_images/77965b1f7b12f3c0d02c8d5604f10140cff0c16e57485b27143c8dc1040dee48.png" />
 </div>
 </div>
 </section>
@@ -3300,12 +2266,12 @@ ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/b7c8131fcae9a7febd0caedf8a8465f01567180c1b202795986933a6dc7b9403.png" src="../_images/b7c8131fcae9a7febd0caedf8a8465f01567180c1b202795986933a6dc7b9403.png" />
+<img alt="../_images/cdfa95c6abb2e78b0525835cb5f3004b7da922bb60e81fd33830ac4a7fd47d19.png" src="../_images/cdfa95c6abb2e78b0525835cb5f3004b7da922bb60e81fd33830ac4a7fd47d19.png" />
 </div>
 </div>
 </section>
-<section id="id4">
-<h3>Comparison<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>Comparison<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Best method depends on the problem and dataset at hand. Use cross-validation.</p></li>
 <li><p>Iterative Imputation (MICE) generally works well for missing (completely) at random data</p>
@@ -3325,12 +2291,13 @@ ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@interact</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">compare_imputers</span><span class="p">(</span><span class="n">imputer</span><span class="o">=</span><span class="n">imputers</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
     <span class="n">plot_imputation</span><span class="p">(</span><span class="n">imputer</span><span class="o">=</span><span class="n">imputer</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d39e39bdc8354b26becf78cfa9633270", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3f63cc82a7cf40e7b85b426ceaabff14", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -3347,8 +2314,8 @@ ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages
 </details>
 </div>
 </section>
-<section id="id5">
-<h3>In practice (scikit-learn)<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>In practice (scikit-learn)<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Simple replacement: <code class="docutils literal notranslate"><span class="pre">SimpleImputer</span></code></p>
 <ul>
@@ -3558,7 +2525,7 @@ ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/b13842a823081979fd5cedf9f94eee31cfabb1b4c2d9d76c0f27de8916c16a8a.png" src="../_images/b13842a823081979fd5cedf9f94eee31cfabb1b4c2d9d76c0f27de8916c16a8a.png" />
+<img alt="../_images/11f960b5052428dfe0b8aacdba41672524e2e9b7e3204145dc9e41797b0a4f2e.png" src="../_images/11f960b5052428dfe0b8aacdba41672524e2e9b7e3204145dc9e41797b0a4f2e.png" />
 </div>
 </div>
 </section>
@@ -3591,7 +2558,7 @@ ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/4ae3cf7633f7db1b793fd2e24695023d7ee01fb79571aedac59d3b959dc89ade.png" src="../_images/4ae3cf7633f7db1b793fd2e24695023d7ee01fb79571aedac59d3b959dc89ade.png" />
+<img alt="../_images/14fe8387ae69f432286d240b5bb1f83fd4fb317133aa0b5ae4266eb404bf24af.png" src="../_images/14fe8387ae69f432286d240b5bb1f83fd4fb317133aa0b5ae4266eb404bf24af.png" />
 </div>
 </div>
 </section>
@@ -3620,7 +2587,7 @@ ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/8fc34462b318ff42d4e46d8af61f0d4c09e4a952e6b3ac680efad9cfdd5badd4.png" src="../_images/8fc34462b318ff42d4e46d8af61f0d4c09e4a952e6b3ac680efad9cfdd5badd4.png" />
+<img alt="../_images/77333c37b5e69b97a38356ad048638ca2fe2ad29e00836cb8ea2d0c874588c47.png" src="../_images/77333c37b5e69b97a38356ad048638ca2fe2ad29e00836cb8ea2d0c874588c47.png" />
 </div>
 </div>
 </section>
@@ -3652,7 +2619,7 @@ ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/28653fa09bb0cd9426a7fcde6e571207e08b260faca4e762743d5d30f1183887.png" src="../_images/28653fa09bb0cd9426a7fcde6e571207e08b260faca4e762743d5d30f1183887.png" />
+<img alt="../_images/ba2c5e4ced7abfe6c4da6342d3c680bda910586020a0f528902a7ad1f4fc54fc.png" src="../_images/ba2c5e4ced7abfe6c4da6342d3c680bda910586020a0f528902a7ad1f4fc54fc.png" />
 </div>
 </div>
 </section>
@@ -3680,7 +2647,7 @@ ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/4c29990955e5360b0e2400c1e4a0fa535ca444983d0e9de8a06d37776cccddde.png" src="../_images/4c29990955e5360b0e2400c1e4a0fa535ca444983d0e9de8a06d37776cccddde.png" />
+<img alt="../_images/2805e70b82c585b5110bcc93cb8ce6da3d176e1bb83b5b462881391ec7c3091b.png" src="../_images/2805e70b82c585b5110bcc93cb8ce6da3d176e1bb83b5b462881391ec7c3091b.png" />
 </div>
 </div>
 </section>
@@ -3712,12 +2679,12 @@ ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/de1b0a56f33ca6bdc19ed4863c5fd8c3afd8ed42bb26f72a73ab94c7bc11f412.png" src="../_images/de1b0a56f33ca6bdc19ed4863c5fd8c3afd8ed42bb26f72a73ab94c7bc11f412.png" />
+<img alt="../_images/0aa64ce2e248bbb8c952fb5bc9ebf53d570605597a26f091267164a8c079e37f.png" src="../_images/0aa64ce2e248bbb8c952fb5bc9ebf53d570605597a26f091267164a8c079e37f.png" />
 </div>
 </div>
 </section>
-<section id="id6">
-<h3>Comparison<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>Comparison<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The best method depends on the data (amount of data, imbalance,…)</p>
 <ul>
@@ -3741,12 +2708,13 @@ ImportError(&quot;dlopen(/Users/jvanscho/miniconda3/lib/python3.10/site-packages
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@interact</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">compare_imbalance</span><span class="p">(</span><span class="n">sampler</span><span class="o">=</span><span class="n">samplers</span><span class="p">,</span> <span class="n">learner</span><span class="o">=</span><span class="n">learners</span><span class="p">):</span>
     <span class="n">plot_imbalance</span><span class="p">(</span><span class="n">sampler</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">learner</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b24358baa8f44642997c400d616342b6", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "37b78d8cf1254213917dbd9ed61d41f4", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -3943,12 +2911,13 @@ Evaluating SMOTEENN
         <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;RandomForest PR curve on </span><span class="si">{}</span><span class="s2"> dataset&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dataset</span><span class="p">))</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower left&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "52c3c10327bf455ba659bb98036eeb7f", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8729ab8bb3e84fc9a5192a0a76c2a1bb", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -4061,12 +3030,6 @@ Evaluating SMOTEENN
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-transformations">Data transformations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling">Scaling</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-scaling">Why do we need scaling?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-scaling-standardization">Standard scaling (standardization)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-scaling">Min-max scaling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#robust-scaling">Robust scaling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalization">Normalization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-absolute-scaler">Maximum Absolute scaler</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-transformations">Power transformations</a></li>
 </ul>
 </li>
@@ -4081,29 +3044,17 @@ Evaluating SMOTEENN
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-data-transformations">Applying data transformations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">In practice (scikit-learn)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-set-distortion">Test set distortion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-leakage">Data leakage</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipelines">Pipelines</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">In practice (scikit-learn)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-selection">Pipeline selection</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-tune-multiple-steps-at-once">Example: Tune multiple steps at once</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing-pipelines">Data processing pipelines</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">In practice (scikit-learn)</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-feature-selection">Automatic Feature Selection</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-bike-sharing">Example: bike sharing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-feature-selection">Unsupervised feature selection</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance-based-feature-selection">Covariance based feature selection</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-feature-selection-overview">Supervised feature selection: overview</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-statistics-f-test">Univariate statistics (F-test)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-statistic">F-statistic</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mutual-information">Mutual information</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection-overview">Feature selection: overview</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-based-feature-selection">Model-based Feature Selection</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relief-model-based-selection-with-knn">Relief: Model-based selection with kNN</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-model-based-feature-selection">Iterative Model-based Feature Selection</a></li>
@@ -4112,14 +3063,7 @@ Evaluating SMOTEENN
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-feature-selection-wrapping">Sequential feature selection (Wrapping)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permutation-feature-importance">Permutation feature importance</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">In practice (scikit-learn)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-engineering">Feature Engineering</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomials">Polynomials</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binning">Binning</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binning-interaction-features">Binning + interaction features</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-feature-interactions">Categorical feature interactions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">In practice (scikit-learn)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value-imputation">Missing value imputation</a><ul class="nav section-nav flex-column">
@@ -4129,8 +3073,8 @@ Evaluating SMOTEENN
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-model-based-imputation">Iterative (model-based) Imputation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-factorization">Matrix Factorization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#soft-thresholded-singular-value-decomposition-svd">Soft-thresholded Singular Value Decomposition (SVD)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Comparison</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">In practice (scikit-learn)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">In practice (scikit-learn)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-practice-fancyimpute">In practice (fancyimpute)</a></li>
 </ul>
 </li>
@@ -4141,7 +3085,7 @@ Evaluating SMOTEENN
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-minority-oversampling-technique-smote">Synthetic Minority Oversampling Technique (SMOTE)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combined-techniques">Combined techniques</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-resampling">Ensemble Resampling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Comparison</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-practice-imblearn">In practice (imblearn)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-data">Real-world data</a></li>
 </ul>

@@ -66,7 +66,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lecture 2: Linear models" href="02%20-%20Linear%20Models.html" />
+    <link rel="next" title="Lecture 2. Linear models" href="02%20-%20Linear%20Models.html" />
     <link rel="prev" title="Prerequisites" href="../labs/Lab%200%20-%20Prerequisites.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -177,13 +177,13 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02%20-%20Linear%20Models.html">Lecture 2: Linear models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02%20-%20Linear%20Models.html">Lecture 2. Linear models</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="03%20-%20Model%20Evaluation.html">Lecture 4: Model Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04%20-%20Ensemble%20Learning.html">Lecture 5. Ensemble Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05%20-%20Data%20Preprocessing.html">Lecture 6. Data preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06%20-%20Neural%20Networks.html">Lecture 8. Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07%20-%20Convolutional%20Neural%20Networks.html">Lecture 9: Convolutional Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03%20-%20Model%20Evaluation.html">Lecture 3. Model Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04%20-%20Ensemble%20Learning.html">Lecture 4. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05%20-%20Data%20Preprocessing.html">Lecture 5. Data preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06%20-%20Neural%20Networks.html">Lecture 6. Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07%20-%20Convolutional%20Neural%20Networks.html">Lecture 7: Convolutional Neural Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08%20-%20Transformers.html">Lecture 8. Neural Networks for text</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
@@ -192,9 +192,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../labs/Lab%201b%20-%20Linear%20Models%20for%20Classification.html">Lab 1b: Linear classification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/Lab%203a%20-%20Ensembles.html">Lab 3: Ensembles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../labs/Lab%203b%20-%20Pipelines.html">Lab 4:  Data preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%204%20-%20Neural%20Networks.html">Lab 6: Neural networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%205%20-%20Convolutional%20Neural%20Networks.html">Lab 7a: Convolutional neural nets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%206%20-%20Transformers.html">Lab 7b: Neural Networks for text</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="nav bd-sidenav">
@@ -208,9 +205,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../labs/Lab%202%20-%20Tutorial.html">Lab 2: Model Selection in scikit-learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%203%20-%20Tutorial.html">Lab 4: Data engineering pipelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%204%20-%20Tutorial.html">Lab 6: Deep Learning with TensorFlow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%206%20-%20Tutorial.html">Lab 7: Deep Learning for text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/Lab%203%20-%20Tutorial.html">Lab 4: Data engineering pipelines with scikit-learn</a></li>
 </ul>
 
     </div>
@@ -699,12 +694,13 @@
     <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Predicted probability&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
     <span class="n">cbar</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Class 0&quot;</span><span class="p">,</span> <span class="s2">&quot;Class 1&quot;</span><span class="p">],</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">));</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "02132c0a7d084dd0966281832b8c2f9c", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "567931ded0e7455ba2e5b3ae888b3014", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -782,12 +778,13 @@
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Input feature 1&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Target&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "eea7396412bf4221b8bcec65ee4deac0", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8346fd4d91914c33b443934c9c102ad8", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -846,12 +843,13 @@
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;KMeans Clusters&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Feature 0&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Feature 1&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4f86175a1e584d46981ea9a1b989a5a2", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "90868cf8cf084cf79a40f13cedceb180", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -913,7 +911,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/4f9ba0361d5d5d81f8a472aece076329301c964f9bc772b8e354906c3419cc02.png" src="../_images/4f9ba0361d5d5d81f8a472aece076329301c964f9bc772b8e354906c3419cc02.png" />
+<img alt="../_images/a51aa0acfa2a1ee1d6562477864ba6e4ad95f1dc4130ca1170e405d9d86e27da.png" src="../_images/a51aa0acfa2a1ee1d6562477864ba6e4ad95f1dc4130ca1170e405d9d86e27da.png" />
 </div>
 </div>
 </section>
@@ -1085,13 +1083,13 @@
         <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">ax2</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
 
-        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7b0b593dc61347b68a883e07d69a0c16", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3056223a29bb4ca381879472ee95f6a1", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -1164,7 +1162,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/db5e0a713bb3645ca295ae61a4275658dc5f2f489607ffbace3cd8bd74a30838.png" src="../_images/db5e0a713bb3645ca295ae61a4275658dc5f2f489607ffbace3cd8bd74a30838.png" />
+<img alt="../_images/56b45da5ddd10308996189fc1be10678e6cc11cfb20c63e0c61cecdd9ddeca2f.png" src="../_images/56b45da5ddd10308996189fc1be10678e6cc11cfb20c63e0c61cecdd9ddeca2f.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1291,7 +1289,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/e9853b76ac61a9552b2d68fd04316c8cad22d152d5c9b8e170368895f1b03915.png" src="../_images/e9853b76ac61a9552b2d68fd04316c8cad22d152d5c9b8e170368895f1b03915.png" />
+<img alt="../_images/b53c5b0e5b1813a0eb836ee32316a270b0d5138e0d3c585746d6a5e6a0c90257.png" src="../_images/b53c5b0e5b1813a0eb836ee32316a270b0d5138e0d3c585746d6a5e6a0c90257.png" />
 </div>
 </div>
 <section id="practical-consequences">
@@ -1453,7 +1451,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lecture 2: Linear models</p>
+        <p class="prev-next-title">Lecture 2. Linear models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -190,9 +190,6 @@
 <li class="toctree-l1"><a class="reference internal" href="labs/Lab%201b%20-%20Linear%20Models%20for%20Classification.html">Lab 1b: Linear classification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="labs/Lab%203a%20-%20Ensembles.html">Lab 3: Ensembles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="labs/Lab%203b%20-%20Pipelines.html">Lab 4:  Data preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="labs/Lab%204%20-%20Neural%20Networks.html">Lab 6: Neural networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="labs/Lab%205%20-%20Convolutional%20Neural%20Networks.html">Lab 7a: Convolutional neural nets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="labs/Lab%206%20-%20Transformers.html">Lab 7b: Neural Networks for text</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="nav bd-sidenav">
@@ -206,9 +203,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="labs/Lab%202%20-%20Tutorial.html">Lab 2: Model Selection in scikit-learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="labs/Lab%203%20-%20Tutorial.html">Lab 4: Data engineering pipelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="labs/Lab%204%20-%20Tutorial.html">Lab 6: Deep Learning with TensorFlow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="labs/Lab%206%20-%20Tutorial.html">Lab 7: Deep Learning for text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="labs/Lab%203%20-%20Tutorial.html">Lab 4: Data engineering pipelines with scikit-learn</a></li>
 </ul>
 
     </div>
@@ -402,13 +397,13 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-environment">Python environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-online-book">Generating the online book</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-slides">Generating slides</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-slides">Interactive slides</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-slides">Static slides</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#customization">Customization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-slides">Static slides</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-online-book">Generating the online book</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customization">Customization</a></li>
 </ul>
 </li>
 </ul>
@@ -434,6 +429,34 @@
 </pre></div>
 </div>
 </section>
+<section id="generating-slides">
+<h2>Generating slides<a class="headerlink" href="#generating-slides" title="Link to this heading">#</a></h2>
+<section id="interactive-slides">
+<h3>Interactive slides<a class="headerlink" href="#interactive-slides" title="Link to this heading">#</a></h3>
+<p>To generate interactive slides (as shown in the videos and lectures), you’ll need to install the notebook extensions <code class="docutils literal notranslate"><span class="pre">rise</span></code> and <code class="docutils literal notranslate"><span class="pre">hide_input_all</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">rise</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">jupyter_contrib_nbextensions</span>
+<span class="n">jupyter</span> <span class="n">nbextension</span> <span class="n">enable</span> <span class="n">hide_input_all</span>
+</pre></div>
+</div>
+<p>You’ll need to launch <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> since rise is not yet fully supported in jupyterlab. You’ll see two new icons when you open a notebook. To run the slides interactively:</p>
+<ul class="simple">
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">interactive</span> <span class="pre">=</span> <span class="pre">True</span></code> in the first cell (if it isn’t already)</p></li>
+<li><p>Run all cells (‘Run’ &gt; ‘Run all cells’) so that all interaction widgets are loaded</p></li>
+<li><p>Hide the input code by clicking the ‘eye’ icon (toggles <code class="docutils literal notranslate"><span class="pre">hide_all_code</span></code>)</p></li>
+<li><p>Start the slideshow by clicking the ‘chart’ icon (toggles <code class="docutils literal notranslate"><span class="pre">rise</span></code>)</p></li>
+</ul>
+</section>
+<section id="static-slides">
+<h3>Static slides<a class="headerlink" href="#static-slides" title="Link to this heading">#</a></h3>
+<p>You can generate slides from the notebooks using <code class="docutils literal notranslate"><span class="pre">nbconvert</span></code>. First, set <code class="docutils literal notranslate"><span class="pre">interactive</span> <span class="pre">=</span> <span class="pre">False</span></code> in the first cell of the notebook and rerun the notebooks to generate static versions of the interactive visualizations.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">nbconvert</span> <span class="o">--</span><span class="n">to</span> <span class="n">slides</span> <span class="o">--</span><span class="n">template</span> <span class="n">reveal</span> <span class="o">--</span><span class="n">SlidesExporter</span><span class="o">.</span><span class="n">reveal_theme</span><span class="o">=</span><span class="n">simple</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="nb">input</span> <span class="o">--</span><span class="n">post</span> <span class="n">serve</span> <span class="o">&lt;</span><span class="n">NotebookName</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>To generate PDF handouts, remove <code class="docutils literal notranslate"><span class="pre">#/</span></code> from the url and add <code class="docutils literal notranslate"><span class="pre">?print-pdf</span></code>, then print as PDF.</p>
+<p>Sidenote: Some PDF readers (e.g. Preview) sometimes show grey boxes around code examples, others (e.g. Acrobat Reader, Chrome) do not. Must be an artifact of some PDF readers.</p>
+</section>
+</section>
 <section id="generating-the-online-book">
 <h2>Generating the online book<a class="headerlink" href="#generating-the-online-book" title="Link to this heading">#</a></h2>
 <p>To generate the online books, you’ll need <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code>.</p>
@@ -450,30 +473,8 @@
 <span class="nn">ghp</span><span class="o">-</span><span class="kn">import</span><span class="w"> </span><span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="n">f</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span>
 </pre></div>
 </div>
-</section>
-<section id="generating-slides">
-<h2>Generating slides<a class="headerlink" href="#generating-slides" title="Link to this heading">#</a></h2>
-<section id="interactive-slides">
-<h3>Interactive slides<a class="headerlink" href="#interactive-slides" title="Link to this heading">#</a></h3>
-<p>To generate interactive slides (as shown in the videos and lectures), you’ll need to install the notebook extensions <code class="docutils literal notranslate"><span class="pre">rise</span></code> and <code class="docutils literal notranslate"><span class="pre">hide_input_all</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">rise</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">jupyter_nbextensions_configurator</span>
-<span class="n">jupyter</span> <span class="n">nbextension</span> <span class="n">enable</span> <span class="n">rise</span>
-<span class="n">jupyter</span> <span class="n">nbextension</span> <span class="n">enable</span> <span class="n">hide_input_all</span>
-</pre></div>
-</div>
-<p>You’ll need to launch <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> since rise is not yet supported in jupyterlab. You’ll see two new icons when you open a notebook. One will start the slideshow, and the other will hide the code. You’ll need to set <code class="docutils literal notranslate"><span class="pre">interactive</span> <span class="pre">=</span> <span class="pre">True</span></code> in the first cell and then run all cells before starting the slideshow to allow the interactions.</p>
-</section>
-<section id="static-slides">
-<h3>Static slides<a class="headerlink" href="#static-slides" title="Link to this heading">#</a></h3>
-<p>You can generate slides from the notebooks using <code class="docutils literal notranslate"><span class="pre">nbconvert</span></code>. First, set <code class="docutils literal notranslate"><span class="pre">interactive</span> <span class="pre">=</span> <span class="pre">False</span></code> in the first cell of the notebook and rerun the notebooks to generate static versions of the interactive visualizations.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">nbconvert</span> <span class="o">--</span><span class="n">to</span> <span class="n">slides</span> <span class="o">--</span><span class="n">template</span> <span class="n">reveal</span> <span class="o">--</span><span class="n">SlidesExporter</span><span class="o">.</span><span class="n">reveal_theme</span><span class="o">=</span><span class="n">simple</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="nb">input</span> <span class="o">--</span><span class="n">post</span> <span class="n">serve</span> <span class="o">&lt;</span><span class="n">NotebookName</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-<p>To generate PDF handouts, remove <code class="docutils literal notranslate"><span class="pre">#/</span></code> from the url and add <code class="docutils literal notranslate"><span class="pre">?print-pdf</span></code>, then print as PDF.</p>
-<p>Sidenote: Some PDF readers (e.g. Preview) sometimes show grey boxes around code examples, others (e.g. Acrobat Reader, Chrome) do not. Must be an artifact of some PDF readers.</p>
 <section id="customization">
-<h4>Customization<a class="headerlink" href="#customization" title="Link to this heading">#</a></h4>
+<h3>Customization<a class="headerlink" href="#customization" title="Link to this heading">#</a></h3>
 <p>I used a few tweaks to the slide theme by adding these to the css in <code class="docutils literal notranslate"><span class="pre">custom_reveal.css</span></code> in the <code class="docutils literal notranslate"><span class="pre">nbconvert</span></code> reveal template. Copy the styles from slides_html/custom.css to this file.</p>
 <p>There also seems to be a bug in reveal that outputs text for hidden interactive elements. I added the following to <code class="docutils literal notranslate"><span class="pre">index.html.j2</span></code> of the same template:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
@@ -487,7 +488,6 @@
 <span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</section>
 </section>
 </section>
 </section>
@@ -540,13 +540,13 @@
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-environment">Python environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-online-book">Generating the online book</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-slides">Generating slides</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-slides">Interactive slides</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-slides">Static slides</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#customization">Customization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-slides">Static slides</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-online-book">Generating the online book</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customization">Customization</a></li>
 </ul>
 </li>
 </ul>

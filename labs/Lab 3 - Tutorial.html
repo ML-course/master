@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lab 4: Data engineering pipelines &#8212; ML Engineering</title>
+    <title>Lab 4: Data engineering pipelines with scikit-learn &#8212; ML Engineering</title>
   
   
   
@@ -66,7 +66,6 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lab 6: Deep Learning with TensorFlow" href="Lab%204%20-%20Tutorial.html" />
     <link rel="prev" title="Lab 2: Model Selection in scikit-learn" href="Lab%202%20-%20Tutorial.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -176,26 +175,22 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/01%20-%20Introduction.html">Lecture 1: Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/02%20-%20Linear%20Models.html">Lecture 2: Linear models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/01%20-%20Introduction.html">Lecture 1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/02%20-%20Linear%20Models.html">Lecture 2. Linear models</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/03%20-%20Model%20Selection.html">Lecture 4: Model Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/04%20-%20Ensemble%20Learning.html">Lecture 5. Ensemble Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/05%20-%20Data%20Preprocessing.html">Lecture 6. Data preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/06%20-%20Neural%20Networks.html">Lecture 8. Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/07%20-%20Convolutional%20Neural%20Networks.html">Lecture 9: Convolutional Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/08%20-%20Transformers.html">Lecture 10. Neural Networks for text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/03%20-%20Model%20Evaluation.html">Lecture 3. Model Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/04%20-%20Ensemble%20Learning.html">Lecture 4. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/05%20-%20Data%20Preprocessing.html">Lecture 5. Data preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/06%20-%20Neural%20Networks.html">Lecture 6. Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/07%20-%20Convolutional%20Neural%20Networks.html">Lecture 7: Convolutional Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/08%20-%20Transformers.html">Lecture 8. Neural Networks for text</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Lab%201a%20-%20Linear%20Models%20for%20Regression.html">Lab 1a: Linear regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lab%201b%20-%20Linear%20Models%20for%20Classification.html">Lab 1b: Linear classification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lab%202%20-%20Model%20Selection.html">Lab 2b: Model selection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lab%203a%20-%20Ensembles.html">Lab 3: Ensembles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lab%203b%20-%20Pipelines.html">Lab 4:  Data preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lab%204%20-%20Neural%20Networks.html">Lab 6: Neural networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lab%205%20-%20Convolutional%20Neural%20Networks.html">Lab 7a: Convolutional neural nets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lab%206%20-%20Transformers.html">Lab 7b: Neural Networks for text</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current nav bd-sidenav">
@@ -209,9 +204,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="Lab%202%20-%20Tutorial.html">Lab 2: Model Selection in scikit-learn</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 4: Data engineering pipelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lab%204%20-%20Tutorial.html">Lab 6: Deep Learning with TensorFlow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lab%206%20-%20Tutorial.html">Lab 7: Deep Learning for text</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 4: Data engineering pipelines with scikit-learn</a></li>
 </ul>
 
     </div>
@@ -425,7 +418,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lab 4: Data engineering pipelines</h1>
+    <h1>Lab 4: Data engineering pipelines with scikit-learn</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -435,7 +428,13 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-data-transformations-recap-from-lecture">Applying data transformations (recap from lecture)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-practice-scikit-learn">In practice (scikit-learn)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-learn-processing-pipelines">Scikit-learn processing pipelines</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-pipelines">Building Pipelines</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-selection">Pipeline selection</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pipelines-in-grid-searches">Using Pipelines in Grid-searches</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-searching-preprocessing-steps-and-model-parameters">Grid-searching preprocessing steps and model parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#featureunions">FeatureUnions</a></li>
@@ -453,8 +452,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-4-data-engineering-pipelines">
-<h1>Lab 4: Data engineering pipelines<a class="headerlink" href="#lab-4-data-engineering-pipelines" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-4-data-engineering-pipelines-with-scikit-learn">
+<h1>Lab 4: Data engineering pipelines with scikit-learn<a class="headerlink" href="#lab-4-data-engineering-pipelines-with-scikit-learn" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Auto-setup when running on Google Colab</span>
@@ -472,6 +471,63 @@
 </div>
 </div>
 </div>
+<section id="applying-data-transformations-recap-from-lecture">
+<h2>Applying data transformations (recap from lecture)<a class="headerlink" href="#applying-data-transformations-recap-from-lecture" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Data transformations should always follow a <code class="docutils literal notranslate"><span class="pre">fit-predict</span></code> paradigm</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Fit</span></code> the transformer on the <strong>training data</strong> only</p>
+<ul>
+<li><p>E.g. for a standard scaler: record the mean and standard deviation</p></li>
+</ul>
+</li>
+<li><p>Transform (e.g. scale) the <strong>training data</strong>, then train the learning model</p></li>
+<li><p>Transform (e.g. scale) the <strong>test data</strong>, then evaluate the model</p></li>
+</ul>
+</li>
+<li><p>Only scale the input features (X), not the targets (y)!</p></li>
+<li><p>If you fit and transform the whole dataset before splitting, you get <strong>data leakage</strong></p>
+<ul>
+<li><p>You have looked at the test data before training the model</p></li>
+<li><p>Model evaluations will be misleading</p></li>
+</ul>
+</li>
+<li><p>If you fit and transform the training and test data separately, you distort the data</p>
+<ul>
+<li><p>E.g. training and test points are scaled differently</p></li>
+</ul>
+</li>
+</ul>
+<section id="in-practice-scikit-learn">
+<h3>In practice (scikit-learn)<a class="headerlink" href="#in-practice-scikit-learn" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># choose scaling method and fit on training data</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># transform training and test data</span>
+<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Alternative:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># calling fit and transform in sequence</span>
+<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="c1"># same result, but more efficient computation</span>
+<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="scikit-learn-processing-pipelines">
+<h3>Scikit-learn processing pipelines<a class="headerlink" href="#scikit-learn-processing-pipelines" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Scikit-learn pipelines have a <code class="docutils literal notranslate"><span class="pre">fit</span></code>, <code class="docutils literal notranslate"><span class="pre">predict</span></code>, and <code class="docutils literal notranslate"><span class="pre">score</span></code> method</p>
+<ul>
+<li><p>Internally applies transformations correctly</p></li>
+</ul>
+</li>
+</ul>
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/07_pipelines.png" alt="ml" style="width: 600px;"/></section>
+</section>
 <section id="building-pipelines">
 <h2>Building Pipelines<a class="headerlink" href="#building-pipelines" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -567,7 +623,7 @@ Average cross-validation score: 0.98
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SVM component: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;svm&#39;</span><span class="p">]</span><span class="n">f</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SVM component: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;svm&#39;</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -605,7 +661,27 @@ Average cross-validation score: 0.98
 </div>
 </div>
 <p>Visualization of a pipeline <code class="docutils literal notranslate"><span class="pre">fit</span></code> and <code class="docutils literal notranslate"><span class="pre">predict</span></code></p>
-<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/07_pipelines.png" alt="ml" style="width: 700px;"/><section id="using-pipelines-in-grid-searches">
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/07_pipelines.png" alt="ml" style="width: 700px;"/><section id="pipeline-selection">
+<h3>Pipeline selection<a class="headerlink" href="#pipeline-selection" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>We can safely use pipelines in model selection (e.g. grid search)</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">'__'</span></code> to refer to the hyperparameters of a step, e.g. <code class="docutils literal notranslate"><span class="pre">svm__C</span></code></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Correct grid search (can have hyperparameters of any step)</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;svm__C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span>
+              <span class="s1">&#39;svm__gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="c1"># Best estimator is now the best pipeline</span>
+<span class="n">best_pipe</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">best_estimator_</span>
+
+<span class="c1"># Tune pipeline and evaluate on held-out test set</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</section>
+<section id="using-pipelines-in-grid-searches">
 <h3>Using Pipelines in Grid-searches<a class="headerlink" href="#using-pipelines-in-grid-searches" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>We can use the pipeline as a single estimator in <code class="docutils literal notranslate"><span class="pre">cross_val_score</span></code> or <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code></p></li>
@@ -783,7 +859,53 @@ SVC(C=10, gamma=1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8053eb266633dee15c1cdb1e734bced1db7e6c36ea8ac694e4eae22a3b200a8a.png" src="../_images/8053eb266633dee15c1cdb1e734bced1db7e6c36ea8ac694e4eae22a3b200a8a.png" />
+<img alt="../_images/bf60349f1e482cc28c8ceb4f8a45a4a04882b8c0c6d12bf64ba34a1dcea03433.png" src="../_images/bf60349f1e482cc28c8ceb4f8a45a4a04882b8c0c6d12bf64ba34a1dcea03433.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Another example (different dataset)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ridge</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_openml</span>
+
+<span class="n">boston</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;boston&quot;</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">boston</span><span class="o">.</span><span class="n">target</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">PolynomialFeatures</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span><span class="n">PolynomialFeatures</span><span class="p">(),</span><span class="n">Ridge</span><span class="p">())</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;polynomialfeatures__degree&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+              <span class="s1">&#39;ridge__alpha&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">);</span>
+
+<span class="c1">#plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;ridge__alpha&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;polynomialfeatures__degree&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">param_grid</span><span class="p">[</span><span class="s1">&#39;ridge__alpha&#39;</span><span class="p">])))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">param_grid</span><span class="p">[</span><span class="s1">&#39;ridge__alpha&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">param_grid</span><span class="p">[</span><span class="s1">&#39;polynomialfeatures__degree&#39;</span><span class="p">])))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">param_grid</span><span class="p">[</span><span class="s1">&#39;polynomialfeatures__degree&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/jvanscho/miniconda3/envs/mlcourse/lib/python3.10/site-packages/sklearn/datasets/_openml.py:323: UserWarning: Multiple active versions of the dataset matching the name boston exist. Versions may be fundamentally different, returning version 1. Available versions:
+- version 1, status: active
+  url: https://www.openml.org/search?type=data&amp;id=531
+- version 2, status: active
+  url: https://www.openml.org/search?type=data&amp;id=853
+
+  warn(warning_msg)
+</pre></div>
+</div>
+<img alt="../_images/332a6cbf7f0b3e28b0065dd2d4830374ef0220ee8c73918ffa7fc86a918280ac.png" src="../_images/332a6cbf7f0b3e28b0065dd2d4830374ef0220ee8c73918ffa7fc86a918280ac.png" />
 </div>
 </div>
 <ul class="simple">
@@ -798,8 +920,8 @@ SVC(C=10, gamma=1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;polynomialfeatures__degree&#39;: 1, &#39;ridge__alpha&#39;: 10}
-Test-set score: 0.59
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;polynomialfeatures__degree&#39;: 2, &#39;ridge__alpha&#39;: 10}
+Test-set score: 0.77
 </pre></div>
 </div>
 </div>
@@ -899,7 +1021,30 @@ The features of the last transformer will be at the end</p></li>
 </ul>
 </li>
 </ul>
-<p>Example: Handle a dataset (Titanic) with both categorical an numeric features</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2 sub-pipelines, one for numeric features, other for categorical ones</span>
+<span class="n">numeric_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="p">(),</span><span class="n">StandardScaler</span><span class="p">())</span>
+<span class="n">categorical_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="p">(),</span><span class="n">OneHotEncoder</span><span class="p">())</span>
+
+<span class="c1"># Using categorical pipe for features A,B,C, numeric pipe otherwise</span>
+<span class="n">preprocessor</span> <span class="o">=</span> <span class="n">make_column_transformer</span><span class="p">((</span><span class="n">categorical_pipe</span><span class="p">,</span>
+                                        <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">]),</span> 
+                                        <span class="n">remainder</span><span class="o">=</span><span class="n">numeric_pipe</span><span class="p">)</span>
+
+<span class="c1"># Combine with learning algorithm in another pipeline</span>
+
+<span class="err">```</span> <span class="n">python</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">preprocessor</span><span class="p">,</span> <span class="n">LinearSVC</span><span class="p">())</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Careful: <code class="docutils literal notranslate"><span class="pre">ColumnTransformer</span></code> concatenates features in order</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pipe</span> <span class="o">=</span> <span class="n">make_column_transformer</span><span class="p">((</span><span class="n">StandardScaler</span><span class="p">(),</span><span class="n">numeric_features</span><span class="p">),</span> 
+                               <span class="p">(</span><span class="n">PCA</span><span class="p">(),</span><span class="n">numeric_features</span><span class="p">),</span>
+                               <span class="p">(</span><span class="n">OneHotEncoder</span><span class="p">(),</span><span class="n">categorical_features</span><span class="p">))</span>
+</pre></div>
+</div>
+<img src="https://raw.githubusercontent.com/ML-course/master/master/notebooks/images/columntransformer.png" alt="ml" style="width: 900px;"/><p>Example: Handle a dataset (Titanic) with both categorical an numeric features</p>
 <ul class="simple">
 <li><p>Numeric features: impute missing values and scale</p></li>
 <li><p>Categorical features: Impute missing values and apply one-hot-encoding</p></li>
@@ -1031,15 +1176,6 @@ The features of the last transformer will be at the end</p></li>
         <p class="prev-next-title">Lab 2: Model Selection in scikit-learn</p>
       </div>
     </a>
-    <a class="right-next"
-       href="Lab%204%20-%20Tutorial.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lab 6: Deep Learning with TensorFlow</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -1057,7 +1193,13 @@ The features of the last transformer will be at the end</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-data-transformations-recap-from-lecture">Applying data transformations (recap from lecture)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-practice-scikit-learn">In practice (scikit-learn)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-learn-processing-pipelines">Scikit-learn processing pipelines</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-pipelines">Building Pipelines</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-selection">Pipeline selection</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pipelines-in-grid-searches">Using Pipelines in Grid-searches</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-searching-preprocessing-steps-and-model-parameters">Grid-searching preprocessing steps and model parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#featureunions">FeatureUnions</a></li>
