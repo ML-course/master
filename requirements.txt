@@ -5,7 +5,7 @@ gdown>=5.1.0
 GPy>=1.13.1
 imbalanced_learn>=0.12.0
 ipywidgets>=8.1.1
-jupyterlab==4.2.0
+jupyterlab==4.2.5
 matplotlib>=3.8.2
 mlxtend>=0.23.1
 openml>=0.14.2
