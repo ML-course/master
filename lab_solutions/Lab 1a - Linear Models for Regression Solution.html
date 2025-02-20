@@ -542,7 +542,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/baf1ffe021a7b10a78e9ac4c8104acc616ce13468fe19b072bf4eb609909d789.png" src="../_images/baf1ffe021a7b10a78e9ac4c8104acc616ce13468fe19b072bf4eb609909d789.png" />
+<img alt="../_images/8c48c118634ac5f737e78ecd36a28e0be31c516ed9ea21f14506af16d942d418.png" src="../_images/8c48c118634ac5f737e78ecd36a28e0be31c516ed9ea21f14506af16d942d418.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -642,7 +642,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/90a37d3781e5dc48723ef4b924889e45c70de88c6eb2fa9e41af06926628c01e.png" src="../_images/90a37d3781e5dc48723ef4b924889e45c70de88c6eb2fa9e41af06926628c01e.png" />
+<img alt="../_images/0809975f925ab0f01c8b205b50e714a69994daee598e8a8e96677dc46a06ca01.png" src="../_images/0809975f925ab0f01c8b205b50e714a69994daee598e8a8e96677dc46a06ca01.png" />
 </div>
 </div>
 <p>We can see that the target (<span class="math notranslate nohighlight">\(NO_2\)</span> levels) seem to be correlated to the number of cars per hour, which makes sense because cars produce <span class="math notranslate nohighlight">\(NO_2\)</span>. Other influences (air temperature differences and wind) seem to have a more complex and subtle effect. Let’s try to model these using linear regression models.</p>
@@ -756,7 +756,7 @@ Store the return values in the variables <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6bec410d05ca059f164bcfe728ca019d233300cdb29aee172193f4ebb660f0f9.png" src="../_images/6bec410d05ca059f164bcfe728ca019d233300cdb29aee172193f4ebb660f0f9.png" />
+<img alt="../_images/781c74b09bb62245202394cc3f7edab634155e2ff0fab05676f2bcc1d1b5bb8e.png" src="../_images/781c74b09bb62245202394cc3f7edab634155e2ff0fab05676f2bcc1d1b5bb8e.png" />
 </div>
 </div>
 </section>
@@ -773,7 +773,7 @@ Store the return values in the variables <code class="docutils literal notransla
 <section id="exercise-2-regularization">
 <h2>Exercise 2: Regularization<a class="headerlink" href="#exercise-2-regularization" title="Link to this heading">#</a></h2>
 <p>We will now tune these algorithm’s main regularization hyperparameter: the regularization hyperparameter (<code class="docutils literal notranslate"><span class="pre">alpha</span></code>) in Lasso and Ridge, and the number of neighbors (<code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code>) in kNN.</p>
-<p>We expect the optimum for the alpha parameters to lie in <span class="math notranslate nohighlight">\([10^{-12},10^{12}]\)</span> and for n_neighbors between 1 and 60. alpha should be varied on a log scale (i.e. [0.01, 0.1, 1, 10, 100]), k should be varied uniformly or geometrically.</p>
+<p>We expect the optimum for the alpha parameters to lie in <span class="math notranslate nohighlight">\([10^{-12},10^{12}]\)</span> and for n_neighbors between 1 and 50. alpha should be varied on a log scale (i.e. [0.01, 0.1, 1, 10, 100]), k should be varied uniformly (i.e. [1,2,3,4]).</p>
 <section id="exercise-2-1">
 <h3>Exercise 2.1<a class="headerlink" href="#exercise-2-1" title="Link to this heading">#</a></h3>
 <p>Vary the hyperparameters in the range given above and, for each regressor, create a line plot that plots both the training and test score for every value of the regularization hyperparameter. Hence, you should produce 3 plots, one for each regressor. Use the default 5-fold cross validation for all scores, but only plot the means.</p>
@@ -835,7 +835,7 @@ Store the return values in the variables <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c83ea8b4a0198a426c940519e813041c19d9306ba694ce6d6870e0e4b326a325.png" src="../_images/c83ea8b4a0198a426c940519e813041c19d9306ba694ce6d6870e0e4b326a325.png" />
+<img alt="../_images/e9097d5a7dbf4c2f163940b8a53cd86dd5b8094fc3f6019c237c6d28728f3781.png" src="../_images/e9097d5a7dbf4c2f163940b8a53cd86dd5b8094fc3f6019c237c6d28728f3781.png" />
 </div>
 </div>
 </section>
@@ -912,7 +912,7 @@ Store the return values in the variables <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ae000fa3c50d046c5e07b8aef2da788017564ad6102ec47913378fcf24d85c2f.png" src="../_images/ae000fa3c50d046c5e07b8aef2da788017564ad6102ec47913378fcf24d85c2f.png" />
+<img alt="../_images/e154775f48abf02a54e1f4c4ae85e99db588736b7150af1cf743b47d0cd9367f.png" src="../_images/e154775f48abf02a54e1f4c4ae85e99db588736b7150af1cf743b47d0cd9367f.png" />
 </div>
 </div>
 <p>For ElasticNet we see the same sudden drop in performance around alpha=0.1. For l1_ratio=0, it is identical to Ridge (L2), showing a more gradual descent. For l1_ration=1, it is identical to Lasso (L1), showing the same sharp performance drop.</p>
@@ -946,7 +946,7 @@ Store the return values in the variables <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/17fd5b82688b9f6b803dd8679b47dd28bfd45672d542e44b38619c31a5707a2d.png" src="../_images/17fd5b82688b9f6b803dd8679b47dd28bfd45672d542e44b38619c31a5707a2d.png" />
+<img alt="../_images/3eae0847f567c3e0d9a63422cc8dc1e08403db76ec4296c68ee7251a60951631.png" src="../_images/3eae0847f567c3e0d9a63422cc8dc1e08403db76ec4296c68ee7251a60951631.png" />
 </div>
 </div>
 <p>The different techniques find almost <em>exactly</em> the same coefficients (the markers overlap). cars_per_hour is the most influential, followed by temperature_diff_2m_25m and wind_speed. The others are nearly zero.</p>
@@ -965,7 +965,7 @@ Store the return values in the variables <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/91e1eef3155a8a43912a52a31b8366542becdc3668b98c28f00ce53c7126a157.png" src="../_images/91e1eef3155a8a43912a52a31b8366542becdc3668b98c28f00ce53c7126a157.png" />
+<img alt="../_images/7c1a0a6e2f88bd4820741b80a1c1f6e0205292eb669c680a7e2a8841e0dbfe4e.png" src="../_images/7c1a0a6e2f88bd4820741b80a1c1f6e0205292eb669c680a7e2a8841e0dbfe4e.png" />
 </div>
 </div>
 </section>
