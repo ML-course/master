@@ -11,5 +11,6 @@ mlxtend>=0.23.1
 openml>=0.14.2
 seaborn>=0.13.2
 graphviz>=0.20.1
+scikit-learn>=1.6.0
 tensorflow==2.18.0
 fancyimpute
