@@ -50,29 +50,12 @@ The configuration file is `_config.yml` and the table of contents is in `_toc.ym
 To create the book itself, run this from the parent directory of the `master` repo:
 
 ```
-jupyter-book build master
+jupyter book
 ```
 
 To push the rendered book to GitHub, run:
 
 ```
 pip install ghp-import
-ghp-import -n -p -f _build
-```
-
-#### Customization
-I used a few tweaks to the slide theme by adding these to the css in `custom_reveal.css` in the `nbconvert` reveal template. Copy the styles from slides_html/custom.css to this file.
-
-There also seems to be a bug in reveal that outputs text for hidden interactive elements. I added the following to `index.html.j2` of the same template:
-
-```
-<script>
-var els = document.getElementsByTagName("pre");
-for (var i = 0; i < els.length; ++i) {
-    var el = els[i];
-    if (el.textContent.indexOf("interactive") > -1) {
-      el.style.display = "none";
-    }
-}
-</script>
+ghp-import -n -p -f _build/html
 ```
