@@ -37,7 +37,7 @@ project:
         - file: labs/Interactive Lab 2 - Model Evaluation.ipynb
         - file: labs/Interactive Lab 3 - Preprocessing and Ensembles.ipynb
         - file: labs/Interactive Lab 4 - Neural Networks.ipynb
-        - file: labs/Interactive Lab 5 - CNNs & Transformers.ipynb
+        - file: labs/Interactive Lab 5 - CNNs and Transformers.ipynb
     - title: Tutorials
       children:
         - file: notebooks/Tutorial 1 - Python.ipynb
