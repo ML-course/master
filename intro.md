@@ -46,14 +46,15 @@ Download the lab notebooks and solve the questions locally, or launch them in Go
 | 7 | [Finetuning Transformers](https://ml-course.github.io/master/labs/lab-7-finetuning-transformers)  |  | [Lab 7](https://github.com/ML-course/master/blob/master/lab_solutions/Lab%207%20-%20Finetuning%20Transformers%20Solution.ipynb) (Release date: 25 Mar, 12:00)
 
 ## Interactive Labs
-You have to be there to realy experience these labs :). A mix of history, quizzes, interview questions, in-class competitions and more!
+You have to be there to really experience these labs :). A mix of history, quizzes, interview questions, in-class competitions and more!
 
 |   | Notebooks          |     Slides     |
 |:--|:-------------------|------------------|
 | 1 | [Linear Models](https://ml-course.github.io/master/labs/interactive-lab-1-linear-models) | [Slides](https://github.com/ML-course/master/blob/master/labs/Interactive%20Lab%201%20-%20Linear%20Models.pdf)
 | 2 | [Model Evaluation](https://ml-course.github.io/master/labs/interactive-lab-2-model-evaluation) | [Slides](https://github.com/ML-course/master/blob/master/labs/Interactive%20Lab%202%20-%20Model%20Evaluation.pdf)
 | 3 | [Preprocessing and Ensembles](https://ml-course.github.io/master/labs/interactive-lab-3-preprocessing-and-ensembles) | [Slides](https://github.com/ML-course/master/blob/master/labs/Interactive%20Lab%203%20-%20Preprocessing%20and%20Ensembles.pdf)
-
+| 4 | [Neural Networks](https://ml-course.github.io/master/labs/interactive-lab-4-neural-networks) | [Slides](https://github.com/ML-course/master/blob/master/labs/Interactive%20Lab%204%20-%20Neural%20Networks.pdf)
+| 5 | [CNNs & Transformers](https://ml-course.github.io/master/labs/interactive-lab-5-CNNs-&-transformers) | [Slides](https://github.com/ML-course/master/blob/master/labs/Interactive%20Lab%205%20-%20CNNs%20%26%20Transformers.pdf)
 
 ## Background materials
 ### Tutorials
