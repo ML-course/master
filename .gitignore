@@ -10,3 +10,4 @@ data/*
 
 # MyST build outputs
 _build
+venv/
